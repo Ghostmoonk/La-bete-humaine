@@ -1,7 +1,139 @@
 fileFormatVersion: 2
 guid: 99f582e975e53b64da4585cc6a425641
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: -7942000560914255159
+    second: Modern-Train_0
+  - first:
+      213: 3100324913226433345
+    second: Modern-Train_1
+  - first:
+      213: 2338829436949407417
+    second: Modern-Train_2
+  - first:
+      213: -3376020223804451046
+    second: Modern-Train_3
+  - first:
+      213: 5459610690918125081
+    second: Modern-Train_4
+  - first:
+      213: 7133198722354759742
+    second: Modern-Train_5
+  - first:
+      213: -3935737167869732559
+    second: Modern-Train_6
+  - first:
+      213: -8780914976307994692
+    second: Modern-Train_7
+  - first:
+      213: -5072235608759894797
+    second: Modern-Train_8
+  - first:
+      213: -4772304258621020047
+    second: Modern-Train_9
+  - first:
+      213: -1696949146991692734
+    second: Modern-Train_10
+  - first:
+      213: -6388876218592423048
+    second: Modern-Train_11
+  - first:
+      213: 1212743085804213109
+    second: Modern-Train_12
+  - first:
+      213: -1377893643652780187
+    second: Modern-Train_13
+  - first:
+      213: -3404582576180747429
+    second: Modern-Train_14
+  - first:
+      213: -5289242038467534650
+    second: Modern-Train_15
+  - first:
+      213: -6637457621589590253
+    second: Modern-Train_16
+  - first:
+      213: 4402740237899308146
+    second: Modern-Train_17
+  - first:
+      213: 8133027409235632717
+    second: Modern-Train_18
+  - first:
+      213: 6820280683810712613
+    second: Modern-Train_19
+  - first:
+      213: -2870117004416622672
+    second: Modern-Train_20
+  - first:
+      213: 7316248436126739953
+    second: Modern-Train_21
+  - first:
+      213: 2413741121342394344
+    second: Modern-Train_22
+  - first:
+      213: 5243439988011558987
+    second: Modern-Train_23
+  - first:
+      213: 4472311547961843096
+    second: Modern-Train_24
+  - first:
+      213: -6053579133480430425
+    second: Modern-Train_25
+  - first:
+      213: -407661042130076999
+    second: Modern-Train_26
+  - first:
+      213: -2429851994013416375
+    second: Modern-Train_27
+  - first:
+      213: 1350558837938502900
+    second: Modern-Train_28
+  - first:
+      213: 3830617790391541172
+    second: Modern-Train_29
+  - first:
+      213: -8725848636304288278
+    second: Modern-Train_30
+  - first:
+      213: -9165314788897731270
+    second: Modern-Train_31
+  - first:
+      213: 870159895188788970
+    second: Modern-Train_32
+  - first:
+      213: -1054888706459741697
+    second: Modern-Train_33
+  - first:
+      213: 8651253943195663779
+    second: Modern-Train_34
+  - first:
+      213: 8366336538165366526
+    second: Modern-Train_35
+  - first:
+      213: 2665847538657523255
+    second: Modern-Train_36
+  - first:
+      213: -8873149829029052423
+    second: Modern-Train_37
+  - first:
+      213: -8882262463722880750
+    second: Modern-Train_38
+  - first:
+      213: 8242716124759687721
+    second: Modern-Train_39
+  - first:
+      213: 7950439027562785328
+    second: Modern-Train_40
+  - first:
+      213: 521134668137337184
+    second: Modern-Train_41
+  - first:
+      213: 1579801180268707272
+    second: Modern-Train_42
+  - first:
+      213: 7776099534171478390
+    second: Modern-Train_43
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -31,7 +163,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: -1
+    filterMode: 1
     aniso: -1
     mipBias: -100
     wrapU: 1
@@ -46,7 +178,7 @@ TextureImporter:
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 100
-  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteBorder: {x: 50, y: 150, z: 50, w: 150}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
   alphaIsTransparency: 1
@@ -61,6 +193,18 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
