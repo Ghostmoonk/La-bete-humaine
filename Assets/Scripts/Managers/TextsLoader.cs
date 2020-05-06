@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 using TextContent;
+
+//Charge et stocke les données récupérés dans le fichier CSV
+
 public class TextsLoader : MonoBehaviour
 {
     #region Singleton
@@ -14,7 +17,7 @@ public class TextsLoader : MonoBehaviour
         }
     }
 
-    public Dictionary<int, Text> textsDico;
+    public Dictionary<int, TextData> textsDico;
 
     private void Awake()
     {
@@ -35,7 +38,7 @@ public class TextsLoader : MonoBehaviour
 
     private void FetchData()
     {
-        textsDico = new Dictionary<int, Text>();
+        textsDico = new Dictionary<int, TextData>();
         TextAsset textsData = Resources.Load<TextAsset>("Textes");
 
         string[] data = textsData.text.Split(new char[] { '\n' });
@@ -44,10 +47,28 @@ public class TextsLoader : MonoBehaviour
         {
             string[] row = data[i].Split(new char[] { '|' });
 
-            Text textRow = new Text(row[1], row[2], row[3], row[4]);
+            int minReadTime = 0;
+            Debug.Log(row.Length);
+            int.TryParse(row[6], out minReadTime);
+            TextData textRow = new TextData(row[1], row[2], row[3], row[4], row[5], minReadTime, row[7]);
             textsDico[int.Parse(row[0])] = textRow;
 
-            //Debug.Log(textsDico[int.Parse(row[0])].content);
         }
+    }
+
+    public bool IsAssociatedWithManuscript(int id)
+    {
+        if (textsDico[id].manuscritPath != null)
+            return true;
+        else
+            return false;
+
+    }
+
+    public Sprite FetchManuscriptSprite(int id)
+    {
+        Sprite manuscritSprite = Resources.Load<Sprite>("manuscrits/" + textsDico[id].manuscritPath.Split('.')[0]);
+
+        return manuscritSprite;
     }
 }
