@@ -1,15 +1,24 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
-[Serializable]
-public abstract class Content
+public enum ContentType
 {
-    public string name;
+    OpenQuestion, ClosedQuestion, FillGaps, SimpleText
+}
 
-    protected virtual void PrintName()
-    {
-        Debug.Log(name);
-    }
+public abstract class Content : MonoBehaviour
+{
+    protected string _name;
+    protected GameObject prefab;
+
+}
+
+[Serializable]
+public struct ContentRef
+{
+    public ContentType type;
+    public int id;
 }

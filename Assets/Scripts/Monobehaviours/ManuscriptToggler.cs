@@ -38,7 +38,7 @@ public class ManuscriptToggler : MonoBehaviour, IPointerDownHandler
 
         if (!toggle)
         {
-            manuscriptContainer.GetComponent<RectTransform>().DOAnchorPosX(transform.parent.GetComponent<RectTransform>().anchoredPosition.x + transform.parent.GetComponent<RectTransform>().sizeDelta.x / 2 + spriteSize.x / 2, 2f);
+            manuscriptContainer.GetComponent<RectTransform>().DOAnchorPosX(transform.parent.GetComponent<RectTransform>().anchoredPosition.x + transform.parent.GetComponent<RectTransform>().sizeDelta.x / 2, 2f);
         }
         else
         {
@@ -49,7 +49,7 @@ public class ManuscriptToggler : MonoBehaviour, IPointerDownHandler
             manuscriptContainer.transform.position = new Vector3(manuscriptContainer.transform.position.x, transform.position.y, manuscriptContainer.transform.position.z);
 
             manuscriptContainer.GetComponent<RectTransform>().anchoredPosition = new Vector3(transform.parent.GetComponent<RectTransform>().anchoredPosition.x + transform.parent.GetComponent<RectTransform>().sizeDelta.x / 2 + spriteSize.x / 2, manuscriptContainer.GetComponent<RectTransform>().anchoredPosition.y);
-            manuscriptContainer.GetComponent<RectTransform>().DOAnchorPosX(transform.parent.GetComponent<RectTransform>().anchoredPosition.x + transform.parent.GetComponent<RectTransform>().sizeDelta.x / 2 - spriteSize.x / 2, 2f);
+            manuscriptContainer.GetComponent<RectTransform>().DOAnchorPosX(transform.parent.GetComponent<RectTransform>().anchoredPosition.x + transform.parent.GetComponent<RectTransform>().sizeDelta.x / 2 - spriteSize.x, 2f);
         }
     }
 }
