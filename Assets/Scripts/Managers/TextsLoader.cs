@@ -44,15 +44,15 @@ public class TextsLoader : MonoBehaviour
         TextAsset textsData = Resources.Load<TextAsset>("TextesTest");
 
         string[] data = textsData.text.Split(new char[] { '\n' });
+        Debug.Log(data.Length);
 
         for (int i = 1; i < data.Length - 1; i++)
         {
             string[] row = data[i].Split(new char[] { '|' });
 
             int minReadTime = 0;
-
-            int.TryParse(row[6], out minReadTime);
-            TextData textRow = new TextData(row[1], row[2], row[3], row[4], row[5], minReadTime, row[7]);
+            int.TryParse(row[7], out minReadTime);
+            TextData textRow = new TextData(row[2], row[3], row[4], row[5], row[6], minReadTime, row[8]);
             textsDico[int.Parse(row[0])] = textRow;
 
         }

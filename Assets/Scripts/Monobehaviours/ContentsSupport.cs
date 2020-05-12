@@ -29,6 +29,7 @@ public class ContentsSupport : MonoBehaviour
 
     #region Prefabs
     [SerializeField] GameObject simpleTextPref;
+    [SerializeField] GameObject titledTextPref;
     [SerializeField] GameObject openQuestionPref;
     [SerializeField] GameObject closedQuestionPreb;
     [SerializeField] GameObject fillGapsPref;
@@ -140,12 +141,26 @@ public class ContentsSupport : MonoBehaviour
         if (currentContent.GetType() == typeof(SimpleText))
         {
             SimpleText st = (SimpleText)currentContent;
-            simpleTextPref.SetActive(false);
+            //Sans un titre
+            if (st.textData.title == "")
+            {
+                simpleTextPref.SetActive(false);
 
-            contentToInstantiate = Instantiate(simpleTextPref, tabletContentContainer);
-            contentToInstantiate.GetComponent<TextHolder>().simpleText = st;
-            Debug.Log(contentToInstantiate.GetComponent<TextHolder>().simpleText.textData.content);
-            simpleTextPref.SetActive(true);
+                contentToInstantiate = Instantiate(simpleTextPref, tabletContentContainer);
+                contentToInstantiate.GetComponent<TextHolder>().simpleText = st;
+                Debug.Log(contentToInstantiate.GetComponent<TextHolder>().simpleText.textData.content);
+                simpleTextPref.SetActive(true);
+            }
+            //Avec un titre
+            else
+            {
+                titledTextPref.SetActive(false);
+
+                contentToInstantiate = Instantiate(titledTextPref, tabletContentContainer);
+                contentToInstantiate.GetComponent<TextHolder>().simpleText = st;
+                Debug.Log(contentToInstantiate.GetComponent<TextHolder>().simpleText.textData.content);
+                titledTextPref.SetActive(true);
+            }
 
         }
 

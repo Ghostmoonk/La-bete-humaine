@@ -19,10 +19,10 @@ public class ManuscriptToggler : MonoBehaviour, IPointerDownHandler
 
     private void Start()
     {
-        if (transform.parent.GetComponent<TextHolder>().simpleText.textData.manuscritPath != null)
+        if (GetComponentInParent<TextHolder>().simpleText.textData.manuscritPath != null)
         {
             toggle = false;
-            spriteRef = Resources.Load<Sprite>("manuscrits/" + transform.parent.GetComponent<TextHolder>().simpleText.textData.manuscritPath.Split('.')[0]);
+            spriteRef = Resources.Load<Sprite>("manuscrits/" + GetComponentInParent<TextHolder>().simpleText.textData.manuscritPath.Split('.')[0]);
             manuscriptSource = GameObject.FindGameObjectWithTag("ManuscriptSource").GetComponent<TextMeshProUGUI>();
             manuscriptContainer = GameObject.FindGameObjectWithTag("ManuscriptContainer");
             spriteSize = spriteRef.rect.size;
@@ -43,7 +43,7 @@ public class ManuscriptToggler : MonoBehaviour, IPointerDownHandler
         else
         {
             manuscriptContainer.GetComponent<Image>().sprite = spriteRef;
-            manuscriptSource.text = transform.parent.GetComponent<TextHolder>().simpleText.textData.manuscritSource;
+            manuscriptSource.text = GetComponentInParent<TextHolder>().simpleText.textData.manuscritSource;
 
             manuscriptContainer.GetComponent<RectTransform>().sizeDelta = spriteSize;
             manuscriptContainer.transform.position = new Vector3(manuscriptContainer.transform.position.x, transform.position.y, manuscriptContainer.transform.position.z);

@@ -443,9 +443,13 @@ MonoBehaviour:
     id: 0
   - type: 0
     id: 0
+  - type: 3
+    id: 3
   - type: 1
     id: 1
-  simpleTextPref: {fileID: 465146164353076524, guid: e99cad110ec31c446ad318461783bc1f,
+  simpleTextPref: {fileID: 9150275629335918902, guid: eba3ab458fe10bb469d49c45355a77d9,
+    type: 3}
+  titledTextPref: {fileID: 6827179443557867270, guid: e234dda333f67574cb19ae76550603e7,
     type: 3}
   openQuestionPref: {fileID: 4513891363998458859, guid: 263e5fbfae815bf4296f592d81999b76,
     type: 3}

@@ -12,10 +12,19 @@ public class TextHolder : MonoBehaviour
     [HideInInspector] public SimpleText simpleText;
 
     [SerializeField] TextMeshProUGUI textMesh;
+    public bool showTitle;
+    [HideInInspector] public TextMeshProUGUI titleTextMesh;
 
     private void OnEnable()
     {
         textMesh.text = simpleText.textData.content;
+
+        if (showTitle)
+        {
+            titleTextMesh.text = simpleText.textData.title;
+            //titleTextMesh.transform.parent.GetComponent<RectTransform>().sizeDelta = new Vector2(titleTextMesh.transform.parent.GetComponent<RectTransform>().sizeDelta.x, titleTextMesh.GetComponent<RectTransform>().sizeDelta.y);
+        }
+
         StartCoroutine(nameof(WaitLectureTime));
 
         //simpleText.AddObserver(FindObjectOfType<ContentsSupport>().contentDisplayer);
