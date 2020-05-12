@@ -74,7 +74,7 @@ MonoBehaviour:
     de toutes ces vies humaines. Et, Jacques s\u2019\xE9tant pench\xE9 pour abaisser
     lui-m\xEAme la tige du cendrier, de fa\xE7on \xE0 diminuer au moins le tirage,
     le chauffeur le saisit brusquement \xE0 bras-le-corps, t\xE2cha de le pousser,
-    de le jeter sur la voie, d\u2019une violente secousse."
+    de le jeter sur la voie, d\u2019une violente secousse. "
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 67c038b4c93960f448609423888914c9, type: 2}
   m_sharedMaterial: {fileID: -1364458838328670055, guid: 67c038b4c93960f448609423888914c9,
@@ -144,13 +144,13 @@ MonoBehaviour:
   m_margin: {x: 32, y: 0, z: 16, w: -0.00007700092}
   m_textInfo:
     textComponent: {fileID: 465146164353076522}
-    characterCount: 462
+    characterCount: 0
     spriteCount: 0
-    spaceCount: 73
-    wordCount: 74
+    spaceCount: 0
+    wordCount: 0
     linkCount: 0
-    lineCount: 12
-    pageCount: 1
+    lineCount: 0
+    pageCount: 0
     materialCount: 1
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
@@ -179,14 +179,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 736d8598c2370c54ba365fde70a1290f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  textData:
-    title: 
-    content: 
-    author: 
-    scene: 
-    manuscritPath: 
-    manuscritSource: 
-    minimumReadTime: 0
+  textMesh: {fileID: 465146164353076522}
 --- !u!114 &2189341530261426715
 MonoBehaviour:
   m_ObjectHideFlags: 0

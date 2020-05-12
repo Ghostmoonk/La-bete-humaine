@@ -16,9 +16,13 @@ public class Question : Content
 
 public sealed class OpenQuestion : Question
 {
+    public new OpenQuestionData questionData;
+
     public OpenQuestion(QuestionData data) : base(data)
     {
+        questionData = (OpenQuestionData)data;
     }
+
     public Vector2 textAreaSize;
 
 }
@@ -27,6 +31,7 @@ public sealed class ClosedQuestion : Question
 {
     public ClosedQuestion(QuestionData data) : base(data)
     {
+        questionData = (ClosedQuestionData)data;
     }
 
     public Dictionary<int, Answer> possibilities;

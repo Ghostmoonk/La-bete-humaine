@@ -8,7 +8,7 @@ using UnityEngine.EventSystems;
 
 //Gère l'affichage des textes sur l'HUD
 
-public class Tablet : MonoBehaviour
+public class ContentsSupport : MonoBehaviour
 {
     #region Components
     Animator animator;
@@ -23,7 +23,7 @@ public class Tablet : MonoBehaviour
 
     public List<ContentRef> contentsType;
     private Queue<Content> contents;
-
+    ContentDisplayer contentDisplayer;
     bool active;
 
     #region Prefabs
@@ -42,6 +42,11 @@ public class Tablet : MonoBehaviour
     private void OnEnable()
     {
         active = false;
+    }
+
+    public bool IsOnScreen()
+    {
+        return active;
     }
 
     private void Update()
@@ -64,6 +69,11 @@ public class Tablet : MonoBehaviour
         }
         #endregion
 
+        if (Input.GetButtonDown("Jump"))
+        {
+            DisplayContent();
+        }
+
         #endregion
     }
     void SetCurrentMousePosition()
@@ -78,15 +88,18 @@ public class Tablet : MonoBehaviour
 
     private void Start()
     {
+        contentDisplayer = new ContentDisplayer();
+        contentDisplayer.disPlayNextContentDelegateFunction = DisplayContent;
         animator = GetComponent<Animator>();
         scrollDownArrow = GameObject.FindGameObjectWithTag("ScrollDownArrow");
         scrollDownArrow.SetActive(false);
         tabletContentContainer = GameObject.FindGameObjectWithTag("TabletContent").transform;
 
         contents = InitializeContents();
-        //DisplayContent(FetchContent(contents.Dequeue());
 
+        Debug.Log("Il y a " + contents.Count + "contents");
         DisplayContent();
+
     }
 
     public Queue<Content> InitializeContents()
@@ -100,62 +113,53 @@ public class Tablet : MonoBehaviour
         return contentsQueue;
     }
 
+
     private void DisplayContent()
     {
+        if (contents.Count <= 0)
+            return;
+
         GameObject contentToInstantiate;
         Content currentContent = contents.Dequeue();
-
+        currentContent.AddObserver(contentDisplayer);
         if (currentContent.GetType() == typeof(SimpleText))
         {
             SimpleText st = (SimpleText)currentContent;
+            simpleTextPref.SetActive(false);
+
             contentToInstantiate = Instantiate(simpleTextPref, tabletContentContainer);
+            contentToInstantiate.GetComponent<TextHolder>().simpleText = st;
+            Debug.Log(contentToInstantiate.GetComponent<TextHolder>().simpleText.textData.content);
+            simpleTextPref.SetActive(true);
 
-            TextMeshProUGUI textMesh = contentToInstantiate.GetComponent<TextMeshProUGUI>();
-
-            TextHolder textHolder = contentToInstantiate.GetComponent<TextHolder>();
-
-            textHolder.textData = st.textData;
-            textMesh.text = st.textData.content;
-            currentGameObjectToShow = contentToInstantiate;
-
-            StartCoroutine(nameof(WaitLectureTime));
+            //StartCoroutine(nameof(WaitLectureTime));
         }
 
-        if (currentContent.GetType() == typeof(OpenQuestion) || currentContent.GetType() == typeof(ClosedQuestion))
+        else if (currentContent.GetType() == typeof(OpenQuestion) || currentContent.GetType() == typeof(ClosedQuestion))
         {
             if (currentContent.GetType() == typeof(OpenQuestion))
             {
+                openQuestionPref.SetActive(false);
                 OpenQuestion oq = (OpenQuestion)currentContent;
                 contentToInstantiate = Instantiate(openQuestionPref, tabletContentContainer);
-
-                TextMeshProUGUI question = contentToInstantiate.GetComponentInChildren<TextMeshProUGUI>();
-                question.text = oq.questionData.question;
+                contentToInstantiate.GetComponent<OpenQuestionHolder>().openQuestion = oq;
+                openQuestionPref.SetActive(true);
             }
             else
             {
                 contentToInstantiate = Instantiate(closedQuestionPreb, tabletContentContainer);
-                TextMeshProUGUI question = contentToInstantiate.GetComponentInChildren<TextMeshProUGUI>();
             }
-
         }
+        else
+        {
+            contentToInstantiate = Instantiate(fillGapsPref, tabletContentContainer);
+        }
+
+        contentToInstantiate.SetActive(true);
+        currentGameObjectToShow = contentToInstantiate;
         Resizer.ResizeHeight(tabletContentContainer.GetComponent<RectTransform>());
     }
 
-    IEnumerator WaitLectureTime()
-    {
-        float timer = 0f;
-        while (timer < currentGameObjectToShow.GetComponent<TextHolder>().textData.minimumReadTime)
-        {
-            if (active)
-            {
-                timer += Time.deltaTime;
-            }
-            yield return null;
-        }
-        DisplayScrollArrow();
-        if (contents.Count > 0)
-            DisplayContent();
-    }
     private void DisplayScrollArrow()
     {
         scrollDownArrow.SetActive(true);
@@ -178,6 +182,3 @@ public class Tablet : MonoBehaviour
     #endregion
 
 }
-
-//var builder = new System.Text.StringBuilder(text.Length * 26);
-//Color32 color = contentText.color;

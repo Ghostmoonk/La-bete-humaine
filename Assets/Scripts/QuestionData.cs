@@ -3,20 +3,36 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[Serializable]
-public class QuestionData
+public abstract class QuestionData
 {
-    public bool open = false;
     public string question;
-    public Dictionary<int, string> answersRefDico;
+}
 
-    public QuestionData(string question, Dictionary<int, string> answersRefDico = null)
+[Serializable]
+public class OpenQuestionData : QuestionData
+{
+    public string placeholder;
+
+    public OpenQuestionData(string question, string placeholder)
     {
         this.question = question;
-        if (answersRefDico == null)
-            open = true;
-        else
-            this.answersRefDico = answersRefDico;
+        this.placeholder = placeholder;
 
     }
+}
+
+//Question fermée
+[Serializable]
+public class ClosedQuestionData : QuestionData
+{
+    public Dictionary<int, string> answersRefDico;
+
+    //Question ouverte
+    public ClosedQuestionData(string question, Dictionary<int, string> answersRefDico)
+    {
+        this.question = question;
+        this.answersRefDico = answersRefDico;
+    }
+    //Question fermée
+
 }

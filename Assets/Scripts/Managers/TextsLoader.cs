@@ -87,14 +87,14 @@ public class TextsLoader : MonoBehaviour
                     answerRefDico.Add(justifTextIDs[j], answers[j]);
                 }
 
-                QuestionData questionRow = new QuestionData(row[1], answerRefDico);
+                ClosedQuestionData questionRow = new ClosedQuestionData(row[1], answerRefDico);
                 questionsDico[int.Parse(row[0])] = questionRow;
 
             }
             //Sinon on passe juste le nom de la question
             else
             {
-                QuestionData questionRow = new QuestionData(row[1]);
+                OpenQuestionData questionRow = new OpenQuestionData(row[1], row[4]);
                 questionsDico[int.Parse(row[0])] = questionRow;
 
             }

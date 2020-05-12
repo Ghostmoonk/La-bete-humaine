@@ -8,7 +8,7 @@ namespace TextContent
     //Contient toutes les données nécessaires pour un texte simple
 
     [Serializable]
-    public class TextData
+    public class TextData : Content
     {
         public string title;
         public string content;
