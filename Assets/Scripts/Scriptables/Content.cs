@@ -16,14 +16,6 @@ public abstract class Content
 
     List<Observer> observers = new List<Observer>();
 
-    public void Notify()
-    {
-        for (int i = 0; i < observers.Count; i++)
-        {
-            observers[i].OnNotify();
-        }
-    }
-
     public void Complete()
     {
         for (int i = 0; i < observers.Count; i++)

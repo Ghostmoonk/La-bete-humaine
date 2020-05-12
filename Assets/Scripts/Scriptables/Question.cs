@@ -29,9 +29,12 @@ public sealed class OpenQuestion : Question
 
 public sealed class ClosedQuestion : Question
 {
+    public new ClosedQuestionData questionData;
+
     public ClosedQuestion(QuestionData data) : base(data)
     {
         questionData = (ClosedQuestionData)data;
+
     }
 
     public Dictionary<int, Answer> possibilities;

@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -13,6 +14,8 @@ public class OpenQuestionHolder : MonoBehaviour
     [SerializeField] TextMeshProUGUI textInput;
     [SerializeField] Button submitButton;
 
+    bool done;
+
     private void Start()
     {
         Debug.Log(openQuestion);
@@ -22,6 +25,10 @@ public class OpenQuestionHolder : MonoBehaviour
 
     public void Submit()
     {
-        openQuestion.Complete();
+        if (!done)
+        {
+            openQuestion.Complete();
+            done = true;
+        }
     }
 }

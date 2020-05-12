@@ -443,13 +443,13 @@ MonoBehaviour:
     id: 0
   - type: 0
     id: 0
-  - type: 0
-    id: 0
+  - type: 1
+    id: 1
   simpleTextPref: {fileID: 465146164353076524, guid: e99cad110ec31c446ad318461783bc1f,
     type: 3}
   openQuestionPref: {fileID: 4513891363998458859, guid: 263e5fbfae815bf4296f592d81999b76,
     type: 3}
-  closedQuestionPreb: {fileID: 4513891363998458859, guid: 263e5fbfae815bf4296f592d81999b76,
+  closedQuestionPreb: {fileID: 8698349633755328654, guid: 174bbaec91157224b9797c3ed3658e2a,
     type: 3}
   fillGapsPref: {fileID: 4513891363998458859, guid: 263e5fbfae815bf4296f592d81999b76,
     type: 3}
@@ -934,7 +934,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: -0.00012207031}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &954974217

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -69,7 +70,7 @@ public class ContentsSupport : MonoBehaviour
         }
         #endregion
 
-        if (Input.GetButtonDown("Jump"))
+        if (Input.GetKeyDown(KeyCode.Dollar))
         {
             DisplayContent();
         }
@@ -89,7 +90,7 @@ public class ContentsSupport : MonoBehaviour
     private void Start()
     {
         contentDisplayer = new ContentDisplayer();
-        contentDisplayer.disPlayNextContentDelegateFunction = DisplayContent;
+        contentDisplayer.displayNextContentDelegateFunction = DisplayNextContent;
         animator = GetComponent<Animator>();
         scrollDownArrow = GameObject.FindGameObjectWithTag("ScrollDownArrow");
         scrollDownArrow.SetActive(false);
@@ -113,15 +114,29 @@ public class ContentsSupport : MonoBehaviour
         return contentsQueue;
     }
 
-
-    private void DisplayContent()
+    public void AddContentInQueue(Content content)
     {
-        if (contents.Count <= 0)
+
+    }
+
+    private void DisplayNextContent()
+    {
+        DisplayContent(null);
+    }
+    private void DisplayContent(Content content = null)
+    {
+        if (contents.Count <= 0 && content == null)
             return;
 
         GameObject contentToInstantiate;
-        Content currentContent = contents.Dequeue();
+        Content currentContent;
+        if (content == null)
+            currentContent = contents.Dequeue();
+        else
+            currentContent = content;
+
         currentContent.AddObserver(contentDisplayer);
+
         if (currentContent.GetType() == typeof(SimpleText))
         {
             SimpleText st = (SimpleText)currentContent;
@@ -132,7 +147,6 @@ public class ContentsSupport : MonoBehaviour
             Debug.Log(contentToInstantiate.GetComponent<TextHolder>().simpleText.textData.content);
             simpleTextPref.SetActive(true);
 
-            //StartCoroutine(nameof(WaitLectureTime));
         }
 
         else if (currentContent.GetType() == typeof(OpenQuestion) || currentContent.GetType() == typeof(ClosedQuestion))
@@ -147,7 +161,11 @@ public class ContentsSupport : MonoBehaviour
             }
             else
             {
+                closedQuestionPreb.SetActive(false);
+                ClosedQuestion cq = (ClosedQuestion)currentContent;
                 contentToInstantiate = Instantiate(closedQuestionPreb, tabletContentContainer);
+                contentToInstantiate.GetComponent<ClosedQuestionHolder>().closedQuestion = cq;
+                closedQuestionPreb.SetActive(true);
             }
         }
         else
@@ -158,6 +176,10 @@ public class ContentsSupport : MonoBehaviour
         contentToInstantiate.SetActive(true);
         currentGameObjectToShow = contentToInstantiate;
         Resizer.ResizeHeight(tabletContentContainer.GetComponent<RectTransform>());
+
+        if (tabletContentContainer.parent.parent.GetComponent<RectTransform>().sizeDelta.y < tabletContentContainer.GetComponent<RectTransform>().sizeDelta.y)
+            DisplayScrollArrow();
+
     }
 
     private void DisplayScrollArrow()
@@ -168,7 +190,7 @@ public class ContentsSupport : MonoBehaviour
     #region Anim events actions
     public void Scroll(BaseEventData eventData)
     {
-        Debug.Log(previousMousePos - currentMousePos);
+        //Debug.Log(previousMousePos - currentMousePos);
         if (scrollDownArrow.activeSelf && (Input.mouseScrollDelta.y < 1 || previousMousePos.y - currentMousePos.y > 0f))
         {
             scrollDownArrow.SetActive(false);

@@ -27,12 +27,10 @@ public class ClosedQuestionData : QuestionData
 {
     public Dictionary<int, string> answersRefDico;
 
-    //Question ouverte
     public ClosedQuestionData(string question, Dictionary<int, string> answersRefDico)
     {
         this.question = question;
         this.answersRefDico = answersRefDico;
     }
-    //Question fermée
 
 }

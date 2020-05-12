@@ -71,22 +71,27 @@ public class TextsLoader : MonoBehaviour
 
             string[] answers = row[2].Split(new char[] { ',' });
 
+            string[] justifTextIDstring = row[3].Split(new char[] { ',' });
             //Si question à choix multiples
             if (answers.Length > 1)
             {
                 Dictionary<int, string> answerRefDico = new Dictionary<int, string>();
-                string[] justifTextIDstring = row[3].Split(new char[] { ',' });
-                int[] justifTextIDs = new int[justifTextIDstring.Length];
+                Debug.Log("Nombre d'ensemble de reponse" + justifTextIDstring.Length);
 
-                for (int j = 0; j < justifTextIDs.Length; j++)
-                {
-                    justifTextIDs[j] = int.Parse(justifTextIDstring[j]);
-                }
                 for (int j = 0; j < answers.Length; j++)
                 {
-                    answerRefDico.Add(justifTextIDs[j], answers[j]);
+                    string[] textsRefIdsString = justifTextIDstring[j].Split(new char[] { '-' });
+
+                    for (int l = 0; l < textsRefIdsString.Length; l++)
+                    {
+                        answerRefDico.Add(int.Parse(textsRefIdsString[l]), answers[j]);
+                    }
                 }
 
+                //foreach (var item in answerRefDico)
+                //{
+                //    Debug.Log(item.Key + " - " + item.Value);
+                //}
                 ClosedQuestionData questionRow = new ClosedQuestionData(row[1], answerRefDico);
                 questionsDico[int.Parse(row[0])] = questionRow;
 
