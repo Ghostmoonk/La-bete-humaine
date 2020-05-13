@@ -21,10 +21,11 @@ public class ContentsSupport : MonoBehaviour
     #endregion
 
     GameObject currentGameObjectToShow;
+    Content currentContent;
 
     public List<ContentRef> contentsType;
-    private Queue<Content> contents;
-    ContentDisplayer contentDisplayer;
+    private Stack<Content> contentsStack;
+    public ContentDisplayer contentDisplayer;
     bool active;
 
     #region Prefabs
@@ -33,6 +34,7 @@ public class ContentsSupport : MonoBehaviour
     [SerializeField] GameObject openQuestionPref;
     [SerializeField] GameObject closedQuestionPreb;
     [SerializeField] GameObject fillGapsPref;
+    [SerializeField] GameObject EndButton;
     #endregion
 
     #region Inputs
@@ -90,6 +92,8 @@ public class ContentsSupport : MonoBehaviour
 
     private void Start()
     {
+
+        contentsStack = new Stack<Content>();
         contentDisplayer = new ContentDisplayer();
         contentDisplayer.displayNextContentDelegateFunction = DisplayNextContent;
         animator = GetComponent<Animator>();
@@ -97,99 +101,118 @@ public class ContentsSupport : MonoBehaviour
         scrollDownArrow.SetActive(false);
         tabletContentContainer = GameObject.FindGameObjectWithTag("TabletContent").transform;
 
-        contents = InitializeContents();
+        contentsStack = InitializeContents();
 
-        Debug.Log("Il y a " + contents.Count + "contents");
+        Debug.Log("Il y a " + contentsStack.Count + "contents");
         DisplayContent();
 
     }
 
-    public Queue<Content> InitializeContents()
+    public Stack<Content> InitializeContents()
     {
-        Queue<Content> contentsQueue = new Queue<Content>();
+        List<Content> contentsList = new List<Content>();
+        Stack<Content> contentsStack = new Stack<Content>();
         for (int i = 0; i < contentsType.Count; i++)
         {
-            contentsQueue.Enqueue(ContentFactory.CreateContent(contentsType[i].id, contentsType[i].type));
-
+            Content content = ContentFactory.CreateContent(contentsType[i].id, contentsType[i].type);
+            content.CompleteEvent = contentsType[i].CompleteEvent;
+            contentsList.Add(content);
         }
-        return contentsQueue;
+        Debug.Log(contentsList.Count);
+        for (int i = 0; i < contentsList.Count; i++)
+        {
+            contentsStack.Push(contentsList[contentsList.Count - i - 1]);
+        }
+        contentsStack.Reverse();
+        return contentsStack;
     }
 
-    public void AddContentInQueue(Content content)
+    public void AddContentInStack(Content content)
     {
-
+        contentsStack.Push(content);
     }
 
     private void DisplayNextContent()
     {
         DisplayContent(null);
     }
+
+    public Content GetCurrentContent()
+    {
+        return currentContent;
+    }
+
     private void DisplayContent(Content content = null)
     {
-        if (contents.Count <= 0 && content == null)
+        if (contentsStack.Count <= 0 && content == null)
+        {
+            //S'il n'y a plus de contenu à afficher et qu'on cherche à en afficher, c'est la fin de la scène
+            //Instantiate(EndButton, tabletContentContainer);
             return;
-
-        GameObject contentToInstantiate;
-        Content currentContent;
-        if (content == null)
-            currentContent = contents.Dequeue();
-        else
-            currentContent = content;
-
-        currentContent.AddObserver(contentDisplayer);
-
-        if (currentContent.GetType() == typeof(SimpleText))
-        {
-            SimpleText st = (SimpleText)currentContent;
-            //Sans un titre
-            if (st.textData.title == "")
-            {
-                simpleTextPref.SetActive(false);
-
-                contentToInstantiate = Instantiate(simpleTextPref, tabletContentContainer);
-                contentToInstantiate.GetComponent<TextHolder>().simpleText = st;
-                Debug.Log(contentToInstantiate.GetComponent<TextHolder>().simpleText.textData.content);
-                simpleTextPref.SetActive(true);
-            }
-            //Avec un titre
-            else
-            {
-                titledTextPref.SetActive(false);
-
-                contentToInstantiate = Instantiate(titledTextPref, tabletContentContainer);
-                contentToInstantiate.GetComponent<TextHolder>().simpleText = st;
-                Debug.Log(contentToInstantiate.GetComponent<TextHolder>().simpleText.textData.content);
-                titledTextPref.SetActive(true);
-            }
-
-        }
-
-        else if (currentContent.GetType() == typeof(OpenQuestion) || currentContent.GetType() == typeof(ClosedQuestion))
-        {
-            if (currentContent.GetType() == typeof(OpenQuestion))
-            {
-                openQuestionPref.SetActive(false);
-                OpenQuestion oq = (OpenQuestion)currentContent;
-                contentToInstantiate = Instantiate(openQuestionPref, tabletContentContainer);
-                contentToInstantiate.GetComponent<OpenQuestionHolder>().openQuestion = oq;
-                openQuestionPref.SetActive(true);
-            }
-            else
-            {
-                closedQuestionPreb.SetActive(false);
-                ClosedQuestion cq = (ClosedQuestion)currentContent;
-                contentToInstantiate = Instantiate(closedQuestionPreb, tabletContentContainer);
-                contentToInstantiate.GetComponent<ClosedQuestionHolder>().closedQuestion = cq;
-                closedQuestionPreb.SetActive(true);
-            }
         }
         else
         {
-            contentToInstantiate = Instantiate(fillGapsPref, tabletContentContainer);
-        }
+            GameObject contentToInstantiate;
+            if (content == null)
+                currentContent = contentsStack.Pop();
+            else
+                currentContent = content;
 
-        contentToInstantiate.SetActive(true);
-        currentGameObjectToShow = contentToInstantiate;
+            //Debug.Log(currentContent);
+            currentContent.AddObserver(contentDisplayer);
+
+            if (currentContent.GetType() == typeof(SimpleText))
+            {
+                SimpleText st = (SimpleText)currentContent;
+                //Sans un titre
+                if (st.textData.title == "")
+                {
+                    simpleTextPref.SetActive(false);
+
+                    contentToInstantiate = Instantiate(simpleTextPref, tabletContentContainer);
+                    contentToInstantiate.GetComponent<TextHolder>().simpleText = st;
+                    simpleTextPref.SetActive(true);
+                }
+                //Avec un titre
+                else
+                {
+                    titledTextPref.SetActive(false);
+
+                    contentToInstantiate = Instantiate(titledTextPref, tabletContentContainer);
+                    contentToInstantiate.GetComponent<TextHolder>().simpleText = st;
+                    Debug.Log(contentToInstantiate.GetComponent<TextHolder>().simpleText.textData.content);
+                    titledTextPref.SetActive(true);
+                }
+
+            }
+
+            else if (currentContent.GetType() == typeof(OpenQuestion) || currentContent.GetType() == typeof(ClosedQuestion))
+            {
+                if (currentContent.GetType() == typeof(OpenQuestion))
+                {
+                    openQuestionPref.SetActive(false);
+                    OpenQuestion oq = (OpenQuestion)currentContent;
+                    contentToInstantiate = Instantiate(openQuestionPref, tabletContentContainer);
+                    contentToInstantiate.GetComponent<OpenQuestionHolder>().openQuestion = oq;
+                    openQuestionPref.SetActive(true);
+                }
+                else
+                {
+                    closedQuestionPreb.SetActive(false);
+                    ClosedQuestion cq = (ClosedQuestion)currentContent;
+                    contentToInstantiate = Instantiate(closedQuestionPreb, tabletContentContainer);
+                    contentToInstantiate.GetComponent<ClosedQuestionHolder>().closedQuestion = cq;
+                    closedQuestionPreb.SetActive(true);
+                }
+            }
+            else
+            {
+                contentToInstantiate = Instantiate(fillGapsPref, tabletContentContainer);
+            }
+
+            contentToInstantiate.SetActive(true);
+            currentGameObjectToShow = contentToInstantiate;
+        }
         Resizer.ResizeHeight(tabletContentContainer.GetComponent<RectTransform>());
 
         if (tabletContentContainer.parent.parent.GetComponent<RectTransform>().sizeDelta.y < tabletContentContainer.GetComponent<RectTransform>().sizeDelta.y)
@@ -200,6 +223,13 @@ public class ContentsSupport : MonoBehaviour
     private void DisplayScrollArrow()
     {
         scrollDownArrow.SetActive(true);
+    }
+
+    public void CreateFinalButton(string text)
+    {
+        GameObject specialOption = Instantiate(EndButton, tabletContentContainer);
+        specialOption.GetComponentInChildren<TextMeshProUGUI>().text = text;
+        //return specialOption;
     }
 
     #region Anim events actions

@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6488361761709665240}
   - component: {fileID: 2397331910297678590}
   - component: {fileID: 5294684171910343797}
+  - component: {fileID: 1838868139378393861}
   m_Layer: 5
   m_Name: AnswersOptionsContainer
   m_TagString: Untagged
@@ -76,6 +77,14 @@ MonoBehaviour:
   m_ChildControlHeight: 0
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
+--- !u!222 &1838868139378393861
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1433633503816385459}
+  m_CullTransparentMesh: 0
 --- !u!1 &2543480184272676503
 GameObject:
   m_ObjectHideFlags: 0
@@ -297,7 +306,7 @@ Animator:
   m_GameObject: {fileID: 8698349633755328654}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 51ca07ed720290d41bfba86399c10604, type: 2}
+  m_Controller: {fileID: 9100000, guid: 61fb3b7b6274d8348a4efe56c8a90c6c, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -322,3 +331,17 @@ MonoBehaviour:
   optionsContainer: {fileID: 6488361761709665240}
   optionPrefab: {fileID: 1652571781331051741, guid: 3391a5cccd4f4fe46b3f1d42b555e384,
     type: 3}
+  AllButtonClickedEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2

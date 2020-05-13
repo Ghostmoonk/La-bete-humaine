@@ -56,8 +56,8 @@ public class ManuscriptToggler : MonoBehaviour, IPointerDownHandler
             manuscriptImage.GetComponent<RectTransform>().sizeDelta = spriteSize;
             //Aligne l'image verticalement à la flèche
             manuscriptContainer.transform.position = new Vector3(manuscriptContainer.transform.position.x, transform.position.y, manuscriptContainer.transform.position.z);
-            Debug.Log(supportTransform.anchorMin.x + manuscriptContainer.GetComponent<VerticalLayoutGroup>().padding.right - manuscriptContainer.GetComponent<RectTransform>().sizeDelta.x / 2);
-            Debug.Log(manuscriptContainer.GetComponent<RectTransform>().sizeDelta.x / 2);
+            //Debug.Log(supportTransform.anchorMin.x + manuscriptContainer.GetComponent<VerticalLayoutGroup>().padding.right - manuscriptContainer.GetComponent<RectTransform>().sizeDelta.x / 2);
+            //Debug.Log(manuscriptContainer.GetComponent<RectTransform>().sizeDelta.x / 2);
             manuscriptContainer.GetComponent<RectTransform>().anchoredPosition = new Vector3(supportTransform.anchorMin.x + spriteSize.x / 2, manuscriptContainer.GetComponent<RectTransform>().anchoredPosition.y);
 
             manuscriptContainer.GetComponent<RectTransform>().DOAnchorPosX(supportTransform.anchorMin.x - manuscriptImage.GetComponent<RectTransform>().sizeDelta.x / 2, 2f);

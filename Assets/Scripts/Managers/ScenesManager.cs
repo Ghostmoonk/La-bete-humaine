@@ -28,4 +28,8 @@ public class ScenesManager : MonoBehaviour
     }
     #endregion
 
+    public void LoadScene(int index)
+    {
+        SceneManager.LoadScene(index);
+    }
 }

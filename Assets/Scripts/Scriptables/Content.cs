@@ -3,16 +3,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.Events;
 
 public enum ContentType
 {
-    OpenQuestion, ClosedQuestion, FillGaps, SimpleText
+    OpenQuestion, ClosedQuestion, FillGaps, SimpleText, Button
 }
+
 
 public abstract class Content
 {
-    protected string name;
-    protected GameObject prefab;
+    public UnityEvent CompleteEvent = new UnityEvent();
+    public UnityEvent AdditionalEvents = new UnityEvent();
 
     List<Observer> observers = new List<Observer>();
 
@@ -22,6 +24,16 @@ public abstract class Content
         {
             observers[i].OnComplete();
         }
+        AdditionalEvents?.Invoke();
+    }
+
+    public void Complete(Content content)
+    {
+        for (int i = 0; i < observers.Count; i++)
+        {
+            observers[i].OnComplete(content);
+        }
+        AdditionalEvents?.Invoke();
     }
 
 
@@ -41,4 +53,5 @@ public struct ContentRef
 {
     public ContentType type;
     public int id;
+    public UnityEvent CompleteEvent;
 }
