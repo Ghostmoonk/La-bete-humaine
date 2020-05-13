@@ -18,7 +18,6 @@ public class OpenQuestionHolder : MonoBehaviour
 
     private void Start()
     {
-        Debug.Log(openQuestion);
         questionText.text = openQuestion.questionData.question;
         placeholderText.text = openQuestion.questionData.placeholder;
     }

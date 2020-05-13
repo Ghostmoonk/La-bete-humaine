@@ -44,7 +44,6 @@ public class TextsLoader : MonoBehaviour
         TextAsset textsData = Resources.Load<TextAsset>("TextesTest");
 
         string[] data = textsData.text.Split(new char[] { '\n' });
-        Debug.Log(data.Length);
 
         for (int i = 1; i < data.Length - 1; i++)
         {
@@ -76,7 +75,7 @@ public class TextsLoader : MonoBehaviour
             if (answers.Length > 1)
             {
                 Dictionary<int, string> answerRefDico = new Dictionary<int, string>();
-                Debug.Log("Nombre d'ensemble de reponse" + justifTextIDstring.Length);
+                //Debug.Log("Nombre d'ensemble de reponse" + justifTextIDstring.Length);
 
                 for (int j = 0; j < answers.Length; j++)
                 {
