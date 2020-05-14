@@ -6,7 +6,7 @@ using UnityEngine;
 public abstract class Observer
 {
     public abstract void OnComplete();
-    public abstract void OnComplete(Content content);
+    //public abstract void OnComplete(Content content);
 }
 
 public class ContentDisplayer : Observer
@@ -17,7 +17,7 @@ public class ContentDisplayer : Observer
     public delegate void OnContentCompleteDelegate();
 
     public DisplayNextContent displayNextContentDelegateFunction;
-    public DisplaySpecificContent displayContentDelegateFunction;
+    //public DisplaySpecificContent displayContentDelegateFunction;
     public OnContentCompleteDelegate onContentCompleteDelegate;
 
     public override void OnComplete()
@@ -26,9 +26,9 @@ public class ContentDisplayer : Observer
         displayNextContentDelegateFunction?.Invoke();
     }
 
-    public override void OnComplete(Content content)
-    {
-        displayContentDelegateFunction?.Invoke(content);
-        displayContentDelegateFunction = null;
-    }
+    //public override void OnComplete(Content content)
+    //{
+    //    displayContentDelegateFunction?.Invoke(content);
+    //    displayContentDelegateFunction = null;
+    //}
 }

@@ -117,7 +117,7 @@ public class TextsLoader : MonoBehaviour
 
     public Sprite FetchManuscriptSprite(int id)
     {
-        Sprite manuscritSprite = Resources.Load<Sprite>("manuscrits/" + textsDico[id].manuscritPath.Split('.')[0]);
+        Sprite manuscritSprite = Resources.Load<Sprite>("images/" + textsDico[id].manuscritPath.Split('.')[0]);
 
         return manuscritSprite;
     }

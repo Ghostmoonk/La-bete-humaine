@@ -26,7 +26,7 @@ public class ManuscriptToggler : MonoBehaviour, IPointerDownHandler
         if (GetComponentInParent<TextHolder>().simpleText.textData.manuscritPath != null)
         {
             toggle = false;
-            spriteRef = Resources.Load<Sprite>("manuscrits/" + GetComponentInParent<TextHolder>().simpleText.textData.manuscritPath.Split('.')[0]);
+            spriteRef = Resources.Load<Sprite>("images/" + GetComponentInParent<TextHolder>().simpleText.textData.manuscritPath.Split('.')[0]);
             manuscriptSource = GameObject.FindGameObjectWithTag("ManuscriptSource").GetComponent<TextMeshProUGUI>();
             manuscriptContainer = GameObject.FindGameObjectWithTag("ManuscriptContainer");
             manuscriptImage = GameObject.FindGameObjectWithTag("ManuscriptContainer").transform.GetChild(0).gameObject;
@@ -45,7 +45,8 @@ public class ManuscriptToggler : MonoBehaviour, IPointerDownHandler
         //Cache
         if (!toggle)
         {
-            manuscriptContainer.GetComponent<RectTransform>().DOAnchorPosX(supportTransform.anchorMin.x + manuscriptContainer.GetComponent<RectTransform>().sizeDelta.x / 2, 2f);
+            SlideIn();
+            FindObjectOfType<ContentsSupport>().activeToggler = null;
         }
         //Affiche
         else
@@ -59,10 +60,20 @@ public class ManuscriptToggler : MonoBehaviour, IPointerDownHandler
             //Debug.Log(supportTransform.anchorMin.x + manuscriptContainer.GetComponent<VerticalLayoutGroup>().padding.right - manuscriptContainer.GetComponent<RectTransform>().sizeDelta.x / 2);
             //Debug.Log(manuscriptContainer.GetComponent<RectTransform>().sizeDelta.x / 2);
             manuscriptContainer.GetComponent<RectTransform>().anchoredPosition = new Vector3(supportTransform.anchorMin.x + spriteSize.x / 2, manuscriptContainer.GetComponent<RectTransform>().anchoredPosition.y);
+            SlideOut();
 
-            manuscriptContainer.GetComponent<RectTransform>().DOAnchorPosX(supportTransform.anchorMin.x - manuscriptImage.GetComponent<RectTransform>().sizeDelta.x / 2, 2f);
-
+            FindObjectOfType<ContentsSupport>().activeToggler = this;
         }
+    }
+
+    private void SlideOut()
+    {
+        manuscriptContainer.GetComponent<RectTransform>().DOAnchorPosX(supportTransform.anchorMin.x - manuscriptImage.GetComponent<RectTransform>().sizeDelta.x / 2, 2f);
+    }
+
+    public void SlideIn()
+    {
+        manuscriptContainer.GetComponent<RectTransform>().DOAnchorPosX(supportTransform.anchorMin.x + manuscriptContainer.GetComponent<RectTransform>().sizeDelta.x / 2, 2f);
     }
 
 }

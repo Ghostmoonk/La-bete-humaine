@@ -27,14 +27,14 @@ public abstract class Content
         AdditionalEvents?.Invoke();
     }
 
-    public void Complete(Content content)
-    {
-        for (int i = 0; i < observers.Count; i++)
-        {
-            observers[i].OnComplete(content);
-        }
-        AdditionalEvents?.Invoke();
-    }
+    //public void Complete(Content content)
+    //{
+    //    for (int i = 0; i < observers.Count; i++)
+    //    {
+    //        observers[i].OnComplete(content);
+    //    }
+    //    AdditionalEvents?.Invoke();
+    //}
 
 
     public void AddObserver(Observer observer)

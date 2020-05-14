@@ -7,11 +7,11 @@ public static class Resizer
     //Resize la hauteur par rapport à tous les enfants (Pallie un bug Unity)
     public static void ResizeHeight(RectTransform rectT)
     {
-        float height = 0;
+        float newHeight = 0;
         foreach (RectTransform rect in rectT.transform.GetComponentsInChildren<RectTransform>())
         {
-            height += rect.sizeDelta.y;
+            newHeight += rect.sizeDelta.y;
         }
-        rectT.sizeDelta = new Vector2(rectT.sizeDelta.x, height);
+        rectT.sizeDelta = new Vector2(rectT.sizeDelta.x, newHeight);
     }
 }

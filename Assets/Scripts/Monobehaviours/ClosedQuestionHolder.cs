@@ -15,8 +15,6 @@ public class ClosedQuestionHolder : MonoBehaviour
     [SerializeField] GameObject optionPrefab;
     Animator animator;
 
-    public UnityEvent AllButtonClickedEvent;
-
     private void Start()
     {
         animator = GetComponent<Animator>();
@@ -95,27 +93,26 @@ public class ClosedQuestionHolder : MonoBehaviour
 
             if (!show)
             {
-                closedQuestion.Complete();
+                FindObjectOfType<ContentsSupport>().DisplayNextContent();
                 StopCoroutine(ProgressiveFade(false));
                 yield return null;
                 gameObject.SetActive(false);
-                if (ClickHandler.remainToClick > 0)
-                {
-                    //StartCoroutine(ProgressiveFade(true));
-                }
-                else
-                {
 
-                    //CreateFinalOption("Placeholder - Voir la réponse");
-                }
             }
             else
             {
+                StartCoroutine(FindObjectOfType<ContentsSupport>().DisplayScrollArrow());
                 StopCoroutine(ProgressiveFade(true));
             }
         }
         else
         {
+            //Il n'y a plus de boutons à cliquer, on actualise le delegate de l'observateur
+            if (closedQuestion.CompleteEvent.GetPersistentEventCount() > 0)
+                FindObjectOfType<ContentsSupport>().contentDisplayer.onContentCompleteDelegate = closedQuestion.CompleteEvent.Invoke;
+
+            closedQuestion.Complete();
+            Debug.Log("closedQuestionComplete");
             gameObject.SetActive(false);
         }
 

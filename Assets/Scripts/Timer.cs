@@ -35,7 +35,6 @@ public class Timer : MonoBehaviour
         float timer = 0f;
         while (timer < duration)
         {
-            Debug.Log(timer);
             if (active)
             {
                 timer += Time.deltaTime;

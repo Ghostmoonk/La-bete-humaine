@@ -18,6 +18,7 @@ public class ContentsSupport : MonoBehaviour
     #region GameObjectsReferences
     Transform tabletContentContainer;
     GameObject scrollDownArrow;
+    [HideInInspector] public ManuscriptToggler activeToggler;
     #endregion
 
     GameObject currentGameObjectToShow;
@@ -27,6 +28,9 @@ public class ContentsSupport : MonoBehaviour
     private Stack<Content> contentsStack;
     public ContentDisplayer contentDisplayer;
     bool active;
+
+    [Range(0f, 2f)]
+    public float scrollArrowDisplayDelay;
 
     #region Prefabs
     [SerializeField] GameObject simpleTextPref;
@@ -88,6 +92,7 @@ public class ContentsSupport : MonoBehaviour
     {
         animator.SetBool("Active", !animator.GetBool("Active"));
         active = animator.GetBool("Active");
+        activeToggler?.SlideIn();
     }
 
     private void Start()
@@ -95,7 +100,7 @@ public class ContentsSupport : MonoBehaviour
 
         contentsStack = new Stack<Content>();
         contentDisplayer = new ContentDisplayer();
-        contentDisplayer.displayNextContentDelegateFunction = DisplayNextContent;
+
         animator = GetComponent<Animator>();
         scrollDownArrow = GameObject.FindGameObjectWithTag("ScrollDownArrow");
         scrollDownArrow.SetActive(false);
@@ -132,7 +137,7 @@ public class ContentsSupport : MonoBehaviour
         contentsStack.Push(content);
     }
 
-    private void DisplayNextContent()
+    public void DisplayNextContent()
     {
         DisplayContent(null);
     }
@@ -158,7 +163,15 @@ public class ContentsSupport : MonoBehaviour
             else
                 currentContent = content;
 
-            //Debug.Log(currentContent);
+            //Debug.Log(currentContent.CompleteEvent.GetPersistentEventCount());
+            //Si le contenu à afficher n'a pas d'événement indiqué, comme ceux ajouté dynamiquement
+            if (currentContent.CompleteEvent.GetPersistentEventCount() == 0)
+            {
+                contentDisplayer.onContentCompleteDelegate = DisplayNextContent;
+            }
+            else
+                contentDisplayer.onContentCompleteDelegate = currentContent.CompleteEvent.Invoke;
+
             currentContent.AddObserver(contentDisplayer);
 
             if (currentContent.GetType() == typeof(SimpleText))
@@ -215,31 +228,38 @@ public class ContentsSupport : MonoBehaviour
         }
         Resizer.ResizeHeight(tabletContentContainer.GetComponent<RectTransform>());
 
-        if (tabletContentContainer.parent.parent.GetComponent<RectTransform>().sizeDelta.y < tabletContentContainer.GetComponent<RectTransform>().sizeDelta.y)
-            DisplayScrollArrow();
+        StartCoroutine(nameof(DisplayScrollArrow));
 
     }
 
-    private void DisplayScrollArrow()
+    public IEnumerator DisplayScrollArrow()
     {
-        scrollDownArrow.SetActive(true);
+        yield return new WaitForSeconds(scrollArrowDisplayDelay);
+        if (tabletContentContainer.GetComponent<RectTransform>().anchoredPosition.y < tabletContentContainer.GetComponent<RectTransform>().sizeDelta.y)
+        {
+            if (!scrollDownArrow.activeSelf)
+                scrollDownArrow.SetActive(true);
+        }
+        StopCoroutine(nameof(DisplayScrollArrow));
     }
 
     public void CreateFinalButton(string text)
     {
         GameObject specialOption = Instantiate(EndButton, tabletContentContainer);
         specialOption.GetComponentInChildren<TextMeshProUGUI>().text = text;
+        StartCoroutine(DisplayScrollArrow());
         //return specialOption;
     }
 
     #region Anim events actions
-    public void Scroll(BaseEventData eventData)
+    public void Scroll()
     {
         //Debug.Log(previousMousePos - currentMousePos);
         if (scrollDownArrow.activeSelf && (Input.mouseScrollDelta.y < 1 || previousMousePos.y - currentMousePos.y > 0f))
         {
             scrollDownArrow.SetActive(false);
         }
+
     }
 
     public void InActivePlace()

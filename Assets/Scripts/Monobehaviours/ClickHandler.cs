@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
@@ -25,11 +26,14 @@ public class ClickHandler : MonoBehaviour
 
             for (int i = 0; i < contentToDisplay.Length; i++)
             {
+                Debug.Log("Contenu à display : " + idsContentsToDisplay[i]);
                 contentToDisplay[i] = ContentFactory.CreateContent(idsContentsToDisplay[i], ContentType.SimpleText);
-
+                //À l'affichage du dernier contenu relatif à la réponse
                 if (i == contentToDisplay.Length - 1)
                 {
-                    contentToDisplay[i].AdditionalEvents.AddListener(relatedContentTransform.GetComponent<ClosedQuestionHolder>().StartProgressiveFadeIn);
+                    Debug.Log("Add listener");
+                    UnityEditor.Events.UnityEventTools.AddPersistentListener(contentToDisplay[i].CompleteEvent, relatedContentTransform.GetComponent<ClosedQuestionHolder>().StartProgressiveFadeIn);
+                    //contentToDisplay[i].CompleteEvent.AddListener(relatedContentTransform.GetComponent<ClosedQuestionHolder>().StartProgressiveFadeIn);
                 }
             }
         }
@@ -52,17 +56,10 @@ public class ClickHandler : MonoBehaviour
 
         GetComponent<Button>().interactable = false;
         remainToClick--;
+
         for (int i = 0; i < contentToDisplay.Length; i++)
         {
-            FindObjectOfType<ContentsSupport>().AddContentInStack(contentToDisplay[i]);
-            Debug.Log(contentToDisplay[i]);
-            if (i == contentToDisplay.Length - 1)
-            {
-                contentToDisplay[i].AdditionalEvents.AddListener(relatedContentTransform.GetComponent<ClosedQuestionHolder>().StartProgressiveFadeIn);
-                if (remainToClick == 0)
-                    contentToDisplay[i].AdditionalEvents.AddListener(currentContent.CompleteEvent.Invoke);
-                //FindObjectOfType<ContentsSupport>().GetCurrentContent().AdditionalEvents.AddListener(relatedContentTransform.GetComponent<ClosedQuestionHolder>().StartProgressiveFadeIn);
-            }
+            FindObjectOfType<ContentsSupport>().AddContentInStack(contentToDisplay[contentToDisplay.Length - i - 1]);
         }
 
     }
