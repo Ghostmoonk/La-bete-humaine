@@ -495,6 +495,7 @@ GameObject:
   - component: {fileID: 6827179443557867265}
   - component: {fileID: 1853929743953123340}
   - component: {fileID: 8907654226225065103}
+  - component: {fileID: 3633989885217959976}
   - component: {fileID: 8658910198818929143}
   - component: {fileID: 2001550791898010886}
   m_Layer: 5
@@ -565,8 +566,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   textMesh: {fileID: 5025054080944902170}
-  showTitle: 1
   titleTextMesh: {fileID: 5798542303934494395}
+  showTitle: 1
+--- !u!114 &3633989885217959976
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6827179443557867270}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f776385259bf58f42a144030129308c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timerEndEvent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &8658910198818929143
 MonoBehaviour:
   m_ObjectHideFlags: 0

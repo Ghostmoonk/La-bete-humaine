@@ -14,15 +14,15 @@ public class ContentDisplayer : Observer
     public delegate void DisplayNextContent();
     public delegate void DisplaySpecificContent(Content content);
 
-    public delegate void OnCompleteDelegate();
+    public delegate void OnContentCompleteDelegate();
 
     public DisplayNextContent displayNextContentDelegateFunction;
     public DisplaySpecificContent displayContentDelegateFunction;
-    public OnCompleteDelegate onCompleteDelegate;
+    public OnContentCompleteDelegate onContentCompleteDelegate;
 
     public override void OnComplete()
     {
-        //onCompleteDelegate?.Invoke();
+        onContentCompleteDelegate?.Invoke();
         displayNextContentDelegateFunction?.Invoke();
     }
 

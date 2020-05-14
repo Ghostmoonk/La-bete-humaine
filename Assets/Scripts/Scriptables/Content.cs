@@ -7,7 +7,7 @@ using UnityEngine.Events;
 
 public enum ContentType
 {
-    OpenQuestion, ClosedQuestion, FillGaps, SimpleText, Button
+    OpenQuestion, ClosedQuestion, FillGaps, SimpleText
 }
 
 

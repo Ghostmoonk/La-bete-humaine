@@ -11,10 +11,11 @@ using UnityEngine.Events;
 public class TextHolder : MonoBehaviour
 {
     [HideInInspector] public SimpleText simpleText;
-
     [SerializeField] TextMeshProUGUI textMesh;
-    public bool showTitle;
     [HideInInspector] public TextMeshProUGUI titleTextMesh;
+    public bool showTitle;
+
+    Timer lectureTimeTimer;
 
     private void OnEnable()
     {
@@ -25,22 +26,41 @@ public class TextHolder : MonoBehaviour
             titleTextMesh.text = simpleText.textData.title;
             //titleTextMesh.transform.parent.GetComponent<RectTransform>().sizeDelta = new Vector2(titleTextMesh.transform.parent.GetComponent<RectTransform>().sizeDelta.x, titleTextMesh.GetComponent<RectTransform>().sizeDelta.y);
         }
-        StartCoroutine(nameof(WaitLectureTime));
-
-        //simpleText.AddObserver(FindObjectOfType<ContentsSupport>().contentDisplayer);
     }
 
-    IEnumerator WaitLectureTime()
+    private void Start()
     {
-        float timer = 0f;
-        while (timer < simpleText.textData.minimumReadTime)
-        {
-            if (FindObjectOfType<ContentsSupport>().IsOnScreen())
-            {
-                timer += Time.deltaTime;
-            }
-            yield return null;
-        }
-        simpleText.Complete();
+        lectureTimeTimer = GetComponent<Timer>();
+
+        lectureTimeTimer.SetTimer(simpleText.textData.minimumReadTime);
+        lectureTimeTimer.timerEndEvent.AddListener(simpleText.Complete);
+        lectureTimeTimer.StartTimer();
+
     }
+
+    private void Update()
+    {
+        if (!FindObjectOfType<ContentsSupport>().IsOnScreen() && !lectureTimeTimer.over)
+        {
+            lectureTimeTimer.SetTimerActive(false);
+        }
+        else if (FindObjectOfType<ContentsSupport>().IsOnScreen() && !lectureTimeTimer.over && !lectureTimeTimer.IsActive())
+        {
+            lectureTimeTimer.SetTimerActive(true);
+        }
+    }
+
+    //IEnumerator WaitLectureTime()
+    //{
+    //    float timer = 0f;
+    //    while (timer < simpleText.textData.minimumReadTime)
+    //    {
+    //        if (FindObjectOfType<ContentsSupport>().IsOnScreen())
+    //        {
+    //            timer += Time.deltaTime;
+    //        }
+    //        yield return null;
+    //    }
+    //    simpleText.Complete();
+    //}
 }
