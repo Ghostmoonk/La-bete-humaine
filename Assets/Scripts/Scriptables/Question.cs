@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Net.Security;
 using UnityEngine;
 
-public class Question : Content
+public abstract class Question : Content
 {
     public QuestionData questionData;
 

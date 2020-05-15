@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using DG.Tweening;
 
 public class ThinkBubble : MonoBehaviour
 {
     Animator animator;
-    Renderer renderer;
     Image contentImg;
 
     void Start()
@@ -17,11 +17,14 @@ public class ThinkBubble : MonoBehaviour
         gameObject.SetActive(false);
     }
 
-    public void Activate(Texture2D sprite)
+    private void OnEnable()
     {
-        //contentImg.sprite = sprite;
-        renderer.material.SetTexture("_MainTexture", sprite);
+    }
+    public void Activate(Sprite sprite)
+    {
+        contentImg.sprite = sprite;
         gameObject.SetActive(true);
+        transform.DOShakePosition(5f);
     }
 
     //IEnumerator SwapSprite(Sprite[] sprites)
@@ -43,6 +46,7 @@ public class ThinkBubble : MonoBehaviour
 
     public void Desactivate()
     {
+        transform.DOKill();
         gameObject.SetActive(false);
     }
 

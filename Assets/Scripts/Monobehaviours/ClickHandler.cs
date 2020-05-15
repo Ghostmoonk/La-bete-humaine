@@ -33,6 +33,7 @@ public class ClickHandler : MonoBehaviour
                 {
                     Debug.Log("Add listener");
                     UnityEditor.Events.UnityEventTools.AddPersistentListener(contentToDisplay[i].CompleteEvent, relatedContentTransform.GetComponent<ClosedQuestionHolder>().StartProgressiveFadeIn);
+                    UnityEditor.Events.UnityEventTools.AddPersistentListener(contentToDisplay[i].CompleteEvent, ReplaceContentAtBottom);
                     //contentToDisplay[i].CompleteEvent.AddListener(relatedContentTransform.GetComponent<ClosedQuestionHolder>().StartProgressiveFadeIn);
                 }
             }
@@ -42,17 +43,16 @@ public class ClickHandler : MonoBehaviour
     private void Start()
     {
         animator = GetComponent<Animator>();
-        FindObjectOfType<ContentsSupport>().contentDisplayer.displayNextContentDelegateFunction += ReplaceContentAtBottom;
     }
     public void Click()
     {
         relatedContentTransform.GetComponent<ClosedQuestionHolder>().StartProgressiveFade(false);
         //S'il ne reste plus qu'un choix quand on click
-        if (remainToClick < 2)
-        {
-            FindObjectOfType<ContentsSupport>().contentDisplayer.displayNextContentDelegateFunction -= ReplaceContentAtBottom;
+        //if (remainToClick < 2)
+        //{
+        //    FindObjectOfType<ContentsSupport>().contentDisplayer.displayNextContentDelegateFunction -= ReplaceContentAtBottom;
 
-        }
+        //}
 
         GetComponent<Button>().interactable = false;
         remainToClick--;
