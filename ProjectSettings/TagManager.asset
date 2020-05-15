@@ -10,6 +10,7 @@ TagManager:
   - ScrollArrow
   - ScrollDownArrow
   - ManuscriptSource
+  - GlossaryPopUp
   layers:
   - Default
   - TransparentFX

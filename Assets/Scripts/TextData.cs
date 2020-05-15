@@ -34,5 +34,16 @@ namespace TextContent
         }
     }
 
+    public class GlossaryData
+    {
+        public string word;
+        public string definition;
+
+        public GlossaryData(string word, string definition)
+        {
+            this.word = word;
+            this.definition = definition;
+        }
+    }
 }
 

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using TextContent;
 using UnityEngine;
 
 public abstract class Observer
@@ -31,4 +32,21 @@ public class ContentDisplayer : Observer
     //    displayContentDelegateFunction?.Invoke(content);
     //    displayContentDelegateFunction = null;
     //}
+}
+
+public class GlossaryObserver : Observer
+{
+    public delegate void GlossaryDelegate(Vector3 vec3, GlossaryData data);
+
+    public GlossaryDelegate glossaryDelegate;
+
+    public override void OnComplete()
+    {
+
+    }
+    public void OnHighligh(Vector3 pos, GlossaryData data)
+    {
+        glossaryDelegate?.Invoke(pos, data);
+    }
+
 }

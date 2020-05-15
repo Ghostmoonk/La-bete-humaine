@@ -10,15 +10,30 @@ public enum ContentType
     OpenQuestion, ClosedQuestion, FillGaps, SimpleText
 }
 
+public abstract class Subject
+{
+    protected List<Observer> observers = new List<Observer>();
 
-public abstract class Content
+    public abstract void Complete();
+
+    public virtual void AddObserver(Observer observer)
+    {
+        observers.Add(observer);
+    }
+
+    public virtual void RemoveObserver(Observer observer)
+    {
+        observers.Remove(observer);
+    }
+}
+
+public abstract class Content : Subject
 {
     public UnityEvent CompleteEvent = new UnityEvent();
     public UnityEvent AdditionalEvents = new UnityEvent();
 
-    List<Observer> observers = new List<Observer>();
 
-    public void Complete()
+    public override void Complete()
     {
         for (int i = 0; i < observers.Count; i++)
         {
@@ -27,25 +42,6 @@ public abstract class Content
         AdditionalEvents?.Invoke();
     }
 
-    //public void Complete(Content content)
-    //{
-    //    for (int i = 0; i < observers.Count; i++)
-    //    {
-    //        observers[i].OnComplete(content);
-    //    }
-    //    AdditionalEvents?.Invoke();
-    //}
-
-
-    public void AddObserver(Observer observer)
-    {
-        observers.Add(observer);
-    }
-
-    public void RemoveObserver(Observer observer)
-    {
-        observers.Remove(observer);
-    }
 }
 
 [Serializable]

@@ -31,12 +31,34 @@ public class TextsLoader : MonoBehaviour
 
         FetchTextsData();
         FetchQuestionsData();
+        FetchGlossaryData();
+
+        DontDestroyOnLoad(gameObject);
     }
+
     #endregion
 
     public Dictionary<int, TextData> textsDico;
     public Dictionary<int, QuestionData> questionsDico;
-    //Pour associer un id à un texte
+    public Dictionary<int, GlossaryData> glossaryDico;
+
+
+    private void FetchGlossaryData()
+    {
+        glossaryDico = new Dictionary<int, GlossaryData>();
+        TextAsset textsData = Resources.Load<TextAsset>("Glossary");
+
+        string[] data = textsData.text.Split(new char[] { '\n' });
+
+        for (int i = 1; i < data.Length - 1; i++)
+        {
+            string[] row = data[i].Split(new char[] { '|' });
+
+            GlossaryData glossaryData = new GlossaryData(row[1], row[2]);
+            Debug.Log(row[0]);
+            glossaryDico[int.Parse(row[0])] = glossaryData;
+        }
+    }
 
     private void FetchTextsData()
     {
@@ -53,7 +75,6 @@ public class TextsLoader : MonoBehaviour
             int.TryParse(row[7], out minReadTime);
             TextData textRow = new TextData(row[2], row[3], row[4], row[5], row[6], minReadTime, row[8]);
             textsDico[int.Parse(row[0])] = textRow;
-
         }
     }
 
@@ -120,5 +141,17 @@ public class TextsLoader : MonoBehaviour
         Sprite manuscritSprite = Resources.Load<Sprite>("images/" + textsDico[id].manuscritPath.Split('.')[0]);
 
         return manuscritSprite;
+    }
+
+    public int ContainWordInGlossary(string word)
+    {
+        foreach (var item in glossaryDico)
+        {
+            if (item.Value.word.ToLower().Normalize() == word.ToLower().Normalize())
+            {
+                return item.Key;
+            }
+        }
+        return -1;
     }
 }

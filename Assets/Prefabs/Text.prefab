@@ -164,6 +164,8 @@ GameObject:
   - component: {fileID: 7747638962970152796}
   - component: {fileID: 7415970947907429889}
   - component: {fileID: 4177431684276158012}
+  - component: {fileID: 7838981334165939255}
+  - component: {fileID: 7741016227727222573}
   m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
@@ -299,7 +301,7 @@ MonoBehaviour:
     spaceCount: 74
     wordCount: 74
     linkCount: 0
-    lineCount: 9
+    lineCount: 7
     pageCount: 1
     materialCount: 1
   m_isUsingLegacyAnimationComponent: 0
@@ -381,3 +383,41 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &7838981334165939255
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9150275629335918902}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f3e2683656f8d5438e1b29d73402136, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ShowCharacters: 0
+  ShowWords: 1
+  ShowLinks: 0
+  ShowLines: 0
+  ShowMeshBounds: 0
+  ShowTextBounds: 0
+  ObjectStats: 'Characters: 463   Words: 74   Spaces: 74   Sprites: 0   Links: 0
+
+    Lines:
+    7   Pages: 1'
+--- !u!114 &7741016227727222573
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9150275629335918902}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fba2e4b45b1aad043b1ad7611cd58dc6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textComponent: {fileID: 0}
+  highlightedColor:
+    serializedVersion: 2
+    rgba: 4278190080
