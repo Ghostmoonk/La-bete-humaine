@@ -8,7 +8,7 @@ using UnityEngine.Events;
 
 //S'attache sur un text, contient simplement les informations d'un text
 
-public class TextHolder : MonoBehaviour
+public class TextHolder : ContentHolder
 {
     [HideInInspector] public SimpleText simpleText;
     [SerializeField] TextMeshProUGUI textMesh;
@@ -28,8 +28,9 @@ public class TextHolder : MonoBehaviour
         }
     }
 
-    private void Start()
+    protected override void Start()
     {
+        base.Start();
         lectureTimeTimer = GetComponent<Timer>();
 
         lectureTimeTimer.SetTimer(simpleText.textData.minimumReadTime);

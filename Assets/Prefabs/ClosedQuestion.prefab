@@ -327,7 +327,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fad0af33a43c4ef4486d6e2e9c8ec0ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animator: {fileID: 0}
   questionText: {fileID: 4832157925117456849}
   optionsContainer: {fileID: 6488361761709665240}
   optionPrefab: {fileID: 1652571781331051741, guid: 3391a5cccd4f4fe46b3f1d42b555e384,
     type: 3}
+  FadeOutEvents:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5708767637330114197}
+        m_MethodName: FadeOutOtherContents
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 5708767637330114197}
+        m_MethodName: DisplayAnswerDelayed
+        m_Mode: 4
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 1.5
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2

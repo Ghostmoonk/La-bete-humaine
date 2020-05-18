@@ -28,7 +28,7 @@ public class ContentsSupport : MonoBehaviour
     private Stack<Content> contentsStack;
     public ContentDisplayer contentDisplayer;
     bool active;
-
+    bool scrollControl;
     [Range(0f, 2f)]
     public float scrollArrowDisplayDelay;
 
@@ -50,6 +50,7 @@ public class ContentsSupport : MonoBehaviour
     private void OnEnable()
     {
         active = false;
+        scrollControl = true;
     }
 
     public bool IsOnScreen()
@@ -140,6 +141,11 @@ public class ContentsSupport : MonoBehaviour
     public void DisplayNextContent()
     {
         DisplayContent(null);
+    }
+
+    public void DisplayNextContentDelayed(float delay)
+    {
+        Invoke(nameof(DisplayNextContent), delay);
     }
 
     public Content GetCurrentContent()
@@ -252,14 +258,51 @@ public class ContentsSupport : MonoBehaviour
     }
 
     #region Anim events actions
-    public void Scroll()
+    public void DesactivateArrow()
     {
         //Debug.Log(previousMousePos - currentMousePos);
         if (scrollDownArrow.activeSelf && (Input.mouseScrollDelta.y < 1 || previousMousePos.y - currentMousePos.y > 0f))
         {
             scrollDownArrow.SetActive(false);
         }
+    }
 
+    public void SetScrollControl()
+    {
+        scrollControl = true;
+    }
+
+    private void Scroll(float speed)
+    {
+        Vector3 contentPosition = tabletContentContainer.GetComponent<RectTransform>().position;
+        float newPositionY = contentPosition.y + speed;
+        Vector3 newPosition = new Vector3(contentPosition.x, newPositionY, contentPosition.z);
+        tabletContentContainer.GetComponent<RectTransform>().position = newPosition;
+
+    }
+
+    IEnumerator AutoScroll(float speed)
+    {
+
+        yield return new WaitForSeconds(0.1f);
+        scrollControl = false;
+        DesactivateArrow();
+        float initialSpeed = speed;
+        float initialDistance = tabletContentContainer.GetComponent<RectTransform>().sizeDelta.y - tabletContentContainer.GetComponent<RectTransform>().anchoredPosition.y;
+        while (tabletContentContainer.GetComponent<RectTransform>().anchoredPosition.y < tabletContentContainer.GetComponent<RectTransform>().sizeDelta.y && !scrollControl)
+        {
+            float distanceRemaining = tabletContentContainer.GetComponent<RectTransform>().sizeDelta.y - tabletContentContainer.GetComponent<RectTransform>().anchoredPosition.y;
+            Scroll(speed * Time.deltaTime);
+            speed = Mathf.Lerp(2, initialSpeed, distanceRemaining / initialDistance);
+            Debug.Log((float)(distanceRemaining / initialDistance));
+            yield return new WaitForSeconds(Time.deltaTime);
+        }
+        scrollControl = true;
+    }
+
+    public void StartScroll(float speed)
+    {
+        StartCoroutine(AutoScroll(speed));
     }
 
     public void InActivePlace()

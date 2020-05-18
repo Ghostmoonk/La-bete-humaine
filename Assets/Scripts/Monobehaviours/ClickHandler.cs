@@ -44,15 +44,10 @@ public class ClickHandler : MonoBehaviour
     {
         animator = GetComponent<Animator>();
     }
+
     public void Click()
     {
         relatedContentTransform.GetComponent<ClosedQuestionHolder>().StartProgressiveFade(false);
-        //S'il ne reste plus qu'un choix quand on click
-        //if (remainToClick < 2)
-        //{
-        //    FindObjectOfType<ContentsSupport>().contentDisplayer.displayNextContentDelegateFunction -= ReplaceContentAtBottom;
-
-        //}
 
         GetComponent<Button>().interactable = false;
         remainToClick--;

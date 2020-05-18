@@ -331,6 +331,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 736d8598c2370c54ba365fde70a1290f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animator: {fileID: 0}
   textMesh: {fileID: 9150275629335918896}
   titleTextMesh: {fileID: 0}
   showTitle: 0

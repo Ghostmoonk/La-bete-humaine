@@ -6,7 +6,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class OpenQuestionHolder : MonoBehaviour
+public class OpenQuestionHolder : ContentHolder
 {
     [HideInInspector] public OpenQuestion openQuestion;
     [SerializeField] TextMeshProUGUI questionText;
@@ -16,8 +16,10 @@ public class OpenQuestionHolder : MonoBehaviour
 
     bool done;
 
-    private void Start()
+    protected override void Start()
     {
+        base.Start();
+
         questionText.text = openQuestion.questionData.question;
         placeholderText.text = openQuestion.questionData.placeholder;
     }

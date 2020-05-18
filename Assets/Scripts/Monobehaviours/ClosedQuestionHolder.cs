@@ -6,18 +6,20 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
 
-public class ClosedQuestionHolder : MonoBehaviour
+public class ClosedQuestionHolder : ContentHolder
 {
     [HideInInspector] public ClosedQuestion closedQuestion;
 
     [SerializeField] TextMeshProUGUI questionText;
     [SerializeField] Transform optionsContainer;
     [SerializeField] GameObject optionPrefab;
-    Animator animator;
 
-    private void Start()
+    public UnityEvent FadeOutEvents;
+
+    protected override void Start()
     {
-        animator = GetComponent<Animator>();
+        base.Start();
+
         questionText.text = closedQuestion.questionData.question;
 
         StartCoroutine(InstantiateOptions());
@@ -93,7 +95,7 @@ public class ClosedQuestionHolder : MonoBehaviour
 
             if (!show)
             {
-                FindObjectOfType<ContentsSupport>().DisplayNextContent();
+                FadeOutEvents?.Invoke();
                 StopCoroutine(ProgressiveFade(false));
                 yield return null;
                 gameObject.SetActive(false);
@@ -115,8 +117,20 @@ public class ClosedQuestionHolder : MonoBehaviour
             Debug.Log("closedQuestionComplete");
             gameObject.SetActive(false);
         }
+    }
 
+    public void FadeOutOtherContents()
+    {
+        for (int i = 0; i < transform.parent.transform.childCount; i++)
+        {
+            if (transform.parent.GetChild(i) != transform && transform.parent.GetChild(i).GetComponent<ContentHolder>() != null)
+                transform.parent.GetChild(i).GetComponent<ContentHolder>().animator.SetBool("Show", false);
+        }
+    }
 
+    public void DisplayAnswerDelayed(float delay)
+    {
+        FindObjectOfType<ContentsSupport>().DisplayNextContentDelayed(delay);
     }
 
 }

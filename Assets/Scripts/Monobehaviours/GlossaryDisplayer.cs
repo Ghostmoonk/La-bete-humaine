@@ -4,6 +4,7 @@ using TextContent;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GlossaryDisplayer : MonoBehaviour
 {
@@ -33,6 +34,7 @@ public class GlossaryDisplayer : MonoBehaviour
     public GlossaryObserver glossaryObserver;
 
     GlossaryData currentWordData;
+    [SerializeField] Vector3 offset;
 
     private void OnEnable()
     {
@@ -55,9 +57,25 @@ public class GlossaryDisplayer : MonoBehaviour
 
         if (currentWordData != null)
         {
+            RectTransform popupTransform = popup.GetComponent<RectTransform>();
             popup.SetWordText(data.word);
             popup.SetDefinitionText(data.definition);
-            popup.GetComponent<RectTransform>().anchoredPosition = pos;
+            pos.z = popup.transform.position.z;
+
+            Vector3 offsetPos;
+            offsetPos = Camera.main.ScreenToWorldPoint(pos + offset);
+            popupTransform.position = offsetPos;
+
+            Vector2 adjustingOffset = Vector2.zero;
+            if (popupTransform.anchoredPosition.x + popupTransform.sizeDelta.x > popupTransform.parent.GetComponent<CanvasScaler>().referenceResolution.x)
+            {
+                adjustingOffset.x = -popupTransform.sizeDelta.x - (offset.x * 2);
+            }
+            if (popupTransform.anchoredPosition.y + popupTransform.sizeDelta.y > 0)
+            {
+                adjustingOffset.y = -popupTransform.sizeDelta.y - (offset.y * 2);
+            }
+            popupTransform.anchoredPosition += adjustingOffset;
         }
         else
         {

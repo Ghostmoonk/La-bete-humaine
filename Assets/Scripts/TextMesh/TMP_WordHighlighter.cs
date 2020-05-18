@@ -59,7 +59,7 @@ public class TMP_WordHighlighter : MonoBehaviour, IPointerEnterHandler, IPointer
     public void OnPointerDown(PointerEventData eventData)
     {
         int wordIndex = TMP_TextUtilities.FindIntersectingWord(textComponent, Input.mousePosition, Camera.main);
-
+        Debug.Log(Input.mousePosition);
         if (wordIndex != -1)
         {
             TMP_WordInfo wInfo;
@@ -83,9 +83,8 @@ public class TMP_WordHighlighter : MonoBehaviour, IPointerEnterHandler, IPointer
             currentSelectedWord = wordIndex;
 
             wInfo = textComponent.textInfo.wordInfo[currentSelectedWord];
-            int wordId = TextsLoader.Instance.ContainWordInGlossary(wInfo.GetWord());
-
             //We fetch in the glossary if the highlighted word is in
+            int wordId = TextsLoader.Instance.ContainWordInGlossary(wInfo.GetWord());
 
             //S'il est != de -1, il y est
             if (wordId != -1)

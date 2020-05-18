@@ -128,6 +128,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29c784e250d808e418bf29cfb3d28e4e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animator: {fileID: 0}
   questionText: {fileID: 368565813881381556}
   placeholderText: {fileID: 4513891365171006795}
   textInput: {fileID: 4513891364286635271}
