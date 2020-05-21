@@ -12,8 +12,9 @@ public class TextHolder : ContentHolder
 {
     [HideInInspector] public SimpleText simpleText;
     [SerializeField] TextMeshProUGUI textMesh;
-    [HideInInspector] public TextMeshProUGUI titleTextMesh;
-    public bool showTitle;
+    [SerializeField] private TextMeshProUGUI titleTextMesh;
+    [SerializeField] private TextMeshProUGUI paratextTextMesh;
+    [SerializeField] private ManuscriptToggler manuscriptToggler;
 
     Timer lectureTimeTimer;
 
@@ -21,10 +22,20 @@ public class TextHolder : ContentHolder
     {
         textMesh.text = simpleText.textData.content;
 
-        if (showTitle)
-        {
+        if (simpleText.textData.title.Length > 0)
             titleTextMesh.text = simpleText.textData.title;
-            //titleTextMesh.transform.parent.GetComponent<RectTransform>().sizeDelta = new Vector2(titleTextMesh.transform.parent.GetComponent<RectTransform>().sizeDelta.x, titleTextMesh.GetComponent<RectTransform>().sizeDelta.y);
+        else
+            titleTextMesh.gameObject.SetActive(false);
+
+        if (simpleText.textData.paratext.Length > 0)
+            paratextTextMesh.text = simpleText.textData.paratext;
+
+        else
+        {
+            paratextTextMesh.gameObject.SetActive(false);
+
+            if (simpleText.textData.manuscritPath != null)
+                manuscriptToggler.transform.SetParent(textMesh.transform);
         }
     }
 

@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Net.Security;
 using UnityEngine;
+using UnityEngine.Events;
 
 public abstract class Question : Content
 {
@@ -17,6 +18,7 @@ public abstract class Question : Content
 public sealed class OpenQuestion : Question
 {
     public new OpenQuestionData questionData;
+    public UnityEvent OnSelectEvents;
 
     public OpenQuestion(QuestionData data) : base(data)
     {

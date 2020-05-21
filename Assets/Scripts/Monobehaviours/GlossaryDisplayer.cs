@@ -32,57 +32,86 @@ public class GlossaryDisplayer : MonoBehaviour
     #endregion
     GlossaryPopUp popup;
     public GlossaryObserver glossaryObserver;
+    [SerializeField] ImageSlider imageSlider;
 
     GlossaryData currentWordData;
-    [SerializeField] Vector3 offset;
+    //[SerializeField] Vector3 offset;
 
     private void OnEnable()
     {
         popup = FindObjectOfType<GlossaryPopUp>();
         popup.gameObject.SetActive(false);
+
     }
     private void Start()
     {
         glossaryObserver = new GlossaryObserver();
-        glossaryObserver.glossaryDelegate += SetPopUpGlossary;
+        glossaryObserver.glossaryDelegate += SetGlossary;
     }
 
-    private void SetPopUpGlossary(Vector3 pos, GlossaryData data)
+    private void SetGlossary(Vector3 pos, GlossaryData data)
     {
-        if (!popup.gameObject.activeSelf)
-            popup.gameObject.SetActive(true);
-
-        currentWordData = data;
-
-
-        if (currentWordData != null)
+        //Debug.Log(imageSlider.transform.TransformPoint(pos));
+        if (data != null)
         {
-            RectTransform popupTransform = popup.GetComponent<RectTransform>();
-            popup.SetWordText(data.word);
-            popup.SetDefinitionText(data.definition);
-            pos.z = popup.transform.position.z;
-
-            Vector3 offsetPos;
-            offsetPos = Camera.main.ScreenToWorldPoint(pos + offset);
-            popupTransform.position = offsetPos;
-
-            Vector2 adjustingOffset = Vector2.zero;
-            if (popupTransform.anchoredPosition.x + popupTransform.sizeDelta.x > popupTransform.parent.GetComponent<CanvasScaler>().referenceResolution.x)
+            //We want to display an image
+            if (data.imagePath != null)
             {
-                adjustingOffset.x = -popupTransform.sizeDelta.x - (offset.x * 2);
+                imageSlider.SlideIn();
+                Sprite spriteRef = Resources.Load<Sprite>("images/" + data.imagePath.Split('.')[0]);
+                imageSlider.ShowImage(spriteRef, imageSlider.transform.TransformPoint(pos).y, data.definition);
             }
-            if (popupTransform.anchoredPosition.y + popupTransform.sizeDelta.y > 0)
+            //We want to display a definition
+            else
             {
-                adjustingOffset.y = -popupTransform.sizeDelta.y - (offset.y * 2);
+                if (!popup.gameObject.activeSelf)
+                {
+                    popup.gameObject.SetActive(true);
+                }
+                //If there is curently displayed a glossary image
+                if (currentWordData != null)
+                    if (currentWordData.imagePath != null)
+                        imageSlider.SlideIn();
+
+                popup.SetWordText(data.word);
+                popup.SetDefinitionText(data.definition);
             }
-            popupTransform.anchoredPosition += adjustingOffset;
+            currentWordData = data;
         }
         else
         {
+            if (currentWordData != null)
+            {
+                if (currentWordData.imagePath != null)
+                    imageSlider.SlideIn();
+                else
+                    HidePopUp();
+            }
             currentWordData = null;
-            HidePopUp();
         }
     }
+
+    //Permet de placer le popup sur la souris avec un offset
+    //private void PlaceOnPosition(Vector3 pos)
+    //{
+    //    RectTransform popupTransform = popup.GetComponent<RectTransform>();
+    //    pos.z = popup.transform.position.z;
+
+    //    Vector3 offsetPos;
+    //    offsetPos = Camera.main.ScreenToWorldPoint(pos + offset);
+    //    popupTransform.position = offsetPos;
+
+    //    Vector2 adjustingOffset = Vector2.zero;
+    //    if (popupTransform.anchoredPosition.x + popupTransform.sizeDelta.x > popupTransform.GetComponentInParent<CanvasScaler>().referenceResolution.x)
+    //    {
+    //        adjustingOffset.x = -popupTransform.sizeDelta.x - (offset.x * 2);
+    //    }
+    //    if (popupTransform.anchoredPosition.y + popupTransform.sizeDelta.y > 0)
+    //    {
+    //        adjustingOffset.y = -popupTransform.sizeDelta.y - (offset.y * 2);
+    //    }
+    //    popupTransform.anchoredPosition += adjustingOffset;
+    //}
 
     private void HidePopUp()
     {

@@ -30,7 +30,7 @@ public abstract class Subject
 public abstract class Content : Subject
 {
     public UnityEvent CompleteEvent = new UnityEvent();
-    public UnityEvent AdditionalEvents = new UnityEvent();
+    //public UnityEvent AdditionalEvents = new UnityEvent();
 
 
     public override void Complete()
@@ -39,7 +39,7 @@ public abstract class Content : Subject
         {
             observers[i].OnComplete();
         }
-        AdditionalEvents?.Invoke();
+        //AdditionalEvents?.Invoke();
     }
 
 }
@@ -50,4 +50,5 @@ public struct ContentRef
     public ContentType type;
     public int id;
     public UnityEvent CompleteEvent;
+    [HideInInspector] public UnityEvent OnSelectEvent;
 }

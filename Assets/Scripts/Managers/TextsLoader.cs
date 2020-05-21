@@ -42,7 +42,6 @@ public class TextsLoader : MonoBehaviour
     public Dictionary<int, QuestionData> questionsDico;
     public Dictionary<int, GlossaryData> glossaryDico;
 
-
     private void FetchGlossaryData()
     {
         glossaryDico = new Dictionary<int, GlossaryData>();
@@ -53,9 +52,16 @@ public class TextsLoader : MonoBehaviour
         for (int i = 1; i < data.Length - 1; i++)
         {
             string[] row = data[i].Split(new char[] { '|' });
+            GlossaryData glossaryData;
 
-            GlossaryData glossaryData = new GlossaryData(row[1], row[2]);
-            Debug.Log(row[0]);
+            if (row[3].Contains(".png") || row[3].Contains(".jpg") || row[3].Contains(".jpeg"))
+            {
+                glossaryData = new GlossaryData(row[1], row[2], row[3]);
+            }
+            else
+            {
+                glossaryData = new GlossaryData(row[1], row[2]);
+            }
             glossaryDico[int.Parse(row[0])] = glossaryData;
         }
     }
@@ -70,10 +76,12 @@ public class TextsLoader : MonoBehaviour
         for (int i = 1; i < data.Length - 1; i++)
         {
             string[] row = data[i].Split(new char[] { '|' });
-
+            string text = row[3].Replace("\\n", "\n");
             int minReadTime = 0;
             int.TryParse(row[7], out minReadTime);
-            TextData textRow = new TextData(row[2], row[3], row[4], row[5], row[6], minReadTime, row[8]);
+            Debug.Log("paratext length :" + row[9].Length);
+            Debug.Log("title length :" + row[2].Length);
+            TextData textRow = new TextData(row[2], text, row[9], row[4], row[5], row[6], minReadTime, row[8]);
             textsDico[int.Parse(row[0])] = textRow;
         }
     }

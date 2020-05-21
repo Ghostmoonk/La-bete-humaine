@@ -26,7 +26,7 @@ public class TMP_WordHighlighter : MonoBehaviour, IPointerEnterHandler, IPointer
     {
         notifier = new HighlightNotifier();
         notifier.AddObserver(GlossaryDisplayer.Instance.glossaryObserver);
-        Debug.Log(GlossaryDisplayer.Instance.glossaryObserver + " added");
+
     }
 
     public void OnPointerEnter(PointerEventData eventData)
@@ -59,7 +59,7 @@ public class TMP_WordHighlighter : MonoBehaviour, IPointerEnterHandler, IPointer
     public void OnPointerDown(PointerEventData eventData)
     {
         int wordIndex = TMP_TextUtilities.FindIntersectingWord(textComponent, Input.mousePosition, Camera.main);
-        Debug.Log(Input.mousePosition);
+
         if (wordIndex != -1)
         {
             TMP_WordInfo wInfo;
@@ -80,23 +80,22 @@ public class TMP_WordHighlighter : MonoBehaviour, IPointerEnterHandler, IPointer
                 ChangeWordColor(wInfo, normalColor);
             }
 
-            currentSelectedWord = wordIndex;
-
-            wInfo = textComponent.textInfo.wordInfo[currentSelectedWord];
+            wInfo = textComponent.textInfo.wordInfo[wordIndex];
             //We fetch in the glossary if the highlighted word is in
             int wordId = TextsLoader.Instance.ContainWordInGlossary(wInfo.GetWord());
 
             //S'il est != de -1, il y est
             if (wordId != -1)
             {
+                currentSelectedWord = wordIndex;
                 ChangeWordColor(wInfo, highlightedColor);
             }
             else
             {
                 return;
             }
-
-            notifier.BroadcastHighlight(Input.mousePosition, TextsLoader.Instance.glossaryDico[wordId]);
+            Vector3 wordCoordinates = textComponent.textInfo.characterInfo[textComponent.textInfo.wordInfo[wordIndex].firstCharacterIndex].bottomLeft;
+            notifier.BroadcastHighlight(wordCoordinates, TextsLoader.Instance.glossaryDico[wordId]);
         }
         //on a cliquer ailleurs, on retire la couleur et on notifie l'observer
         else
@@ -114,12 +113,13 @@ public class TMP_WordHighlighter : MonoBehaviour, IPointerEnterHandler, IPointer
     //On exit, automatically reset the currentSelectedWord if there is one
     public void OnPointerExit(PointerEventData eventData)
     {
-        if (currentSelectedWord != -1)
-        {
-            TMP_WordInfo wInfo = textComponent.textInfo.wordInfo[currentSelectedWord];
-            ChangeWordColor(wInfo, normalColor);
-            currentSelectedWord = -1;
-        }
+        //if (currentSelectedWord != -1)
+        //{
+        //    TMP_WordInfo wInfo = textComponent.textInfo.wordInfo[currentSelectedWord];
+        //    ChangeWordColor(wInfo, normalColor);
+        //    currentSelectedWord = -1;
+        //    notifier.BroadcastHighlight(Vector3.zero);
+        //}
     }
 
     public void OnPointerUp(PointerEventData eventData)

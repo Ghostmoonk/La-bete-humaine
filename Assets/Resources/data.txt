@@ -1,0 +1,88 @@
+﻿{
+    "Textes": [
+        {
+            "ID": "0",
+            "Name": "Fin",
+            "Content": "Immédiatement, Pecqueux rouvrit, s’acharna à remettre du charbon, comme s’il eût voulu faire sauter la machine. C’était la révolte, les ordres méconnus, la passion exaspérée qui ne tenait plus compte de toutes ces vies humaines. Et, Jacques s’étant penché pour abaisser lui-même la tige du cendrier, de façon à diminuer au moins le tirage, le chauffeur le saisit brusquement à bras-le-corps, tâcha de le pousser, de le jeter sur la voie, d’une violente secousse. ",
+            "Author": "Zola",
+            "Scene": "Introduction",
+            "Image": "Zola-manuscrit-1.png",
+            "MinimumReadTime (s)": "5",
+            "ImageInfo": "La Bête humaine, Dossier Manuscrits “Ébauche”, folio 727r"
+        },
+        {
+            "ID": "1",
+            "Name": "Reponse Lefevre",
+            "Content": "Lefèvre lui prévoyant un destin assez prosaïque : « La pression monterait, la vitesse grandirait pendant un instant ; puis tout diminuerait et la machine finirait par s’arrêter, faute de feu. Cela pourrait durer une demi-heure, trois quarts d’heure », Le conducteur-chef ou le conducteur d’arrière pourraient même s’apercevoir de l’accident et serrer leur propre frein.",
+            "Author": "Lefevre",
+            "Scene": "Introduction",
+            "MinimumReadTime (s)": "5"
+        },
+        {
+            "ID": "2",
+            "Name": "Reponse Zola",
+            "Content": "« En tout cas, on peut avoir une demi-heure de course folle dans la nuit. Le conducteur-chef sommeille. Le train court. Malaise du conducteur d’arrière et des voyageurs. Passage à toute vapeur d’une gare [,,,] Arrêt à 3 lieues de là, au milieu d’affreux dangers »",
+            "Author": "Zola",
+            "Scene": "Introduction",
+            "Image": "Zola.png",
+            "MinimumReadTime (s)": "5",
+            "ImageInfo": "Portrait d’Émile Zola, 1902"
+        },
+        {
+            "ID": "3",
+            "Name": "Hypothèse Zola",
+            "Title": "Confronte ton hypothèse avec celle de Zola",
+            "Content": "« Je pense à une chose : ce serait de finir par le train privé de son chauffeur et de son mécanicien passant à toute vapeur, comme une bête prise de folie. »",
+            "Author": "Zola",
+            "Scene": "Introduction",
+            "Image": "Zola-manuscrit-2.jpg",
+            "MinimumReadTime (s)": "5",
+            "ImageInfo": "La Bête humaine, Dossier Manuscrits “Ébauche”"
+        },
+        {
+            "ID": "4",
+            "Name": "Dialogue Pecqueux-Lantier",
+            "Content": "“Lantier : Assez ! Pecqueux :  Touche pas, ou je cogne ! … ça m’amuse, moi, qu’on aille vite ! Lantier : Il y a trop de feu … Dormez, si vous êtes soûl. … Lantier: Je vais arrêter le train ! Il se dégage d’une secousse brusque et violente des bras de Pecqueux.",
+            "Author": "Zola",
+            "Scene": "Introduction",
+            "MinimumReadTime (s)": "5"
+        }
+    ],
+    "Questions": [
+        {
+            "ID": "0",
+            "Question": "Selon toi, quelle est à la suite de l’histoire ?",
+            "Placeholder": "Ton hypothèse"
+        },
+        {
+            "ID": "1",
+            "Question": "Choisi ce qui te paraît vrai entre ces propositions",
+            "Answers": "Les 2 hommes tombent du train et meurent. Une catastrophe ferroviaire se produit.,  Jacques arrive à calmer Pecqueux et reprend le contrôle de la machine",
+            "TextJustificationID": "1-2,2"
+        }
+    ],
+    "Lexique": [
+        {
+            "id": "0",
+            "word": "cendrier",
+            "definition": "Le cendrier recueille les rédidus de combustion du charbon et facilite l’évacuation des cendres.",
+            "image": "cendrier.png"
+        },
+        {
+            "id": "1",
+            "word": "machine",
+            "definition": "Contrairement à l’idée reçue, la locomotive n’est que la partie fournissant l’énergie motrice pour déplacer le train.",
+            "image": "locomotive.jpg"
+        },
+        {
+            "id": "2",
+            "word": "tirage",
+            "definition": "Mouvement par lequel l’air chaud s’élève en entraînant la fumée et est remplacé au foyer par l’air froid contenant l’oxygène nécessaire à la combustion"
+        },
+        {
+            "id": "3",
+            "word": "chauffeur",
+            "definition": "Celui qui s’occupe du feu d’une forge, d’un fourneau ou du fonctionnement d’une chaudière"
+        }
+    ]
+}

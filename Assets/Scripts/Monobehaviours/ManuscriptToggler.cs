@@ -9,71 +9,76 @@ using UnityEngine.EventSystems;
 using UnityEngine.PlayerLoop;
 using UnityEngine.UI;
 
-public class ManuscriptToggler : MonoBehaviour, IPointerDownHandler
+public class ManuscriptToggler : MonoBehaviour, IPointerDownHandler, IPointerEnterHandler, IPointerExitHandler
 {
     Sprite spriteRef;
-    Vector2 spriteSize;
-    GameObject manuscriptImage;
-    GameObject manuscriptContainer;
-    TextMeshProUGUI manuscriptSource;
-
-    RectTransform supportTransform;
-
+    [HideInInspector] public static List<ManuscriptToggler> togglers = new List<ManuscriptToggler>();
+    ImageSlider imageSlider;
     bool toggle;
+    Animator animator;
 
     private void Start()
     {
+        animator = GetComponent<Animator>();
+        //Cette condition est plus logique à placer dans le textHolder, car là il y a des refs inutiles
         if (GetComponentInParent<TextHolder>().simpleText.textData.manuscritPath != null)
         {
+            imageSlider = GameObject.FindGameObjectWithTag("ManuscriptContainer").GetComponent<ImageSlider>();
             toggle = false;
             spriteRef = Resources.Load<Sprite>("images/" + GetComponentInParent<TextHolder>().simpleText.textData.manuscritPath.Split('.')[0]);
-            manuscriptSource = GameObject.FindGameObjectWithTag("ManuscriptSource").GetComponent<TextMeshProUGUI>();
-            manuscriptContainer = GameObject.FindGameObjectWithTag("ManuscriptContainer");
-            manuscriptImage = GameObject.FindGameObjectWithTag("ManuscriptContainer").transform.GetChild(0).gameObject;
-            spriteSize = spriteRef.rect.size;
-            supportTransform = FindObjectOfType<ContentsSupport>().GetComponent<RectTransform>();
         }
         else
             gameObject.SetActive(false);
 
     }
 
+    private void OnEnable()
+    {
+        togglers.Add(this);
+    }
+
+    private void OnDisable()
+    {
+        togglers.Remove(this);
+    }
+
+    public void SetToggle(bool toggle)
+    {
+        this.toggle = toggle;
+    }
+
     public void OnPointerDown(PointerEventData eventData)
     {
+        for (int i = 0; i < togglers.Count; i++)
+        {
+            if (togglers[i] != this)
+                togglers[i].SetToggle(false);
+        }
+
         toggle = !toggle;
 
         //Cache
         if (!toggle)
-        {
-            SlideIn();
-            FindObjectOfType<ContentsSupport>().activeToggler = null;
-        }
+            imageSlider.SlideIn();
+
         //Affiche
         else
         {
-            manuscriptImage.GetComponent<Image>().sprite = spriteRef;
-            manuscriptSource.text = GetComponentInParent<TextHolder>().simpleText.textData.manuscritSource;
+            imageSlider.ShowImage(spriteRef, transform.position.y, GetComponentInParent<TextHolder>().simpleText.textData.manuscritSource);
 
-            manuscriptImage.GetComponent<RectTransform>().sizeDelta = spriteSize;
-            //Aligne l'image verticalement à la flèche
-            manuscriptContainer.transform.position = new Vector3(manuscriptContainer.transform.position.x, transform.position.y, manuscriptContainer.transform.position.z);
-            //Debug.Log(supportTransform.anchorMin.x + manuscriptContainer.GetComponent<VerticalLayoutGroup>().padding.right - manuscriptContainer.GetComponent<RectTransform>().sizeDelta.x / 2);
-            //Debug.Log(manuscriptContainer.GetComponent<RectTransform>().sizeDelta.x / 2);
-            manuscriptContainer.GetComponent<RectTransform>().anchoredPosition = new Vector3(supportTransform.anchorMin.x + spriteSize.x / 2, manuscriptContainer.GetComponent<RectTransform>().anchoredPosition.y);
-            SlideOut();
-
-            FindObjectOfType<ContentsSupport>().activeToggler = this;
+            if (animator.GetBool("Active"))
+                animator.SetBool("Active", false);
         }
     }
 
-    private void SlideOut()
+    public void OnPointerEnter(PointerEventData eventData)
     {
-        manuscriptContainer.GetComponent<RectTransform>().DOAnchorPosX(supportTransform.anchorMin.x - manuscriptImage.GetComponent<RectTransform>().sizeDelta.x / 2, 2f);
+        if (!toggle)
+            animator.SetBool("Active", true);
     }
 
-    public void SlideIn()
+    public void OnPointerExit(PointerEventData eventData)
     {
-        manuscriptContainer.GetComponent<RectTransform>().DOAnchorPosX(supportTransform.anchorMin.x + manuscriptContainer.GetComponent<RectTransform>().sizeDelta.x / 2, 2f);
+        animator.SetBool("Active", false);
     }
-
 }

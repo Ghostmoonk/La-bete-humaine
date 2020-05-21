@@ -11,6 +11,7 @@ namespace TextContent
     public class TextData
     {
         public string title;
+        public string paratext;
         public string content;
         public string author;
         public string scene;
@@ -18,8 +19,9 @@ namespace TextContent
         public string manuscritSource;
         public int minimumReadTime;
 
-        public TextData(string title, string content, string author, string scene, string manuscritPath = "", int minimumReadTime = 0, string manuscritSource = "")
+        public TextData(string title, string content, string paratext, string author, string scene, string manuscritPath = "", int minimumReadTime = 0, string manuscritSource = "")
         {
+            this.paratext = paratext;
             this.title = title;
             this.content = content;
             this.author = author;
@@ -38,11 +40,13 @@ namespace TextContent
     {
         public string word;
         public string definition;
+        public string imagePath;
 
-        public GlossaryData(string word, string definition)
+        public GlossaryData(string word, string definition, string imagePath = null)
         {
             this.word = word;
             this.definition = definition;
+            this.imagePath = imagePath;
         }
     }
 }

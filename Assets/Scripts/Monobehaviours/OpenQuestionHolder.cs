@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
@@ -13,6 +14,7 @@ public class OpenQuestionHolder : ContentHolder
     [SerializeField] TextMeshProUGUI placeholderText;
     [SerializeField] TextMeshProUGUI textInput;
     [SerializeField] Button submitButton;
+    UnityEvent selectEvents;
 
     bool done;
 
@@ -31,5 +33,16 @@ public class OpenQuestionHolder : ContentHolder
             openQuestion.Complete();
             done = true;
         }
+    }
+
+    public void InvokeSelectEvents()
+    {
+        if (!done)
+            selectEvents?.Invoke();
+    }
+
+    public void SetSelectEvents(UnityEvent events)
+    {
+        selectEvents = events;
     }
 }

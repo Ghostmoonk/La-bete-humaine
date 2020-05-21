@@ -1,3 +1,5 @@
-id|word|definition
-0|charbon|Ceci est la définition du charbon
-1|machine|C’est la définition d’une machine
+id|word|definition|image
+0|cendrier|Le cendrier recueille les rédidus de combustion du charbon et facilite l’évacuation des cendres.|cendrier.png
+1|machine|Contrairement à l’idée reçue, la locomotive n’est que la partie fournissant l’énergie motrice pour déplacer le train.|locomotive.jpg
+2|tirage|Mouvement par lequel l'air chaud s'élève en entraînant la fumée et est remplacé au foyer par l'air froid contenant l'oxygène nécessaire à la combustion |
+3|chauffeur|Celui qui s’occupe du feu d’une forge, d’un fourneau ou du fonctionnement d’une chaudière|

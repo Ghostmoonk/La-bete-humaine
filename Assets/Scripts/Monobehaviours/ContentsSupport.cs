@@ -18,13 +18,13 @@ public class ContentsSupport : MonoBehaviour
     #region GameObjectsReferences
     Transform tabletContentContainer;
     GameObject scrollDownArrow;
-    [HideInInspector] public ManuscriptToggler activeToggler;
+    [SerializeField] ImageSlider imageSlider;
     #endregion
 
     GameObject currentGameObjectToShow;
     Content currentContent;
 
-    public List<ContentRef> contentsType;
+    [HideInInspector] public List<ContentRef> contentsType;
     private Stack<Content> contentsStack;
     public ContentDisplayer contentDisplayer;
     bool active;
@@ -34,7 +34,6 @@ public class ContentsSupport : MonoBehaviour
 
     #region Prefabs
     [SerializeField] GameObject simpleTextPref;
-    [SerializeField] GameObject titledTextPref;
     [SerializeField] GameObject openQuestionPref;
     [SerializeField] GameObject closedQuestionPreb;
     [SerializeField] GameObject fillGapsPref;
@@ -93,12 +92,11 @@ public class ContentsSupport : MonoBehaviour
     {
         animator.SetBool("Active", !animator.GetBool("Active"));
         active = animator.GetBool("Active");
-        activeToggler?.SlideIn();
+        imageSlider.SlideIn();
     }
 
     private void Start()
     {
-
         contentsStack = new Stack<Content>();
         contentDisplayer = new ContentDisplayer();
 
@@ -122,9 +120,13 @@ public class ContentsSupport : MonoBehaviour
         {
             Content content = ContentFactory.CreateContent(contentsType[i].id, contentsType[i].type);
             content.CompleteEvent = contentsType[i].CompleteEvent;
+            if (content.GetType() == typeof(OpenQuestion) && contentsType[i].OnSelectEvent != null)
+            {
+                OpenQuestion contentAsQuestion = (OpenQuestion)content;
+                contentAsQuestion.OnSelectEvents = contentsType[i].OnSelectEvent;
+            }
             contentsList.Add(content);
         }
-        Debug.Log(contentsList.Count);
         for (int i = 0; i < contentsList.Count; i++)
         {
             contentsStack.Push(contentsList[contentsList.Count - i - 1]);
@@ -184,25 +186,24 @@ public class ContentsSupport : MonoBehaviour
             {
                 SimpleText st = (SimpleText)currentContent;
                 //Sans un titre
-                if (st.textData.title == "")
-                {
-                    simpleTextPref.SetActive(false);
+                //if (st.textData.title == "")
+                //{
+                simpleTextPref.SetActive(false);
 
-                    contentToInstantiate = Instantiate(simpleTextPref, tabletContentContainer);
-                    contentToInstantiate.GetComponent<TextHolder>().simpleText = st;
-                    simpleTextPref.SetActive(true);
-                }
+                contentToInstantiate = Instantiate(simpleTextPref, tabletContentContainer);
+                contentToInstantiate.GetComponent<TextHolder>().simpleText = st;
+                simpleTextPref.SetActive(true);
+                //}
                 //Avec un titre
-                else
-                {
-                    titledTextPref.SetActive(false);
+                //else
+                //{
+                //    titledTextPref.SetActive(false);
 
-                    contentToInstantiate = Instantiate(titledTextPref, tabletContentContainer);
-                    contentToInstantiate.GetComponent<TextHolder>().simpleText = st;
-                    Debug.Log(contentToInstantiate.GetComponent<TextHolder>().simpleText.textData.content);
-                    titledTextPref.SetActive(true);
-                }
-
+                //    contentToInstantiate = Instantiate(titledTextPref, tabletContentContainer);
+                //    contentToInstantiate.GetComponent<TextHolder>().simpleText = st;
+                //    Debug.Log(contentToInstantiate.GetComponent<TextHolder>().simpleText.textData.content);
+                //    titledTextPref.SetActive(true);
+                //}
             }
 
             else if (currentContent.GetType() == typeof(OpenQuestion) || currentContent.GetType() == typeof(ClosedQuestion))
@@ -213,6 +214,9 @@ public class ContentsSupport : MonoBehaviour
                     OpenQuestion oq = (OpenQuestion)currentContent;
                     contentToInstantiate = Instantiate(openQuestionPref, tabletContentContainer);
                     contentToInstantiate.GetComponent<OpenQuestionHolder>().openQuestion = oq;
+
+                    if (oq.OnSelectEvents != null)
+                        contentToInstantiate.GetComponent<OpenQuestionHolder>().SetSelectEvents(oq.OnSelectEvents);
                     openQuestionPref.SetActive(true);
                 }
                 else
@@ -294,7 +298,6 @@ public class ContentsSupport : MonoBehaviour
             float distanceRemaining = tabletContentContainer.GetComponent<RectTransform>().sizeDelta.y - tabletContentContainer.GetComponent<RectTransform>().anchoredPosition.y;
             Scroll(speed * Time.deltaTime);
             speed = Mathf.Lerp(2, initialSpeed, distanceRemaining / initialDistance);
-            Debug.Log((float)(distanceRemaining / initialDistance));
             yield return new WaitForSeconds(Time.deltaTime);
         }
         scrollControl = true;

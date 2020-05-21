@@ -11,4 +11,5 @@ public class Exercice : Content
 public sealed class FillGaps : Exercice
 {
     TextData textData;
+
 }

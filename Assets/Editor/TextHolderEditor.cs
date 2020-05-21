@@ -7,21 +7,22 @@ using TMPro;
 [CustomEditor(typeof(TextHolder))]
 public class TextHolderEditor : Editor
 {
-    SerializedProperty showTitle;
-    SerializedProperty titleTextMesh;
+    //SerializedProperty showTitle;
+    //SerializedProperty titleTextMesh;
+    //TextHolder textHolder;
 
-    private void OnEnable()
-    {
-        showTitle = serializedObject.FindProperty("showTitle");
-        titleTextMesh = serializedObject.FindProperty("titleTextMesh");
-    }
-    public override void OnInspectorGUI()
-    {
-        DrawDefaultInspector();
+    //private void OnEnable()
+    //{
+    //    showTitle = serializedObject.FindProperty("showTitle");
+    //    titleTextMesh = serializedObject.FindProperty("titleTextMesh");
+    //    textHolder = (TextHolder)target;
+    //}
+    //public override void OnInspectorGUI()
+    //{
+    //    DrawDefaultInspector();
 
-        TextHolder textHolder = (TextHolder)target;
 
-        if (textHolder.showTitle)
-            textHolder.titleTextMesh = (TextMeshProUGUI)EditorGUILayout.ObjectField(textHolder.titleTextMesh, typeof(TextMeshProUGUI), true);
-    }
+    //    if (textHolder.showTitle)
+    //        textHolder.titleTextMesh = (TextMeshProUGUI)EditorGUILayout.ObjectField(textHolder.titleTextMesh, typeof(TextMeshProUGUI), true);
+    //}
 }

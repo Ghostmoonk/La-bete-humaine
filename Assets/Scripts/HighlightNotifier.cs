@@ -22,7 +22,6 @@ public class HighlightNotifier : Subject
 
     public void BroadcastHighlight(Vector3 pos, GlossaryData data = null)
     {
-        Debug.Log(observers.Count);
         for (int i = 0; i < observers.Count; i++)
         {
             observers[i].OnHighligh(pos, data);

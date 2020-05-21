@@ -406,6 +406,7 @@ GameObject:
   - component: {fileID: 1545726066222937937}
   - component: {fileID: 6098918811299775272}
   - component: {fileID: 559781377442006165}
+  - component: {fileID: 545488906566748697}
   m_Layer: 5
   m_Name: ManuscriptContainer
   m_TagString: ManuscriptContainer
@@ -509,3 +510,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_HorizontalFit: 1
   m_VerticalFit: 1
+--- !u!114 &545488906566748697
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5093880266429833675}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf3df0cc119714343850b0a8da447160, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  imageTransform: {fileID: 2119668269481860403}
+  frontTransform: {fileID: 0}
