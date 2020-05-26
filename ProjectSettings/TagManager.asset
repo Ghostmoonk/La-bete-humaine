@@ -11,6 +11,7 @@ TagManager:
   - ScrollDownArrow
   - ManuscriptSource
   - GlossaryPopUp
+  - AmbianceAudio
   layers:
   - Default
   - TransparentFX

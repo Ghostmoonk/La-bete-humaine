@@ -291,6 +291,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 5091941498078364000, guid: 2872db919f47290479b976a82f4350e8,
+          type: 3}
+        m_MethodName: SwitchTemporality
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &6142335082897747393
 MonoBehaviour:
   m_ObjectHideFlags: 0

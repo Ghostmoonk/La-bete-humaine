@@ -4,6 +4,7 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.EventSystems;
 using TextContent;
+using DG.Tweening;
 
 public class TMP_WordHighlighter : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerDownHandler, IPointerUpHandler
 {
@@ -12,21 +13,32 @@ public class TMP_WordHighlighter : MonoBehaviour, IPointerEnterHandler, IPointer
 
     private int currentSelectedWord = -1;
 
-    private Color32 normalColor;
+    [SerializeField] private Color32 notHighlightedColor;
     [SerializeField] private Color32 highlightedColor;
 
     private void OnEnable()
     {
         if (textComponent == null)
             textComponent = gameObject.GetComponent<TextMeshProUGUI>();
-        normalColor = textComponent.color;
 
     }
     private void Start()
     {
         notifier = new HighlightNotifier();
         notifier.AddObserver(GlossaryDisplayer.Instance.glossaryObserver);
+    }
 
+    public void HighlighGlossaryWords(float duration)
+    {
+        Debug.Log(textComponent.textInfo.wordCount);
+        for (int i = 0; i < textComponent.textInfo.wordCount; i++)
+        {
+            if (TextsLoader.Instance.ContainWordInGlossary(textComponent.textInfo.wordInfo[i].GetWord()) != -1)
+            {
+                StartCoroutine(SmoothChangeColor(textComponent.textInfo.wordInfo[i], duration));
+                //ChangeWordColor(textComponent.textInfo.wordInfo[i], notHighlightedColor);
+            }
+        }
     }
 
     public void OnPointerEnter(PointerEventData eventData)
@@ -34,9 +46,10 @@ public class TMP_WordHighlighter : MonoBehaviour, IPointerEnterHandler, IPointer
 
     }
 
-    //@params
-    //wordInfo - contains the specific word informations
-    //color - The word will get this color
+    /**
+    *@param wordInfo - contains the specific word informations
+    *@param color - The word will get this color
+    **/
     private void ChangeWordColor(TMP_WordInfo wordInfo, Color32 color)
     {
         for (int i = 0; i < wordInfo.characterCount; ++i)
@@ -56,6 +69,20 @@ public class TMP_WordHighlighter : MonoBehaviour, IPointerEnterHandler, IPointer
         textComponent.UpdateVertexData(TMP_VertexDataUpdateFlags.All);
     }
 
+    IEnumerator SmoothChangeColor(TMP_WordInfo wordInfo, float duration)
+    {
+        Color32 finalColor = notHighlightedColor;
+        Color32 baseColor = textComponent.color;
+        DOTween.To(() => baseColor, x => baseColor = x, notHighlightedColor, duration);
+
+        while (!baseColor.Equals(finalColor))
+        {
+            ChangeWordColor(wordInfo, baseColor);
+            yield return null;
+        }
+        StopCoroutine(SmoothChangeColor(wordInfo, duration));
+    }
+
     public void OnPointerDown(PointerEventData eventData)
     {
         int wordIndex = TMP_TextUtilities.FindIntersectingWord(textComponent, Input.mousePosition, Camera.main);
@@ -69,7 +96,7 @@ public class TMP_WordHighlighter : MonoBehaviour, IPointerEnterHandler, IPointer
             {
                 wInfo = textComponent.textInfo.wordInfo[currentSelectedWord];
                 notifier.BroadcastHighlight(Input.mousePosition, null);
-                ChangeWordColor(wInfo, normalColor);
+                ChangeWordColor(wInfo, notHighlightedColor);
                 currentSelectedWord = -1;
                 return;
             }
@@ -77,7 +104,7 @@ public class TMP_WordHighlighter : MonoBehaviour, IPointerEnterHandler, IPointer
             else if (currentSelectedWord != -1)
             {
                 wInfo = textComponent.textInfo.wordInfo[currentSelectedWord];
-                ChangeWordColor(wInfo, normalColor);
+                ChangeWordColor(wInfo, notHighlightedColor);
             }
 
             wInfo = textComponent.textInfo.wordInfo[wordIndex];
@@ -116,7 +143,7 @@ public class TMP_WordHighlighter : MonoBehaviour, IPointerEnterHandler, IPointer
         //if (currentSelectedWord != -1)
         //{
         //    TMP_WordInfo wInfo = textComponent.textInfo.wordInfo[currentSelectedWord];
-        //    ChangeWordColor(wInfo, normalColor);
+        //    ChangeWordColor(wInfo, notHighlightedColor);
         //    currentSelectedWord = -1;
         //    notifier.BroadcastHighlight(Vector3.zero);
         //}

@@ -6,8 +6,8 @@ using UnityEngine.SceneManagement;
 public class ScenesManager : MonoBehaviour
 {
     #region Singleton
-    private ScenesManager _instance;
-    public ScenesManager Instance
+    private static ScenesManager _instance;
+    public static ScenesManager Instance
     {
         get
         {
@@ -25,11 +25,33 @@ public class ScenesManager : MonoBehaviour
         {
             Destroy(this);
         }
+
+        DontDestroyOnLoad(gameObject);
     }
     #endregion
+
+    [SerializeField] Temporality temporality;
 
     public void LoadScene(int index)
     {
         SceneManager.LoadScene(index);
     }
+
+    public void SwitchTemporality(int newTemporality)
+    {
+        temporality = (Temporality)newTemporality;
+    }
+
+    public int GetCurrentScene()
+    {
+        return SceneManager.GetActiveScene().buildIndex;
+    }
+
+    public Temporality GetTemporality()
+    {
+        return temporality;
+    }
+
 }
+
+public enum Temporality { Modern = 0, Past = 1 }

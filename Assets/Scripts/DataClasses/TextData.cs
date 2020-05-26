@@ -49,5 +49,19 @@ namespace TextContent
             this.imagePath = imagePath;
         }
     }
+
+    public class ImageData
+    {
+        public string imagePath;
+        public string paratext;
+        public int minimumReadTime;
+
+        public ImageData(string imagePath, string paratext, int minReadTime)
+        {
+            this.imagePath = imagePath;
+            this.paratext = paratext;
+            this.minimumReadTime = minReadTime;
+        }
+    }
 }
 

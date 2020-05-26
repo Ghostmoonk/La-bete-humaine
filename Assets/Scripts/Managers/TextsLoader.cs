@@ -32,7 +32,7 @@ public class TextsLoader : MonoBehaviour
         FetchTextsData();
         FetchQuestionsData();
         FetchGlossaryData();
-
+        FetchImagesData();
         DontDestroyOnLoad(gameObject);
     }
 
@@ -41,6 +41,7 @@ public class TextsLoader : MonoBehaviour
     public Dictionary<int, TextData> textsDico;
     public Dictionary<int, QuestionData> questionsDico;
     public Dictionary<int, GlossaryData> glossaryDico;
+    public Dictionary<int, ImageData> imagesDico;
 
     private void FetchGlossaryData()
     {
@@ -53,14 +54,14 @@ public class TextsLoader : MonoBehaviour
         {
             string[] row = data[i].Split(new char[] { '|' });
             GlossaryData glossaryData;
-
+            string definition = row[2].Replace("\\n", "\n");
             if (row[3].Contains(".png") || row[3].Contains(".jpg") || row[3].Contains(".jpeg"))
             {
-                glossaryData = new GlossaryData(row[1], row[2], row[3]);
+                glossaryData = new GlossaryData(row[1], definition, row[3]);
             }
             else
             {
-                glossaryData = new GlossaryData(row[1], row[2]);
+                glossaryData = new GlossaryData(row[1], definition);
             }
             glossaryDico[int.Parse(row[0])] = glossaryData;
         }
@@ -79,10 +80,26 @@ public class TextsLoader : MonoBehaviour
             string text = row[3].Replace("\\n", "\n");
             int minReadTime = 0;
             int.TryParse(row[7], out minReadTime);
-            Debug.Log("paratext length :" + row[9].Length);
-            Debug.Log("title length :" + row[2].Length);
             TextData textRow = new TextData(row[2], text, row[9], row[4], row[5], row[6], minReadTime, row[8]);
             textsDico[int.Parse(row[0])] = textRow;
+        }
+    }
+
+    private void FetchImagesData()
+    {
+        imagesDico = new Dictionary<int, ImageData>();
+        TextAsset textsData = Resources.Load<TextAsset>("Images");
+
+        string[] data = textsData.text.Split(new char[] { '\n' });
+
+        for (int i = 1; i < data.Length - 1; i++)
+        {
+            string[] row = data[i].Split(new char[] { '|' });
+            string text = row[2].Replace("\\n", "\n");
+            int minReadTime = 0;
+            int.TryParse(row[3], out minReadTime);
+            ImageData imageRow = new ImageData(row[1], text, minReadTime);
+            imagesDico[int.Parse(row[0])] = imageRow;
         }
     }
 

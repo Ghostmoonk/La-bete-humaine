@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DG.Tweening;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -34,6 +35,7 @@ public class ContentsSupport : MonoBehaviour
 
     #region Prefabs
     [SerializeField] GameObject simpleTextPref;
+    [SerializeField] GameObject simpleImagePref;
     [SerializeField] GameObject openQuestionPref;
     [SerializeField] GameObject closedQuestionPreb;
     [SerializeField] GameObject fillGapsPref;
@@ -43,6 +45,12 @@ public class ContentsSupport : MonoBehaviour
     #region Inputs
     Vector2 previousMousePos = Vector2.zero;
     Vector2 currentMousePos = Vector2.zero;
+    #endregion
+
+    #region Audio
+    AudioSource ambianceSource;
+    AudioSource tabletSource;
+    float baseAmbianceVolume;
     #endregion
     public event EventHandler<EventArgs> TabletActiveEvent;
 
@@ -93,21 +101,42 @@ public class ContentsSupport : MonoBehaviour
         animator.SetBool("Active", !animator.GetBool("Active"));
         active = animator.GetBool("Active");
         imageSlider.SlideIn();
+
+        if (!active)
+        {
+            SoundManager.Instance.PlaySound(tabletSource, "toggle-support-off");
+            ambianceSource.DOFade(baseAmbianceVolume, 2f);
+        }
+        else
+        {
+            SoundManager.Instance.PlaySound(tabletSource, "toggle-support-on");
+            ambianceSource.DOFade(baseAmbianceVolume / 3, 2f);
+        }
     }
 
     private void Start()
     {
+        #region Composants
+        animator = GetComponent<Animator>();
+        tabletSource = GetComponent<AudioSource>();
+        scrollDownArrow = GameObject.FindGameObjectWithTag("ScrollDownArrow");
+        tabletContentContainer = GameObject.FindGameObjectWithTag("TabletContent").transform;
+
+        #region Audio
+        ambianceSource = GameObject.FindGameObjectWithTag("AmbianceAudio").GetComponent<AudioSource>();
+        baseAmbianceVolume = ambianceSource.volume;
+        #endregion
+
+        #endregion
+
         contentsStack = new Stack<Content>();
         contentDisplayer = new ContentDisplayer();
 
-        animator = GetComponent<Animator>();
-        scrollDownArrow = GameObject.FindGameObjectWithTag("ScrollDownArrow");
         scrollDownArrow.SetActive(false);
-        tabletContentContainer = GameObject.FindGameObjectWithTag("TabletContent").transform;
 
         contentsStack = InitializeContents();
 
-        Debug.Log("Il y a " + contentsStack.Count + "contents");
+        //Affiche directement le premier contenu
         DisplayContent();
 
     }
@@ -228,6 +257,14 @@ public class ContentsSupport : MonoBehaviour
                     closedQuestionPreb.SetActive(true);
                 }
             }
+            else if (currentContent.GetType() == typeof(SimpleImage))
+            {
+                simpleImagePref.SetActive(false);
+                SimpleImage si = (SimpleImage)currentContent;
+                contentToInstantiate = Instantiate(simpleImagePref, tabletContentContainer);
+                contentToInstantiate.GetComponent<ImageHolder>().simpleImage = si;
+                simpleImagePref.SetActive(true);
+            }
             else
             {
                 contentToInstantiate = Instantiate(fillGapsPref, tabletContentContainer);
@@ -296,8 +333,9 @@ public class ContentsSupport : MonoBehaviour
         while (tabletContentContainer.GetComponent<RectTransform>().anchoredPosition.y < tabletContentContainer.GetComponent<RectTransform>().sizeDelta.y && !scrollControl)
         {
             float distanceRemaining = tabletContentContainer.GetComponent<RectTransform>().sizeDelta.y - tabletContentContainer.GetComponent<RectTransform>().anchoredPosition.y;
+            //speed = Mathf.Clamp(speed, 20, 100);
             Scroll(speed * Time.deltaTime);
-            speed = Mathf.Lerp(2, initialSpeed, distanceRemaining / initialDistance);
+            speed = Mathf.Lerp(5, initialSpeed, Mathf.Pow(distanceRemaining, 1.25f) / initialDistance);
             yield return new WaitForSeconds(Time.deltaTime);
         }
         scrollControl = true;

@@ -5,7 +5,7 @@ using UnityEngine;
 [DisallowMultipleComponent]
 public class ContentHolder : MonoBehaviour
 {
-    public Animator animator;
+    [HideInInspector] public Animator animator;
 
     protected virtual void Start()
     {

@@ -11,6 +11,8 @@ GameObject:
   - component: {fileID: 5091941498078364006}
   - component: {fileID: 5091941498078364001}
   - component: {fileID: 5091941498078364000}
+  - component: {fileID: 1985806190}
+  - component: {fileID: 1985806191}
   m_Layer: 0
   m_Name: Managers
   m_TagString: Untagged
@@ -56,3 +58,69 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 892c3eb739e9b2844b86994a99174872, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  temporality: 0
+--- !u!114 &1985806190
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5091941498078364003}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 32abac8bb35f0ab45a8ff8715564ae16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  modernCursorTexture: {fileID: 2800000, guid: 15ff7008f5614d541923c9bd83dcca67, type: 3}
+  pastCursorTexture: {fileID: 2800000, guid: 15ff7008f5614d541923c9bd83dcca67, type: 3}
+  cursorMode: 1
+  hotSpot: {x: 0, y: 0}
+  cursorSource: {fileID: 0}
+--- !u!114 &1985806191
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5091941498078364003}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1a7167b0d36ac3498d8e1fbb498350b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundsList:
+  - name: modern-tap
+    clips:
+    - {fileID: 8300000, guid: 2867aae49f7f91d4589097a288aec025, type: 3}
+    - {fileID: 8300000, guid: 2e2f9a3d56eeaec4b9a7d74d32f860de, type: 3}
+    - {fileID: 8300000, guid: 161e5d3e1c9b56d4785a4d5938fba425, type: 3}
+    - {fileID: 8300000, guid: dbad846e668d73b48a8ee26698e4faa1, type: 3}
+    - {fileID: 8300000, guid: f8788478b0ff50149bc21a522eedbf07, type: 3}
+  - name: toggle-support-on
+    clips:
+    - {fileID: 8300000, guid: 91fa8c961ad335a4db2c19d56819f627, type: 3}
+  - name: toggle-support-off
+    clips:
+    - {fileID: 8300000, guid: db91b880f25071446bd23977edeab1f0, type: 3}
+  - name: toggle-slider-in
+    clips:
+    - {fileID: 8300000, guid: 0e6fe82926b9ff544b485bc5dd09a112, type: 3}
+  - name: toggle-slider-out
+    clips:
+    - {fileID: 8300000, guid: 7dd304c023f1f2d44a2ecfc58d4ff7fd, type: 3}
+  - name: machine-typing
+    clips:
+    - {fileID: 8300000, guid: fce3b1416b4aead4a9e51e59c045016c, type: 3}
+    - {fileID: 8300000, guid: a5c80278627a9004db6fde818687fcf9, type: 3}
+    - {fileID: 8300000, guid: 983ee596d2259dd4e9f830289a1c73ee, type: 3}
+    - {fileID: 8300000, guid: ae92a1ccbc2feb546b2423228abee128, type: 3}
+    - {fileID: 8300000, guid: adf60cb16073a714d83189d10f71bea3, type: 3}
+    - {fileID: 8300000, guid: eeb99b08a09118e4a8b6166e96b8673d, type: 3}
+    - {fileID: 8300000, guid: 14b6fbbca0e5a454da70f2c244268963, type: 3}
+    - {fileID: 8300000, guid: 086aa51245eed1a47b805ecbc6bf7e03, type: 3}
+  - name: machine-reset
+    clips:
+    - {fileID: 8300000, guid: ea1bbafe82852b94eb5d359c14bc5017, type: 3}
+  - name: machine-alarm
+    clips:
+    - {fileID: 8300000, guid: afab6104bdb237a49a7f9cd1c22cda4f, type: 3}

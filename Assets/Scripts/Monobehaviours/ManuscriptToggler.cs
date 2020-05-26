@@ -11,14 +11,20 @@ using UnityEngine.UI;
 
 public class ManuscriptToggler : MonoBehaviour, IPointerDownHandler, IPointerEnterHandler, IPointerExitHandler
 {
-    Sprite spriteRef;
-    [HideInInspector] public static List<ManuscriptToggler> togglers = new List<ManuscriptToggler>();
-    ImageSlider imageSlider;
-    bool toggle;
+    #region Composants
     Animator animator;
+    ImageSlider imageSlider;
+    [HideInInspector] public static List<ManuscriptToggler> togglers = new List<ManuscriptToggler>();
+
+    AudioSource audioSource;
+    #endregion
+
+    Sprite spriteRef;
+    bool toggle;
 
     private void Start()
     {
+        audioSource = GetComponent<AudioSource>();
         animator = GetComponent<Animator>();
         //Cette condition est plus logique à placer dans le textHolder, car là il y a des refs inutiles
         if (GetComponentInParent<TextHolder>().simpleText.textData.manuscritPath != null)
@@ -59,12 +65,15 @@ public class ManuscriptToggler : MonoBehaviour, IPointerDownHandler, IPointerEnt
 
         //Cache
         if (!toggle)
+        {
             imageSlider.SlideIn();
+        }
 
         //Affiche
         else
         {
             imageSlider.ShowImage(spriteRef, transform.position.y, GetComponentInParent<TextHolder>().simpleText.textData.manuscritSource);
+            SoundManager.Instance.PlaySound(audioSource, "toggle-slider-out");
 
             if (animator.GetBool("Active"))
                 animator.SetBool("Active", false);

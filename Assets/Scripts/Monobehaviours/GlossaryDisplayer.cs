@@ -60,6 +60,10 @@ public class GlossaryDisplayer : MonoBehaviour
                 imageSlider.SlideIn();
                 Sprite spriteRef = Resources.Load<Sprite>("images/" + data.imagePath.Split('.')[0]);
                 imageSlider.ShowImage(spriteRef, imageSlider.transform.TransformPoint(pos).y, data.definition);
+
+                if (currentWordData != null)
+                    if (currentWordData.imagePath == null)
+                        HidePopUp();
             }
             //We want to display a definition
             else

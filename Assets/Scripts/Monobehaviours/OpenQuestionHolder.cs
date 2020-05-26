@@ -30,6 +30,7 @@ public class OpenQuestionHolder : ContentHolder
     {
         if (!done)
         {
+            SoundManager.Instance.PlaySound(GetComponentInParent<AudioSource>(), "modern-tap");
             openQuestion.Complete();
             done = true;
         }

@@ -48,7 +48,7 @@ public class ClickHandler : MonoBehaviour
     public void Click()
     {
         relatedContentTransform.GetComponent<ClosedQuestionHolder>().StartProgressiveFade(false);
-
+        SoundManager.Instance.PlaySound(GetComponentInParent<AudioSource>(), "modern-tap");
         GetComponent<Button>().interactable = false;
         remainToClick--;
 

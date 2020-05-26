@@ -49,7 +49,7 @@ public class TextHolder : ContentHolder
         lectureTimeTimer.StartTimer();
 
     }
-
+    //À factoriser avec ImageHolder
     private void Update()
     {
         if (!FindObjectOfType<ContentsSupport>().IsOnScreen() && !lectureTimeTimer.over)
@@ -61,18 +61,4 @@ public class TextHolder : ContentHolder
             lectureTimeTimer.SetTimerActive(true);
         }
     }
-
-    //IEnumerator WaitLectureTime()
-    //{
-    //    float timer = 0f;
-    //    while (timer < simpleText.textData.minimumReadTime)
-    //    {
-    //        if (FindObjectOfType<ContentsSupport>().IsOnScreen())
-    //        {
-    //            timer += Time.deltaTime;
-    //        }
-    //        yield return null;
-    //    }
-    //    simpleText.Complete();
-    //}
 }

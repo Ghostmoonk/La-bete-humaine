@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CursorManager : MonoBehaviour
 {
@@ -12,9 +13,12 @@ public class CursorManager : MonoBehaviour
             return instance;
         }
     }
-    public Texture2D cursorTexture;
+    public Texture2D modernCursorTexture;
+    public Texture2D pastCursorTexture;
     public CursorMode cursorMode = CursorMode.Auto;
     public Vector2 hotSpot = Vector2.zero;
+
+    [SerializeField] AudioSource cursorSource;
 
     private void Awake()
     {
@@ -32,6 +36,10 @@ public class CursorManager : MonoBehaviour
 
     private void OnEnable()
     {
-        Cursor.SetCursor(cursorTexture, hotSpot, cursorMode);
+        if (ScenesManager.Instance.GetTemporality() == Temporality.Modern)
+            Cursor.SetCursor(modernCursorTexture, hotSpot, cursorMode);
+        else if (ScenesManager.Instance.GetTemporality() == Temporality.Past)
+            Cursor.SetCursor(pastCursorTexture, hotSpot, cursorMode);
     }
+
 }

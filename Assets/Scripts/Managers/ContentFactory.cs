@@ -20,6 +20,8 @@ public static class ContentFactory
                 return new FillGaps();
             case ContentType.SimpleText:
                 return new SimpleText(TextsLoader.Instance.textsDico[fetchId]);
+            case ContentType.SimpleImage:
+                return new SimpleImage(TextsLoader.Instance.imagesDico[fetchId]);
             default:
                 return null;
         }

@@ -71,7 +71,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb8dbbb5dc52c6746af1cbe2eca0825c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  activeToggler: {fileID: 0}
+  imageSlider: {fileID: 0}
   contentsType:
   - type: 3
     id: 0
@@ -89,6 +89,9 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+    OnSelectEvent:
+      m_PersistentCalls:
+        m_Calls: []
   - type: 0
     id: 0
     CompleteEvent:
@@ -105,6 +108,9 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+    OnSelectEvent:
+      m_PersistentCalls:
+        m_Calls: []
   - type: 3
     id: 3
     CompleteEvent:
@@ -121,6 +127,9 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+    OnSelectEvent:
+      m_PersistentCalls:
+        m_Calls: []
   - type: 1
     id: 1
     CompleteEvent:
@@ -137,10 +146,13 @@ MonoBehaviour:
             m_StringArgument: Plongez dans le livre
             m_BoolArgument: 0
           m_CallState: 2
+    OnSelectEvent:
+      m_PersistentCalls:
+        m_Calls: []
   scrollArrowDisplayDelay: 0
-  simpleTextPref: {fileID: 9150275629335918902, guid: eba3ab458fe10bb469d49c45355a77d9,
+  simpleTextPref: {fileID: 6750143790577542770, guid: 092f33247da5b2440bd707c125c7ada0,
     type: 3}
-  titledTextPref: {fileID: 6827179443557867270, guid: e234dda333f67574cb19ae76550603e7,
+  simpleImagePref: {fileID: 6194779438584145171, guid: 50a250485d6f8ab40815e5dc22ae0227,
     type: 3}
   openQuestionPref: {fileID: 4513891363998458859, guid: 263e5fbfae815bf4296f592d81999b76,
     type: 3}
@@ -641,6 +653,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4652216377197555693}
     m_Modifications:
+    - target: {fileID: 70698029549517379, guid: f1bf022b038283047944e5e9c34c64cc,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 545488906566748697, guid: f1bf022b038283047944e5e9c34c64cc,
         type: 3}
       propertyPath: frontTransform
@@ -790,6 +807,26 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: ManuscriptInfo
+      objectReference: {fileID: 0}
+    - target: {fileID: 2382044208358216690, guid: f1bf022b038283047944e5e9c34c64cc,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2382044208358216690, guid: f1bf022b038283047944e5e9c34c64cc,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2382044208358216690, guid: f1bf022b038283047944e5e9c34c64cc,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -24.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 2382044208358216690, guid: f1bf022b038283047944e5e9c34c64cc,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 24.01
       objectReference: {fileID: 0}
     - target: {fileID: 3522761485846151229, guid: f1bf022b038283047944e5e9c34c64cc,
         type: 3}

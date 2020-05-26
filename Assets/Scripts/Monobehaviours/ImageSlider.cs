@@ -80,6 +80,8 @@ public class ImageSlider : MonoBehaviour
         containerTransform.DOKill();
         containerTransform.DOAnchorPosX(frontTransform.anchorMin.x - imageTransform.sizeDelta.x / 2, 2f);
         active = true;
+
+        SoundManager.Instance.PlaySound(GetComponentInParent<AudioSource>(), "toggle-slider-in");
     }
 
     public void SlideIn()
@@ -87,6 +89,8 @@ public class ImageSlider : MonoBehaviour
         containerTransform.DOKill();
         containerTransform.DOAnchorPosX(frontTransform.anchorMin.x + containerTransform.sizeDelta.x / 2, 2f);
         active = false;
+
+        SoundManager.Instance.PlaySound(GetComponentInParent<AudioSource>(), "toggle-slider-in");
     }
 
 }

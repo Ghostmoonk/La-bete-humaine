@@ -7,7 +7,7 @@ using UnityEngine.Events;
 
 public enum ContentType
 {
-    OpenQuestion, ClosedQuestion, FillGaps, SimpleText
+    OpenQuestion, ClosedQuestion, FillGaps, SimpleText, SimpleImage
 }
 
 public abstract class Subject
