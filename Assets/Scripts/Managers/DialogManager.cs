@@ -43,10 +43,23 @@ public class DialogManager : MonoBehaviour
 
     public void DisplayNextSentence()
     {
-        characterNameText.text = currentDialog.currentSentence.characterName;
-        sentenceText.text = currentDialog.currentSentence.content;
-        Debug.Log("next sentence");
-        currentDialog.SetNextSentence();
+        if (currentDialog.currentSentence != null)
+        {
+            characterNameText.text = currentDialog.currentSentence.characterName;
+            sentenceText.text = currentDialog.currentSentence.content;
+            //Prepare next sentence
+            currentDialog.SetNextSentence();
+        }
+        else
+        {
+            StopDialog();
+        }
+    }
+
+    public void StopDialog()
+    {
+        currentDialog = null;
+        dialogBox.SetActive(false);
     }
 
     public void SetNewDialog(int dialogId)
