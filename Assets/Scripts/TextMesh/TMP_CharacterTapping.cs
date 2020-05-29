@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class TMP_CharacterTapping : MonoBehaviour
 {
@@ -9,6 +10,8 @@ public class TMP_CharacterTapping : MonoBehaviour
     AudioSource tappingSource;
     string[] texts;
     [SerializeField] float charactersTypingWait;
+
+    public UnityEvent EndTypingEvent;
 
     private void Start()
     {
@@ -20,6 +23,9 @@ public class TMP_CharacterTapping : MonoBehaviour
             texts[i] = textMeshs[i].text;
             textMeshs[i].text = "";
         }
+    }
+    public void StartTyping()
+    {
         StartCoroutine(PrintCharacter());
     }
 
@@ -50,6 +56,7 @@ public class TMP_CharacterTapping : MonoBehaviour
             }
 
         }
+        EndTypingEvent?.Invoke();
         StopCoroutine(PrintCharacter());
     }
 }
