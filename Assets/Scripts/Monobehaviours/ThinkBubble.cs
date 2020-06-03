@@ -24,7 +24,6 @@ public class ThinkBubble : MonoBehaviour
     {
         contentImg.sprite = sprite;
         gameObject.SetActive(true);
-        transform.DOShakePosition(5f);
     }
 
     //IEnumerator SwapSprite(Sprite[] sprites)

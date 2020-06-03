@@ -14,6 +14,7 @@ public class ScenesManager : MonoBehaviour
             return _instance;
         }
     }
+    AsyncOperation asyncLoad;
 
     private void Awake()
     {
@@ -32,9 +33,29 @@ public class ScenesManager : MonoBehaviour
 
     [SerializeField] Temporality temporality;
 
+    private void Start()
+    {
+        CursorManager.Instance.SetCursor(temporality);
+    }
+
     public void LoadScene(int index)
     {
         SceneManager.LoadScene(index);
+        CursorManager.Instance.SetCursor(temporality);
+        CursorManager.Instance.Activate();
+    }
+
+    public void ActivateAsyncScene()
+    {
+        asyncLoad.allowSceneActivation = true;
+        CursorManager.Instance.SetCursor(temporality);
+        CursorManager.Instance.Activate();
+    }
+
+    public void LoadSceneAsync(int index)
+    {
+        asyncLoad = SceneManager.LoadSceneAsync(index);
+        asyncLoad.allowSceneActivation = false;
     }
 
     public void SwitchTemporality(int newTemporality)

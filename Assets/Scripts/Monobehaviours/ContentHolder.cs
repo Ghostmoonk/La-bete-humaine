@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [DisallowMultipleComponent]
-public class ContentHolder : MonoBehaviour
+public class ContentHolder : MonoBehaviour, IActivatable
 {
     [HideInInspector] public Animator animator;
 

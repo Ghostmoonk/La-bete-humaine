@@ -22,6 +22,7 @@ public class Dialog
     {
         currentSentence = newSentence;
     }
+
 }
 
 public class Sentence
@@ -44,6 +45,13 @@ public class Sentence
     public Sentence GetNextSentence()
     {
         return nextSentence;
+    }
+
+    public void ShowSentences()
+    {
+        //Debug.Log(content);
+        if (nextSentence != null)
+            nextSentence.ShowSentences();
     }
 }
 

@@ -295,7 +295,12 @@ public class ContentsSupport : MonoBehaviour
         GameObject specialOption = Instantiate(EndButton, tabletContentContainer);
         specialOption.GetComponentInChildren<TextMeshProUGUI>().text = text;
         StartCoroutine(DisplayScrollArrow());
-        //return specialOption;
+    }
+
+    public void DisplayFinalButton(GameObject obj)
+    {
+        obj.transform.SetAsLastSibling();
+        obj.SetActive(true);
     }
 
     #region Anim events actions

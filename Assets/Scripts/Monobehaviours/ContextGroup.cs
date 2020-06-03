@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class ContextGroup : MonoBehaviour
+public class ContextGroup : MonoBehaviour, IActivatable
 {
     Animator animator;
     //[Tooltip("Time before the context text at the beginning of the scene disapear")]
@@ -31,4 +31,15 @@ public class ContextGroup : MonoBehaviour
     {
         EndAppearEvent?.Invoke();
     }
+
+    public void Activate()
+    {
+        gameObject.SetActive(true);
+    }
+
+    public void Desactivate()
+    {
+        gameObject.SetActive(false);
+    }
+
 }

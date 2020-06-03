@@ -59,7 +59,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   modernCursorTexture: {fileID: 2800000, guid: 15ff7008f5614d541923c9bd83dcca67, type: 3}
-  pastCursorTexture: {fileID: 2800000, guid: 15ff7008f5614d541923c9bd83dcca67, type: 3}
+  pastCursorTexture: {fileID: 2800000, guid: 41b2de10883475e4881b0ee2c12d827b, type: 3}
   cursorMode: 1
   hotSpot: {x: 0, y: 0}
   cursorSource: {fileID: 0}

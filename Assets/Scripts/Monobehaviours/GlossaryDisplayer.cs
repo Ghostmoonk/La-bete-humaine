@@ -6,7 +6,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class GlossaryDisplayer : MonoBehaviour
+public class GlossaryDisplayer : MonoBehaviour, IActivatable
 {
     #region Singleton
     private static GlossaryDisplayer _instance;
@@ -40,7 +40,7 @@ public class GlossaryDisplayer : MonoBehaviour
     private void OnEnable()
     {
         popup = FindObjectOfType<GlossaryPopUp>();
-        popup.gameObject.SetActive(false);
+        Desactivate();
 
     }
     private void Start()
@@ -63,7 +63,7 @@ public class GlossaryDisplayer : MonoBehaviour
 
                 if (currentWordData != null)
                     if (currentWordData.imagePath == null)
-                        HidePopUp();
+                        Desactivate();
             }
             //We want to display a definition
             else
@@ -89,11 +89,17 @@ public class GlossaryDisplayer : MonoBehaviour
                 if (currentWordData.imagePath != null)
                     imageSlider.SlideIn();
                 else
-                    HidePopUp();
+                    Desactivate();
             }
             currentWordData = null;
         }
     }
+
+    public void Desactivate() =>
+        popup.gameObject.SetActive(false);
+
+    public void Activate() =>
+        popup.gameObject.SetActive(true);
 
     //Permet de placer le popup sur la souris avec un offset
     //private void PlaceOnPosition(Vector3 pos)
@@ -116,10 +122,5 @@ public class GlossaryDisplayer : MonoBehaviour
     //    }
     //    popupTransform.anchoredPosition += adjustingOffset;
     //}
-
-    private void HidePopUp()
-    {
-        popup.gameObject.SetActive(false);
-    }
 
 }

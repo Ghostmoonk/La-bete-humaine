@@ -81,7 +81,7 @@ public class DialogsLoader : MonoBehaviour
             //One loop for dialog over
             dialogsDico.Add(int.Parse(dialogCols[0]), new Dialog(sentences[rootId]));
         }
-        Debug.Log("complete");
         DialogsLoadComplete?.Invoke();
+
     }
 }

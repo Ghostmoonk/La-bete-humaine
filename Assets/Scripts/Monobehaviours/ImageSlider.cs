@@ -66,7 +66,6 @@ public class ImageSlider : MonoBehaviour
         {
             containerTransform.position += new Vector3(0, (frontMinY - containerMin.y) / 2);
         }
-
     }
 
     private void Resize(Vector2 spriteSize)

@@ -84,7 +84,6 @@ public class ClosedQuestionHolder : ContentHolder
             foreach (ClickHandler item in buttons)
             {
                 item.animator.SetBool("Show", show);
-
                 yield return new WaitForSeconds(0.2f);
             }
 
@@ -126,6 +125,10 @@ public class ClosedQuestionHolder : ContentHolder
             if (transform.parent.GetChild(i) != transform && transform.parent.GetChild(i).GetComponent<ContentHolder>() != null)
                 transform.parent.GetChild(i).GetComponent<ContentHolder>().animator.SetBool("Show", false);
         }
+
+        if (GameObject.FindGameObjectWithTag("ManuscriptContainer").GetComponent<ImageSlider>().active)
+            GameObject.FindGameObjectWithTag("ManuscriptContainer").GetComponent<ImageSlider>().SlideIn();
+
     }
 
     public void DisplayAnswerDelayed(float delay)

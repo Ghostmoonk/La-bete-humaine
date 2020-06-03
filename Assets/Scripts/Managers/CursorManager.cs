@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class CursorManager : MonoBehaviour
+public class CursorManager : MonoBehaviour, IActivatable
 {
     private static CursorManager instance;
     public static CursorManager Instance
@@ -36,10 +36,24 @@ public class CursorManager : MonoBehaviour
 
     private void OnEnable()
     {
-        if (ScenesManager.Instance.GetTemporality() == Temporality.Modern)
+        Activate();
+    }
+
+    public void SetCursor(Temporality temporality)
+    {
+        if (temporality == Temporality.Modern)
             Cursor.SetCursor(modernCursorTexture, hotSpot, cursorMode);
-        else if (ScenesManager.Instance.GetTemporality() == Temporality.Past)
+        else if (temporality == Temporality.Past)
             Cursor.SetCursor(pastCursorTexture, hotSpot, cursorMode);
     }
 
+    public void Activate()
+    {
+        Cursor.visible = true;
+    }
+
+    public void Desactivate()
+    {
+        Cursor.visible = false;
+    }
 }

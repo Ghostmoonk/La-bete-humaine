@@ -16,6 +16,7 @@ public class TMP_CharacterTapping : MonoBehaviour
     private void Start()
     {
         tappingSource = GetComponent<AudioSource>();
+
         texts = new string[textMeshs.Length];
 
         for (int i = 0; i < textMeshs.Length; i++)
@@ -24,6 +25,7 @@ public class TMP_CharacterTapping : MonoBehaviour
             textMeshs[i].text = "";
         }
     }
+
     public void StartTyping()
     {
         StartCoroutine(PrintCharacter());
