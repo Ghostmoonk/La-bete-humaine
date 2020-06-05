@@ -5,10 +5,11 @@ using UnityEngine.Events;
 
 public class Timer : MonoBehaviour
 {
-    float duration;
+    [SerializeField] float duration;
     [HideInInspector] public bool over;
-    bool active;
-    [HideInInspector] public UnityEvent timerEndEvent;
+    public bool active;
+    bool reset;
+    public UnityEvent timerEndEvent;
 
     public void SetTimer(float _duration)
     {
@@ -19,17 +20,29 @@ public class Timer : MonoBehaviour
 
     public void SetTimerActive(bool active)
     {
-        this.active = active;
+        if (this.active != active)
+            this.active = active;
     }
     public void StartTimer()
     {
         StartCoroutine(DoTimer());
     }
 
+    public void ResetTimer()
+    {
+        if (over)
+            StartTimer();
+
+        else
+            reset = true;
+
+    }
+
     public bool IsActive()
     {
         return active;
     }
+
     IEnumerator DoTimer()
     {
         float timer = 0f;
@@ -39,8 +52,14 @@ public class Timer : MonoBehaviour
             {
                 timer += Time.deltaTime;
             }
+            if (reset)
+            {
+                reset = false;
+                timer = 0f;
+            }
             yield return null;
         }
+        Debug.Log("timer over");
         over = true;
         timerEndEvent?.Invoke();
         //simpleText.Complete();
