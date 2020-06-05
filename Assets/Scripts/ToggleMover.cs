@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class ToggleMover : MonoBehaviour
 {
@@ -9,6 +10,9 @@ public class ToggleMover : MonoBehaviour
     [SerializeField] float transitionDuration;
     bool toggler;
     Vector2 initialAnchoredPos;
+
+    [SerializeField] UnityEvent StartToggleOn;
+    [SerializeField] UnityEvent StartToggleOff;
 
     private void Start()
     {
@@ -22,9 +26,15 @@ public class ToggleMover : MonoBehaviour
                 tween.Pause();
 
         if (!toggler)
+        {
             tween = GetComponent<RectTransform>().DOAnchorPosY(initialAnchoredPos.y + rectT.sizeDelta.y, transitionDuration);
+            StartToggleOn?.Invoke();
+        }
         else
+        {
             tween = GetComponent<RectTransform>().DOAnchorPosY(GetComponent<RectTransform>().anchoredPosition.y - rectT.sizeDelta.y, transitionDuration);
+            StartToggleOff?.Invoke();
+        }
 
         toggler = !toggler;
 

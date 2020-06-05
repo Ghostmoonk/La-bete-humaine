@@ -1,6 +1,8 @@
-﻿using System;
+﻿using DG.Tweening;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class SoundManager : MonoBehaviour
 {
@@ -15,6 +17,8 @@ public class SoundManager : MonoBehaviour
     AudioSource defaultSource;
     [SerializeField] List<Sound> soundsList;
     Dictionary<string, AudioClip[]> soundsDico;
+
+    List<AudioSource> toRestarList;
 
     private void Awake()
     {
@@ -48,6 +52,12 @@ public class SoundManager : MonoBehaviour
             throw new Exception("Le son au nom " + soundName + " n'existe pas dans le manager");
     }
 
+    public void PlaySound(AudioSource source, AudioClip soundClip)
+    {
+        source.clip = soundClip;
+        source.Play();
+    }
+
     public void PlaySound(string soundName)
     {
         if (defaultSource == null)
@@ -61,6 +71,41 @@ public class SoundManager : MonoBehaviour
         }
         else
             throw new Exception("Le son au nom " + soundName + " n'existe pas dans le manager");
+    }
+
+    public void ChangeMixerVolume(AudioMixer mixer, float newVolume, float duration)
+    {
+        float volume = 0f;
+
+        if (mixer.GetFloat("Volume", out volume))
+        {
+            DOTween.To(() => volume, x => volume = x, newVolume, duration);
+        }
+    }
+
+    public void FadeOutAllSource(float duration)
+    {
+        foreach (AudioSource source in FindObjectsOfType<AudioSource>())
+        {
+            if (source.isPlaying)
+            {
+                float currentVolume = source.volume;
+                Tweener tween = source.DOFade(0f, duration);
+                tween.OnComplete(() => { source.Pause(); source.volume = currentVolume; toRestarList.Add(source); });
+            }
+        }
+    }
+
+    public void FadeInAllSource(float duration)
+    {
+        foreach (AudioSource source in toRestarList)
+        {
+            float currentVolume = source.volume;
+            source.volume = 0f;
+            source.UnPause();
+            Tweener tween = source.DOFade(currentVolume, duration);
+            tween.OnComplete(() => { source.Stop(); source.volume = currentVolume; });
+        }
     }
 
     [Serializable]
