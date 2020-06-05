@@ -774,7 +774,11 @@ PrefabInstance:
     - target: {fileID: 9198054438585034201, guid: 4f4aeb88b364f0d4d933463975914b2e,
         type: 3}
       propertyPath: m_text
-      value: "Ceci est le texte de transition vers la sc\xE8ne d'introduction !"
+      value: "\u201CUne pointe de myst\xE8re, l\u2019au-del\xE0, une force inconnue
+        \u2014 dans la r\xE9alit\xE9.\r\nH\xE9r\xE9dit\xE9 du crime. \xC9tude sur
+        la magistrature avec le Denizet. \u2014 Grand po\xE8me des chemins de fer
+        avec la voie ferr\xE9e. (3 buts)\r\nDrame myst\xE9rieux et terrifiant sous
+        le grand transit moderne.\u201D\r\nPlan d\xE9finitif,  \xC9bauche, folio\xB0290"
       objectReference: {fileID: 0}
     - target: {fileID: 9198054438750407752, guid: 4f4aeb88b364f0d4d933463975914b2e,
         type: 3}
