@@ -12,6 +12,7 @@ TagManager:
   - ManuscriptSource
   - GlossaryPopUp
   - AmbianceAudio
+  - DefaultSource
   layers:
   - Default
   - TransparentFX

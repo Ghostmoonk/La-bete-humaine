@@ -9,7 +9,7 @@ public enum Speed
     Normal, Fast
 }
 
-public class Mover : MonoBehaviour
+public class AutoMover : MonoBehaviour
 {
     [SerializeField] ObjectToMove[] objectsToMove;
     Speed speedType;
@@ -28,7 +28,7 @@ public class Mover : MonoBehaviour
         MoveObjects();
     }
 
-    private void MoveObjects()
+    public void MoveObjects()
     {
         for (int i = 0; i < objectsToMove.Length; i++)
         {

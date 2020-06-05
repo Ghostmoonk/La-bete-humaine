@@ -50,3 +50,20 @@ public class GlossaryObserver : Observer
     }
 
 }
+
+public class SliderObserver : Observer
+{
+    public delegate void SliderDelegate(ReferenceImage refImg);
+
+    public SliderDelegate sliderDelegate;
+
+    public override void OnComplete()
+    {
+
+    }
+
+    public void OnSlide(ReferenceImage refImg)
+    {
+        sliderDelegate?.Invoke(refImg);
+    }
+}

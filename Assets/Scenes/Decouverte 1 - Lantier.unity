@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -1082,12 +1082,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0569865d2db7e749916993d530ca179, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  vibrato: 2
-  shakeStrength: 3
   periodDuration: 0.2
   periodDurationVariance: 0.05
   amplitude: 0.1
   amplitudeVariance: 0.02
+  playOnStart: 0
+  resetPosAtEnd: 0
 --- !u!1 &186396006
 GameObject:
   m_ObjectHideFlags: 0
@@ -3120,12 +3120,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0569865d2db7e749916993d530ca179, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  vibrato: 2
-  shakeStrength: 1
   periodDuration: 0.2
   periodDurationVariance: 0.05
   amplitude: 0.2
   amplitudeVariance: 0.1
+  playOnStart: 0
+  resetPosAtEnd: 0
 --- !u!95 &946936102
 Animator:
   serializedVersion: 3
@@ -4106,12 +4106,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0569865d2db7e749916993d530ca179, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  vibrato: 3
-  shakeStrength: 2
   periodDuration: 0.01
   periodDurationVariance: 0.005
   amplitude: 0.02
   amplitudeVariance: 0.005
+  playOnStart: 0
+  resetPosAtEnd: 0
 --- !u!1 &1460083340
 GameObject:
   m_ObjectHideFlags: 0
@@ -12750,11 +12750,6 @@ PrefabInstance:
     - target: {fileID: 5613087874543457741, guid: 6dce93a1a028e3b49bd4c8b2799e80c6,
         type: 3}
       propertyPath: m_Pivot.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5613087875728057363, guid: 6dce93a1a028e3b49bd4c8b2799e80c6,
-        type: 3}
-      propertyPath: m_Color.a
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

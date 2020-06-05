@@ -62,7 +62,6 @@ MonoBehaviour:
   pastCursorTexture: {fileID: 2800000, guid: 41b2de10883475e4881b0ee2c12d827b, type: 3}
   cursorMode: 1
   hotSpot: {x: 0, y: 0}
-  cursorSource: {fileID: 0}
 --- !u!114 &1985806191
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -111,3 +110,6 @@ MonoBehaviour:
   - name: machine-alarm
     clips:
     - {fileID: 8300000, guid: afab6104bdb237a49a7f9cd1c22cda4f, type: 3}
+  - name: basic-click
+    clips:
+    - {fileID: 8300000, guid: 71a7328bfd14ca848a4f234999625ee8, type: 3}

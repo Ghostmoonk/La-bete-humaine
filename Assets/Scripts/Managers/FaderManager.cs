@@ -49,15 +49,15 @@ public class FaderManager : MonoBehaviour
         FadeOut(fader.defaultFadeOutDuration);
     }
 
-    public void Fade() => fadeAnimator.SetTrigger("Fade");
+    //public void Fade() => fadeAnimator.SetTrigger("Fade");
 
 
-    public void LongFade(float fadeTime)
-    {
-        Fade();
-        fadeAnimator.SetBool("AutoFadeIn", false);
-        Invoke(nameof(ResetAutoFadeIn), fadeTime);
-    }
+    //public void LongFade(float fadeTime)
+    //{
+    //    Fade();
+    //    fadeAnimator.SetBool("AutoFadeIn", false);
+    //    Invoke(nameof(ResetAutoFadeIn), fadeTime);
+    //}
 
     private void ResetAutoFadeIn() => fadeAnimator.SetBool("AutoFadeIn", true);
 
@@ -90,7 +90,7 @@ public class FaderManager : MonoBehaviour
 
     //public void SetColor(Color col) => faderImg.color = col;
 
-    public void FadeOutActions()
+    private void FadeOutActions()
     {
         if (fadeOutDelegate != null)
         {
@@ -100,7 +100,7 @@ public class FaderManager : MonoBehaviour
         fader.EndFadeOutEvents?.Invoke();
     }
 
-    public void FadeInActions()
+    private void FadeInActions()
     {
         if (fadeInDelegate != null)
         {

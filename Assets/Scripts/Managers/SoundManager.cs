@@ -12,7 +12,7 @@ public class SoundManager : MonoBehaviour
             return instance;
         }
     }
-
+    AudioSource defaultSource;
     [SerializeField] List<Sound> soundsList;
     Dictionary<string, AudioClip[]> soundsDico;
 
@@ -32,6 +32,8 @@ public class SoundManager : MonoBehaviour
         {
             soundsDico.Add(soundsList[i].name, soundsList[i].clips);
         }
+        if (GameObject.FindGameObjectWithTag("DefaultSource") != null)
+            defaultSource = GameObject.FindGameObjectWithTag("DefaultSource").GetComponent<AudioSource>();
     }
 
     public void PlaySound(AudioSource source, string soundName)
@@ -41,6 +43,21 @@ public class SoundManager : MonoBehaviour
         {
             source.clip = clips[UnityEngine.Random.Range(0, clips.Length)];
             source.Play();
+        }
+        else
+            throw new Exception("Le son au nom " + soundName + " n'existe pas dans le manager");
+    }
+
+    public void PlaySound(string soundName)
+    {
+        if (defaultSource == null)
+            throw new MissingReferenceException("Il manque la source par défaut");
+
+        AudioClip[] clips;
+        if (soundsDico.TryGetValue(soundName, out clips))
+        {
+            defaultSource.clip = clips[UnityEngine.Random.Range(0, clips.Length)];
+            defaultSource.Play();
         }
         else
             throw new Exception("Le son au nom " + soundName + " n'existe pas dans le manager");

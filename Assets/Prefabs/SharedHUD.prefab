@@ -114,7 +114,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   faderImg: {fileID: 5613087875728057363}
-  fader: {fileID: 11400000, guid: f4a6a30119c67954080b36e224403364, type: 2}
+  fader: {fileID: 0}
 --- !u!95 &5613087874543457738
 Animator:
   serializedVersion: 3
@@ -192,7 +192,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 0}
   m_RaycastTarget: 0
   m_Maskable: 1
   m_OnCullStateChanged:

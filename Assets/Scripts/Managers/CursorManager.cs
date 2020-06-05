@@ -18,8 +18,6 @@ public class CursorManager : MonoBehaviour, IActivatable
     public CursorMode cursorMode = CursorMode.Auto;
     public Vector2 hotSpot = Vector2.zero;
 
-    [SerializeField] AudioSource cursorSource;
-
     private void Awake()
     {
         if (instance == null)
@@ -30,7 +28,7 @@ public class CursorManager : MonoBehaviour, IActivatable
         {
             Destroy(this);
         }
-        DontDestroyOnLoad(gameObject);
+        //DontDestroyOnLoad(gameObject);
 
     }
 
@@ -50,10 +48,12 @@ public class CursorManager : MonoBehaviour, IActivatable
     public void Activate()
     {
         Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
     }
 
     public void Desactivate()
     {
         Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
     }
 }

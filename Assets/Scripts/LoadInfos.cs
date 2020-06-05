@@ -5,14 +5,9 @@ using UnityEngine.Events;
 
 public class LoadInfos : MonoBehaviour, IActivatable
 {
-    Animator animator;
+    [SerializeField] Animator animator;
 
     public UnityEvent EndLoadInfos;
-
-    void Start()
-    {
-        animator = GetComponent<Animator>();
-    }
 
     public void Activate()
     {

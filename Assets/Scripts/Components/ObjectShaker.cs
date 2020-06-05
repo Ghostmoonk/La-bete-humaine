@@ -13,9 +13,21 @@ public class ObjectShaker : Shaker
     [SerializeField] float amplitude;
     [SerializeField] float amplitudeVariance;
 
+    [SerializeField] bool playOnStart;
+
+    Tween tweenShake;
+
+    [SerializeField] bool resetPosAtEnd;
+
+    private void Start()
+    {
+        if (playOnStart)
+            ContinuousShake();
+    }
     public override void ContinuousShake()
     {
         shaking = true;
+
         StartCoroutine(ShakeCo());
     }
 
@@ -29,6 +41,9 @@ public class ObjectShaker : Shaker
     public override void StopShake()
     {
         shaking = false;
+        if (!resetPosAtEnd)
+            tweenShake.Kill();
+
         StopCoroutine(ShakeCo());
     }
 
@@ -42,10 +57,21 @@ public class ObjectShaker : Shaker
             Vector3 newRandomPos = randomTarget + initialPos;
 
             float durationTime = Random.Range(periodDuration - periodDurationVariance, periodDuration + periodDurationVariance);
-            transform.DOMove(newRandomPos, durationTime).SetEase(Ease.Flash);
-            yield return new WaitForSeconds(durationTime);
+            tweenShake = transform.DOMove(newRandomPos, durationTime).SetEase(Ease.Flash);
+
+            float timer = 0f;
+            while (timer < durationTime)
+            {
+                yield return null;
+                timer += Time.deltaTime;
+
+                if (!shaking)
+                    break;
+            }
+            //yield return new WaitForSeconds(durationTime);
+            initialPos = transform.position - randomTarget;
         }
-        transform.DOMove(initialPos, periodDuration).SetEase(Ease.Flash);
-        transform.DOKill();
+        if (resetPosAtEnd)
+            tweenShake = transform.DOMove(initialPos, periodDuration).SetEase(Ease.Flash);
     }
 }
