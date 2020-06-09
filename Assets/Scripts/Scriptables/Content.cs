@@ -56,7 +56,6 @@ public class SliderSubject : Subject
     }
     public void Complete(ReferenceImage RefImg)
     {
-        Debug.Log(observers.Count);
         for (int i = 0; i < observers.Count; i++)
         {
             if (observers[i].GetType() == typeof(SliderObserver))

@@ -59,7 +59,6 @@ public class Timer : MonoBehaviour
             }
             yield return null;
         }
-        Debug.Log("timer over");
         over = true;
         timerEndEvent?.Invoke();
         //simpleText.Complete();

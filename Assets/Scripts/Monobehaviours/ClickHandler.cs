@@ -14,6 +14,7 @@ public class ClickHandler : MonoBehaviour
     Content[] contentToDisplay;
     Transform relatedContentTransform;
     [HideInInspector] public Animator animator;
+    UnityAction unityAction;
 
     public void SetContents(Transform relatedObject, Content currentContent, int[] idsContentsToDisplay = null)
     {
@@ -32,10 +33,18 @@ public class ClickHandler : MonoBehaviour
                 if (i == contentToDisplay.Length - 1)
                 {
                     Debug.Log("Add listener");
-                    UnityEditor.Events.UnityEventTools.AddPersistentListener(contentToDisplay[i].CompleteEvent, relatedContentTransform.GetComponent<ClosedQuestionHolder>().StartProgressiveFadeIn);
-                    UnityEditor.Events.UnityEventTools.AddPersistentListener(contentToDisplay[i].CompleteEvent, ReplaceContentAtBottom);
+                    //Ne permet pas de build !
+
+                    //UnityEditor.Events.UnityEventTools.AddPersistentListener(contentToDisplay[i].CompleteEvent, relatedContentTransform.GetComponent<ClosedQuestionHolder>().StartProgressiveFadeIn);
+                    //UnityEditor.Events.UnityEventTools.AddPersistentListener(contentToDisplay[i].CompleteEvent, ReplaceContentAtBottom);
+                    int n = i;
+
+                    unityAction += relatedContentTransform.GetComponent<ClosedQuestionHolder>().StartProgressiveFadeIn;
+                    unityAction += ReplaceContentAtBottom;
+                    contentToDisplay[n].CompleteEvent.AddListener(unityAction);
                     //contentToDisplay[i].CompleteEvent.AddListener(relatedContentTransform.GetComponent<ClosedQuestionHolder>().StartProgressiveFadeIn);
                 }
+
             }
         }
     }

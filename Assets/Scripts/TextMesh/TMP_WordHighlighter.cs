@@ -30,7 +30,6 @@ public class TMP_WordHighlighter : MonoBehaviour, IPointerEnterHandler, IPointer
 
     public void HighlighGlossaryWords(float duration)
     {
-        Debug.Log(textComponent.textInfo.wordCount);
         for (int i = 0; i < textComponent.textInfo.wordCount; i++)
         {
             if (TextsLoader.Instance.ContainWordInGlossary(textComponent.textInfo.wordInfo[i].GetWord()) != -1)

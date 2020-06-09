@@ -113,3 +113,42 @@ MonoBehaviour:
   - name: basic-click
     clips:
     - {fileID: 8300000, guid: 71a7328bfd14ca848a4f234999625ee8, type: 3}
+  - name: heartbeat
+    clips:
+    - {fileID: 8300000, guid: a162007e8f2f9714bb548b6a9bf0ca71, type: 3}
+    - {fileID: 8300000, guid: def51acf4f5e7454cbb520e23943aeb6, type: 3}
+    - {fileID: 8300000, guid: 12d3b4143b7cfef4da672ef0aa25d4f5, type: 3}
+    - {fileID: 8300000, guid: c478cea4876731e4c940e895ce7d9084, type: 3}
+    - {fileID: 8300000, guid: 5a91ac6f733378f4ca5d0128966de7c5, type: 3}
+    - {fileID: 8300000, guid: aa789865d605bf04f8b3a567af09d794, type: 3}
+  - name: breathing-calm
+    clips:
+    - {fileID: 8300000, guid: 8ac09912469790644aee3a8c226dfb55, type: 3}
+    - {fileID: 8300000, guid: d86d8ae032d38e54a8b39573e2922d66, type: 3}
+    - {fileID: 8300000, guid: 47860b38d9e7020478a8647dfb319d5e, type: 3}
+    - {fileID: 8300000, guid: 5c5cad18b2ed1f147b13f79c9d760d78, type: 3}
+    - {fileID: 8300000, guid: 820fa27ddc570264e9cf30515b494743, type: 3}
+    - {fileID: 8300000, guid: 3bea2749f94e83e45a419f9ddcab24d0, type: 3}
+    - {fileID: 8300000, guid: d5d5ea7a76c65654484788ba59eb615e, type: 3}
+    - {fileID: 8300000, guid: 581532339db549745ba0dec4a6f27654, type: 3}
+    - {fileID: 8300000, guid: 85b13da9a4cbff2469c628ca0dab5b81, type: 3}
+    - {fileID: 8300000, guid: 0b4be13077e858948a56ade623cffe36, type: 3}
+    - {fileID: 8300000, guid: b09c5ca1b1f134244bb47c2ad0645f4b, type: 3}
+  - name: breathing-panic
+    clips:
+    - {fileID: 8300000, guid: f9fba24183ffc764eb08724f33d23b52, type: 3}
+    - {fileID: 8300000, guid: 2f7cfb6fb8a04f14dae24244a008e386, type: 3}
+    - {fileID: 8300000, guid: d9574f342d52513438793c97efb052a5, type: 3}
+    - {fileID: 8300000, guid: d79f07197de38c44b98f944dbb1f9679, type: 3}
+    - {fileID: 8300000, guid: 6f0f5396d3ff3884bb359c87e7d00130, type: 3}
+    - {fileID: 8300000, guid: 84bbe79efa1684545a4dd7550729b167, type: 3}
+  - name: breathing-bestial
+    clips:
+    - {fileID: 8300000, guid: 66a5dbde55caeb64c89fe7d1e3452ceb, type: 3}
+    - {fileID: 8300000, guid: a705881e420445c4292b1c1f657f8df3, type: 3}
+    - {fileID: 8300000, guid: 564783b59071a74439192f41347190e6, type: 3}
+    - {fileID: 8300000, guid: 7a4be5a7e688a484b8ec7245b67e5263, type: 3}
+    - {fileID: 8300000, guid: 3240946132b7a7145bb0791861b61384, type: 3}
+    - {fileID: 8300000, guid: 97a79baf8eb1d204aa981dd60c8444f1, type: 3}
+  pauseVolReduction: 0
+  durationPauseDbReduction: 0.5

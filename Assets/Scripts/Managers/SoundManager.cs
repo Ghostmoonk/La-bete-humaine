@@ -20,6 +20,10 @@ public class SoundManager : MonoBehaviour
 
     List<AudioSource> toRestarList;
 
+    [Range(1, 10)]
+    [SerializeField] int pauseVolReduction;
+    [SerializeField] float durationPauseDbReduction;
+
     private void Awake()
     {
         if (instance == null)
@@ -105,6 +109,28 @@ public class SoundManager : MonoBehaviour
             source.UnPause();
             Tweener tween = source.DOFade(currentVolume, duration);
             tween.OnComplete(() => { source.Stop(); source.volume = currentVolume; });
+        }
+    }
+
+    public void PauseDecreaseVolume(AudioMixerGroup mixer)
+    {
+        foreach (AudioSource source in FindObjectsOfType<AudioSource>())
+        {
+            if (source.outputAudioMixerGroup == mixer)
+            {
+                source.DOFade(source.volume / pauseVolReduction, durationPauseDbReduction).SetUpdate(true);
+            }
+        }
+    }
+
+    public void PauseIncreaseVolume(AudioMixerGroup mixer)
+    {
+        foreach (AudioSource source in FindObjectsOfType<AudioSource>())
+        {
+            if (source.outputAudioMixerGroup == mixer)
+            {
+                source.DOFade(source.volume * pauseVolReduction, durationPauseDbReduction).SetUpdate(true);
+            }
         }
     }
 

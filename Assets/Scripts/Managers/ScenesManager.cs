@@ -83,6 +83,11 @@ public class ScenesManager : MonoBehaviour
 #endif
     }
 
+    public void SetTimeScale(float newTimeScale)
+    {
+        Time.timeScale = newTimeScale;
+    }
+
 }
 
 public enum Temporality { Modern = 0, Past = 1 }

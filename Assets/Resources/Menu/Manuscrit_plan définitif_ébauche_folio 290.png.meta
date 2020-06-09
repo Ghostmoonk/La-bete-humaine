@@ -1,0 +1,965 @@
+fileFormatVersion: 2
+guid: 75548ef02a0474747933394fe556e688
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 3838576145120423587
+    second: "Manuscrit_plan d\xE9finitif_\xE9bauche_folio 290_0"
+  - first:
+      213: -1650501639804879914
+    second: "Manuscrit_plan d\xE9finitif_\xE9bauche_folio 290_1"
+  - first:
+      213: 3922680858880124568
+    second: "Manuscrit_plan d\xE9finitif_\xE9bauche_folio 290_2"
+  - first:
+      213: 2397337630360501842
+    second: "Manuscrit_plan d\xE9finitif_\xE9bauche_folio 290_3"
+  - first:
+      213: 555819182593297690
+    second: "Manuscrit_plan d\xE9finitif_\xE9bauche_folio 290_4"
+  - first:
+      213: 885126475487427237
+    second: "Manuscrit_plan d\xE9finitif_\xE9bauche_folio 290_5"
+  - first:
+      213: -2268165283881103166
+    second: "Manuscrit_plan d\xE9finitif_\xE9bauche_folio 290_6"
+  - first:
+      213: 1927889634892328998
+    second: "Manuscrit_plan d\xE9finitif_\xE9bauche_folio 290_7"
+  - first:
+      213: -3894313358220473726
+    second: "Manuscrit_plan d\xE9finitif_\xE9bauche_folio 290_8"
+  - first:
+      213: -1440646522434321558
+    second: "Manuscrit_plan d\xE9finitif_\xE9bauche_folio 290_9"
+  - first:
+      213: 5889935856247972001
+    second: "Manuscrit_plan d\xE9finitif_\xE9bauche_folio 290_10"
+  - first:
+      213: 7289552861999263989
+    second: "Manuscrit_plan d\xE9finitif_\xE9bauche_folio 290_11"
+  - first:
+      213: 1247855782884624687
+    second: "Manuscrit_plan d\xE9finitif_\xE9bauche_folio 290_12"
+  - first:
+      213: 9076785598871074871
+    second: "Manuscrit_plan d\xE9finitif_\xE9bauche_folio 290_13"
+  - first:
+      213: 7179668445913767269
+    second: "Manuscrit_plan d\xE9finitif_\xE9bauche_folio 290_14"
+  - first:
+      213: -742854691730278000
+    second: "Manuscrit_plan d\xE9finitif_\xE9bauche_folio 290_15"
+  - first:
+      213: 6638157134295497821
+    second: "Manuscrit_plan d\xE9finitif_\xE9bauche_folio 290_16"
+  - first:
+      213: -8325499804666654755
+    second: "Manuscrit_plan d\xE9finitif_\xE9bauche_folio 290_17"
+  - first:
+      213: 6790320172678120544
+    second: "Manuscrit_plan d\xE9finitif_\xE9bauche_folio 290_18"
+  - first:
+      213: -9116435039679512184
+    second: "Manuscrit_plan d\xE9finitif_\xE9bauche_folio 290_19"
+  - first:
+      213: 539533083504419283
+    second: "Manuscrit_plan d\xE9finitif_\xE9bauche_folio 290_20"
+  - first:
+      213: -8107539772410290070
+    second: "Manuscrit_plan d\xE9finitif_\xE9bauche_folio 290_21"
+  - first:
+      213: 189788518236158608
+    second: "Manuscrit_plan d\xE9finitif_\xE9bauche_folio 290_22"
+  - first:
+      213: 6776682244097462198
+    second: "Manuscrit_plan d\xE9finitif_\xE9bauche_folio 290_23"
+  - first:
+      213: -3058439722965401483
+    second: "Manuscrit_plan d\xE9finitif_\xE9bauche_folio 290_24"
+  - first:
+      213: 847023581006673165
+    second: "Manuscrit_plan d\xE9finitif_\xE9bauche_folio 290_25"
+  - first:
+      213: 8713457249680562939
+    second: "Manuscrit_plan d\xE9finitif_\xE9bauche_folio 290_26"
+  - first:
+      213: 2441749048815076111
+    second: "Manuscrit_plan d\xE9finitif_\xE9bauche_folio 290_27"
+  - first:
+      213: 5239924161628450738
+    second: "Manuscrit_plan d\xE9finitif_\xE9bauche_folio 290_28"
+  - first:
+      213: -542869652972711273
+    second: "Manuscrit_plan d\xE9finitif_\xE9bauche_folio 290_29"
+  - first:
+      213: -4436395514145429456
+    second: "Manuscrit_plan d\xE9finitif_\xE9bauche_folio 290_30"
+  - first:
+      213: 2904191898918139720
+    second: "Manuscrit_plan d\xE9finitif_\xE9bauche_folio 290_31"
+  - first:
+      213: -7539346906686428327
+    second: "Manuscrit_plan d\xE9finitif_\xE9bauche_folio 290_32"
+  - first:
+      213: -4538604922877381518
+    second: "Manuscrit_plan d\xE9finitif_\xE9bauche_folio 290_33"
+  - first:
+      213: -8409408736774597951
+    second: "Manuscrit_plan d\xE9finitif_\xE9bauche_folio 290_34"
+  - first:
+      213: -3151328039051442515
+    second: "Manuscrit_plan d\xE9finitif_\xE9bauche_folio 290_35"
+  - first:
+      213: 4444247891974081868
+    second: "Manuscrit_plan d\xE9finitif_\xE9bauche_folio 290_36"
+  - first:
+      213: 3222153629719696274
+    second: "Manuscrit_plan d\xE9finitif_\xE9bauche_folio 290_37"
+  - first:
+      213: -1093738583657932300
+    second: "Manuscrit_plan d\xE9finitif_\xE9bauche_folio 290_38"
+  - first:
+      213: -5814649588748606989
+    second: "Manuscrit_plan d\xE9finitif_\xE9bauche_folio 290_39"
+  - first:
+      213: -7834524827465952645
+    second: "Manuscrit_plan d\xE9finitif_\xE9bauche_folio 290_40"
+  - first:
+      213: 3983691675339164977
+    second: "Manuscrit_plan d\xE9finitif_\xE9bauche_folio 290_41"
+  - first:
+      213: -284068093544845756
+    second: "Manuscrit_plan d\xE9finitif_\xE9bauche_folio 290_42"
+  - first:
+      213: -582051148348084409
+    second: "Manuscrit_plan d\xE9finitif_\xE9bauche_folio 290_43"
+  - first:
+      213: -7187851924460798470
+    second: "Manuscrit_plan d\xE9finitif_\xE9bauche_folio 290_44"
+  - first:
+      213: 3654075486559617055
+    second: "Manuscrit_plan d\xE9finitif_\xE9bauche_folio 290_45"
+  - first:
+      213: 8155659990576099180
+    second: "Manuscrit_plan d\xE9finitif_\xE9bauche_folio 290_46"
+  - first:
+      213: 286841883120268601
+    second: "Manuscrit_plan d\xE9finitif_\xE9bauche_folio 290_47"
+  - first:
+      213: -334164902326792736
+    second: "Manuscrit_plan d\xE9finitif_\xE9bauche_folio 290_48"
+  - first:
+      213: -8644372226253216631
+    second: "Manuscrit_plan d\xE9finitif_\xE9bauche_folio 290_49"
+  - first:
+      213: 2945987549224927500
+    second: "Manuscrit_plan d\xE9finitif_\xE9bauche_folio 290_50"
+  - first:
+      213: 2464386563392842044
+    second: "Manuscrit_plan d\xE9finitif_\xE9bauche_folio 290_51"
+  - first:
+      213: 7838464722845593139
+    second: "Manuscrit_plan d\xE9finitif_\xE9bauche_folio 290_52"
+  - first:
+      213: 4213573959008504105
+    second: "Manuscrit_plan d\xE9finitif_\xE9bauche_folio 290_53"
+  - first:
+      213: 3880520486121079637
+    second: "Manuscrit_plan d\xE9finitif_\xE9bauche_folio 290_54"
+  - first:
+      213: -4587571038279551935
+    second: "Manuscrit_plan d\xE9finitif_\xE9bauche_folio 290_55"
+  - first:
+      213: 2528903300354492212
+    second: "Manuscrit_plan d\xE9finitif_\xE9bauche_folio 290_56"
+  - first:
+      213: 7787327399526781879
+    second: "Manuscrit_plan d\xE9finitif_\xE9bauche_folio 290_57"
+  - first:
+      213: 4276498774319078893
+    second: "Manuscrit_plan d\xE9finitif_\xE9bauche_folio 290_58"
+  - first:
+      213: 2576298518687688958
+    second: "Manuscrit_plan d\xE9finitif_\xE9bauche_folio 290_59"
+  - first:
+      213: 5878793538875952773
+    second: "Manuscrit_plan d\xE9finitif_\xE9bauche_folio 290_60"
+  - first:
+      213: -2160880300690861889
+    second: "Manuscrit_plan d\xE9finitif_\xE9bauche_folio 290_61"
+  - first:
+      213: 2942082285332163027
+    second: "Manuscrit_plan d\xE9finitif_\xE9bauche_folio 290_62"
+  - first:
+      213: -2954764714193645321
+    second: "Manuscrit_plan d\xE9finitif_\xE9bauche_folio 290_63"
+  - first:
+      213: -3152582341301701322
+    second: "Manuscrit_plan d\xE9finitif_\xE9bauche_folio 290_64"
+  - first:
+      213: -8876523356911391204
+    second: "Manuscrit_plan d\xE9finitif_\xE9bauche_folio 290_65"
+  - first:
+      213: 279182839639558509
+    second: "Manuscrit_plan d\xE9finitif_\xE9bauche_folio 290_66"
+  - first:
+      213: 5381650840516366947
+    second: "Manuscrit_plan d\xE9finitif_\xE9bauche_folio 290_67"
+  - first:
+      213: 2805283069112084524
+    second: "Manuscrit_plan d\xE9finitif_\xE9bauche_folio 290_68"
+  - first:
+      213: -8712488294867733193
+    second: "Manuscrit_plan d\xE9finitif_\xE9bauche_folio 290_69"
+  - first:
+      213: 562099899181106212
+    second: "Manuscrit_plan d\xE9finitif_\xE9bauche_folio 290_70"
+  - first:
+      213: -3172770821709514936
+    second: "Manuscrit_plan d\xE9finitif_\xE9bauche_folio 290_71"
+  - first:
+      213: 3144051948293157807
+    second: "Manuscrit_plan d\xE9finitif_\xE9bauche_folio 290_72"
+  - first:
+      213: 4819712556036000417
+    second: "Manuscrit_plan d\xE9finitif_\xE9bauche_folio 290_73"
+  - first:
+      213: 4848160943715737751
+    second: "Manuscrit_plan d\xE9finitif_\xE9bauche_folio 290_74"
+  - first:
+      213: -6014135699563901411
+    second: "Manuscrit_plan d\xE9finitif_\xE9bauche_folio 290_75"
+  - first:
+      213: -5283212856601458174
+    second: "Manuscrit_plan d\xE9finitif_\xE9bauche_folio 290_76"
+  - first:
+      213: 7066333121026712596
+    second: "Manuscrit_plan d\xE9finitif_\xE9bauche_folio 290_77"
+  - first:
+      213: 2635639918349157178
+    second: "Manuscrit_plan d\xE9finitif_\xE9bauche_folio 290_78"
+  - first:
+      213: 600464398676083104
+    second: "Manuscrit_plan d\xE9finitif_\xE9bauche_folio 290_79"
+  - first:
+      213: 3215260808385575556
+    second: "Manuscrit_plan d\xE9finitif_\xE9bauche_folio 290_80"
+  - first:
+      213: -8271666742723688053
+    second: "Manuscrit_plan d\xE9finitif_\xE9bauche_folio 290_81"
+  - first:
+      213: -6309747474092758350
+    second: "Manuscrit_plan d\xE9finitif_\xE9bauche_folio 290_82"
+  - first:
+      213: 7187582271993317217
+    second: "Manuscrit_plan d\xE9finitif_\xE9bauche_folio 290_83"
+  - first:
+      213: -1619099094896998279
+    second: "Manuscrit_plan d\xE9finitif_\xE9bauche_folio 290_84"
+  - first:
+      213: -72836560575262996
+    second: "Manuscrit_plan d\xE9finitif_\xE9bauche_folio 290_85"
+  - first:
+      213: 2241381035479244597
+    second: "Manuscrit_plan d\xE9finitif_\xE9bauche_folio 290_86"
+  - first:
+      213: -6920228006389857348
+    second: "Manuscrit_plan d\xE9finitif_\xE9bauche_folio 290_87"
+  - first:
+      213: -2943992271207957411
+    second: "Manuscrit_plan d\xE9finitif_\xE9bauche_folio 290_88"
+  - first:
+      213: -5815240270156075646
+    second: "Manuscrit_plan d\xE9finitif_\xE9bauche_folio 290_89"
+  - first:
+      213: 6081661556823367342
+    second: "Manuscrit_plan d\xE9finitif_\xE9bauche_folio 290_90"
+  - first:
+      213: -6163718835698584126
+    second: "Manuscrit_plan d\xE9finitif_\xE9bauche_folio 290_91"
+  - first:
+      213: -7489762469528740160
+    second: "Manuscrit_plan d\xE9finitif_\xE9bauche_folio 290_92"
+  - first:
+      213: -1118155493929079552
+    second: "Manuscrit_plan d\xE9finitif_\xE9bauche_folio 290_93"
+  - first:
+      213: -489804832377574763
+    second: "Manuscrit_plan d\xE9finitif_\xE9bauche_folio 290_94"
+  - first:
+      213: -6696448737338229095
+    second: "Manuscrit_plan d\xE9finitif_\xE9bauche_folio 290_95"
+  - first:
+      213: 4577690422078438618
+    second: "Manuscrit_plan d\xE9finitif_\xE9bauche_folio 290_96"
+  - first:
+      213: 8281790943808156436
+    second: "Manuscrit_plan d\xE9finitif_\xE9bauche_folio 290_97"
+  - first:
+      213: 2820701509396698042
+    second: "Manuscrit_plan d\xE9finitif_\xE9bauche_folio 290_98"
+  - first:
+      213: 3135560737643287952
+    second: "Manuscrit_plan d\xE9finitif_\xE9bauche_folio 290_99"
+  - first:
+      213: -7308485070971604601
+    second: "Manuscrit_plan d\xE9finitif_\xE9bauche_folio 290_100"
+  - first:
+      213: 903717977497937657
+    second: "Manuscrit_plan d\xE9finitif_\xE9bauche_folio 290_101"
+  - first:
+      213: -9082572182038894560
+    second: "Manuscrit_plan d\xE9finitif_\xE9bauche_folio 290_102"
+  - first:
+      213: -839350945570589199
+    second: "Manuscrit_plan d\xE9finitif_\xE9bauche_folio 290_103"
+  - first:
+      213: -7501875530688931785
+    second: "Manuscrit_plan d\xE9finitif_\xE9bauche_folio 290_104"
+  - first:
+      213: 6735743925550556701
+    second: "Manuscrit_plan d\xE9finitif_\xE9bauche_folio 290_105"
+  - first:
+      213: -2595013371777150253
+    second: "Manuscrit_plan d\xE9finitif_\xE9bauche_folio 290_106"
+  - first:
+      213: -1520252643782746982
+    second: "Manuscrit_plan d\xE9finitif_\xE9bauche_folio 290_107"
+  - first:
+      213: -403146221476590627
+    second: "Manuscrit_plan d\xE9finitif_\xE9bauche_folio 290_108"
+  - first:
+      213: 1139809902053730710
+    second: "Manuscrit_plan d\xE9finitif_\xE9bauche_folio 290_109"
+  - first:
+      213: 9196039411677652033
+    second: "Manuscrit_plan d\xE9finitif_\xE9bauche_folio 290_110"
+  - first:
+      213: -5936358971620596739
+    second: "Manuscrit_plan d\xE9finitif_\xE9bauche_folio 290_111"
+  - first:
+      213: -9173017072365558237
+    second: "Manuscrit_plan d\xE9finitif_\xE9bauche_folio 290_112"
+  - first:
+      213: 5069194504493680395
+    second: "Manuscrit_plan d\xE9finitif_\xE9bauche_folio 290_113"
+  - first:
+      213: -4972097451796208918
+    second: "Manuscrit_plan d\xE9finitif_\xE9bauche_folio 290_114"
+  - first:
+      213: -2727189266697878676
+    second: "Manuscrit_plan d\xE9finitif_\xE9bauche_folio 290_115"
+  - first:
+      213: -4687382194677871675
+    second: "Manuscrit_plan d\xE9finitif_\xE9bauche_folio 290_116"
+  - first:
+      213: 1200246506952278596
+    second: "Manuscrit_plan d\xE9finitif_\xE9bauche_folio 290_117"
+  - first:
+      213: -5648459773625949684
+    second: "Manuscrit_plan d\xE9finitif_\xE9bauche_folio 290_118"
+  - first:
+      213: -8787433619410025752
+    second: "Manuscrit_plan d\xE9finitif_\xE9bauche_folio 290_119"
+  - first:
+      213: -1114228676890189700
+    second: "Manuscrit_plan d\xE9finitif_\xE9bauche_folio 290_120"
+  - first:
+      213: 1411252929556233371
+    second: "Manuscrit_plan d\xE9finitif_\xE9bauche_folio 290_121"
+  - first:
+      213: -6909054777592987227
+    second: "Manuscrit_plan d\xE9finitif_\xE9bauche_folio 290_122"
+  - first:
+      213: -803222328168780454
+    second: "Manuscrit_plan d\xE9finitif_\xE9bauche_folio 290_123"
+  - first:
+      213: 3064144330286925545
+    second: "Manuscrit_plan d\xE9finitif_\xE9bauche_folio 290_124"
+  - first:
+      213: 509847679759007197
+    second: "Manuscrit_plan d\xE9finitif_\xE9bauche_folio 290_125"
+  - first:
+      213: -5391756469520307805
+    second: "Manuscrit_plan d\xE9finitif_\xE9bauche_folio 290_126"
+  - first:
+      213: -5040171707697547956
+    second: "Manuscrit_plan d\xE9finitif_\xE9bauche_folio 290_127"
+  - first:
+      213: -3735380169112508545
+    second: "Manuscrit_plan d\xE9finitif_\xE9bauche_folio 290_128"
+  - first:
+      213: 6445205806179305328
+    second: "Manuscrit_plan d\xE9finitif_\xE9bauche_folio 290_129"
+  - first:
+      213: 9137012418546951509
+    second: "Manuscrit_plan d\xE9finitif_\xE9bauche_folio 290_130"
+  - first:
+      213: 2987496687624376240
+    second: "Manuscrit_plan d\xE9finitif_\xE9bauche_folio 290_131"
+  - first:
+      213: -6135390068455316142
+    second: "Manuscrit_plan d\xE9finitif_\xE9bauche_folio 290_132"
+  - first:
+      213: -5078780791857454977
+    second: "Manuscrit_plan d\xE9finitif_\xE9bauche_folio 290_133"
+  - first:
+      213: -2859183288441329591
+    second: "Manuscrit_plan d\xE9finitif_\xE9bauche_folio 290_134"
+  - first:
+      213: 6177008415369360078
+    second: "Manuscrit_plan d\xE9finitif_\xE9bauche_folio 290_135"
+  - first:
+      213: -539787662866955945
+    second: "Manuscrit_plan d\xE9finitif_\xE9bauche_folio 290_136"
+  - first:
+      213: -4922567390932996362
+    second: "Manuscrit_plan d\xE9finitif_\xE9bauche_folio 290_137"
+  - first:
+      213: 6206832470612948635
+    second: "Manuscrit_plan d\xE9finitif_\xE9bauche_folio 290_138"
+  - first:
+      213: -5871667770092309585
+    second: "Manuscrit_plan d\xE9finitif_\xE9bauche_folio 290_139"
+  - first:
+      213: -8105355478969143411
+    second: "Manuscrit_plan d\xE9finitif_\xE9bauche_folio 290_140"
+  - first:
+      213: -9223065777394067395
+    second: "Manuscrit_plan d\xE9finitif_\xE9bauche_folio 290_141"
+  - first:
+      213: -5788295715952029824
+    second: "Manuscrit_plan d\xE9finitif_\xE9bauche_folio 290_142"
+  - first:
+      213: 2104089552586690916
+    second: "Manuscrit_plan d\xE9finitif_\xE9bauche_folio 290_143"
+  - first:
+      213: -676459961091956265
+    second: "Manuscrit_plan d\xE9finitif_\xE9bauche_folio 290_144"
+  - first:
+      213: 6715951250592451856
+    second: "Manuscrit_plan d\xE9finitif_\xE9bauche_folio 290_145"
+  - first:
+      213: 4278484856342163642
+    second: "Manuscrit_plan d\xE9finitif_\xE9bauche_folio 290_146"
+  - first:
+      213: 4167079091368200826
+    second: "Manuscrit_plan d\xE9finitif_\xE9bauche_folio 290_147"
+  - first:
+      213: -3744480297521299835
+    second: "Manuscrit_plan d\xE9finitif_\xE9bauche_folio 290_148"
+  - first:
+      213: 5119609635126541701
+    second: "Manuscrit_plan d\xE9finitif_\xE9bauche_folio 290_149"
+  - first:
+      213: 6500285387348412857
+    second: "Manuscrit_plan d\xE9finitif_\xE9bauche_folio 290_150"
+  - first:
+      213: 4360265782824927975
+    second: "Manuscrit_plan d\xE9finitif_\xE9bauche_folio 290_151"
+  - first:
+      213: -3228846853263245602
+    second: "Manuscrit_plan d\xE9finitif_\xE9bauche_folio 290_152"
+  - first:
+      213: 7963244740176905719
+    second: "Manuscrit_plan d\xE9finitif_\xE9bauche_folio 290_153"
+  - first:
+      213: -6204889862973229644
+    second: "Manuscrit_plan d\xE9finitif_\xE9bauche_folio 290_154"
+  - first:
+      213: -8176355592121126602
+    second: "Manuscrit_plan d\xE9finitif_\xE9bauche_folio 290_155"
+  - first:
+      213: -3588322717571771936
+    second: "Manuscrit_plan d\xE9finitif_\xE9bauche_folio 290_156"
+  - first:
+      213: 3770033243084002908
+    second: "Manuscrit_plan d\xE9finitif_\xE9bauche_folio 290_157"
+  - first:
+      213: 7637729366948450971
+    second: "Manuscrit_plan d\xE9finitif_\xE9bauche_folio 290_158"
+  - first:
+      213: 4658483960723692503
+    second: "Manuscrit_plan d\xE9finitif_\xE9bauche_folio 290_159"
+  - first:
+      213: -1234719039679596796
+    second: "Manuscrit_plan d\xE9finitif_\xE9bauche_folio 290_160"
+  - first:
+      213: -7263720509071127800
+    second: "Manuscrit_plan d\xE9finitif_\xE9bauche_folio 290_161"
+  - first:
+      213: -708138452056857574
+    second: "Manuscrit_plan d\xE9finitif_\xE9bauche_folio 290_162"
+  - first:
+      213: 8443852193416711909
+    second: "Manuscrit_plan d\xE9finitif_\xE9bauche_folio 290_163"
+  - first:
+      213: -5760105399161857147
+    second: "Manuscrit_plan d\xE9finitif_\xE9bauche_folio 290_164"
+  - first:
+      213: -127310098342103810
+    second: "Manuscrit_plan d\xE9finitif_\xE9bauche_folio 290_165"
+  - first:
+      213: -3470876263948890386
+    second: "Manuscrit_plan d\xE9finitif_\xE9bauche_folio 290_166"
+  - first:
+      213: -969444300292133549
+    second: "Manuscrit_plan d\xE9finitif_\xE9bauche_folio 290_167"
+  - first:
+      213: 5655891139623316947
+    second: "Manuscrit_plan d\xE9finitif_\xE9bauche_folio 290_168"
+  - first:
+      213: -6244411789518699984
+    second: "Manuscrit_plan d\xE9finitif_\xE9bauche_folio 290_169"
+  - first:
+      213: -4693359596609489751
+    second: "Manuscrit_plan d\xE9finitif_\xE9bauche_folio 290_170"
+  - first:
+      213: -7549097735627191731
+    second: "Manuscrit_plan d\xE9finitif_\xE9bauche_folio 290_171"
+  - first:
+      213: -285856357529098103
+    second: "Manuscrit_plan d\xE9finitif_\xE9bauche_folio 290_172"
+  - first:
+      213: 4353879685486316014
+    second: "Manuscrit_plan d\xE9finitif_\xE9bauche_folio 290_173"
+  - first:
+      213: 2407217689769826697
+    second: "Manuscrit_plan d\xE9finitif_\xE9bauche_folio 290_174"
+  - first:
+      213: -2419575300597757964
+    second: "Manuscrit_plan d\xE9finitif_\xE9bauche_folio 290_175"
+  - first:
+      213: 6027446526327341660
+    second: "Manuscrit_plan d\xE9finitif_\xE9bauche_folio 290_176"
+  - first:
+      213: -8544335357662622810
+    second: "Manuscrit_plan d\xE9finitif_\xE9bauche_folio 290_177"
+  - first:
+      213: 476191688845204836
+    second: "Manuscrit_plan d\xE9finitif_\xE9bauche_folio 290_178"
+  - first:
+      213: -3268723560954903050
+    second: "Manuscrit_plan d\xE9finitif_\xE9bauche_folio 290_179"
+  - first:
+      213: -8963383878585032395
+    second: "Manuscrit_plan d\xE9finitif_\xE9bauche_folio 290_180"
+  - first:
+      213: 8335165564673319729
+    second: "Manuscrit_plan d\xE9finitif_\xE9bauche_folio 290_181"
+  - first:
+      213: -2254579538555054877
+    second: "Manuscrit_plan d\xE9finitif_\xE9bauche_folio 290_182"
+  - first:
+      213: -2131670701169173681
+    second: "Manuscrit_plan d\xE9finitif_\xE9bauche_folio 290_183"
+  - first:
+      213: 6544850614734465527
+    second: "Manuscrit_plan d\xE9finitif_\xE9bauche_folio 290_184"
+  - first:
+      213: -4915368377760649746
+    second: "Manuscrit_plan d\xE9finitif_\xE9bauche_folio 290_185"
+  - first:
+      213: -4552372982931945902
+    second: "Manuscrit_plan d\xE9finitif_\xE9bauche_folio 290_186"
+  - first:
+      213: 5215729614600391695
+    second: "Manuscrit_plan d\xE9finitif_\xE9bauche_folio 290_187"
+  - first:
+      213: -4280688358351680422
+    second: "Manuscrit_plan d\xE9finitif_\xE9bauche_folio 290_188"
+  - first:
+      213: -6378075565630515963
+    second: "Manuscrit_plan d\xE9finitif_\xE9bauche_folio 290_189"
+  - first:
+      213: -350025222906041053
+    second: "Manuscrit_plan d\xE9finitif_\xE9bauche_folio 290_190"
+  - first:
+      213: 3722106337970296069
+    second: "Manuscrit_plan d\xE9finitif_\xE9bauche_folio 290_191"
+  - first:
+      213: 6850641744696066749
+    second: "Manuscrit_plan d\xE9finitif_\xE9bauche_folio 290_192"
+  - first:
+      213: 2071104120240563226
+    second: "Manuscrit_plan d\xE9finitif_\xE9bauche_folio 290_193"
+  - first:
+      213: -8110296996561282854
+    second: "Manuscrit_plan d\xE9finitif_\xE9bauche_folio 290_194"
+  - first:
+      213: 5910403746348819946
+    second: "Manuscrit_plan d\xE9finitif_\xE9bauche_folio 290_195"
+  - first:
+      213: -2350171332880477032
+    second: "Manuscrit_plan d\xE9finitif_\xE9bauche_folio 290_196"
+  - first:
+      213: 8542912044554592171
+    second: "Manuscrit_plan d\xE9finitif_\xE9bauche_folio 290_197"
+  - first:
+      213: 3401585585103256090
+    second: "Manuscrit_plan d\xE9finitif_\xE9bauche_folio 290_198"
+  - first:
+      213: -3598142276373506764
+    second: "Manuscrit_plan d\xE9finitif_\xE9bauche_folio 290_199"
+  - first:
+      213: 5549766349647885937
+    second: "Manuscrit_plan d\xE9finitif_\xE9bauche_folio 290_200"
+  - first:
+      213: -8416055546444976521
+    second: "Manuscrit_plan d\xE9finitif_\xE9bauche_folio 290_201"
+  - first:
+      213: 44114128970527445
+    second: "Manuscrit_plan d\xE9finitif_\xE9bauche_folio 290_202"
+  - first:
+      213: -7751923346850879003
+    second: "Manuscrit_plan d\xE9finitif_\xE9bauche_folio 290_203"
+  - first:
+      213: -1834686311106808199
+    second: "Manuscrit_plan d\xE9finitif_\xE9bauche_folio 290_204"
+  - first:
+      213: -2852642749798715925
+    second: "Manuscrit_plan d\xE9finitif_\xE9bauche_folio 290_205"
+  - first:
+      213: 611523326834837082
+    second: "Manuscrit_plan d\xE9finitif_\xE9bauche_folio 290_206"
+  - first:
+      213: -6661755083882266563
+    second: "Manuscrit_plan d\xE9finitif_\xE9bauche_folio 290_207"
+  - first:
+      213: -5142980169260790817
+    second: "Manuscrit_plan d\xE9finitif_\xE9bauche_folio 290_208"
+  - first:
+      213: -7225067334230857354
+    second: "Manuscrit_plan d\xE9finitif_\xE9bauche_folio 290_209"
+  - first:
+      213: 8044510612284668672
+    second: "Manuscrit_plan d\xE9finitif_\xE9bauche_folio 290_210"
+  - first:
+      213: 5348544973748275844
+    second: "Manuscrit_plan d\xE9finitif_\xE9bauche_folio 290_211"
+  - first:
+      213: -5552294432641831439
+    second: "Manuscrit_plan d\xE9finitif_\xE9bauche_folio 290_212"
+  - first:
+      213: 5731584347072446098
+    second: "Manuscrit_plan d\xE9finitif_\xE9bauche_folio 290_213"
+  - first:
+      213: -5005176335336329770
+    second: "Manuscrit_plan d\xE9finitif_\xE9bauche_folio 290_214"
+  - first:
+      213: -6723799772355329433
+    second: "Manuscrit_plan d\xE9finitif_\xE9bauche_folio 290_215"
+  - first:
+      213: 1281900646679758938
+    second: "Manuscrit_plan d\xE9finitif_\xE9bauche_folio 290_216"
+  - first:
+      213: 985877453446866638
+    second: "Manuscrit_plan d\xE9finitif_\xE9bauche_folio 290_217"
+  - first:
+      213: -1315335130964135409
+    second: "Manuscrit_plan d\xE9finitif_\xE9bauche_folio 290_218"
+  - first:
+      213: -227706238531063154
+    second: "Manuscrit_plan d\xE9finitif_\xE9bauche_folio 290_219"
+  - first:
+      213: -5726700378382840865
+    second: "Manuscrit_plan d\xE9finitif_\xE9bauche_folio 290_220"
+  - first:
+      213: -1363643023214693807
+    second: "Manuscrit_plan d\xE9finitif_\xE9bauche_folio 290_221"
+  - first:
+      213: 4339772975706551037
+    second: "Manuscrit_plan d\xE9finitif_\xE9bauche_folio 290_222"
+  - first:
+      213: -3083244439957960216
+    second: "Manuscrit_plan d\xE9finitif_\xE9bauche_folio 290_223"
+  - first:
+      213: 6538117409514428888
+    second: "Manuscrit_plan d\xE9finitif_\xE9bauche_folio 290_224"
+  - first:
+      213: 1893978825685560267
+    second: "Manuscrit_plan d\xE9finitif_\xE9bauche_folio 290_225"
+  - first:
+      213: -1768016407065552807
+    second: "Manuscrit_plan d\xE9finitif_\xE9bauche_folio 290_226"
+  - first:
+      213: -8857159119401049481
+    second: "Manuscrit_plan d\xE9finitif_\xE9bauche_folio 290_227"
+  - first:
+      213: -1960831068004560381
+    second: "Manuscrit_plan d\xE9finitif_\xE9bauche_folio 290_228"
+  - first:
+      213: -5619734445450641324
+    second: "Manuscrit_plan d\xE9finitif_\xE9bauche_folio 290_229"
+  - first:
+      213: 5461643969641237551
+    second: "Manuscrit_plan d\xE9finitif_\xE9bauche_folio 290_230"
+  - first:
+      213: -9079158073667911059
+    second: "Manuscrit_plan d\xE9finitif_\xE9bauche_folio 290_231"
+  - first:
+      213: -2857539593331263151
+    second: "Manuscrit_plan d\xE9finitif_\xE9bauche_folio 290_232"
+  - first:
+      213: -5730245127279297488
+    second: "Manuscrit_plan d\xE9finitif_\xE9bauche_folio 290_233"
+  - first:
+      213: -70097317436817210
+    second: "Manuscrit_plan d\xE9finitif_\xE9bauche_folio 290_234"
+  - first:
+      213: -6011898170293676028
+    second: "Manuscrit_plan d\xE9finitif_\xE9bauche_folio 290_235"
+  - first:
+      213: -1318835951980251206
+    second: "Manuscrit_plan d\xE9finitif_\xE9bauche_folio 290_236"
+  - first:
+      213: -6817214286446450099
+    second: "Manuscrit_plan d\xE9finitif_\xE9bauche_folio 290_237"
+  - first:
+      213: 9041258343971677837
+    second: "Manuscrit_plan d\xE9finitif_\xE9bauche_folio 290_238"
+  - first:
+      213: -4877877120336143724
+    second: "Manuscrit_plan d\xE9finitif_\xE9bauche_folio 290_239"
+  - first:
+      213: -5639600683649667290
+    second: "Manuscrit_plan d\xE9finitif_\xE9bauche_folio 290_240"
+  - first:
+      213: -6867314033270930489
+    second: "Manuscrit_plan d\xE9finitif_\xE9bauche_folio 290_241"
+  - first:
+      213: 3737938653650883990
+    second: "Manuscrit_plan d\xE9finitif_\xE9bauche_folio 290_242"
+  - first:
+      213: 3383480184620220073
+    second: "Manuscrit_plan d\xE9finitif_\xE9bauche_folio 290_243"
+  - first:
+      213: 2278567733132982806
+    second: "Manuscrit_plan d\xE9finitif_\xE9bauche_folio 290_244"
+  - first:
+      213: 96524634645855437
+    second: "Manuscrit_plan d\xE9finitif_\xE9bauche_folio 290_245"
+  - first:
+      213: 8530498393623199769
+    second: "Manuscrit_plan d\xE9finitif_\xE9bauche_folio 290_246"
+  - first:
+      213: 2178134533806428876
+    second: "Manuscrit_plan d\xE9finitif_\xE9bauche_folio 290_247"
+  - first:
+      213: -8036750346460099820
+    second: "Manuscrit_plan d\xE9finitif_\xE9bauche_folio 290_248"
+  - first:
+      213: -7168123045367776251
+    second: "Manuscrit_plan d\xE9finitif_\xE9bauche_folio 290_249"
+  - first:
+      213: 3436605912016549047
+    second: "Manuscrit_plan d\xE9finitif_\xE9bauche_folio 290_250"
+  - first:
+      213: -7207698229382435763
+    second: "Manuscrit_plan d\xE9finitif_\xE9bauche_folio 290_251"
+  - first:
+      213: -3496147073755253071
+    second: "Manuscrit_plan d\xE9finitif_\xE9bauche_folio 290_252"
+  - first:
+      213: 1568335058624955034
+    second: "Manuscrit_plan d\xE9finitif_\xE9bauche_folio 290_253"
+  - first:
+      213: 5022276068741566400
+    second: "Manuscrit_plan d\xE9finitif_\xE9bauche_folio 290_254"
+  - first:
+      213: -3221283231568549030
+    second: "Manuscrit_plan d\xE9finitif_\xE9bauche_folio 290_255"
+  - first:
+      213: 5250607312450355831
+    second: "Manuscrit_plan d\xE9finitif_\xE9bauche_folio 290_256"
+  - first:
+      213: 6061999087555814175
+    second: "Manuscrit_plan d\xE9finitif_\xE9bauche_folio 290_257"
+  - first:
+      213: 7254735144917845936
+    second: "Manuscrit_plan d\xE9finitif_\xE9bauche_folio 290_258"
+  - first:
+      213: 2543112926898459316
+    second: "Manuscrit_plan d\xE9finitif_\xE9bauche_folio 290_259"
+  - first:
+      213: 7007843416722184367
+    second: "Manuscrit_plan d\xE9finitif_\xE9bauche_folio 290_260"
+  - first:
+      213: 2000438145372366884
+    second: "Manuscrit_plan d\xE9finitif_\xE9bauche_folio 290_261"
+  - first:
+      213: 7708715867944250022
+    second: "Manuscrit_plan d\xE9finitif_\xE9bauche_folio 290_262"
+  - first:
+      213: 4189820318910849916
+    second: "Manuscrit_plan d\xE9finitif_\xE9bauche_folio 290_263"
+  - first:
+      213: -7279069173835324601
+    second: "Manuscrit_plan d\xE9finitif_\xE9bauche_folio 290_264"
+  - first:
+      213: -3805124691458304010
+    second: "Manuscrit_plan d\xE9finitif_\xE9bauche_folio 290_265"
+  - first:
+      213: -2084331712485447683
+    second: "Manuscrit_plan d\xE9finitif_\xE9bauche_folio 290_266"
+  - first:
+      213: 9189458225828829483
+    second: "Manuscrit_plan d\xE9finitif_\xE9bauche_folio 290_267"
+  - first:
+      213: -8305921499575642128
+    second: "Manuscrit_plan d\xE9finitif_\xE9bauche_folio 290_268"
+  - first:
+      213: 3491647800794715966
+    second: "Manuscrit_plan d\xE9finitif_\xE9bauche_folio 290_269"
+  - first:
+      213: 2923172458431925251
+    second: "Manuscrit_plan d\xE9finitif_\xE9bauche_folio 290_270"
+  - first:
+      213: -3743895539602322315
+    second: "Manuscrit_plan d\xE9finitif_\xE9bauche_folio 290_271"
+  - first:
+      213: 901414111049861679
+    second: "Manuscrit_plan d\xE9finitif_\xE9bauche_folio 290_272"
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: "Manuscrit_plan d\xE9finitif_\xE9bauche_folio 290_0"
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 694
+        height: 847
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3aee0359aac554530800000000000000
+      internalID: 3838576145120423587
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "Manuscrit_plan d\xE9finitif_\xE9bauche_folio 290_1"
+      rect:
+        serializedVersion: 2
+        x: 694
+        y: 140
+        width: 667
+        height: 493
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6dbfa3ad08d3819e0800000000000000
+      internalID: -1650501639804879914
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

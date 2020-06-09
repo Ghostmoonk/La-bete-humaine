@@ -13,6 +13,7 @@ TagManager:
   - GlossaryPopUp
   - AmbianceAudio
   - DefaultSource
+  - PauseMenu
   layers:
   - Default
   - TransparentFX

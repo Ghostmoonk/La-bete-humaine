@@ -202,9 +202,11 @@ public class ContentsSupport : MonoBehaviour
 
             //Debug.Log(currentContent.CompleteEvent.GetPersistentEventCount());
             //Si le contenu à afficher n'a pas d'événement indiqué, comme ceux ajouté dynamiquement
+            Debug.Log(currentContent.CompleteEvent.GetPersistentEventCount());
             if (currentContent.CompleteEvent.GetPersistentEventCount() == 0)
             {
                 contentDisplayer.onContentCompleteDelegate = DisplayNextContent;
+                contentDisplayer.onContentCompleteDelegate += currentContent.CompleteEvent.Invoke;
             }
             else
                 contentDisplayer.onContentCompleteDelegate = currentContent.CompleteEvent.Invoke;
