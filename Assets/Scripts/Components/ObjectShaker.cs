@@ -19,6 +19,7 @@ public class ObjectShaker : Shaker, IIndependantTween
     [SerializeField] bool isUnityTimeScaleInDependant;
     [SerializeField] bool resetPosAtEnd;
 
+    public float speed;
     float deltaTime;
 
     private void Start()
@@ -32,8 +33,6 @@ public class ObjectShaker : Shaker, IIndependantTween
     public override void ContinuousShake()
     {
         shaking = true;
-        Debug.Log(Time.timeScale);
-        Debug.Log(DOTween.timeScale);
         StartCoroutine(ShakeCo());
     }
 

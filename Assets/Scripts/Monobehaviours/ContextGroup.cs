@@ -24,6 +24,10 @@ public class ContextGroup : MonoBehaviour, IActivatable
     private void Disapear()
     {
         animator.SetBool("Active", false);
+    }
+
+    public void EndDisapear()
+    {
         DisappearEvent?.Invoke();
     }
 

@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 0}
+  m_Name: Testament
+  m_EditorClassIdentifier: Assembly-CSharp::ReadingNoteActivity
+  mainPrefab: {fileID: 5601530211734899206, guid: 3f51923e9649c4f49b630711f189024e,
+    type: 3}
+  title: Testament
+  fullText: "Mais, brusquement, l\u2019ouverture du testament du pr\xE9sident Grandmorin
+    r\xE9veilla en lui un soup\xE7on, dont il s\u2019\xE9tait senti effleur\xE9 d\xE8s
+    les premi\xE8res heures : la culpabilit\xE9 possible des Roubaud. Ce testament,
+    encombr\xE9 de legs \xE9tranges, en contenait un par lequel S\xE9verine \xE9tait
+    institu\xE9e l\xE9gataire de la maison situ\xE9e au lieu-dit la Croix-de-Maufras."
+  paratext: Paratexte du testament
+  isDone: 0
+  CompleteEvents:
+    m_PersistentCalls:
+      m_Calls: []
+  providedWords:
+  - Roubaud
+  - "S\xE9verine"
+  - devenir
+  - "l\xE9gataires"
+  - maison
+  - Croix-de-Maufras
+  readingTime: 5

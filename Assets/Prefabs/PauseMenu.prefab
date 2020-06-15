@@ -276,6 +276,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a44fdaf01ec20194185b0d462fa1bec7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxOpacity: 1
+  IsUnityTimeScaleIndependant: 0
   graphic:
   - {fileID: 0}
   EndFadeOutText:
@@ -357,7 +359,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 160, y: -51.304993}
+  m_AnchoredPosition: {x: 160, y: -51.30493}
   m_SizeDelta: {x: 320, y: 102.61}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6018492671413336817
@@ -2394,7 +2396,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 89.4, y: -82.60498}
+  m_AnchoredPosition: {x: 89.3999, y: -82.60498}
   m_SizeDelta: {x: 178.8, y: 165.21}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6018492671835136743
@@ -3398,7 +3400,7 @@ MonoBehaviour:
   m_Horizontal: 0
   m_Vertical: 1
   m_MovementType: 1
-  m_Elasticity: 0.5
+  m_Elasticity: 0.3
   m_Inertia: 1
   m_DecelerationRate: 0.135
   m_ScrollSensitivity: 3
@@ -4030,6 +4032,7 @@ GameObject:
   - component: {fileID: 6018492672279962872}
   - component: {fileID: 6018492672279962870}
   - component: {fileID: 6018492672279962873}
+  - component: {fileID: 1895855390}
   m_Layer: 5
   m_Name: Cover
   m_TagString: Untagged
@@ -4059,7 +4062,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -9.650001}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -752, y: 31}
+  m_AnchoredPosition: {x: -1755, y: 31}
   m_SizeDelta: {x: -901.422, y: 336.6344}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6018492672279962870
@@ -4083,7 +4086,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.5019608}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -4099,6 +4102,190 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &1895855390
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6018492672279962875}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c428cad1c02da1646bf046203517fc8b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isUnityTimeScaleInDependant: 1
+  transitionDuration: 0.5
+  StartToggleOn:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_MethodName: SetTimeScale
+        m_Mode: 4
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_MethodName: PauseDecreaseVolume
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 2204273267946597806, guid: 3445812d8aa28154e89c2b189b4b825c,
+            type: 2}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Audio.AudioMixerGroup, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_MethodName: PauseDecreaseVolume
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 5263187256607230843, guid: 3445812d8aa28154e89c2b189b4b825c,
+            type: 2}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Audio.AudioMixerGroup, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 6018492672534258332}
+        m_MethodName: UpdateAllowToMove
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 6198889215052504574}
+        m_MethodName: FadeIn
+        m_Mode: 4
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0.5
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  EndToggleOn:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6018492672534258332}
+        m_MethodName: ResetInitialX
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 6018492672534258332}
+        m_MethodName: UpdateAllowToMove
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+  StartToggleOff:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_MethodName: PauseIncreaseVolume
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 2204273267946597806, guid: 3445812d8aa28154e89c2b189b4b825c,
+            type: 2}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Audio.AudioMixerGroup, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_MethodName: PauseIncreaseVolume
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 5263187256607230843, guid: 3445812d8aa28154e89c2b189b4b825c,
+            type: 2}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Audio.AudioMixerGroup, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_MethodName: SetTimeScale
+        m_Mode: 4
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 1
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 6018492672534258332}
+        m_MethodName: UpdateAllowToMove
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 6198889215052504574}
+        m_MethodName: FadeOut
+        m_Mode: 4
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0.5
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  EndToggleOff:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6018492673278503089}
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 6018492672534258332}
+        m_MethodName: ResetInitialX
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &6018492672312591745
 GameObject:
   m_ObjectHideFlags: 0
@@ -4388,11 +4575,11 @@ MonoBehaviour:
   m_Content: {fileID: 6018492671452222475}
   m_Horizontal: 0
   m_Vertical: 1
-  m_MovementType: 2
-  m_Elasticity: 0.1
+  m_MovementType: 1
+  m_Elasticity: 0.3
   m_Inertia: 1
   m_DecelerationRate: 0.135
-  m_ScrollSensitivity: 1
+  m_ScrollSensitivity: 3
   m_Viewport: {fileID: 6018492672894534237}
   m_HorizontalScrollbar: {fileID: 0}
   m_VerticalScrollbar: {fileID: 6018492672484489687}
@@ -4904,10 +5091,10 @@ RectTransform:
   m_Father: {fileID: 6018492672279962872}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0.5}
-  m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 397.28546, y: 14.429333}
-  m_SizeDelta: {x: 128, y: 128}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -111.21466, y: 14.429276}
+  m_SizeDelta: {x: 129, y: 128}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6018492672534258335
 CanvasRenderer:
@@ -4959,35 +5146,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   transitionDuration: 0.5
+  isUnityTimeScaleInDependant: 1
   ease: 28
   StartMoveEvents:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 6018492672534258333}
-        m_MethodName: StopShake
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   StopMoveEvents:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 6018492672534258333}
-        m_MethodName: ContinuousShake
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &6018492672534258333
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4995,7 +5161,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6018492672534258304}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d0569865d2db7e749916993d530ca179, type: 3}
   m_Name: 
@@ -5005,7 +5171,9 @@ MonoBehaviour:
   amplitude: 0.2
   amplitudeVariance: 0.1
   playOnStart: 1
+  isUnityTimeScaleInDependant: 1
   resetPosAtEnd: 0
+  speed: 0
 --- !u!1 &6018492672574648247
 GameObject:
   m_ObjectHideFlags: 0
@@ -5225,6 +5393,7 @@ GameObject:
   - component: {fileID: 6018492672622979717}
   - component: {fileID: 6018492672622979715}
   - component: {fileID: 6018492672622979714}
+  - component: {fileID: 6198889215052504574}
   m_Layer: 5
   m_Name: Panel
   m_TagString: Untagged
@@ -5272,7 +5441,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 0.2509804}
+  m_Color: {r: 0, g: 0, b: 0, a: 0}
   m_RaycastTarget: 0
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -5288,6 +5457,28 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &6198889215052504574
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6018492672622979716}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a44fdaf01ec20194185b0d462fa1bec7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxOpacity: 0.25
+  IsUnityTimeScaleIndependant: 1
+  graphic:
+  - {fileID: 6018492672622979714}
+  EndFadeOutText:
+    m_PersistentCalls:
+      m_Calls: []
+  EndFadeInText:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &6018492672648601446
 GameObject:
   m_ObjectHideFlags: 0
@@ -5753,7 +5944,7 @@ GameObject:
   - component: {fileID: 6018492672655173601}
   - component: {fileID: 6018492672655173629}
   m_Layer: 5
-  m_Name: Jouer
+  m_Name: Reprendre
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5829,80 +6020,14 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: SetFader
+      - m_Target: {fileID: 1895855390}
+        m_MethodName: MoveBySizeX
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: Fader, Assembly-CSharp
+          m_ObjectArgument: {fileID: 6018492672279962872}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.RectTransform, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_MethodName: FadeIn
-        m_Mode: 4
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 1.5
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 6018492672655173631}
-        m_MethodName: set_interactable
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_MethodName: Desactivate
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 6018492672650941152}
-        m_MethodName: set_interactable
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 6018492672895654502}
-        m_MethodName: set_interactable
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_MethodName: FadeOutAllSource
-        m_Mode: 4
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 1
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
@@ -8235,7 +8360,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.10029166, y: 0}
   m_AnchorMax: {x: 1, y: 0.6482593}
-  m_AnchoredPosition: {x: 429.99005, y: 28.914425}
+  m_AnchoredPosition: {x: 429.99, y: 28.914307}
   m_SizeDelta: {x: -596.4232, y: -223.93117}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!114 &6018492673275231527
@@ -8308,7 +8433,6 @@ GameObject:
   - component: {fileID: 6018492673278503244}
   - component: {fileID: 6018492673278503247}
   - component: {fileID: 6018492673278503246}
-  - component: {fileID: 4633656084316391394}
   m_Layer: 5
   m_Name: PauseMenu
   m_TagString: PauseMenu
@@ -8356,7 +8480,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 5000
   m_TargetDisplay: 0
 --- !u!114 &6018492673278503247
 MonoBehaviour:
@@ -8397,25 +8521,6 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
---- !u!114 &4633656084316391394
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6018492673278503089}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c428cad1c02da1646bf046203517fc8b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  transitionDuration: 0.5
-  StartToggleOn:
-    m_PersistentCalls:
-      m_Calls: []
-  StartToggleOff:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!1 &6018492673282306166
 GameObject:
   m_ObjectHideFlags: 0

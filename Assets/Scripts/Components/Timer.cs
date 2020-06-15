@@ -11,6 +11,8 @@ public class Timer : MonoBehaviour
     bool reset;
     public UnityEvent timerEndEvent;
 
+    float timePassed = 0f;
+
     public void SetTimer(float _duration)
     {
         duration = _duration;
@@ -43,6 +45,11 @@ public class Timer : MonoBehaviour
         return active;
     }
 
+    public float GetTimePassed()
+    {
+        return timePassed;
+    }
+
     IEnumerator DoTimer()
     {
         float timer = 0f;
@@ -51,6 +58,7 @@ public class Timer : MonoBehaviour
             if (active)
             {
                 timer += Time.deltaTime;
+                timePassed += Time.deltaTime;
             }
             if (reset)
             {
@@ -61,6 +69,5 @@ public class Timer : MonoBehaviour
         }
         over = true;
         timerEndEvent?.Invoke();
-        //simpleText.Complete();
     }
 }

@@ -36,12 +36,16 @@ public class ManualMover : MonoBehaviour, IIndependantTween
 
             currentTarget = target;
             StartMoveEvents?.Invoke();
-            tween = transform.DOMove(new Vector2(initialX, target.position.y), transitionDuration).SetEase(ease).SetUpdate(isUnityTimeScaleInDependant);
+            tween = transform.DOMove(new Vector3(initialX, target.position.y, target.position.z), transitionDuration).SetEase(ease).SetUpdate(isUnityTimeScaleInDependant);
             tween.OnComplete(() => { StopMoveEvents?.Invoke(); });
         }
     }
 
-    public void ResetInitialX() => initialX = transform.position.x;
+    public void ResetInitialX()
+    {
+        Debug.Log(transform.position.x);
+        initialX = transform.position.x;
+    }
 
     public void UpdateAllowToMove(bool allowed)
     {

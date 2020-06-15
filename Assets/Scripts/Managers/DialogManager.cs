@@ -68,7 +68,9 @@ public class DialogManager : MonoBehaviour
     public void StartDialog()
     {
         currentDialog.currentSentence.ShowSentences();
-        dialogBox.SetActive(true);
+
+        if (!dialogBox.activeSelf)
+            dialogBox.SetActive(true);
 
         int currentDialogId = DialogsLoader.Instance.dialogsDico.FirstOrDefault(x => x.Value == currentDialog).Key;
 
@@ -79,6 +81,11 @@ public class DialogManager : MonoBehaviour
         }
 
         DisplayNextSentence();
+    }
+
+    public void ToggleDialogBoxVisibility(bool active)
+    {
+        dialogBox.GetComponent<Animator>().SetBool("Active", active);
     }
 
     public void FinishSentence()
@@ -203,11 +210,10 @@ public class DialogManager : MonoBehaviour
         return null;
     }
 
-
     public void StopDialog()
     {
         currentDialog = null;
-        dialogBox.SetActive(false);
+        //dialogBox.SetActive(false);
     }
 
     public void SetNewDialog(int dialogId)
