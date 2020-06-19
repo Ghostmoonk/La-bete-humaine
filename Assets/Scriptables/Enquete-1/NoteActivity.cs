@@ -6,42 +6,34 @@ using UnityEngine.Events;
 
 public abstract class NoteActivity : ScriptableObject
 {
-    [SerializeField] protected GameObject mainPrefab;
+    [Header("Contenu")]
+    public Manuscript[] manuscripts;
     public string title;
     [TextArea(7, 12)]
     public string fullText;
     public string paratext;
-    [HideInInspector] public bool isDone;
-    public UnityEvent CompleteEvents;
-    public List<string> providedWords;
+    public List<ProvidedWord> providedWords;
 
-    public virtual GameObject GetPrefab()
-    {
-        return null;
-    }
+    [Header("Prefab")]
+    [SerializeField] protected GameObject exercicePrefab;
+    [SerializeField] protected GameObject manuscriptPrefab;
 
+    public virtual GameObject GetExercicePrefab() { return exercicePrefab; }
+    public virtual GameObject GetManuscriptPrefab() { return manuscriptPrefab; }
 }
 
-[CreateAssetMenu(fileName = "Reading", menuName = "NoteActivity/Reading")]
-public class ReadingNoteActivity : NoteActivity
+[System.Serializable]
+public struct Manuscript
 {
-    public int readingTime;
-
-    public override GameObject GetPrefab()
-    {
-        return mainPrefab;
-    }
+    public Sprite sprite;
+    public string paratext;
 }
 
-[CreateAssetMenu(fileName = "SimpleFillGaps", menuName = "NoteActivity/SimpleFillGaps")]
-public class FillGapsNoteActivity : NoteActivity
+[System.Serializable]
+public struct ProvidedWord
 {
-    [TextArea(7, 12)]
-    public string gapsText;
+    public string word;
+    public WordType type;
 }
 
-[CreateAssetMenu(fileName = "Transcription", menuName = "NoteActivity/Transcription")]
-public class TranscriptionGapsNoteActivity : FillGapsNoteActivity
-{
-    public Sprite[] manuscripts;
-}
+public enum WordType { Nom, Lieu, Action, Adjective }

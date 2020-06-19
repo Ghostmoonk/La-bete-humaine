@@ -16,6 +16,7 @@ public class ManualMover : MonoBehaviour, IIndependantTween
     [SerializeField] UnityEvent StopMoveEvents;
 
     float initialX;
+    float initialY;
     private void Start() => ResetInitialX();
 
     Transform currentTarget;
@@ -38,13 +39,36 @@ public class ManualMover : MonoBehaviour, IIndependantTween
             StartMoveEvents?.Invoke();
             tween = transform.DOMove(new Vector3(initialX, target.position.y, target.position.z), transitionDuration).SetEase(ease).SetUpdate(isUnityTimeScaleInDependant);
             tween.OnComplete(() => { StopMoveEvents?.Invoke(); });
+
+        }
+    }
+
+    public void SetTransitionDuration(float transitionDuration)
+    {
+        this.transitionDuration = transitionDuration;
+    }
+
+    public void MoveX(Transform target)
+    {
+        if (allowed)
+        {
+            if (target != currentTarget)
+                if (tween != null)
+                    if (tween.IsPlaying())
+                        tween.Pause();
+
+            currentTarget = target;
+            StartMoveEvents?.Invoke();
+            tween = transform.DOMove(new Vector3(target.position.x, initialY, target.position.z), transitionDuration).SetEase(ease).SetUpdate(isUnityTimeScaleInDependant);
+            tween.OnComplete(() => { StopMoveEvents?.Invoke(); });
+
         }
     }
 
     public void ResetInitialX()
     {
-        Debug.Log(transform.position.x);
         initialX = transform.position.x;
+        initialY = transform.position.y;
     }
 
     public void UpdateAllowToMove(bool allowed)

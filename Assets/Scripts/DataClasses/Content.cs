@@ -68,6 +68,34 @@ public class SliderSubject : Subject
 
 }
 
+public class TextGapSubject : Subject
+{
+    public override void Complete()
+    {
+        for (int i = 0; i < observers.Count; i++)
+        {
+            if (observers[i].GetType() == typeof(FillGapsActivityObserver))
+            {
+                FillGapsActivityObserver obs = (FillGapsActivityObserver)observers[i];
+                obs.OnGapComplete();
+            }
+        }
+    }
+
+    public void Selected(TextGap textGap)
+    {
+        for (int i = 0; i < observers.Count; i++)
+        {
+            if (observers[i].GetType() == typeof(FillGapsActivityObserver))
+            {
+                FillGapsActivityObserver obs = (FillGapsActivityObserver)observers[i];
+                obs.OnGapSelected(textGap);
+            }
+        }
+    }
+
+}
+
 [Serializable]
 public struct ContentRef
 {

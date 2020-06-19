@@ -67,3 +67,23 @@ public class SliderObserver : Observer
         sliderDelegate?.Invoke(refImg);
     }
 }
+
+public class FillGapsActivityObserver : Observer
+{
+    public delegate bool FillGapsDelegate();
+    public FillGapsDelegate fillGapsDelegate;
+    public delegate void GapSelectedDelegate(TextGap textGap);
+    public GapSelectedDelegate gapSelectedDelegate;
+
+    public override void OnComplete() { }
+
+    public void OnGapComplete()
+    {
+        fillGapsDelegate?.Invoke();
+    }
+
+    public void OnGapSelected(TextGap textGap)
+    {
+        gapSelectedDelegate?.Invoke(textGap);
+    }
+}

@@ -69,5 +69,11 @@ public class Answer
 {
     string answerText;
     Sentence sentence;
+
+    public Answer(string answerText, Sentence sentence)
+    {
+        this.answerText = answerText;
+        this.sentence = sentence;
+    }
 }
 

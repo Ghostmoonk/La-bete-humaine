@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90b256974769b7b4f96aa87b212061c2, type: 3}
+  m_Name: Summary
+  m_EditorClassIdentifier: 
+  manuscripts: []
+  title: "Assassinat du pr\xE9sident Grandmorin"
+  fullText: "Le pr\xE9sident de la compagnie de l'Ouest Grandmorin a \xE9t\xE9 retrouv\xE9
+    \xE9gorg\xE9 sur le c\xF4t\xE9 de la voie \xE0 la Croix-de-Maufras.\nCe dossier
+    comporte tous les \xE9l\xE9ments \xE0 votre disposition pour \xE9tablir des hypoth\xE8ses
+    sur les motifs et coupables de ce meurtres."
+  paratext: 
+  providedWords:
+  - word: Grandmorin
+    type: 0
+  - word: "l'a \xE9gorg\xE9"
+    type: 2
+  - word: "ont \xE9gorg\xE9"
+    type: 2
+  exercicePrefab: {fileID: 5601530211734899206, guid: 3f51923e9649c4f49b630711f189024e,
+    type: 3}
+  manuscriptPrefab: {fileID: 1613701182975161571, guid: 497a124c3236dc14e94475495ebda921,
+    type: 3}
+  readingTime: 5

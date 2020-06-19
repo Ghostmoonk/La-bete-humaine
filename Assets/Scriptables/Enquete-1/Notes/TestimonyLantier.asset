@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90b256974769b7b4f96aa87b212061c2, type: 3}
+  m_Name: TestimonyLantier
+  m_EditorClassIdentifier: 
+  manuscripts: []
+  title: "T\xE9moignage de Lantier"
+  fullText: "Avait-il bien vu ? et il h\xE9sitait maintenant, il n'osait plus affirmer
+    la r\xE9alit\xE9 de cette vision, apport\xE9e et emport\xE9e dans un \xE9clair.
+    Pas un seul trait des deux acteurs du drame ne lui \xE9tait rest\xE9, vivace.
+    La masse brune devait \xEAtre une couverture de voyage, tomb\xE9e en travers
+    du corps de la victime. Pourtant, il avait cru d'abord distinguer, sous un d\xE9roulement
+    d'\xE9pais cheveux, un fin profil p\xE2le. Mais tout se confondait, s'\xE9vaporait,
+    comme en un r\xEAve. Un instant, le profil, \xE9voqu\xE9, reparut ; puis, il
+    s'effa\xE7a d\xE9finitivement. Ce n'\xE9tait sans doute qu'une imagination. Et
+    tout cela le gla\xE7ait, lui semblait si extraordinaire, qu'il finissait par
+    admettre une hallucination, n\xE9e de l'affreuse crise qu'il venait de traverser."
+  paratext: Chap II, PDF, p.114
+  providedWords: []
+  exercicePrefab: {fileID: 5601530211734899206, guid: 3f51923e9649c4f49b630711f189024e,
+    type: 3}
+  manuscriptPrefab: {fileID: 1613701182975161571, guid: 497a124c3236dc14e94475495ebda921,
+    type: 3}
+  readingTime: 5

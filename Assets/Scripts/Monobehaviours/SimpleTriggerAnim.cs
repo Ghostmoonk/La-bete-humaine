@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SimpleTriggerAnim : MonoBehaviour
+public class SimpleTriggerAnim : MonoBehaviour, IActivatable
 {
     Animator animator;
 
@@ -19,5 +19,10 @@ public class SimpleTriggerAnim : MonoBehaviour
     public void Desactivate()
     {
         gameObject.SetActive(false);
+    }
+
+    public void Activate()
+    {
+        gameObject.SetActive(true);
     }
 }

@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f32181d18b1f764ea205efb0d17a28a, type: 3}
+  m_Name: "Lettre de S\xE9verine"
+  m_EditorClassIdentifier: 
+  manuscripts: []
+  title: "Lettre de S\xE9verine"
+  fullText: "Lettre de S\xE9verine pour Grandmorin:\r\n\u201CPartez ce soir par l'express
+    de six heures trente et ne vous montrez qu\u2019a\u0300 Rouen.\u201D"
+  paratext: Chapitre I, PDF, p.57
+  providedWords:
+  - word: "S\xE9verine"
+    type: 0
+  - word: l'express
+    type: 0
+  exercicePrefab: {fileID: 8001567025327352204, guid: c161f9b0906cfe84bbcca64d8b8fa4b0,
+    type: 3}
+  manuscriptPrefab: {fileID: 1613701182975161571, guid: 497a124c3236dc14e94475495ebda921,
+    type: 3}
+  isDone: 0
+  CompleteEvents:
+    m_PersistentCalls:
+      m_Calls: []
+  gapsText: "Lettre de S\xE9verine pour Grandmorin:\r\n\u201CPartez ce soir par _________
+    de ___ ______ ______ et ne vous montrez qu\u2019a\u0300 Rouen.\""

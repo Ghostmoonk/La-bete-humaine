@@ -28,14 +28,14 @@ RectTransform:
   m_GameObject: {fileID: 276027624755978349}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: -1, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4444410246532338659}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 320.5097, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 641.0194, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1253889007129804494
@@ -200,7 +200,7 @@ RectTransform:
   m_GameObject: {fileID: 1063451738528269772}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: -1, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 5422215247517862809}
   m_Father: {fileID: 4444410246532338659}
@@ -292,7 +292,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 6695305543580990551}
-        m_MethodName: ProvideWords
+        m_MethodName: CompleteActivity
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -594,6 +594,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   contentTextMesh: {fileID: 6005175695535247491}
   paratextTextMesh: {fileID: 607023855139945392}
+  ActivityRelatedCompleteEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6695305543580990551}
+        m_MethodName: ProvideWords
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &5668131231449041383
 GameObject:
   m_ObjectHideFlags: 0
@@ -622,14 +636,14 @@ RectTransform:
   m_GameObject: {fileID: 5668131231449041383}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: -1, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4444410246532338659}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 320.5097, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 641.0194, y: 0}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!222 &1211643417500460583
@@ -729,7 +743,7 @@ MonoBehaviour:
   m_firstVisibleCharacter: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 30, w: 0}
+  m_margin: {x: 55, y: 0, z: 35, w: 0}
   m_textInfo:
     textComponent: {fileID: 6005175695535247491}
     characterCount: 277

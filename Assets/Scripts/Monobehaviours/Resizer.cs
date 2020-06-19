@@ -8,6 +8,7 @@ public static class Resizer
     public static void ResizeHeight(RectTransform rectT)
     {
         float newHeight = 0;
+
         foreach (RectTransform rect in rectT.transform.GetComponentsInChildren<RectTransform>())
         {
             newHeight += rect.sizeDelta.y;

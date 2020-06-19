@@ -9,36 +9,46 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
+  m_Script: {fileID: 11500000, guid: 2f32181d18b1f764ea205efb0d17a28a, type: 3}
   m_Name: La mort de Louisette
-  m_EditorClassIdentifier: Assembly-CSharp::TranscriptionGapsNoteActivity
-  mainPrefab: {fileID: 8001567025327352204, guid: c161f9b0906cfe84bbcca64d8b8fa4b0,
-    type: 3}
-  title: 
-  fullText: "\u201CLa tante Phasie leva les mains, sans r\xE9pondre, en poussant
-    un gros soupir. C\u2019\xE9tait tout un drame, \xE0 l\u2019automne dernier, qui
-    n\u2019avait pas \xE9t\xE9 fait pour la remettre : sa fille Louisette, la cadette,
-    plac\xE9e comme femme de chambre chez Mme Bonnehon, \xE0 Doinville, s\u2019\xE9tait
-    sauv\xE9e un soir, affol\xE9e, meurtrie, pour aller mourir chez son bon ami Cabuche,
-    dans la maison que celui-ci habitait en pleine for\xEAt. Des histoires avaient
-    couru, qui accusaient de viol le pr\xE9sident Grandmorin ; mais on n\u2019osait
-    pas les r\xE9p\xE9ter tout haut.\""
-  paratext: "(La B\xEAte humaine, chapitre II, p. 84)"
-  isDone: 0
-  CompleteEvents:
-    m_PersistentCalls:
-      m_Calls: []
-  providedWords:
-  - a subi
-  - "s\xE9vices"
-  - Cabuches
-  gapsText: "La tante Phasie leva les mains, sans r\xE9pondre, en poussant un gros
+  m_EditorClassIdentifier: 
+  manuscripts:
+  - sprite: {fileID: 21300000, guid: 32ea8a5dca121e7449b1014d47d523c4, type: 3}
+    paratext: Louisette & Grandmorin, Dossier Personnages
+  title: La mort de Louisette
+  fullText: "La tante Phasie leva les mains, sans r\xE9pondre, en poussant un gros
     soupir. C\u2019\xE9tait tout un drame, \xE0 l\u2019automne dernier, qui n\u2019avait
-    pas \xE9t\xE9 fait pour la remettre : sa fille ________, la cadette, plac\xE9e
+    pas \xE9t\xE9 fait pour la remettre : sa fille Louisette , la cadette, plac\xE9e
     comme femme de chambre chez Mme Bonnehon, \xE0 Doinville, s\u2019\xE9tait sauv\xE9e
-    un soir, affol\xE9e, meurtrie, pour aller _____ chez son bon ami ______, dans
+    un soir, affol\xE9e, meurtrie, pour aller mourir chez son bon ami Cabuche , dans
     la maison que celui-ci habitait en pleine for\xEAt. Des histoires avaient couru,
     qui accusaient de viol le pr\xE9sident Grandmorin ; mais on n\u2019osait pas
-    les r\xE9p\xE9ter tout haut.\u201D"
-  manuscripts:
-  - {fileID: 21300000, guid: 32ea8a5dca121e7449b1014d47d523c4, type: 3}
+    les r\xE9p\xE9ter tout haut."
+  paratext: Chapitre II, PDF, p.84
+  providedWords:
+  - word: a subi
+    type: 2
+  - word: "s\xE9vices"
+    type: 0
+  - word: Cabuche
+    type: 0
+  - word: de la part
+    type: 2
+  - word: Doinville
+    type: 1
+  - word: la mort
+    type: 0
+  - word: "les m\xEAmes"
+    type: 3
+  exercicePrefab: {fileID: 8001567025327352204, guid: c161f9b0906cfe84bbcca64d8b8fa4b0,
+    type: 3}
+  manuscriptPrefab: {fileID: 1613701182975161571, guid: 497a124c3236dc14e94475495ebda921,
+    type: 3}
+  gapsText: "La tante Phasie leva les mains, sans r\xE9pondre, en poussant un gros
+    soupir. C\u2019\xE9tait tout un drame, \xE0 l\u2019automne dernier, qui n\u2019avait
+    pas \xE9t\xE9 fait pour la remettre : sa fille _________ , la cadette, plac\xE9e
+    comme femme de chambre chez Mme Bonnehon, \xE0 Doinville, s\u2019\xE9tait sauv\xE9e
+    un soir, affol\xE9e, meurtrie, pour aller ______ chez son bon ami _______ , dans
+    la maison que celui-ci habitait en pleine for\xEAt. Des histoires avaient couru,
+    qui accusaient de viol le pr\xE9sident Grandmorin ; mais on n\u2019osait pas
+    les r\xE9p\xE9ter tout haut."

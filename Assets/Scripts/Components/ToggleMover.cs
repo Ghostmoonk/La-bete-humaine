@@ -18,10 +18,9 @@ public class ToggleMover : MonoBehaviour, IIndependantTween
     [SerializeField] UnityEvent StartToggleOff;
     [SerializeField] UnityEvent EndToggleOff;
 
-    private void OnEnable()
+    private void Awake()
     {
         initialAnchoredPos = GetComponent<RectTransform>().anchoredPosition;
-
     }
 
     public void MoveBySizeY(RectTransform rectT)

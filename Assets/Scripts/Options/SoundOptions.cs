@@ -14,8 +14,8 @@ public class SoundOptions : MonoBehaviour
 
     [SerializeField] AudioMixer mixer;
 
-    [SerializeField] float minDecibel;
-    [SerializeField] float maxDecibel;
+    [SerializeField] float minDecibel = -20f;
+    [SerializeField] float maxDecibel = 80f;
 
     private void Start()
     {

@@ -1,26 +1,30 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 [RequireComponent(typeof(Timer))]
 public class ReadingActivityHolder : ActivityHolder
 {
-    ReadingNoteActivity readingNoteActivity;
+    protected new ReadingNoteActivity noteActivity;
+
     Timer timer;
 
-    private void OnEnable()
+    protected override void OnEnable()
     {
+        base.OnEnable();
+
         if (timer != null)
         {
-            timer.SetTimer(readingNoteActivity.readingTime - timer.GetTimePassed());
+            timer.SetTimer(noteActivity.readingTime - timer.GetTimePassed());
             timer.StartTimer();
             timer.active = true;
         }
     }
-    public override void SetContent(NoteActivity noteActivity)
+    public override void SetContent(NoteActivityEvent noteActivity)
     {
         base.SetContent(noteActivity);
-        readingNoteActivity = (ReadingNoteActivity)noteActivity;
+        this.noteActivity = (ReadingNoteActivity)noteActivity.noteActivity;
 
         timer = GetComponent<Timer>();
     }
@@ -30,16 +34,9 @@ public class ReadingActivityHolder : ActivityHolder
         timer.active = false;
     }
 
-    public void ProvideWords()
-    {
-        //TODO: Ajouter les mots à une liste pour l'hypothèse
-        Debug.Log("Provide words");
-    }
-
     public override void CompleteActivity()
     {
-        ProvideWords();
+        base.CompleteActivity();
 
-        readingNoteActivity.CompleteEvents?.Invoke();
     }
 }

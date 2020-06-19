@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -59,14 +60,29 @@ public class DialogsLoader : MonoBehaviour
                 {
                     sentences.Add(int.Parse(sentenceCols[0]), new Sentence(sentenceCols[1], sentenceCols[2]));
                 }
-
             }
-            int rootId = 0; ;
+
+            int rootId = 0;
             for (int j = 1; j < sentencesRows.Length - 1; j++)
             {
                 string[] sentenceCols = sentencesRows[j].Split(new char[] { '|' });
+
                 if (sentences.ContainsKey(int.Parse(sentenceCols[0])))
                 {
+                    //Does the sentence need answers
+                    if (sentenceCols[6].Length >= 1)
+                    {
+                        string[] splitAnswersID = sentenceCols[6].Split(',');
+                        Answer[] answers = new Answer[splitAnswersID.Length];
+
+                        for (int l = 0; l < splitAnswersID.Length; l++)
+                        {
+                            answers[l] = new Answer(sentences[int.Parse(splitAnswersID[l])].content, sentences[int.Parse(splitAnswersID[l])]);
+                        }
+
+                        sentences[int.Parse(sentenceCols[0])] = new QuestioningSentence(sentenceCols[1], sentenceCols[2], answers);
+                    }
+
                     int previousSentenceID;
                     if (int.TryParse(sentenceCols[5], out previousSentenceID))
                     {
