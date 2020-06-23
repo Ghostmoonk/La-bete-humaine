@@ -6,7 +6,6 @@ using UnityEngine;
 namespace TextContent
 {
     //Contient toutes les données nécessaires pour un texte simple
-
     [Serializable]
     public class TextData
     {

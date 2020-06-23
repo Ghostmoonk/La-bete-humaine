@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
+//When the timer is finished, do something
 public class Timer : MonoBehaviour
 {
     [SerializeField] float duration;

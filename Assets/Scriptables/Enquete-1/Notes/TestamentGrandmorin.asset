@@ -12,7 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 90b256974769b7b4f96aa87b212061c2, type: 3}
   m_Name: TestamentGrandmorin
   m_EditorClassIdentifier: 
-  manuscripts: []
+  manuscripts:
+  - sprite: {fileID: 21300000, guid: 66ec3dbf3ad685744a860a6b626eee5d, type: 3}
+    paratext: Testament_LBH_Manuscrit_ch. IV_folio 177
   title: Testament
   fullText: "Mais, brusquement, l\u2019ouverture du testament du pr\xE9sident Grandmorin
     r\xE9veilla en lui un soup\xE7on, dont il s\u2019\xE9tait senti effleur\xE9 d\xE8s

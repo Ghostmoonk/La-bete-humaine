@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
 
+//Data of a Fader
 public class Fader : MonoBehaviour
 {
     public float defaultFadeOutDuration;

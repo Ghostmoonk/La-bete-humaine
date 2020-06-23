@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
 
+//Fade in or out Graphics like text or image
 public class GraphicFader : MonoBehaviour, IIndependantTween
 {
     [SerializeField] float maxOpacity = 1;

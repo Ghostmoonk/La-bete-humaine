@@ -6,6 +6,18 @@ using UnityEngine.Audio;
 
 public class SoundManager : MonoBehaviour
 {
+    AudioSource defaultSource;
+    [SerializeField] List<Sound> soundsList;
+    Dictionary<string, AudioClip[]> soundsDico;
+
+    List<AudioSource> toRestartList;
+
+    [Range(1, 10)]
+    [SerializeField] int pauseVolReduction;
+    [SerializeField] float durationPauseDbReduction;
+
+    #region Singleton
+
     private static SoundManager instance;
     public static SoundManager Instance
     {
@@ -14,15 +26,6 @@ public class SoundManager : MonoBehaviour
             return instance;
         }
     }
-    AudioSource defaultSource;
-    [SerializeField] List<Sound> soundsList;
-    Dictionary<string, AudioClip[]> soundsDico;
-
-    List<AudioSource> toRestarList;
-
-    [Range(1, 10)]
-    [SerializeField] int pauseVolReduction;
-    [SerializeField] float durationPauseDbReduction;
 
     private void Awake()
     {
@@ -43,6 +46,8 @@ public class SoundManager : MonoBehaviour
         if (GameObject.FindGameObjectWithTag("DefaultSource") != null)
             defaultSource = GameObject.FindGameObjectWithTag("DefaultSource").GetComponent<AudioSource>();
     }
+
+    #endregion
 
     public void PlaySound(AudioSource source, string soundName)
     {
@@ -95,14 +100,14 @@ public class SoundManager : MonoBehaviour
             {
                 float currentVolume = source.volume;
                 Tweener tween = source.DOFade(0f, duration);
-                tween.OnComplete(() => { source.Pause(); source.volume = currentVolume; toRestarList.Add(source); });
+                tween.OnComplete(() => { source.Pause(); source.volume = currentVolume; toRestartList.Add(source); });
             }
         }
     }
 
     public void FadeInAllSource(float duration)
     {
-        foreach (AudioSource source in toRestarList)
+        foreach (AudioSource source in toRestartList)
         {
             float currentVolume = source.volume;
             source.volume = 0f;

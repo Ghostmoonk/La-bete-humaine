@@ -5,7 +5,8 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-
+//Add this script on GO with SpriteRenderer
+//Permits to do some blinking
 public class ColorBlinker : MonoBehaviour
 {
     SpriteRenderer spriteR;

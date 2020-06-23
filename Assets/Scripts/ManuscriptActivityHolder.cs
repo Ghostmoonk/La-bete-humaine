@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -8,6 +9,7 @@ public class ManuscriptActivityHolder : MonoBehaviour
 {
     [SerializeField] Image image;
     [SerializeField] TextMeshProUGUI paratext;
+    Sprite sprite;
 
     private void OnEnable()
     {
@@ -16,7 +18,15 @@ public class ManuscriptActivityHolder : MonoBehaviour
 
     public virtual void SetContent(Sprite sprite, string paratext)
     {
-        image.sprite = sprite;
+        this.sprite = sprite;
         this.paratext.text = paratext;
     }
+
+    public void SetSprite()
+    {
+        image.sprite = sprite;
+        Debug.Log("setsprite");
+    }
 }
+
+

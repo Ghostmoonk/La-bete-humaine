@@ -30,8 +30,6 @@ public abstract class Subject
 public abstract class Content : Subject
 {
     public UnityEvent CompleteEvent = new UnityEvent();
-    //public UnityEvent AdditionalEvents = new UnityEvent();
-
 
     public override void Complete()
     {
@@ -39,14 +37,11 @@ public abstract class Content : Subject
         {
             observers[i].OnComplete();
         }
-        //AdditionalEvents?.Invoke();
     }
-
 }
 
 public class SliderSubject : Subject
 {
-
     public override void Complete()
     {
         for (int i = 0; i < observers.Count; i++)
@@ -54,6 +49,7 @@ public class SliderSubject : Subject
             observers[i].OnComplete();
         }
     }
+
     public void Complete(ReferenceImage RefImg)
     {
         for (int i = 0; i < observers.Count; i++)
@@ -93,7 +89,6 @@ public class TextGapSubject : Subject
             }
         }
     }
-
 }
 
 [Serializable]

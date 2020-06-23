@@ -36,7 +36,6 @@ public sealed class ClosedQuestion : Question
     public ClosedQuestion(QuestionData data) : base(data)
     {
         questionData = (ClosedQuestionData)data;
-
     }
 
     public Dictionary<int, Answer> possibilities;

@@ -22,7 +22,6 @@ public class Dialog
     {
         currentSentence = newSentence;
     }
-
 }
 
 public class Sentence

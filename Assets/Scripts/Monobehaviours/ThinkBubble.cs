@@ -17,26 +17,11 @@ public class ThinkBubble : MonoBehaviour
         gameObject.SetActive(false);
     }
 
-    private void OnEnable()
-    {
-    }
     public void Activate(Sprite sprite)
     {
         contentImg.sprite = sprite;
         gameObject.SetActive(true);
     }
-
-    //IEnumerator SwapSprite(Sprite[] sprites)
-    //{
-    //    while (true)
-    //    {
-    //        for (int i = 0; i < sprites.Length; i++)
-    //        {
-    //            contentImg.sprite = sprites[i];
-    //            yield return new WaitForSeconds(3f);
-    //        }
-    //    }
-    //}
 
     public void FadeHide()
     {

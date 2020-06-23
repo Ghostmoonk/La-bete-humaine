@@ -12,7 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f32181d18b1f764ea205efb0d17a28a, type: 3}
   m_Name: "Lettre de S\xE9verine"
   m_EditorClassIdentifier: 
-  manuscripts: []
+  manuscripts:
+  - sprite: {fileID: 21300000, guid: 460c7cf8a88a08742affabcb73228a84, type: 3}
+    paratext: Lettre_LBH_Manuscrit_chapitre I_folio 50
   title: "Lettre de S\xE9verine"
   fullText: "Lettre de S\xE9verine pour Grandmorin:\r\n\u201CPartez ce soir par l'express
     de six heures trente et ne vous montrez qu\u2019a\u0300 Rouen.\u201D"
@@ -26,9 +28,5 @@ MonoBehaviour:
     type: 3}
   manuscriptPrefab: {fileID: 1613701182975161571, guid: 497a124c3236dc14e94475495ebda921,
     type: 3}
-  isDone: 0
-  CompleteEvents:
-    m_PersistentCalls:
-      m_Calls: []
   gapsText: "Lettre de S\xE9verine pour Grandmorin:\r\n\u201CPartez ce soir par _________
     de ___ ______ ______ et ne vous montrez qu\u2019a\u0300 Rouen.\""

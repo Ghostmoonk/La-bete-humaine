@@ -59,12 +59,12 @@ public class DialogManager : MonoBehaviour
 
     private void Start()
     {
-
         for (int i = 0; i < characters.Length; i++)
         {
             charactersSprites.Add(characters[i].name, characters[i].dialogSprite);
         }
     }
+
     public void StartDialog()
     {
         currentDialog.currentSentence.ShowSentences();
@@ -73,7 +73,7 @@ public class DialogManager : MonoBehaviour
             dialogBox.SetActive(true);
 
         int currentDialogId = DialogsLoader.Instance.dialogsDico.FirstOrDefault(x => x.Value == currentDialog).Key;
-
+        Debug.Log(currentDialogId);
         DialogEvents? dialogEvent = FindCorrespondingEvents(currentDialogId);
         if (dialogEvent != null)
         {
@@ -86,6 +86,7 @@ public class DialogManager : MonoBehaviour
     public void ToggleDialogBoxVisibility(bool active)
     {
         dialogBox.GetComponent<Animator>().SetBool("Active", active);
+        Debug.Log("toggleBox :" + active);
     }
 
     public void FinishSentence()
@@ -219,6 +220,7 @@ public class DialogManager : MonoBehaviour
     public void SetNewDialog(int dialogId)
     {
         currentDialog = DialogsLoader.Instance.dialogsDico[dialogId];
+
     }
 
     public void SetNextDialog()

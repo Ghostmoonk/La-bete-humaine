@@ -6,6 +6,7 @@ using UnityEngine.EventSystems;
 using TextContent;
 using DG.Tweening;
 
+//Handles highlight of words on TextMesh
 public class TMP_WordHighlighter : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerDownHandler, IPointerUpHandler
 {
     HighlightNotifier notifier;

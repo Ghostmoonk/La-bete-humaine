@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
+//Move an object from his position to a target
 public class ManualMover : MonoBehaviour, IIndependantTween
 {
     [SerializeField] float transitionDuration;

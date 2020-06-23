@@ -32,11 +32,10 @@ public class ClickHandler : MonoBehaviour
                 //À l'affichage du dernier contenu relatif à la réponse
                 if (i == contentToDisplay.Length - 1)
                 {
-                    Debug.Log("Add listener");
                     //Ne permet pas de build !
-
                     //UnityEditor.Events.UnityEventTools.AddPersistentListener(contentToDisplay[i].CompleteEvent, relatedContentTransform.GetComponent<ClosedQuestionHolder>().StartProgressiveFadeIn);
                     //UnityEditor.Events.UnityEventTools.AddPersistentListener(contentToDisplay[i].CompleteEvent, ReplaceContentAtBottom);
+
                     int n = i;
 
                     unityAction += relatedContentTransform.GetComponent<ClosedQuestionHolder>().StartProgressiveFadeIn;

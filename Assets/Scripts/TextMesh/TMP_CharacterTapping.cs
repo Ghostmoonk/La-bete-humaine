@@ -4,6 +4,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
 
+//Handles the tapping on TextMesh
 public class TMP_CharacterTapping : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI[] textMeshs;

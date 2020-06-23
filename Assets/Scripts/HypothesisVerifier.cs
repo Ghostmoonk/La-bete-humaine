@@ -5,14 +5,13 @@ using UnityEngine;
 
 public class HypothesisVerifier : MonoBehaviour
 {
-    [SerializeField] Hypothesis[] hypotheses;
     [SerializeField] TextMeshProUGUI textMesh;
 
     public void CheckHypothesis(string text)
     {
-        for (int i = 0; i < hypotheses.Length; i++)
+        for (int i = 0; i < HypothesisManager.Instance.GetHypothesis().Length; i++)
         {
-            if (text.ToLower() == hypotheses[i].text.ToLower())
+            if (text.ToLower() == HypothesisManager.Instance.GetHypothesis()[i].data.text.ToLower())
             {
                 Debug.Log("Hypothèse trouvée");
             }

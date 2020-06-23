@@ -5,6 +5,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.SocialPlatforms;
 
+//Make TextMeshProUGUI texts spawning & converging to the convergencePoint
 public class ConvergingTexts : MonoBehaviour
 {
     [SerializeField] Transform convergencePoint;

@@ -214,13 +214,13 @@ public class NotesDisplayer : MonoBehaviour
         button.interactable = interactable;
     }
 
-    private void RemoveChilds(Transform parent)
-    {
-        for (int i = 0; i < parent.childCount; i++)
-        {
-            Destroy(parent.GetChild(i).gameObject);
-        }
-    }
+    //private void RemoveChilds(Transform parent)
+    //{
+    //    for (int i = 0; i < parent.childCount; i++)
+    //    {
+    //        Destroy(parent.GetChild(i).gameObject);
+    //    }
+    //}
 
     public void DisplayNextActivity()
     {

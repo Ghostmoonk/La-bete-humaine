@@ -33,6 +33,7 @@ public class TextsLoader : MonoBehaviour
         FetchQuestionsData();
         FetchGlossaryData();
         FetchImagesData();
+
         DontDestroyOnLoad(gameObject);
     }
 

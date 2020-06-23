@@ -29,7 +29,6 @@ public class CursorManager : MonoBehaviour, IActivatable
             Destroy(this);
         }
         //DontDestroyOnLoad(gameObject);
-
     }
 
     private void OnEnable()

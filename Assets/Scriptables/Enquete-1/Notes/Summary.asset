@@ -22,7 +22,7 @@ MonoBehaviour:
   providedWords:
   - word: Grandmorin
     type: 0
-  - word: "l'a \xE9gorg\xE9"
+  - word: "a \xE9gorg\xE9"
     type: 2
   - word: "ont \xE9gorg\xE9"
     type: 2

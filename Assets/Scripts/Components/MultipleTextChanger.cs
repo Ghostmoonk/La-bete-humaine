@@ -6,6 +6,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
 
+//Take strings and do something on click of the attached object
 public class MultipleTextChanger : MonoBehaviour, IPointerDownHandler
 {
     [TextArea(3, 5)]
@@ -20,7 +21,6 @@ public class MultipleTextChanger : MonoBehaviour, IPointerDownHandler
     private void OnEnable()
     {
         DisplayNextSentence();
-
     }
 
     public void DisplayNextSentence()
@@ -39,7 +39,6 @@ public class MultipleTextChanger : MonoBehaviour, IPointerDownHandler
 
     public void OnPointerDown(PointerEventData eventData)
     {
-        Debug.Log("click");
         ClickEvents?.Invoke();
     }
 

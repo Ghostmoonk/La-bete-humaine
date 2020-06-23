@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
+//Handle the anchored movement oof the attached object depending on the size of a RectTransform
 public class ToggleMover : MonoBehaviour, IIndependantTween
 {
     Tweener tween;
@@ -11,7 +12,8 @@ public class ToggleMover : MonoBehaviour, IIndependantTween
     [SerializeField] float transitionDuration;
     bool toggler;
     Vector2 initialAnchoredPos;
-
+    [Range(-1, 1)]
+    [SerializeField] int direction = 1;
     [SerializeField] UnityEvent StartToggleOn;
     [SerializeField] UnityEvent EndToggleOn;
 
@@ -31,13 +33,13 @@ public class ToggleMover : MonoBehaviour, IIndependantTween
 
         if (!toggler)
         {
-            tween = GetComponent<RectTransform>().DOAnchorPosY(initialAnchoredPos.y + rectT.rect.height, transitionDuration).SetUpdate(isUnityTimeScaleInDependant);
+            tween = GetComponent<RectTransform>().DOAnchorPosY(initialAnchoredPos.y + rectT.rect.height * direction, transitionDuration).SetUpdate(isUnityTimeScaleInDependant);
             StartToggleOn?.Invoke();
             tween.OnComplete(() => EndToggleOn.Invoke());
         }
         else
         {
-            tween = GetComponent<RectTransform>().DOAnchorPosY(GetComponent<RectTransform>().anchoredPosition.y - rectT.rect.height, transitionDuration).SetUpdate(isUnityTimeScaleInDependant);
+            tween = GetComponent<RectTransform>().DOAnchorPosY(GetComponent<RectTransform>().anchoredPosition.y - rectT.rect.height * direction, transitionDuration).SetUpdate(isUnityTimeScaleInDependant);
             StartToggleOff?.Invoke();
             tween.OnComplete(() => EndToggleOff.Invoke());
         }
@@ -54,13 +56,13 @@ public class ToggleMover : MonoBehaviour, IIndependantTween
         Debug.Log(GetComponent<RectTransform>().anchoredPosition);
         if (!toggler)
         {
-            tween = GetComponent<RectTransform>().DOAnchorPosX(initialAnchoredPos.x + rectT.rect.width, transitionDuration).SetUpdate(isUnityTimeScaleInDependant);
+            tween = GetComponent<RectTransform>().DOAnchorPosX(initialAnchoredPos.x + rectT.rect.width * direction, transitionDuration).SetUpdate(isUnityTimeScaleInDependant);
             StartToggleOn?.Invoke();
             tween.OnComplete(() => EndToggleOn.Invoke());
         }
         else
         {
-            tween = GetComponent<RectTransform>().DOAnchorPosX(GetComponent<RectTransform>().anchoredPosition.x - rectT.rect.width, transitionDuration).SetUpdate(isUnityTimeScaleInDependant);
+            tween = GetComponent<RectTransform>().DOAnchorPosX(GetComponent<RectTransform>().anchoredPosition.x - rectT.rect.width * direction, transitionDuration).SetUpdate(isUnityTimeScaleInDependant);
             StartToggleOff?.Invoke();
             tween.OnComplete(() => EndToggleOff.Invoke());
         }

@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.Rendering.PostProcessing;
 using UnityEngine.UI;
 
-
+//A basic image slider using ReferenceContent objects and displays depending on their content
 public class BasicSlider : MonoBehaviour
 {
     [System.Serializable]

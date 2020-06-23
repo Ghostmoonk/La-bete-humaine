@@ -40,6 +40,10 @@ MonoBehaviour:
     type: 0
   - word: "les m\xEAmes"
     type: 3
+  - word: venger
+    type: 2
+  - word: Louisette
+    type: 0
   exercicePrefab: {fileID: 8001567025327352204, guid: c161f9b0906cfe84bbcca64d8b8fa4b0,
     type: 3}
   manuscriptPrefab: {fileID: 1613701182975161571, guid: 497a124c3236dc14e94475495ebda921,
