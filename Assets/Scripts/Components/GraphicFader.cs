@@ -12,8 +12,8 @@ public class GraphicFader : MonoBehaviour, IIndependantTween
     [SerializeField] bool IsUnityTimeScaleIndependant;
     [SerializeField] Graphic[] graphic;
 
-    [SerializeField] UnityEvent EndFadeOutText;
-    [SerializeField] UnityEvent EndFadeInText;
+    public UnityEvent EndFadeOutText;
+    public UnityEvent EndFadeInText;
 
 
     public void FadeOut(float duration)

@@ -49,7 +49,6 @@ public abstract class ActivityHolder : MonoBehaviour
 
     public virtual void CompleteActivity()
     {
-        Debug.Log(ActivityRelatedCompleteEvent);
         isDone = true;
         ActivityRelatedCompleteEvent?.Invoke();
         GeneralCompleteEvent?.Invoke();
@@ -57,7 +56,6 @@ public abstract class ActivityHolder : MonoBehaviour
 
     public virtual void ProvideWords()
     {
-        Debug.Log(noteActivity.GetType());
         notesDisplayer.wordSorter.RevealWords(noteActivity.providedWords);
     }
 }

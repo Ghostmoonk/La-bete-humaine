@@ -25,7 +25,7 @@ public class FillGapsActivityHolder : ActivityHolder
     public override void SetContent(NoteActivityEvent noteActivity)
     {
         this.noteActivity = (FillGapsNoteActivity)noteActivity.noteActivity;
-        Debug.Log(this.noteActivity.GetType());
+
         contentTextMesh.text = this.noteActivity.gapsText;
         paratextTextMesh.text = this.noteActivity.paratext;
     }
@@ -38,7 +38,6 @@ public class FillGapsActivityHolder : ActivityHolder
 
     public override void ProvideWords()
     {
-        Debug.Log(noteActivity.GetType());
         notesDisplayer.wordSorter.RevealWords(noteActivity.providedWords);
     }
 

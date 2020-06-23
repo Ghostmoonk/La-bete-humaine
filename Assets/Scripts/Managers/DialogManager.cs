@@ -4,6 +4,7 @@ using System.Linq;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public class DialogManager : MonoBehaviour
@@ -30,7 +31,9 @@ public class DialogManager : MonoBehaviour
         dialogBox.SetActive(false);
     }
 
-    [SerializeField] GameObject dialogBox;
+    public GameObject dialogBox;
+    public Transform answersContainer;
+    public GameObject answerPrefab;
     [SerializeField] TextMeshProUGUI sentenceText;
     [SerializeField] TextMeshProUGUI characterNameText;
     [SerializeField] Image skipImage;
@@ -43,6 +46,8 @@ public class DialogManager : MonoBehaviour
 
     [Header("Characters")]
     [SerializeField] Character[] characters;
+    [SerializeField] float showSkipTimerLimit;
+    [SerializeField] bool shouldShowCharactersSprite = true;
     Dictionary<string, Sprite> charactersSprites = new Dictionary<string, Sprite>();
 
     [Header("Events")]
@@ -52,10 +57,17 @@ public class DialogManager : MonoBehaviour
     [SerializeField] float sentenceTypingSpeed;
 
     bool typingSentence = false;
-    [SerializeField] float showSkipTimerLimit;
     float showSkipTimer;
 
-    bool shouldShowCharactersSprite = true;
+    public Dialog GetCurrentDialog()
+    {
+        return currentDialog;
+    }
+
+    public void ResetCurrentDialog()
+    {
+        currentDialog.Reset();
+    }
 
     private void Start()
     {
@@ -67,13 +79,10 @@ public class DialogManager : MonoBehaviour
 
     public void StartDialog()
     {
-        currentDialog.currentSentence.ShowSentences();
-
         if (!dialogBox.activeSelf)
             dialogBox.SetActive(true);
 
         int currentDialogId = DialogsLoader.Instance.dialogsDico.FirstOrDefault(x => x.Value == currentDialog).Key;
-        Debug.Log(currentDialogId);
         DialogEvents? dialogEvent = FindCorrespondingEvents(currentDialogId);
         if (dialogEvent != null)
         {
@@ -86,7 +95,15 @@ public class DialogManager : MonoBehaviour
     public void ToggleDialogBoxVisibility(bool active)
     {
         dialogBox.GetComponent<Animator>().SetBool("Active", active);
-        Debug.Log("toggleBox :" + active);
+        if (!active)
+        {
+            StopDialog();
+            dialogBox.GetComponent<Image>().raycastTarget = false;
+        }
+        else
+        {
+            dialogBox.GetComponent<Image>().raycastTarget = true;
+        }
     }
 
     public void FinishSentence()
@@ -105,11 +122,15 @@ public class DialogManager : MonoBehaviour
     {
         ToggleSkip(false);
 
+        if (currentDialog == null)
+            return;
+
         if (currentDialog.currentSentence != null)
         {
             characterNameText.text = currentDialog.currentSentence.characterName;
             if (shouldShowCharactersSprite)
             {
+                Debug.Log(shouldShowCharactersSprite);
                 if (charactersSprites.ContainsKey(currentDialog.currentSentence.characterName))
                 {
                     talkingCharacterImage.sprite = charactersSprites[currentDialog.currentSentence.characterName];
@@ -119,6 +140,8 @@ public class DialogManager : MonoBehaviour
                 else
                     talkingCharacterImage.gameObject.SetActive(false);
             }
+            else
+                talkingCharacterImage.gameObject.SetActive(false);
 
             StartCoroutine(Autotype(sentenceText, currentDialog.currentSentence.content));
 
@@ -128,6 +151,7 @@ public class DialogManager : MonoBehaviour
         else
         {
             OnDialogOver?.Invoke();
+
             int currentDialogId = DialogsLoader.Instance.dialogsDico.FirstOrDefault(x => x.Value == currentDialog).Key;
 
             DialogEvents? dialogEvent = FindCorrespondingEvents(currentDialogId);
@@ -220,6 +244,8 @@ public class DialogManager : MonoBehaviour
     public void SetNewDialog(int dialogId)
     {
         currentDialog = DialogsLoader.Instance.dialogsDico[dialogId];
+        Debug.Log(currentDialog);
+        Debug.Log(dialogId);
 
     }
 
@@ -241,6 +267,27 @@ public class DialogManager : MonoBehaviour
     public void StartDialogDelayed(float delay)
     {
         Invoke(nameof(StartDialog), delay);
+    }
+
+    public IEnumerator ResizeChilds(Transform parent)
+    {
+        yield return new WaitForEndOfFrame();
+
+        foreach (RectTransform item in parent.GetComponentsInChildren<RectTransform>())
+        {
+            LayoutRebuilder.ForceRebuildLayoutImmediate(item);
+        }
+
+        StopCoroutine(ResizeChilds(parent));
+    }
+
+    public void FadeClearAnswers(float disappaearDuration)
+    {
+        foreach (Transform child in answersContainer)
+        {
+            child.GetComponent<GraphicFader>().FadeOut(disappaearDuration);
+            child.GetComponent<GraphicFader>().EndFadeOutText.AddListener(() => { Destroy(child.gameObject); });
+        }
     }
 
 }

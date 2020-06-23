@@ -5,7 +5,7 @@ ID|Personnage|Texte|Phase ID|Dialog ID|En réponse à|Réponses possibles|empty
 3|Denizet|Non, non... ça ne peut pas être Roubaud et Séverine, ça serait trop simple. De plus, je les connais, ce sont de honnêtes gens. ||1||4,5|
 4|Assistant|Mais, Monsieur, la lettre de Séverine qu'on a retrouvée sur le cadavre de Grandmorin ne plaide pas en leur faveur. ||1|3||
 5|Assistant|Vous avez raison, ils n'auraient jamais pu commettre une telle atrocité. ||1|3||
-6|Denizet|Certes, mais ce n'est pas une preuve suffisante pour accuser la douce Séverine. ||1|5||
+6|Denizet|Certes, mais ce n'est pas une preuve suffisante pour accuser la douce Séverine. ||1|4||
 7|Denizet|Certes ces deux filles ont pour point commun d'avoir Grandmorin comme parrain, mais nous n'avons aucune preuve concrète sur la raison de la mort de Louisette. Et Séverine lui rendait souvent visite. Elle n'aurait jamais fait ça si Grandmorin n'était pas gentil avec elle.||2||8,9|
 8|Assistant|C'est vrai, ce mobile n'aurait pas de sens! ||2|7||
 9|Assistant|Peut-être que l'emprise que Grandmorin avait sur Séverine était très forte... ||2|7||
@@ -13,3 +13,4 @@ ID|Personnage|Texte|Phase ID|Dialog ID|En réponse à|Réponses possibles|empty
 11|Denizet|Vous savez quoi ? Ça ne m'étonnerait pas ! Ce grand gaillard a toujours crié que Grandmorin avait assassinné son amie Louisette et a donc toujours eu une haine vicérale envers lui. De quoi prouver sa culpabilité en somme. ||3|||
 12|Assistant|Dans tous les cas Monsieur, j'ai bien peur que nos éléments ne suffisent pas à condamner qui que ce soit. ||3|11||
 13|Assistant|Vous avez raison, nous n'avons pas assez de preuves pour coincer ce Cabuche...Nous n'avons que des suppositions... ||3|12||
+14|Denizet|Ah mon cher assistant, as-tu des hypothèses à me partager ?||4|||

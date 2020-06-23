@@ -12,4 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c348d526c5ccc75428d8e1c278347422, type: 3}
   m_Name: CabucheRevenge
   m_EditorClassIdentifier: 
+  relatedDialogID: 3
   text: "Cabuche a \xE9gorg\xE9 Grandmorin pour venger la mort de Louisette"
+  condensedText: Cabuche est coupable

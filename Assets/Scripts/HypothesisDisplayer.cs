@@ -16,7 +16,7 @@ public class HypothesisDisplayer : MonoBehaviour
     private void Start()
     {
         hypothesisDico = new Dictionary<Hypothesis, HypothesisTextHolder>();
-        Debug.Log(HypothesisManager.Instance.GetHypothesis().Length);
+
         foreach (Hypothesis item in HypothesisManager.Instance.GetHypothesis())
         {
             GameObject hypotheseTextToInstantiate = Instantiate(hypothesisPref, hypothesisContainer);
@@ -25,7 +25,6 @@ public class HypothesisDisplayer : MonoBehaviour
             hypothesisDico.Add(item, hypothesisTextHolder);
             hypothesisTextHolder.textComponent.text = item.data.text;
         }
-        Debug.Log("forced rebuild");
 
         foreach (var item in GetComponentsInChildren<RectTransform>())
         {

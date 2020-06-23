@@ -44,11 +44,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogBox: {fileID: 0}
+  answersContainer: {fileID: 0}
+  answerPrefab: {fileID: 0}
   sentenceText: {fileID: 0}
   characterNameText: {fileID: 0}
   skipImage: {fileID: 0}
   talkingCharacterImage: {fileID: 0}
   characters: []
+  showSkipTimerLimit: 2
+  shouldShowCharactersSprite: 1
   dialogsEvents:
   - dialogID: 0
     StartEvents:
@@ -185,5 +189,4 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
-  sentenceTypingSpeed: 0.15
-  showSkipTimerLimit: 2
+  sentenceTypingSpeed: 0.2

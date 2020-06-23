@@ -12,5 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c348d526c5ccc75428d8e1c278347422, type: 3}
   m_Name: RoubaudAndSeverineLegacy
   m_EditorClassIdentifier: 
+  relatedDialogID: 1
   text: "Roubaud et S\xE9verine ont \xE9gorg\xE9 Grandmorin pour devenir les l\xE9gataires
     de la maison de la Croix-de-Maufras"
+  condensedText: "Roubaud et S\xE9verine sont coupables"

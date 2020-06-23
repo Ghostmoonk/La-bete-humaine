@@ -53,7 +53,7 @@ public class ToggleMover : MonoBehaviour, IIndependantTween
         if (tween != null)
             if (tween.IsPlaying())
                 tween.Pause();
-        Debug.Log(GetComponent<RectTransform>().anchoredPosition);
+
         if (!toggler)
         {
             tween = GetComponent<RectTransform>().DOAnchorPosX(initialAnchoredPos.x + rectT.rect.width * direction, transitionDuration).SetUpdate(isUnityTimeScaleInDependant);

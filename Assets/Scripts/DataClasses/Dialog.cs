@@ -22,6 +22,11 @@ public class Dialog
     {
         currentSentence = newSentence;
     }
+
+    public void Reset()
+    {
+        currentSentence = rootSentence;
+    }
 }
 
 public class Sentence

@@ -12,5 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c348d526c5ccc75428d8e1c278347422, type: 3}
   m_Name: SeverineRevenge
   m_EditorClassIdentifier: 
+  relatedDialogID: 2
   text: "S\xE9verine a subi les m\xEAmes s\xE9vices que Louisette de la part de Grandmorin
     et l'a \xE9gorg\xE9 pour se venger"
+  condensedText: "S\xE9verine est coupable"
