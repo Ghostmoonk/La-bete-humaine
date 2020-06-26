@@ -72,7 +72,7 @@ public class HypothesisManager : MonoBehaviour
                 int n = i;
                 GameObject answerToInstantiate = Instantiate(DialogManager.Instance.answerPrefab, DialogManager.Instance.answersContainer);
                 answerToInstantiate.GetComponentInChildren<TextMeshProUGUI>().text = hypotheses[i].data.condensedText;
-                answerToInstantiate.GetComponent<Button>().onClick.AddListener(delegate { DialogManager.Instance.SetNewDialog(hypotheses[n].data.relatedDialogID); DialogManager.Instance.StartDialog(); DialogManager.Instance.FadeClearAnswers(appearDuration); HypothesisManager.Instance.SetHypothesisDiscussed(i); });
+                answerToInstantiate.GetComponent<Button>().onClick.AddListener(delegate { DialogManager.Instance.SetNewDialog(hypotheses[n].data.relatedDialogID); DialogManager.Instance.StartDialog(); DialogManager.Instance.FadeClearAnswers(appearDuration); SetHypothesisDiscussed(n); });
                 answerToInstantiate.GetComponent<GraphicFader>().FadeIn(appearDuration);
 
                 foundedHypothesis++;

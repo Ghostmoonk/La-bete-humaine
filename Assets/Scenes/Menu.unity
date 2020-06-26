@@ -11903,6 +11903,9 @@ MonoBehaviour:
   EndFadeOutText:
     m_PersistentCalls:
       m_Calls: []
+  StartFadeIn:
+    m_PersistentCalls:
+      m_Calls: []
   EndFadeInText:
     m_PersistentCalls:
       m_Calls: []

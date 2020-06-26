@@ -151,6 +151,14 @@ MonoBehaviour:
     - {fileID: 8300000, guid: 7a4be5a7e688a484b8ec7245b67e5263, type: 3}
     - {fileID: 8300000, guid: 3240946132b7a7145bb0791861b61384, type: 3}
     - {fileID: 8300000, guid: 97a79baf8eb1d204aa981dd60c8444f1, type: 3}
+  - name: open-book
+    clips:
+    - {fileID: 8300000, guid: 09dd6ab2f7f57f747a30b573d1300f45, type: 3}
+    - {fileID: 8300000, guid: d51a7ea8952d0564f9016dea5b1ea02d, type: 3}
+  - name: close-book
+    clips:
+    - {fileID: 8300000, guid: 96090cae65218494f941814a38f4d216, type: 3}
+    - {fileID: 8300000, guid: 13bba5f5903d01f4e96213c2adc78add, type: 3}
   pauseVolReduction: 3
   durationPauseDbReduction: 0.5
 --- !u!114 &4368897560425126631

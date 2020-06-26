@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
+using UnityEngine.Serialization;
 
 public class SoundManager : MonoBehaviour
 {
@@ -13,7 +14,9 @@ public class SoundManager : MonoBehaviour
     List<AudioSource> toRestartList;
 
     [Range(1, 10)]
+    [Tooltip("By how much you divide volume")]
     [SerializeField] int pauseVolReduction;
+    [Tooltip("How long it takes to decrease volume")]
     [SerializeField] float durationPauseDbReduction;
 
     #region Singleton

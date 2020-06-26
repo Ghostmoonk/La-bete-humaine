@@ -103,7 +103,7 @@ public class FillGapsActivityHolder : ActivityHolder
 
                 textInput.GetComponent<TextGap>().Setup(hiddenWord);
                 textInput.GetComponent<TextGap>().textGapSubject.AddObserver(observer);
-                textInput.GetComponent<RectTransform>().anchoredPosition += new Vector2(0, textInput.GetComponent<RectTransform>().sizeDelta.y / 2);
+                //textInput.GetComponent<RectTransform>().anchoredPosition += new Vector2(0, textInput.GetComponent<RectTransform>().sizeDelta.y / 2);
 
                 textGaps.Add(textInput.GetComponent<TextGap>());
 
@@ -114,13 +114,24 @@ public class FillGapsActivityHolder : ActivityHolder
 
     private bool CheckAllGapsSucceed()
     {
+        OnGapsComplete?.Invoke();
+
         for (int i = 0; i < textGaps.Count; i++)
         {
             if (textGaps[i].succeed == false)
                 return false;
         }
-        OnGapsComplete?.Invoke();
+        CompleteActivity();
         return true;
+    }
+
+    public void BoldifyGapsText()
+    {
+        for (int i = 0; i < textGaps.Count; i++)
+        {
+            textGaps[i].inputFieldMesh.text = "<b>" + textGaps[i].inputFieldMesh.text + "</b>";
+            Debug.Log(textGaps[i].inputFieldMesh.text);
+        }
     }
 
     public void DisableInputFields()

@@ -31,18 +31,23 @@ public class DialogManager : MonoBehaviour
         dialogBox.SetActive(false);
     }
 
+    [Header("Prefabs & Container")]
     public GameObject dialogBox;
     public Transform answersContainer;
     public GameObject answerPrefab;
+
+    [Header("Components")]
     [SerializeField] TextMeshProUGUI sentenceText;
     [SerializeField] TextMeshProUGUI characterNameText;
     [SerializeField] Image skipImage;
     [SerializeField] Image talkingCharacterImage;
 
+    [Header("Texts")]
+    [SerializeField] float answersFadeDuration = 1f;
     Dialog currentDialog;
 
-    public delegate void VoidDelegate();
-    public VoidDelegate OnDialogOver;
+    //public delegate void VoidDelegate();
+    //public VoidDelegate OnDialogOver;
 
     [Header("Characters")]
     [SerializeField] Character[] characters;
@@ -130,7 +135,6 @@ public class DialogManager : MonoBehaviour
             characterNameText.text = currentDialog.currentSentence.characterName;
             if (shouldShowCharactersSprite)
             {
-                Debug.Log(shouldShowCharactersSprite);
                 if (charactersSprites.ContainsKey(currentDialog.currentSentence.characterName))
                 {
                     talkingCharacterImage.sprite = charactersSprites[currentDialog.currentSentence.characterName];
@@ -143,14 +147,22 @@ public class DialogManager : MonoBehaviour
             else
                 talkingCharacterImage.gameObject.SetActive(false);
 
-            StartCoroutine(Autotype(sentenceText, currentDialog.currentSentence.content));
+            if (currentDialog.currentSentence.GetType() != typeof(QuestioningSentence))
+            {
+                StartCoroutine(Autotype(sentenceText, currentDialog.currentSentence.content, false));
+                //Prepare next sentence
+                currentDialog.SetNextSentence();
 
-            //Prepare next sentence
-            currentDialog.SetNextSentence();
+            }
+            else
+            {
+                StartCoroutine(Autotype(sentenceText, currentDialog.currentSentence.content, true));
+
+            }
         }
         else
         {
-            OnDialogOver?.Invoke();
+            //OnDialogOver?.Invoke();
 
             int currentDialogId = DialogsLoader.Instance.dialogsDico.FirstOrDefault(x => x.Value == currentDialog).Key;
 
@@ -161,6 +173,24 @@ public class DialogManager : MonoBehaviour
             }
 
         }
+    }
+
+    private void InstantiateAnswers(QuestioningSentence qSentence)
+    {
+        dialogBox.GetComponent<Image>().raycastTarget = false;
+        foreach (Answer answer in qSentence.answers)
+        {
+            Debug.Log(answer.answerText + " - " + answer.sentence.content + " - ");
+            if (answer.sentence.GetNextSentence() != null)
+            {
+                Debug.Log(answer.sentence.GetNextSentence().content);
+            }
+            GameObject answerToInstantiate = Instantiate(answerPrefab, answersContainer);
+            answerToInstantiate.GetComponentInChildren<TextMeshProUGUI>().text = answer.answerText;
+            answerToInstantiate.GetComponent<Button>().onClick.AddListener(delegate { currentDialog.SetNextSentence(answer.sentence); DisplayNextSentence(); FadeClearAnswers(answersFadeDuration); dialogBox.GetComponent<Image>().raycastTarget = true; });
+            answerToInstantiate.GetComponent<GraphicFader>().FadeIn(answersFadeDuration);
+        }
+        StartCoroutine(ResizeChilds(dialogBox.transform));
     }
 
     public void ToggleCharacterSpriteVisibility()
@@ -199,7 +229,7 @@ public class DialogManager : MonoBehaviour
         skipImage.gameObject.GetComponent<Animator>().SetBool("Active", active);
     }
 
-    private IEnumerator Autotype(TextMeshProUGUI textMesh, string content)
+    private IEnumerator Autotype(TextMeshProUGUI textMesh, string content, bool isQuestionningSentence)
     {
         textMesh.text = "";
         typingSentence = true;
@@ -219,8 +249,12 @@ public class DialogManager : MonoBehaviour
 
         if (typingSentence)
             typingSentence = false;
+        if (isQuestionningSentence)
+        {
+            InstantiateAnswers((QuestioningSentence)currentDialog.currentSentence);
+        }
 
-        StopCoroutine(Autotype(textMesh, content));
+        StopCoroutine(Autotype(textMesh, content, isQuestionningSentence));
     }
 
     private DialogEvents? FindCorrespondingEvents(int id)

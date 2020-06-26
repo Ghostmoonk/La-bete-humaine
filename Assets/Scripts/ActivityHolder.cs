@@ -10,10 +10,11 @@ public abstract class ActivityHolder : MonoBehaviour
 {
     [SerializeField] protected TextMeshProUGUI contentTextMesh;
     [SerializeField] protected TextMeshProUGUI paratextTextMesh;
+    public Sprite exerciceTypeIcon;
     [SerializeField] UnityEvent ActivityRelatedCompleteEvent;
     protected UnityEvent GeneralCompleteEvent;
 
-    public NoteActivity noteActivity;
+    [HideInInspector] public NoteActivity noteActivity;
     [HideInInspector] public bool isDone;
 
     protected NotesDisplayer notesDisplayer;

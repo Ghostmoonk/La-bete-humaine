@@ -15,6 +15,11 @@ public class SoundPlayer : MonoBehaviour
         SoundManager.Instance.PlaySound(source, soundName);
     }
 
+    public void PlaySound()
+    {
+        SoundManager.Instance.PlaySound(source, soundNameToPlay);
+    }
+
     public void PlaySound(AudioClip soundClip)
     {
         SoundManager.Instance.PlaySound(source, soundClip);

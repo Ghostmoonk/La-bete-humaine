@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -10,6 +11,7 @@ public class DialogsLoader : MonoBehaviour
 {
     public TextAsset sentencesAsset;
     public TextAsset dialogsAsset;
+    public TextAsset answersAsset;
 
     private static DialogsLoader _instance;
     public static DialogsLoader Instance
@@ -31,12 +33,31 @@ public class DialogsLoader : MonoBehaviour
             Destroy(this);
         }
 
+        if (answersAsset != null)
+            FetchAnswersData();
+
         FetchDialogsData();
 
     }
 
     public Dictionary<int, Dialog> dialogsDico;
+    //Key : sentence related ID, Value : answer text
+    public Dictionary<int, string> answersSentenceIdDico;
     public UnityEvent DialogsLoadComplete;
+
+    private void FetchAnswersData()
+    {
+        answersSentenceIdDico = new Dictionary<int, string>();
+
+        string[] answersRows = answersAsset.text.Split(new char[] { '\n' });
+
+        for (int i = 1; i < answersRows.Length - 1; i++)
+        {
+            string[] answersCols = answersRows[i].Split(new char[] { '|' });
+
+            answersSentenceIdDico.Add(int.Parse(answersCols[1]), answersCols[3]);
+        }
+    }
 
     private void FetchDialogsData()
     {
@@ -63,6 +84,7 @@ public class DialogsLoader : MonoBehaviour
             }
 
             int rootId = 0;
+
             for (int j = 1; j < sentencesRows.Length - 1; j++)
             {
                 string[] sentenceCols = sentencesRows[j].Split(new char[] { '|' });
@@ -72,18 +94,24 @@ public class DialogsLoader : MonoBehaviour
                     //Does the sentence need answers
                     if (sentenceCols[6].Length >= 1)
                     {
+                        if (answersSentenceIdDico == null)
+                        {
+                            throw new Exception("L'asset des dialogues requiert des réponses, et aucun asset de réponses n'a été donné.");
+                        }
+
                         string[] splitAnswersID = sentenceCols[6].Split(',');
                         Answer[] answers = new Answer[splitAnswersID.Length];
 
                         for (int l = 0; l < splitAnswersID.Length; l++)
                         {
-                            answers[l] = new Answer(sentences[int.Parse(splitAnswersID[l])].content, sentences[int.Parse(splitAnswersID[l])]);
+                            answers[l] = new Answer(answersSentenceIdDico[int.Parse(splitAnswersID[l])], sentences[int.Parse(splitAnswersID[l])]);
                         }
 
                         sentences[int.Parse(sentenceCols[0])] = new QuestioningSentence(sentenceCols[1], sentenceCols[2], answers);
                     }
 
                     int previousSentenceID;
+
                     if (int.TryParse(sentenceCols[5], out previousSentenceID))
                     {
                         sentences[previousSentenceID].SetNextSentence(sentences[int.Parse(sentenceCols[0])]);

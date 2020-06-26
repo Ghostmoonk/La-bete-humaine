@@ -61,7 +61,7 @@ public class Sentence
 
 public class QuestioningSentence : Sentence
 {
-    Answer[] answers;
+    public Answer[] answers;
 
     public QuestioningSentence(string name, string content, Answer[] answers) : base(name, content)
     {
@@ -71,8 +71,8 @@ public class QuestioningSentence : Sentence
 
 public class Answer
 {
-    string answerText;
-    Sentence sentence;
+    public string answerText;
+    public Sentence sentence;
 
     public Answer(string answerText, Sentence sentence)
     {

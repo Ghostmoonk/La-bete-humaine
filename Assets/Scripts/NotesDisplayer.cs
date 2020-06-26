@@ -34,10 +34,14 @@ public class NotesDisplayer : MonoBehaviour
     [SerializeField] GameObject summaryList;
     [SerializeField] Transform suummaryListContainer;
     [SerializeField] GameObject summaryNoteTextPrefab;
+    [SerializeField] Image exerciceIconImage;
     public WordSorter wordSorter;
     [SerializeField] List<NoteActivityEvent> notesActivities;
 
     [HideInInspector] public NoteActivity currentNote;
+
+    [Header("Audio")]
+    [SerializeField] AudioSource bookSource;
 
     [Header("Events")]
     public UnityEvent DisplayNoteWithoutManuscript;
@@ -67,6 +71,16 @@ public class NotesDisplayer : MonoBehaviour
 
         LayoutRebuilder.ForceRebuildLayoutImmediate(summaryText.GetComponent<RectTransform>());
         LayoutRebuilder.ForceRebuildLayoutImmediate(summaryList.GetComponent<RectTransform>());
+    }
+
+    private void OnEnable()
+    {
+        SoundManager.Instance.PlaySound(bookSource, "open-book");
+    }
+
+    private void OnDisable()
+    {
+        SoundManager.Instance.PlaySound(bookSource, "close-book");
     }
 
     private void InstantiateSummary(NoteActivity note, int index)
@@ -122,10 +136,15 @@ public class NotesDisplayer : MonoBehaviour
 
     public void DisplayActivity(int index)
     {
-        //Desactivate the current content
+        if (index > currentNoteIndex)
+            SoundManager.Instance.PlaySound(bookSource, "next-page");
+        else if (index < currentNoteIndex)
+            SoundManager.Instance.PlaySound(bookSource, "previous-page");
 
+        //Desactivate the current content
         if (index != currentNoteIndex && currentNoteIndex >= 0)
             activityHolders[currentNoteIndex].gameObject.SetActive(false);
+
         else if (index != currentNoteIndex && currentNoteIndex == -1)
         {
             summaryText.SetActive(false);
@@ -146,6 +165,10 @@ public class NotesDisplayer : MonoBehaviour
         if (index < notesActivities.Count && index >= 0)
         {
             currentNote = notesActivities[index].noteActivity;
+            exerciceIconImage.sprite = activityHolders[index].exerciceTypeIcon;
+
+            if (!exerciceIconImage.gameObject.activeSelf)
+                exerciceIconImage.gameObject.SetActive(true);
 
             titleMesh.text = "Note n°" + (index + 1) + " : " + currentNote.title;
 
@@ -198,7 +221,7 @@ public class NotesDisplayer : MonoBehaviour
             {
                 DisplayNoteWithManuscript?.Invoke();
             }
-
+            exerciceIconImage.gameObject.SetActive(false);
             ToggleButtonInteractable(previousNoteButton, false);
             ToggleButtonInteractable(previousNoteButtonRightPage, false);
             //Afficher un sommaire

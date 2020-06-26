@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public static class Resizer
 {
@@ -14,5 +15,13 @@ public static class Resizer
             newHeight += rect.sizeDelta.y;
         }
         rectT.sizeDelta = new Vector2(rectT.sizeDelta.x, newHeight);
+    }
+
+    public static void ResizeLayout(RectTransform parent)
+    {
+        foreach (RectTransform rect in parent.GetComponentsInChildren<RectTransform>())
+        {
+            LayoutRebuilder.ForceRebuildLayoutImmediate(rect);
+        }
     }
 }

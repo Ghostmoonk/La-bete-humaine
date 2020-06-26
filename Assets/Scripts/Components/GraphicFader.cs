@@ -13,6 +13,7 @@ public class GraphicFader : MonoBehaviour, IIndependantTween
     [SerializeField] Graphic[] graphic;
 
     public UnityEvent EndFadeOutText;
+    public UnityEvent StartFadeIn;
     public UnityEvent EndFadeInText;
 
 
@@ -20,6 +21,7 @@ public class GraphicFader : MonoBehaviour, IIndependantTween
     {
         for (int i = 0; i < graphic.Length; i++)
         {
+            graphic[i].DOKill();
             Tweener tween = graphic[i].DOColor(new Color(graphic[i].color.r, graphic[i].color.g, graphic[i].color.b, 0f), duration).SetUpdate(IsUnityTimeScaleIndependant);
 
             if (i == graphic.Length - 1)
@@ -29,8 +31,11 @@ public class GraphicFader : MonoBehaviour, IIndependantTween
 
     public void FadeIn(float duration)
     {
+        StartFadeIn?.Invoke();
+
         for (int i = 0; i < graphic.Length; i++)
         {
+            graphic[i].DOKill();
             Tweener tween = graphic[i].DOColor(new Color(graphic[i].color.r, graphic[i].color.g, graphic[i].color.b, maxOpacity), duration).SetUpdate(IsUnityTimeScaleIndependant);
 
             if (i == graphic.Length - 1)

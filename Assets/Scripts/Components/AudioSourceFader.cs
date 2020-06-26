@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 [RequireComponent(typeof(AudioSource))]
 public class AudioSourceFader : MonoBehaviour
@@ -10,6 +11,8 @@ public class AudioSourceFader : MonoBehaviour
     [Range(0, 1)]
     [SerializeField] float fadeVolume = 0;
 
+    [SerializeField] UnityEvent EndFadeVolume;
+
     void Start()
     {
         source = GetComponent<AudioSource>();
@@ -17,7 +20,8 @@ public class AudioSourceFader : MonoBehaviour
 
     public void FadeVolume(float duration)
     {
-        source.DOFade(fadeVolume, duration);
+        Tween tween = source.DOFade(fadeVolume, duration);
+        tween.OnComplete(() => { EndFadeVolume?.Invoke(); });
     }
 
     public void SetFadeVolume(float newFadeVolume) => fadeVolume = newFadeVolume;

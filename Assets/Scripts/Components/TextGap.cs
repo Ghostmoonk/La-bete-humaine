@@ -2,17 +2,19 @@
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class TextGap : MonoBehaviour
 {
     public TMP_InputField inputFieldMesh;
     RectTransform rectTransform;
+    [SerializeField] LayoutElement layoutElt;
     [SerializeField] float characterWidth;
 
     [Header("Colors")]
+    [SerializeField] Color defaultColor;
     [SerializeField] Color successColor;
     [SerializeField] Color failColor;
-    Color defaultColor;
     string hiddenWord;
 
     [HideInInspector] public TextGapSubject textGapSubject;
@@ -22,6 +24,7 @@ public class TextGap : MonoBehaviour
     private void Start()
     {
         defaultColor = inputFieldMesh.image.color;
+        Debug.Log(inputFieldMesh.image.color);
     }
 
     public void Setup(string hiddenWord)
@@ -32,7 +35,8 @@ public class TextGap : MonoBehaviour
         inputFieldMesh.characterLimit = hiddenWord.Length;
         inputFieldMesh.text = "";
         rectTransform = GetComponent<RectTransform>();
-        rectTransform.sizeDelta = new Vector2(characterWidth * hiddenWord.Length, rectTransform.sizeDelta.y);
+        layoutElt.minWidth = characterWidth * hiddenWord.Length;
+        //rectTransform.sizeDelta = new Vector2(characterWidth * hiddenWord.Length, rectTransform.sizeDelta.y);
 
     }
 

@@ -11,9 +11,22 @@ public class WordSorter : MonoBehaviour
 {
     [SerializeField] NotesDisplayer notesDisplayer;
     [SerializeField] GameObject wordPrefab;
+    [Header("Audio")]
+    [SerializeField] AudioSource audioSource;
+    [Header("Words containers")]
     [SerializeField] WordTypeContainer[] wordsContainers;
     Dictionary<WordType, Transform> wordsDicoContainers;
     Dictionary<ProvidedWord, GameObject> wordsObjectsContainers;
+
+    private void OnEnable()
+    {
+        SoundManager.Instance.PlaySound(audioSource, "open-book");
+    }
+
+    private void OnDisable()
+    {
+        SoundManager.Instance.PlaySound(audioSource, "close-book");
+    }
 
     private void Start()
     {
@@ -71,7 +84,6 @@ public class WordSorter : MonoBehaviour
                 wordsObjectsContainers.Add(noteActivity.providedWords[i], wordToInstantiate);
             }
         }
-
     }
 
     public void RevealWords(List<ProvidedWord> words)

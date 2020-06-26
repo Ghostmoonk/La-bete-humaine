@@ -25,8 +25,14 @@ public class ManuscriptActivityHolder : MonoBehaviour
     public void SetSprite()
     {
         image.sprite = sprite;
-        Debug.Log("setsprite");
     }
 }
 
+public interface IFocusable
+{
+    event Action OnFocusIn;
+    event Action OnFocusOut;
+    void FocusIn();
+    void FocusOut();
+}
 

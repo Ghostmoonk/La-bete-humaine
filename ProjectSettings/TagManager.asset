@@ -15,6 +15,10 @@ TagManager:
   - DefaultSource
   - PauseMenu
   - HypothesisPage
+  - HypothesisWord
+  - FrontCanvas
+  - ScreenCenter
+  - FocusedContentBackground
   layers:
   - Default
   - TransparentFX
@@ -24,8 +28,8 @@ TagManager:
   - UI
   - 
   - 
-  - 
-  - 
+  - PostProcess
+  - PostProcessing
   - 
   - 
   - 
