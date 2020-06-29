@@ -9,4 +9,6 @@ public class HypothesisData : ScriptableObject
     [TextArea(3, 5)]
     public string text;
     public string condensedText;
+
+    public bool necessaryHypothesis;
 }

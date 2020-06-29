@@ -33,6 +33,11 @@ public class HypothesisDisplayer : MonoBehaviour
 
     }
 
+    public void CrossHypothesis(Hypothesis hypothesis)
+    {
+        hypothesisDico[hypothesis].Cross();
+    }
+
     public void RevealHypothesis(Hypothesis hypothesisKey)
     {
         hypothesisDico[hypothesisKey].RevealEvent?.Invoke();

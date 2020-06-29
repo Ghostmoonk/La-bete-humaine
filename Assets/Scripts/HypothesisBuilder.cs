@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class HypothesisBuilder : MonoBehaviour
 {
@@ -9,6 +10,9 @@ public class HypothesisBuilder : MonoBehaviour
 
     [SerializeField] TMP_InputField textComponent;
     [SerializeField] DropReceiver dropReceiver;
+
+    public UnityEvent OnTextClear;
+    public UnityEvent OnWordDropped;
 
     private void Start()
     {
@@ -30,11 +34,17 @@ public class HypothesisBuilder : MonoBehaviour
             textComponent.text += text + " ";
         else
             textComponent.text += text;
+
+        OnWordDropped?.Invoke();
     }
 
     public void ClearText()
     {
-        textComponent.text = "";
+        if (textComponent.text != "")
+        {
+            textComponent.text = "";
+            OnTextClear?.Invoke();
+        }
     }
 
     public void SubmitHypothesis()
@@ -46,7 +56,6 @@ public class HypothesisBuilder : MonoBehaviour
 
         for (int i = 0; i < hypotheses.Length; i++)
         {
-            Debug.Log(hypotheses[i].found);
             if (textComponent.text == hypotheses[i].data.text && !hypotheses[i].found)
             {
                 HypothesisManager.Instance.CompleteHypothesis(i);

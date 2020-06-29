@@ -86,7 +86,7 @@ public class NotesDisplayer : MonoBehaviour
     private void InstantiateSummary(NoteActivity note, int index)
     {
         GameObject currentSummaryText = Instantiate(summaryNoteTextPrefab, suummaryListContainer);
-        currentSummaryText.GetComponent<TextMeshProUGUI>().text = note.title;
+        currentSummaryText.GetComponentInChildren<TextMeshProUGUI>().text = note.title;
         currentSummaryText.GetComponent<Button>().onClick.AddListener(() => DisplayActivity(index));
     }
 

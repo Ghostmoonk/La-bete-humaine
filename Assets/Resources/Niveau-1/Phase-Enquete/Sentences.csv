@@ -14,3 +14,6 @@ ID|Personnage|Texte|Phase ID|Dialog ID|En réponse à|Réponses possibles|empty
 12|Assistant|Dans tous les cas Monsieur, j'ai bien peur que nos éléments ne suffisent pas à condamner qui que ce soit. ||3|11||
 13|Assistant|Vous avez raison, nous n'avons pas assez de preuves pour coincer ce Cabuche...Nous n'avons que des suppositions... ||3|12||
 14|Denizet|Ah mon cher assistant, as-tu des hypothèses à me partager ?||4|||
+15|Assistant|Je pense en avoir terminé avec cette affaire||5|||
+16|Denizet|Bien, c’est du bon travail.||5|15||
+17|Denizet|Voilà l’express qui va bientôt partir.||6|||

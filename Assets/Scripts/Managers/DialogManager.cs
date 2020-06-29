@@ -62,6 +62,7 @@ public class DialogManager : MonoBehaviour
     [SerializeField] float sentenceTypingSpeed;
 
     bool typingSentence = false;
+    bool answering = false;
     float showSkipTimer;
 
     public Dialog GetCurrentDialog()
@@ -93,7 +94,7 @@ public class DialogManager : MonoBehaviour
         {
             dialogEvent.Value.StartEvents?.Invoke();
         }
-
+        Debug.Log(currentDialogId);
         DisplayNextSentence();
     }
 
@@ -119,19 +120,20 @@ public class DialogManager : MonoBehaviour
         }
         else
         {
-            DisplayNextSentence();
+            if (!answering)
+                DisplayNextSentence();
         }
     }
 
     private void DisplayNextSentence()
     {
         ToggleSkip(false);
-
         if (currentDialog == null)
             return;
 
         if (currentDialog.currentSentence != null)
         {
+            Debug.Log(currentDialog.currentSentence.content);
             characterNameText.text = currentDialog.currentSentence.characterName;
             if (shouldShowCharactersSprite)
             {
@@ -149,15 +151,15 @@ public class DialogManager : MonoBehaviour
 
             if (currentDialog.currentSentence.GetType() != typeof(QuestioningSentence))
             {
-                StartCoroutine(Autotype(sentenceText, currentDialog.currentSentence.content, false));
+                answering = false;
+                StartCoroutine(Autotype(sentenceText, currentDialog.currentSentence.content));
                 //Prepare next sentence
                 currentDialog.SetNextSentence();
-
             }
             else
             {
-                StartCoroutine(Autotype(sentenceText, currentDialog.currentSentence.content, true));
-
+                answering = true;
+                StartCoroutine(Autotype(sentenceText, currentDialog.currentSentence.content));
             }
         }
         else
@@ -177,7 +179,6 @@ public class DialogManager : MonoBehaviour
 
     private void InstantiateAnswers(QuestioningSentence qSentence)
     {
-        dialogBox.GetComponent<Image>().raycastTarget = false;
         foreach (Answer answer in qSentence.answers)
         {
             Debug.Log(answer.answerText + " - " + answer.sentence.content + " - ");
@@ -187,7 +188,7 @@ public class DialogManager : MonoBehaviour
             }
             GameObject answerToInstantiate = Instantiate(answerPrefab, answersContainer);
             answerToInstantiate.GetComponentInChildren<TextMeshProUGUI>().text = answer.answerText;
-            answerToInstantiate.GetComponent<Button>().onClick.AddListener(delegate { currentDialog.SetNextSentence(answer.sentence); DisplayNextSentence(); FadeClearAnswers(answersFadeDuration); dialogBox.GetComponent<Image>().raycastTarget = true; });
+            answerToInstantiate.GetComponent<Button>().onClick.AddListener(delegate { Debug.Log(answer.sentence.content); currentDialog.SetNextSentence(answer.sentence); DisplayNextSentence(); FadeClearAnswers(answersFadeDuration); });
             answerToInstantiate.GetComponent<GraphicFader>().FadeIn(answersFadeDuration);
         }
         StartCoroutine(ResizeChilds(dialogBox.transform));
@@ -218,7 +219,7 @@ public class DialogManager : MonoBehaviour
 
     private bool ShouldDisplaySkip()
     {
-        if (!typingSentence && currentDialog != null)
+        if (!typingSentence && currentDialog != null && !answering)
             return true;
         else
             return false;
@@ -229,7 +230,7 @@ public class DialogManager : MonoBehaviour
         skipImage.gameObject.GetComponent<Animator>().SetBool("Active", active);
     }
 
-    private IEnumerator Autotype(TextMeshProUGUI textMesh, string content, bool isQuestionningSentence)
+    private IEnumerator Autotype(TextMeshProUGUI textMesh, string content)
     {
         textMesh.text = "";
         typingSentence = true;
@@ -249,12 +250,13 @@ public class DialogManager : MonoBehaviour
 
         if (typingSentence)
             typingSentence = false;
-        if (isQuestionningSentence)
+
+        if (answering)
         {
             InstantiateAnswers((QuestioningSentence)currentDialog.currentSentence);
         }
 
-        StopCoroutine(Autotype(textMesh, content, isQuestionningSentence));
+        StopCoroutine(Autotype(textMesh, content));
     }
 
     private DialogEvents? FindCorrespondingEvents(int id)
@@ -278,7 +280,7 @@ public class DialogManager : MonoBehaviour
     public void SetNewDialog(int dialogId)
     {
         currentDialog = DialogsLoader.Instance.dialogsDico[dialogId];
-        Debug.Log(currentDialog);
+        Debug.Log(currentDialog.currentSentence.content);
         Debug.Log(dialogId);
 
     }

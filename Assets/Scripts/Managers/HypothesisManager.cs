@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -10,6 +11,8 @@ public class HypothesisManager : MonoBehaviour
     [SerializeField] HypothesisData[] hypothesesData;
     Hypothesis[] hypotheses;
     [SerializeField] HypothesisDisplayer displayer;
+    int necessaryHypothesesCount;
+    public event EventHandler<int> OnHypothesisDiscussed;
     private static HypothesisManager instance;
     public static HypothesisManager Instance
     {
@@ -18,7 +21,7 @@ public class HypothesisManager : MonoBehaviour
             return instance;
         }
     }
-
+    [SerializeField] int EndDialogID;
     public UnityEvent OnHypotheseSelectionOver;
 
     private void Awake()
@@ -37,6 +40,28 @@ public class HypothesisManager : MonoBehaviour
         for (int i = 0; i < hypothesesData.Length; i++)
         {
             hypotheses[i] = new Hypothesis(hypothesesData[i]);
+
+            if (hypothesesData[i].necessaryHypothesis)
+                necessaryHypothesesCount++;
+        }
+    }
+
+    private void Start()
+    {
+        OnHypothesisDiscussed += CrossHypothesis;
+    }
+
+    public void HypothesisDiscussed(int id)
+    {
+        OnHypothesisDiscussed?.Invoke(this, id);
+    }
+
+    private void CrossHypothesis(object sender, int id)
+    {
+        foreach (var item in hypotheses)
+        {
+            if (id == item.data.relatedDialogID)
+                displayer.CrossHypothesis(item);
         }
     }
 
@@ -88,8 +113,24 @@ public class HypothesisManager : MonoBehaviour
             answerToInstantiate.GetComponent<GraphicFader>().FadeIn(appearDuration);
 
         }
+
+        int necessaryHypothesesFound = 0;
+        for (int i = 0; i < hypotheses.Length; i++)
+        {
+            if (hypotheses[i].discussed && hypotheses[i].data.necessaryHypothesis)
+                necessaryHypothesesFound++;
+        }
+        if (necessaryHypothesesFound >= necessaryHypothesesCount)
+        {
+            GameObject answerToInstantiate = Instantiate(DialogManager.Instance.answerPrefab, DialogManager.Instance.answersContainer);
+            answerToInstantiate.GetComponentInChildren<TextMeshProUGUI>().text = "Non, je pense en avoir terminé.";
+
+            answerToInstantiate.GetComponent<Button>().onClick.AddListener(delegate { DialogManager.Instance.SetNewDialog(EndDialogID); DialogManager.Instance.StartDialog(); ; DialogManager.Instance.FadeClearAnswers(appearDuration); });
+            answerToInstantiate.GetComponent<GraphicFader>().FadeIn(appearDuration);
+        }
         StartCoroutine(DialogManager.Instance.ResizeChilds(DialogManager.Instance.dialogBox.transform));
     }
+
 }
 
 public class Hypothesis

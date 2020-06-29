@@ -41,8 +41,11 @@ public class CursorManager : MonoBehaviour, IActivatable
 
     private void Start()
     {
-        cursorListenerZ = Camera.main.WorldToScreenPoint(transform.position).z;
-        screenPoint = Camera.main.WorldToScreenPoint(cursorListener.transform.position);
+        if (cursorListener != null)
+        {
+            cursorListenerZ = Camera.main.WorldToScreenPoint(transform.position).z;
+            screenPoint = Camera.main.WorldToScreenPoint(cursorListener.transform.position);
+        }
     }
     private void Update()
     {

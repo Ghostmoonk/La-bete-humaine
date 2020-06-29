@@ -45,11 +45,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogBox: {fileID: 0}
   answersContainer: {fileID: 0}
-  answerPrefab: {fileID: 0}
+  answerPrefab: {fileID: 5169828851635271950, guid: d82cd7260ad81e3418a2267337ab1c92,
+    type: 3}
   sentenceText: {fileID: 0}
   characterNameText: {fileID: 0}
   skipImage: {fileID: 0}
   talkingCharacterImage: {fileID: 0}
+  answersFadeDuration: 1
   characters: []
   showSkipTimerLimit: 2
   shouldShowCharactersSprite: 1

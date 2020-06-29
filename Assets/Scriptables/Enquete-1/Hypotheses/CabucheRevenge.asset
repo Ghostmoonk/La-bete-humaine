@@ -15,3 +15,4 @@ MonoBehaviour:
   relatedDialogID: 3
   text: "Cabuche a \xE9gorg\xE9 Grandmorin pour venger la mort de Louisette"
   condensedText: Cabuche est coupable
+  necessaryHypothesis: 1
