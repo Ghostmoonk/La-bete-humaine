@@ -56,3 +56,6 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Tablette
+    uniqueID: 2152015591
+    locked: 0

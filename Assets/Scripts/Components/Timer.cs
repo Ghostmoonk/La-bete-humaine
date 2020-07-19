@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.Events;
 
 //When the timer is finished, do something
-public class Timer : MonoBehaviour
+public class Timer : MonoBehaviour/*, ITimer*/
 {
     [SerializeField] float duration;
     [HideInInspector] public bool over;
@@ -19,6 +19,7 @@ public class Timer : MonoBehaviour
         duration = _duration;
         over = false;
         active = false;
+        Debug.Log("set !" + _duration);
     }
 
     public void SetTimerActive(bool active)
@@ -72,3 +73,10 @@ public class Timer : MonoBehaviour
         timerEndEvent?.Invoke();
     }
 }
+
+//public interface ITimer
+//{
+//    void SetTimer(float duration);
+//    void StartTimer();
+//    void ResetTimer();
+//}

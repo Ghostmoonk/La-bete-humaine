@@ -14,4 +14,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Decouverte 1 - Lantier.unity
     guid: 4a6ff03ac643b224da5efe2669ec9ed1
+  - enabled: 1
+    path: Assets/Scenes/Enquete 1 - Meurtre Grandmorin.unity
+    guid: 09add41b133bbf94089e2ef1f14235f6
+  - enabled: 1
+    path: Assets/Scenes/Decouverte 2 - Phase A - Itineraire.unity
+    guid: dbe745e97282f8441bac9ce8d4a6a804
+  - enabled: 1
+    path: Assets/Scenes/Decouverte 2 - Phase B - Lison.unity
+    guid: 5788068cd2ad6a144ac72ef5f386bebb
   m_configObjects: {}

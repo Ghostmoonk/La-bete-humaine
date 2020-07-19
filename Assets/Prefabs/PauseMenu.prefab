@@ -283,6 +283,9 @@ MonoBehaviour:
   EndFadeOutText:
     m_PersistentCalls:
       m_Calls: []
+  StartFadeIn:
+    m_PersistentCalls:
+      m_Calls: []
   EndFadeInText:
     m_PersistentCalls:
       m_Calls: []
@@ -4116,6 +4119,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isUnityTimeScaleInDependant: 1
   transitionDuration: 0.5
+  direction: 1
+  ease: 1
   StartToggleOn:
     m_PersistentCalls:
       m_Calls:
@@ -5442,7 +5447,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 0, g: 0, b: 0, a: 0}
-  m_RaycastTarget: 0
+  m_RaycastTarget: 1
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -5474,6 +5479,9 @@ MonoBehaviour:
   graphic:
   - {fileID: 6018492672622979714}
   EndFadeOutText:
+    m_PersistentCalls:
+      m_Calls: []
+  StartFadeIn:
     m_PersistentCalls:
       m_Calls: []
   EndFadeInText:

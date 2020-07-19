@@ -66,6 +66,11 @@ public class CursorManager : MonoBehaviour, IActivatable
             Cursor.SetCursor(pastCursorTexture, hotSpot, cursorMode);
     }
 
+    public void SetCursor(Texture2D texture)
+    {
+        Cursor.SetCursor(texture, hotSpot, cursorMode);
+    }
+
     public void Activate()
     {
         Cursor.visible = true;

@@ -1,0 +1,5 @@
+ID|Personnage|Texte|Phase ID|Dialog ID|En réponse à|Réponses possibles|empty
+0|Emilie|L’express de six heures trente du Havre jusqu’à Paris … Zola avait fait le chemin inverse !||0|||
+1|Emilie|Pour ses recherches préparatoires, il notait tout. Je me demande si je ne pourrais pas reconstituer son parcours avec ses notes.||0|0||
+2|Emilie|J’ai pu retracer son itinéraire ! Zola était vraiment très méthodique.||1|||
+3|Emilie|Il est temps de continuer l’aventure !||1|2||

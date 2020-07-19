@@ -133,7 +133,7 @@ public class DialogManager : MonoBehaviour
 
         if (currentDialog.currentSentence != null)
         {
-            Debug.Log(currentDialog.currentSentence.content);
+            //Debug.Log(currentDialog.currentSentence.content);
             characterNameText.text = currentDialog.currentSentence.characterName;
             if (shouldShowCharactersSprite)
             {

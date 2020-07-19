@@ -26,6 +26,11 @@ public class ManuscriptActivityHolder : MonoBehaviour
     {
         image.sprite = sprite;
     }
+
+    public void ChangeCursor(Texture2D texture)
+    {
+        CursorManager.Instance.SetCursor(texture);
+    }
 }
 
 public interface IFocusable
