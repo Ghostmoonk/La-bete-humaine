@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a44e7a7c536acea498737c79126203d6, type: 3}
+  m_Name: PressionTropHaute
+  m_EditorClassIdentifier: 
+  title: La pression monte trop
+  questionText: "La pression monte trop \xE0 cause d\u2019avoir trop pouss\xE9 le
+    feu.  Il faut: "
+  locomotiveComponent: 6
+  answers:
+  - answerText: Tirer la tringle du sifflet
+    isCorrect: 0
+  - answerText: /Lever la tige du cendrier, pour activer le tirage
+    isCorrect: 0
+  - answerText: "Faire mouvoir le petit volant de l\u2019injecteur: m\xEAme si la
+      pression baisse (pour injecter de l\u2019eau). "
+    isCorrect: 1

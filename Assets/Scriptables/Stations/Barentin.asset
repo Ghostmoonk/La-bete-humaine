@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff302c9394f8bdc4cb5a6a841027384f, type: 3}
+  m_Name: Barentin
+  m_EditorClassIdentifier: 
+  stationName: Barentin
+  nextStation: {fileID: 11400000, guid: ec2ed089e381f434495068594e9066aa, type: 2}
+  distwithNextStation: 700

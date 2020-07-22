@@ -1,10 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 public class RandomDecorSpawner : MonoBehaviour
 {
     [SerializeField] Camera mainCam;
+    [SerializeField] MovementReferenceObject followedObject;
     [SerializeField] RandomBackgroundSpeed[] randomBackgroundSpeed;
     float screenPointSide;
 
@@ -19,19 +21,37 @@ public class RandomDecorSpawner : MonoBehaviour
 
         foreach (RandomBackgroundSpeed item in randomBackgroundSpeed)
         {
-            item.timer.SetTimer(Random.Range(item.spawnRateIntervalInSeconds.x, item.spawnRateIntervalInSeconds.y));
-            item.timer.timerEndEvent.AddListener(delegate
-            {
-                SpawnDecor(item);
-                item.timer.SetTimer(Random.Range(item.spawnRateIntervalInSeconds.x, item.spawnRateIntervalInSeconds.y));
-                item.timer.ResetTimer();
-                item.timer.StartTimer();
-            });
-            item.timer.SetTimerActive(true);
-            item.timer.StartTimer();
+            item.randomDist = Random.Range(item.spawnRateIntervalInDistance.x, item.spawnRateIntervalInDistance.y);
+
+            //item.timer.SetTimer(Random.Range(item.spawnRateIntervalInDistance.x, item.spawnRateIntervalInDistance.y));
+            //item.timer.timerEndEvent.AddListener(delegate
+            //{
+            //    SpawnDecor(item);
+            //    item.timer.SetTimer(Random.Range(item.spawnRateIntervalInDistance.x, item.spawnRateIntervalInDistance.y));
+            //    item.timer.StartTimer();
+            //});
+            //item.timer.SetTimerActive(true);
+            //item.timer.StartTimer();
+
         }
     }
 
+    //Increase a counter and spawn a decor when it's time
+    private void Update()
+    {
+        foreach (RandomBackgroundSpeed item in randomBackgroundSpeed)
+        {
+            item.compteur += followedObject.speed * Time.deltaTime;
+
+            if (item.compteur >= item.randomDist)
+            {
+                SpawnDecor(item);
+                item.compteur = 0f;
+            }
+        }
+    }
+
+    //Move the random spawned decors
     private void LateUpdate()
     {
         foreach (RandomBackgroundSpeed item in randomBackgroundSpeed)
@@ -39,15 +59,15 @@ public class RandomDecorSpawner : MonoBehaviour
             foreach (Transform child in item.parent)
             {
                 if (child.gameObject.activeInHierarchy)
-                    child.transform.Translate(direction * item.bgSpeed.speed * Time.deltaTime);
+                    child.transform.Translate(direction * item.bgSpeed.speed * Time.deltaTime * followedObject.speed);
 
-                if (direction.x > 0 && child.transform.position.x + child.GetComponent<SpriteRenderer>().bounds.extents.x > screenPointSide)
+                if (direction.x > 0 && child.transform.position.x - child.GetComponent<SpriteRenderer>().bounds.extents.x > screenPointSide)
                 {
-                    //child.gameObject.SetActive(false);
+                    child.gameObject.SetActive(false);
                 }
-                else if (direction.x < 0 && child.transform.position.x - child.GetComponent<SpriteRenderer>().bounds.extents.x < screenPointSide)
+                else if (direction.x < 0 && child.transform.position.x + child.GetComponent<SpriteRenderer>().bounds.extents.x < -screenPointSide)
                 {
-                    //child.gameObject.SetActive(false);
+                    child.gameObject.SetActive(false);
                 }
             }
         }
@@ -55,29 +75,34 @@ public class RandomDecorSpawner : MonoBehaviour
 
     private void SpawnDecor(RandomBackgroundSpeed randomBg)
     {
-        Debug.Log("should spawn");
+        randomBg.randomDist = Random.Range(randomBg.spawnRateIntervalInDistance.x, randomBg.spawnRateIntervalInDistance.y);
+
         for (int i = 0; i < randomBg.parent.childCount; i++)
         {
             if (!randomBg.parent.GetChild(i).gameObject.activeInHierarchy)
             {
-                randomBg.parent.GetChild(i).transform.position =
-                    new Vector3(screenPointSide, randomBg.parent.transform.position.y, randomBg.parent.transform.position.z);
-                randomBg.parent.GetChild(i).gameObject.SetActive(true);
+                if (randomBg.randomSprites.Length >= 2)
+                    randomBg.parent.GetChild(i).GetComponent<SpriteRenderer>().sprite = randomBg.randomSprites[Random.Range(0, randomBg.randomSprites.Length)];
 
+                randomBg.parent.GetChild(i).transform.position =
+                    new Vector3((screenPointSide + randomBg.parent.GetChild(i).GetComponent<SpriteRenderer>().bounds.extents.x) * -direction.x, randomBg.parent.transform.position.y, randomBg.parent.transform.position.z);
+                randomBg.parent.GetChild(i).gameObject.SetActive(true);
                 return;
             }
         }
         GameObject objToInstantiate = Instantiate(randomBg.bgSpeed.backgroundGroup, randomBg.parent);
-        objToInstantiate.transform.position = new Vector3(screenPointSide, randomBg.parent.transform.position.y, randomBg.parent.transform.position.z);
-
+        objToInstantiate.transform.position = new Vector3((screenPointSide + objToInstantiate.GetComponent<SpriteRenderer>().bounds.extents.x) * -direction.x, randomBg.parent.transform.position.y, randomBg.parent.transform.position.z);
     }
 }
 
 [System.Serializable]
-public struct RandomBackgroundSpeed
+public class RandomBackgroundSpeed
 {
     public BackgroundsSpeed bgSpeed;
     public Transform parent;
-    public Vector2 spawnRateIntervalInSeconds;
-    public Timer timer;
+    public Vector2 spawnRateIntervalInDistance;
+    [HideInInspector] public float randomDist;
+    [HideInInspector] public float compteur = 0f;
+    public Sprite[] randomSprites;
+
 }

@@ -8250,6 +8250,7 @@ MonoBehaviour:
   isUnityTimeScaleInDependant: 0
   transitionDuration: 0.75
   direction: 1
+  ease: 1
   StartToggleOn:
     m_PersistentCalls:
       m_Calls:
@@ -8688,6 +8689,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fadeVolume: 0
+  EndFadeVolume:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &1653022029
 GameObject:
   m_ObjectHideFlags: 0

@@ -5,8 +5,8 @@ using UnityEngine;
 public class BackgroundRepeater : MonoBehaviour
 {
     [SerializeField] Camera mainCam;
+    [SerializeField] MovementReferenceObject followedObject;
     [SerializeField] BackgroundsSpeed[] backgroundsSpeed;
-
     [SerializeField] protected Vector2 direction;
     bool marching = true;
 
@@ -17,27 +17,32 @@ public class BackgroundRepeater : MonoBehaviour
         screenBounds = mainCam.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, mainCam.transform.position.z));
         foreach (BackgroundsSpeed item in backgroundsSpeed)
         {
-            LoadChildBackgrounds(item.backgroundGroup);
+            LoadChildBackgrounds(item);
         }
         Debug.Log(screenBounds);
     }
 
     //Create the backgrounds needed in order to have a propper parallax and movement effect
-    void LoadChildBackgrounds(GameObject background)
+    void LoadChildBackgrounds(BackgroundsSpeed background)
     {
-        float backgroundWidth = background.GetComponent<SpriteRenderer>().bounds.size.x;
+        float backgroundWidth = background.backgroundGroup.GetComponent<SpriteRenderer>().bounds.size.x;
         int childsNeeded = (int)Mathf.Ceil(screenBounds.x * 3 / backgroundWidth);
-        GameObject clone = Instantiate(background);
+        GameObject clone = Instantiate(background.backgroundGroup);
 
         for (int i = 0; i < childsNeeded; i++)
         {
-            GameObject c = Instantiate(clone, background.transform);
-            c.transform.position = new Vector3(backgroundWidth * i, background.transform.position.y, background.transform.position.z);
-            c.name = background.name + "- " + i;
+            GameObject c = Instantiate(clone, background.backgroundGroup.transform);
+            c.transform.position = new Vector3(backgroundWidth * i, background.backgroundGroup.transform.position.y, background.backgroundGroup.transform.position.z);
+            c.name = background.backgroundGroup.name + "- " + i;
+
+            if (background.alternate && i % 2 == 0)
+            {
+                c.GetComponent<SpriteRenderer>().flipX = true;
+            }
         }
 
         Destroy(clone);
-        Destroy(background.GetComponent<SpriteRenderer>());
+        Destroy(background.backgroundGroup.GetComponent<SpriteRenderer>());
     }
 
     private void LateUpdate()
@@ -52,7 +57,7 @@ public class BackgroundRepeater : MonoBehaviour
                 //For every child inside, which are repetitions of the same background
                 foreach (Transform bg in bgs.backgroundGroup.transform)
                 {
-                    bg.Translate(direction * bgs.speed * Time.deltaTime);
+                    bg.Translate(direction * bgs.speed * Time.deltaTime * followedObject.speed);
                 }
 
                 if (transform.position.x - screenBounds.x > firstChild.transform.position.x + halfFirstBgWidth)
@@ -77,4 +82,6 @@ public struct BackgroundsSpeed
 {
     public float speed;
     public GameObject backgroundGroup;
+
+    public bool alternate;
 }

@@ -18,8 +18,7 @@ public class Timer : MonoBehaviour/*, ITimer*/
     {
         duration = _duration;
         over = false;
-        active = false;
-        Debug.Log("set !" + _duration);
+        //active = false;
     }
 
     public void SetTimerActive(bool active)

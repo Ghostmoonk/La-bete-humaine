@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a44e7a7c536acea498737c79126203d6, type: 3}
+  m_Name: ManqueGraissage
+  m_EditorClassIdentifier: 
+  title: La machine manque de graissage
+  questionText: 'Pour gagner en puissance et en vitesse, il faut graisser la machine
+    en: '
+  locomotiveComponent: 0
+  answers:
+  - answerText: envoyant le chauffeur le faire
+    isCorrect: 0
+  - answerText: graissant les cylindres de droite et de gauche
+    isCorrect: 1
+  - answerText: "remplissant le godet graisseur en se tenant d\u2019une main au tringle"
+    isCorrect: 1

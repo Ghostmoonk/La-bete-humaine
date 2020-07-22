@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a435ee301fafd3d44825f539a1d8f02c, type: 3}
+  m_Name: TasNeige
+  m_EditorClassIdentifier: 
+  anomalieType: 3
+  title: En cas de tas de neige bloquant
+  text: "Il \xE9tait de nouveau \xE0 son poste, avec Pecqueux, et lorsque les deux
+    conducteurs eurent regagn\xE9 leurs fourgons, il tourna lui-m\xEAme le robinet
+    du purgeur. Le jet de vapeur br\xFBlante, assourdi, acheva de fondre les paquets
+    qui adh\xE9raient encore aux rails. Puis, la main au volant, il fit machine arri\xE8re.
+    Lentement, il recula d\u2019environ trois cents m\xE8tres, pour prendre du champ.
+    Et, ayant pouss\xE9 au feu, d\xE9passant m\xEAme la pression permise, il revint
+    contre le mur qui barrait la voie, il y jeta la Lison, de toute sa masse, de
+    tout le poids du train qu\u2019elle tra\xEEnait. Elle eut un han ! terrible de
+    b\xFBcheron qui enfonce la cogn\xE9e, sa forte charpente de fer et de fonte en
+    craqua. Mais elle ne put passer encore, elle s\u2019e\u0301tait arr\xEAt\xE9e,
+    fumante, toute vibrante du choc. Alors, a\u0300 deux autres reprises, il dut
+    recommencer la man\u0153uvre, recula, fonc\u0327a sur la neige, pour l\u2019emporter."
+  manuscrit: {fileID: 0}

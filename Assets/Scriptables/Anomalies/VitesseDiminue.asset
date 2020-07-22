@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a44e7a7c536acea498737c79126203d6, type: 3}
+  m_Name: VitesseDiminue
+  m_EditorClassIdentifier: 
+  title: La vitesse diminue
+  questionText: "La vitesse diminue \xE0 cause de cette rampe, il faut pousser le
+    feu. Que doit faire Pecqueux, le chauffeur, pour que le feu soit efficace?"
+  locomotiveComponent: 6
+  answers:
+  - answerText: "Relever les chasse-neige: pour \xE9viter le frottement"
+    isCorrect: 0
+  - answerText: "Mettre peu de charbon \xE0 la fois, en morceaux moyens, d\u2019une
+      couche bien \xE9gale sur toute la grille."
+    isCorrect: 1
+  - answerText: " Mettre de grosses quantit\xE9s de charbon dans le foyer."
+    isCorrect: 0

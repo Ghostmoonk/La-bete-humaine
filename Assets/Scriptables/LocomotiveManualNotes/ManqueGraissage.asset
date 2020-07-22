@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a435ee301fafd3d44825f539a1d8f02c, type: 3}
+  m_Name: ManqueGraissage
+  m_EditorClassIdentifier: 
+  anomalieType: 1
+  title: "En cas de probl\xE8me sur les cylindres"
+  text: "Et, ce qu\u2019il n\u2019avait pas fait trois fois dans sa vie, il prit
+    la burette, pour la graisser en marche. Enjambant la rampe, il monta sur le tablier,
+    qu\u2019il suivit tout le long de la chaudie\u0300re. Mais c\u2019e\u0301tait
+    une man\u0153uvre des plus pe\u0301rilleuses : ses pieds glissaient sur l\u2019e\u0301troite
+    bande de fer, mouille\u0301e par la neige ; (...) Parvenu a\u0300 la traverse
+    d\u2019avant, il s\u2019accroupit devant le godet graisseur du cylindre de droite,
+    il eut toutes les peines du monde a\u0300 l\u2019emplir, en se tenant d\u2019une
+    main a\u0300 la tringle. Puis, il lui fallut faire le tour, ainsi qu\u2019un
+    insecte rampant, pour aller graisser le cylindre de gauche. Et, quand il revint,
+    exte\u0301nue\u0301, il e\u0301tait tout pa\u0302le, ayant senti passer la mort."
+  manuscrit: {fileID: 0}
