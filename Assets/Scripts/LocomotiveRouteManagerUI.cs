@@ -16,16 +16,22 @@ public class LocomotiveRouteManagerUI : MonoBehaviour
         }
     }
 
-    [Header("Meteo Info UI")]
+    [Header("Meteo Infos")]
     [SerializeField] Image topologyImage;
     [SerializeField] TextMeshProUGUI topologyText;
     [SerializeField] Image weatherImage;
     [SerializeField] TextMeshProUGUI weatherText;
+    [SerializeField] RectTransform routeInfosParent;
+    [SerializeField] RectTransform jaugesParent;
 
-    [Header("Route info")]
+    [Header("Route infos")]
     [SerializeField] LineRenderer frieze;
     [SerializeField] GameObject stationIconPrefab;
     [SerializeField] TextMeshProUGUI hoveredStationText;
+
+    [Header("Gauges")]
+    [SerializeField] Image charcoalGauge;
+    [SerializeField] Image timeGauge;
 
     private void Awake()
     {
@@ -39,6 +45,13 @@ public class LocomotiveRouteManagerUI : MonoBehaviour
         }
     }
 
+    private void Start()
+    {
+        LayoutRebuilder.ForceRebuildLayoutImmediate(routeInfosParent);
+        LayoutRebuilder.ForceRebuildLayoutImmediate(jaugesParent);
+    }
+
+    #region Frieze
     public void SetupStationsOnFrieze(StationData firstStation)
     {
         StationData currentStationData = firstStation;
@@ -78,6 +91,9 @@ public class LocomotiveRouteManagerUI : MonoBehaviour
         hoveredStationText.gameObject.SetActive(true);
         hoveredStationText.text = stationName;
     }
+
     private void HideHoveredStation() => hoveredStationText.gameObject.SetActive(false);
+    #endregion
+
 
 }

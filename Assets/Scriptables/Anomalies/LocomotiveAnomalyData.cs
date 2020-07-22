@@ -4,7 +4,7 @@ using System.ComponentModel;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "Locomotive Anomalie")]
-public class LocomotiveAnomalieData : ScriptableObject
+public class LocomotiveAnomalyData : ScriptableObject
 {
     /*An anomaly is made of :
     * What happens
@@ -21,7 +21,7 @@ public class LocomotiveAnomalieData : ScriptableObject
 }
 
 [System.Serializable]
-public struct ScriptableAnswer
+public class ScriptableAnswer
 {
     [TextArea(1, 3)]
     public string answerText;

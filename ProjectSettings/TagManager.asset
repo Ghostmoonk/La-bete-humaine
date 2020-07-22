@@ -59,3 +59,6 @@ TagManager:
   - name: Tablette
     uniqueID: 2152015591
     locked: 0
+  - name: UISprite
+    uniqueID: 3336305197
+    locked: 0

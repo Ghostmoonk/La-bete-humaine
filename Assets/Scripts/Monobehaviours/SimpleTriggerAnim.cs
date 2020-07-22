@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+//Is useless, because I didn't know we already have those functions available as an entry of an UnityEvent
 public class SimpleTriggerAnim : MonoBehaviour, IActivatable
 {
     Animator animator;
