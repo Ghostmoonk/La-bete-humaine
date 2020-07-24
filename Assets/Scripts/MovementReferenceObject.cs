@@ -2,21 +2,69 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class MovementReferenceObject : MonoBehaviour
 {
     public float speed;
+    [SerializeField] float timeToAccelerate;
+    [SerializeField] Ease accelerationCurve;
     [HideInInspector] public float distanceDone;
     bool consideredAsMoving = true;
 
-    public void Stop(float stopDuration)
+    public void StopInTime(float stopDuration)
     {
         DOTween.To(() => speed, x => speed = x, 0f, stopDuration);
     }
 
-    public void ChangeSpeed(float newSpeed, float duration)
+    public void ChangeSpeed(float newSpeed)
     {
-        DOTween.To(() => speed, x => speed = x, newSpeed, duration);
+        DOTween.To(() => speed, x => speed = x, newSpeed, timeToAccelerate).SetEase(accelerationCurve);
+    }
+
+    public void SetAccelerationTime(float newAccelerationTime)
+    {
+        timeToAccelerate = newAccelerationTime;
+    }
+
+    public void SlowStopToDistance(float ratioDist)
+    {
+        Debug.Log("Debut slow, distance parcourue :" + distanceDone);
+        Debug.Log("Equivalent ratio : " + Mathf.Lerp(0, LocomotiveRouteManager.Instance.GetCurrentStationInRoute().distwithNextStation, ratioDist));
+
+
+        //Tween tween = DOTween.To(() => speed, x => speed = x, 0f, realDist / 2 * Mathf.Pow(iniSpeed, 2));
+
+        float realDist = ratioDist * LocomotiveRouteManager.Instance.GetCurrentStationInRoute().distwithNextStation;
+        StartCoroutine(SlowStop(realDist));
+
+
+        //tween.OnComplete(() => Debug.Log("parcouru : " + distanceDone));
+    }
+
+    IEnumerator SlowStop(float distance)
+    {
+        float iniSpeed = speed;
+
+        float acceleration = -Mathf.Pow(iniSpeed, 2) / (2 * distance);
+        float iniTime = -iniSpeed / acceleration;
+        float timeRemain = iniTime;
+
+        float distParcourue = 0f;
+        while (timeRemain >= 0f)
+        {
+            speed = iniSpeed + acceleration * (iniTime - timeRemain);
+
+            timeRemain -= Time.deltaTime;
+            distParcourue += speed * Time.deltaTime;
+            yield return null;
+        }
+        speed = 0f;
+        //Debug.Log("parcouru : " + distanceDone);
+        //Debug.Log("Time in seconds to stop : " + iniTime);
+        //Debug.Log("Dist to stop : " + distance);
+
+        StopCoroutine(SlowStop(distance));
     }
 
     private void Update()

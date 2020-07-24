@@ -94,7 +94,7 @@ public class DialogManager : MonoBehaviour
         {
             dialogEvent.Value.StartEvents?.Invoke();
         }
-        Debug.Log(currentDialogId);
+        //Debug.Log(currentDialogId);
         DisplayNextSentence();
     }
 
@@ -181,11 +181,12 @@ public class DialogManager : MonoBehaviour
     {
         foreach (Answer answer in qSentence.answers)
         {
-            Debug.Log(answer.answerText + " - " + answer.sentence.content + " - ");
+            //Debug.Log(answer.answerText + " - " + answer.sentence.content + " - ");
             if (answer.sentence.GetNextSentence() != null)
             {
-                Debug.Log(answer.sentence.GetNextSentence().content);
+                //Debug.Log(answer.sentence.GetNextSentence().content);
             }
+
             GameObject answerToInstantiate = Instantiate(answerPrefab, answersContainer);
             answerToInstantiate.GetComponentInChildren<TextMeshProUGUI>().text = answer.answerText;
             answerToInstantiate.GetComponent<Button>().onClick.AddListener(delegate { Debug.Log(answer.sentence.content); currentDialog.SetNextSentence(answer.sentence); DisplayNextSentence(); FadeClearAnswers(answersFadeDuration); });
@@ -280,8 +281,8 @@ public class DialogManager : MonoBehaviour
     public void SetNewDialog(int dialogId)
     {
         currentDialog = DialogsLoader.Instance.dialogsDico[dialogId];
-        Debug.Log(currentDialog.currentSentence.content);
-        Debug.Log(dialogId);
+        //Debug.Log(currentDialog.currentSentence.content);
+        //Debug.Log(dialogId);
 
     }
 

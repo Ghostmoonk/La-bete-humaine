@@ -25,10 +25,12 @@ public class LocomotiveRouteManagerUI : MonoBehaviour
     [SerializeField] RectTransform jaugesParent;
 
     [Header("Route infos")]
-    [SerializeField] LineRenderer frieze;
+    [SerializeField] LineRenderer friezeLineR;
+    [SerializeField] FriezeDrawer friezeDrawer;
+    //[SerializeField] Image friezeImg;
     [SerializeField] GameObject stationIconPrefab;
     [SerializeField] TextMeshProUGUI hoveredStationText;
-
+    Gradient friezeGradient;
     [Header("Gauges")]
     [SerializeField] Image charcoalGauge;
     [SerializeField] Image timeGauge;
@@ -49,6 +51,9 @@ public class LocomotiveRouteManagerUI : MonoBehaviour
     {
         LayoutRebuilder.ForceRebuildLayoutImmediate(routeInfosParent);
         LayoutRebuilder.ForceRebuildLayoutImmediate(jaugesParent);
+
+        friezeGradient = new Gradient();
+        friezeGradient.mode = GradientMode.Fixed;
     }
 
     #region Frieze
@@ -56,17 +61,39 @@ public class LocomotiveRouteManagerUI : MonoBehaviour
     {
         StationData currentStationData = firstStation;
         int compteur = 0;
+        List<Vector3> stationsPosOnFrieze = friezeDrawer.GetStationsPositionsOnFrieze();
 
         while (currentStationData != null)
         {
-            GameObject iconStationToInstantiate = Instantiate(stationIconPrefab, frieze.transform);
+            GameObject iconStationToInstantiate = Instantiate(stationIconPrefab, friezeLineR.transform);
             iconStationToInstantiate.gameObject.name = "IconStation - " + currentStationData.stationName;
-            iconStationToInstantiate.GetComponent<RectTransform>().anchoredPosition = frieze.GetPosition(compteur);
+            iconStationToInstantiate.GetComponent<RectTransform>().anchoredPosition = stationsPosOnFrieze[compteur];
             SetUpStationIcon(iconStationToInstantiate, currentStationData);
 
             compteur++;
             currentStationData = currentStationData.nextStation;
         }
+    }
+
+    private void Update()
+    {
+        #region FriezeGradientColor
+
+        friezeGradient.SetKeys(
+            new GradientColorKey[] {
+                new GradientColorKey(friezeLineR.startColor, Mathf.Clamp01(LocomotiveRouteManager.Instance.GetRouteTraveledRatio())),
+                new GradientColorKey(friezeLineR.endColor, 1f) },
+            new GradientAlphaKey[]
+            {
+                new GradientAlphaKey(friezeLineR.startColor.a, 0.0f),
+                new GradientAlphaKey(friezeLineR.endColor.a, 1.0f)
+            });
+
+        friezeLineR.colorGradient = friezeGradient;
+
+        //friezeImg.fillAmount = Mathf.Clamp01(LocomotiveRouteManager.Instance.GetRouteTraveledRatio());
+
+        #endregion
     }
 
     private void SetUpStationIcon(GameObject iconObject, StationData stationData)
@@ -80,7 +107,7 @@ public class LocomotiveRouteManagerUI : MonoBehaviour
         entryEnter.eventID = EventTriggerType.PointerEnter;
         entryExit.eventID = EventTriggerType.PointerExit;
 
-        entryEnter.callback.AddListener(delegate { Debug.Log("hover"); ShowHoveredStation(stationData.stationName); });
+        entryEnter.callback.AddListener(delegate { ShowHoveredStation(stationData.stationName); });
         entryExit.callback.AddListener(delegate { HideHoveredStation(); });
         trigger.triggers.Add(entryEnter);
         trigger.triggers.Add(entryExit);

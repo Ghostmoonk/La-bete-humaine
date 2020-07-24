@@ -15,3 +15,4 @@ MonoBehaviour:
   stationName: Malaunay
   nextStation: {fileID: 0}
   distwithNextStation: 0
+  altitude: 150

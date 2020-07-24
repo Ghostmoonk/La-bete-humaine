@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using DG.Tweening;
+using System.Collections.Generic;
 using System.Runtime.Remoting.Messaging;
 using UnityEngine;
 using UnityEngine.Events;
@@ -33,16 +34,17 @@ public class LocomotiveRouteManager : MonoBehaviour
 
     [SerializeField] StationData stationDeparture;
     StationData currentStationSegment;
-    [SerializeField] RouteEvent[] routeEvents;
+    [SerializeField] RouteEvents[] routeEvents;
 
-    List<RouteEvent> currentsRouteEvents;
+    RouteEvents currentsRouteEvents;
 
     private float routeTotalDistance;
     private float routeDistanceUntilLastStation = 0f;
 
     private void Start()
     {
-        currentsRouteEvents = new List<RouteEvent>();
+        UpdateCurrentRouteEvents();
+
         currentStationSegment = stationDeparture;
         UpdateCurrentRouteEvents();
 
@@ -66,43 +68,78 @@ public class LocomotiveRouteManager : MonoBehaviour
         return routeDist;
     }
 
+    public StationData GetCurrentStationInRoute() => currentStationSegment;
+
     public float GetRouteTotalDistance() => routeTotalDistance;
+
+    public float GetRouteTraveledRatio() => locomotive.distanceDone / routeTotalDistance;
 
     private void Update()
     {
-        //For every events registered for the route
-        for (int i = 0; i < currentsRouteEvents.Count; i++)
-        {
-            //If the distance between the last station and the moving object is equal to the lerped distance of the last station and the next with the indicated value between 0 & 1
-            if (locomotive.distanceDone - routeDistanceUntilLastStation >= Mathf.Lerp(0, currentsRouteEvents[i].stationSegment.distwithNextStation, currentsRouteEvents[i].lerpedDistance))
+        if (currentsRouteEvents != null)
+            //For every events registered for the route
+            for (int i = 0; i < currentsRouteEvents.routeEventArray.Count; i++)
             {
-                currentsRouteEvents[i].whatShallHappen?.Invoke();
+                //If the distance between the last station and the moving object is equal to the lerped distance of the last station and the next with the indicated value between 0 & 1
+                if (locomotive.distanceDone - routeDistanceUntilLastStation >= Mathf.Lerp(0, currentsRouteEvents.stationSegment.distwithNextStation, currentsRouteEvents.routeEventArray[i].lerpedDistance))
+                {
+                    currentsRouteEvents.routeEventArray[i].whatShallHappen?.Invoke();
+                    currentsRouteEvents.routeEventArray.RemoveAt(i);
+                }
             }
+
+        if (locomotive.distanceDone - routeDistanceUntilLastStation >= currentStationSegment.distwithNextStation)
+        {
+            currentStationSegment = currentStationSegment.nextStation;
+            UpdateCurrentRouteEvents();
         }
     }
 
     private void UpdateCurrentRouteEvents()
     {
-        foreach (RouteEvent routeE in routeEvents)
+        //if (currentsRouteEvents.routeEventArray.Count > 0)
+        //    currentsRouteEvents.routeEventArray.Clear();
+
+        //foreach (RouteEvents routeE in routeEvents)
+        //{
+        //    if (currentStationSegment == routeE.stationSegment)
+        //    {
+        //        currentsRouteEvents.Add(routeE);
+        //    }
+        //}
+
+        foreach (RouteEvents item in routeEvents)
         {
-            if (currentStationSegment == routeE.stationSegment)
+            if (currentStationSegment == item.stationSegment)
             {
-                currentsRouteEvents.Add(routeE);
+                currentsRouteEvents = item;
             }
         }
+
         routeDistanceUntilLastStation = locomotive.distanceDone;
     }
+
+    public void Debug_(StationData stationData)
+    {
+        Debug.Log("Distance parcourue depuis la station :" + stationData.stationName + ", arrivée à " + stationData.nextStation.stationName + " en " + locomotive.distanceDone);
+    }
+}
+
+[System.Serializable]
+public class RouteEvents
+{
+    //Where
+    public StationData stationSegment;
+    public List<RouteEvent> routeEventArray;
+
 }
 
 [System.Serializable]
 public struct RouteEvent
 {
-    //Where
-    public StationData stationSegment;
     [Range(0, 1)]
     [Tooltip("Between 0 & 1 : 0 = departure station, 1 = next station or arrival")]
     public float lerpedDistance;
     //something happen
     public UnityEvent whatShallHappen;
-
 }

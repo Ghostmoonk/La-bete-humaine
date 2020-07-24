@@ -9,4 +9,5 @@ public class StationData : ScriptableObject
     public StationData nextStation;
     [Tooltip("In meters")]
     public float distwithNextStation;
+    public float altitude;
 }

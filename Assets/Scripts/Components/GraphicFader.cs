@@ -34,6 +34,7 @@ public class GraphicFader : MonoBehaviour, IIndependantTween
         StartFadeIn?.Invoke();
         for (int i = 0; i < graphic.Length; i++)
         {
+            graphic[i].color = new Color(graphic[i].color.r, graphic[i].color.g, graphic[i].color.b, 0f);
             graphic[i].DOKill();
 
             Tweener tween = graphic[i].DOColor(new Color(graphic[i].color.r, graphic[i].color.g, graphic[i].color.b, maxOpacity), duration).SetUpdate(IsUnityTimeScaleIndependant);
