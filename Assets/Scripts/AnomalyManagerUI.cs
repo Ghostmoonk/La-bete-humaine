@@ -122,7 +122,7 @@ public class AnomalyManagerUI : MonoBehaviour
         board.GetComponent<ToggleMover>().EndToggleOn.RemoveAllListeners();
         board.GetComponent<ToggleMover>().EndToggleOff.RemoveAllListeners();
         Button marqueurButton = marqueur.GetComponentInChildren<Button>();
-        Debug.Log(marqueurButton);
+
         if (board.GetComponent<ToggleMover>())
         {
             ToggleMover boardToggler = board.GetComponent<ToggleMover>();
