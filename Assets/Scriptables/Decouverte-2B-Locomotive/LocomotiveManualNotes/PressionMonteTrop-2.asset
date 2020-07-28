@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a435ee301fafd3d44825f539a1d8f02c, type: 3}
+  m_Name: PressionMonteTrop-2
+  m_EditorClassIdentifier: 
+  anomalieType: 0
+  title: "En cas de surpression \xE0 cause du feu"
+  text: "La manette du r\xE9gulateur, et le volant du changement de marche, voil\xE0
+    donc pour la vitesse (aujourd'hui, il y a en plus le levier du frein \xE0 air).
+    En outre, il a l'oeil au manom\xE8tre, et s'il atteint les dix kilos, il fait
+    mouvoir le petit volant de l'injecteur, ce qui injecte de l'eau froide dans la
+    chaudi\xE8re et fait baisser la pression : on voit alors le niveau d'eau monter."
+  textParatext: "Carnets d'enqu\xEAte, p.547"
+  manuscrit: {fileID: 0}
+  manuscritParatext: 

@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a435ee301fafd3d44825f539a1d8f02c, type: 3}
+  m_Name: "ManqueVisibilit\xE9-1"
+  m_EditorClassIdentifier: 
+  anomalieType: 2
+  title: "En cas de manque de visibilit\xE9"
+  text: "Cette clart\xE9 louche, o\xF9 rien ne se distinguait encore, inqui\xE9tait
+    davantage les deux hommes, qui, les yeux pleins de larmes, malgr\xE9 leurs lunettes,
+    s\u2019efforc\u0327aient de voir au loin. Sans l\xE2cher le volant du changement
+    de marche, le m\xE9canicien ne quittait plus la tringle du sifflet, sifflant
+    d\u2019une fac\u0327on presque continue, par prudence, d\u2019un sifflement de
+    d\xE9tresse qui pleurait au fond de ce d\xE9sert de neige."
+  textParatext: Ch. VII, p.376
+  manuscrit: {fileID: 0}
+  manuscritParatext: 

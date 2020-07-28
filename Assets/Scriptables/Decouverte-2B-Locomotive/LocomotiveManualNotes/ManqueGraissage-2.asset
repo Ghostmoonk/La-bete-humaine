@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a435ee301fafd3d44825f539a1d8f02c, type: 3}
+  m_Name: ManqueGraissage-2
+  m_EditorClassIdentifier: 
+  anomalieType: 1
+  title: En cas de manque de puissance et de vitesse
+  text: "Jacques aime sa machine parcequ'il la sent bien en main. Elle part et s'arr\xEAte
+    vite. Ob\xE9issante comme un cheval vigoureux et docile. Ob\xE9issance \xE0 la
+    mise en marche, au r\xE9gulateur. Cela ne d\xE9pend que du bon d\xE9marrage.
+    Le d\xE9faut sera le trop grand besoin de graissage, surtout pour les cylindres.
+    Les graisser trop souvent, ce qui diminue la prime : mais il regagne sur le combustible,
+    par la bonne vaporisation et le bon d\xE9marrage. En somme, comme une bonne femme
+    qui a un petit vice, le graissage (plaisanterie du chauffeur). Et en somme aim\xE9e.
+    Pour aller graisser les cylindres, il faut marcher le long du b\xE2ti jusqu'\xE0
+    la traverse d'avant. L\xE0 il s'agenouille et, \xE0 l'aide de sa burette, verse
+    l'huile de pied dans le godet graisseur. Elle lui mange donc trop d'huile, mais
+    elle a un bon d\xE9marrage et un bon r\xE9glage de tiroir qui lui permettent
+    de gagner en combustible."
+  textParatext: "Carnets d'enqu\xEAte, p.529"
+  manuscrit: {fileID: 0}
+  manuscritParatext: 

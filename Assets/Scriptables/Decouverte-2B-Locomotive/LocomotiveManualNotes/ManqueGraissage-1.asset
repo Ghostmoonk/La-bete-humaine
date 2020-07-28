@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a435ee301fafd3d44825f539a1d8f02c, type: 3}
+  m_Name: ManqueGraissage-1
+  m_EditorClassIdentifier: 
+  anomalieType: 1
+  title: En cas de manque de puissance et de vitesse
+  text: "Et, ce qu\u2019il n\u2019avait pas fait trois fois dans sa vie, il prit
+    la burette, pour la graisser en marche. Enjambant la rampe, il monta sur le tablier,
+    qu\u2019il suivit tout le long de la chaudi\xE8re. Mais c\u2019\xE9tait une manoeuvre
+    des plus p\xE9rilleuses : ses pieds glissaient sur l\u2019\xE9troite bande de
+    fer, mouill\xE9e par la neige ; (...) Parvenu \xE0 la traverse d\u2019avant,
+    il s\u2019accroupit devant le godet graisseur du cylindre de droite, il eut toutes
+    les peines du monde \xE0 l\u2019emplir, en se tenant d\u2019une main \xE0 la
+    tringle. Puis, il lui fallut faire le tour, ainsi qu\u2019un insecte rampant,
+    pour aller graisser le cylindre de gauche. Et, quand il revint, ext\xE9nu\xE9,
+    il \xE9tait tout p\xE2le, ayant senti passer la mort."
+  textParatext: Ch. VII, p.372
+  manuscrit: {fileID: 0}
+  manuscritParatext: 

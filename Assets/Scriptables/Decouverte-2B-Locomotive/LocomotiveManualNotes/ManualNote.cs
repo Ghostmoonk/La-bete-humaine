@@ -10,11 +10,15 @@ public class ManualNote : ScriptableObject
 
     [TextArea(4, 8)]
     public string text;
+    [TextArea(2, 3)]
+    public string textParatext;
     public Sprite manuscrit;
+    [TextArea(2, 3)]
+    public string manuscritParatext;
 
 }
 
 public enum AnomalieType
 {
-    Pression, Graissage, Météo, Terrain
+    Pression, Graissage, Visibilité, Terrain, Vitesse, Enlisement, Lison
 }

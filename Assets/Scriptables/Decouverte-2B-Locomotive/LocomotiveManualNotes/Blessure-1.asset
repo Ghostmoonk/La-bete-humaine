@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a435ee301fafd3d44825f539a1d8f02c, type: 3}
+  m_Name: Blessure-1
+  m_EditorClassIdentifier: 
+  anomalieType: 6
+  title: "Avant de repartir, v\xE9rifier l'\xE9tat de la locomotive"
+  text: "On voyait l\u2019\xE9raflure sur la bo\xEEte du cylindre, dans lequel le
+    piston paraissait l\xE9g\xE8rement fauss\xE9. Mais c\u2019e\u0301tait tout le
+    mal apparent ; ce qui avait rassur\xE9 le m\xE9canicien d\u2019abord. Peut-\xEAtre
+    existait-il de graves d\xE9sordres int\xE9rieurs, rien n\u2019est plus d\xE9licat
+    que le m\xE9canisme compliqu\xE9 des tiroirs, o\xF9 bat le c\u0153ur, l\u2019\xE2me
+    vivante. Il remonta, siffla, ouvrit le r\xE9gulateur, pour t\xE2ter les articulations
+    de la Lison. Elle fut longue a\u0300 s\u2019\xE9branler, comme une personne meurtrie
+    par une chute, qui ne retrouve plus ses membres. Enfin, avec un souffle p\xE9nible,
+    elle d\xE9marra, fit quelques tours de roue, \xE9tourdie encore, pesante. C\u0327a
+    irait, elle pourrait marcher, ferait le voyage. "
+  textParatext: Ch. VII p.420
+  manuscrit: {fileID: 0}
+  manuscritParatext: 

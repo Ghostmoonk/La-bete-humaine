@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a435ee301fafd3d44825f539a1d8f02c, type: 3}
+  m_Name: PerteVisibilite
+  m_EditorClassIdentifier: 
+  anomalieType: 2
+  title: "En cas de signal rouge \xE9tincelant"
+  text: "R\xE9veill\xE9 un peu, il s\u2019\xE9tait remis, lui aussi, \xE0 son poste,
+    surveillant le c\xF4t\xE9 gauche de la ligne. D\u2019ordinaire, il avait de bons
+    yeux, meilleurs que ceux de son chef. Mais, dans cette tourmente, tout avait
+    disparu, \xE0 peine pouvaient-ils, eux pourtant \xE0 qui chaque kilom\xE8tre
+    de la route \xE9tait si familier, reconna\xEEtre les lieux qu\u2019ils traversaient
+    (...) On continuait de monter, lorsque le chauffeur, \xE0 son tour, crut voir
+    \xE9tinceler un feu rouge, au loin. D\u2019un mot, il avertit son chef. Mais
+    d\xE9j\xE0 il ne le retrouvait plus, ses yeux avaient r\xEAv\xE9, comme il disait
+    parfois. Et le m\xE9canicien, qui n\u2019avait rien vu, restait le coeur battant,
+    troubl\xE9 par cette hallucination d\u2019un autre, perdant confiance en lui-m\xEAme.
+    (...) Alors, pris de peur, il tira la tringle du sifflet, il siffla longuement,
+    d\xE9sesp\xE9r\xE9ment ; et cette lamentation tra\xEEnait, lugubre, au travers
+    de la temp\xEAte. "
+  textParatext: Ch. VII, p.374
+  manuscrit: {fileID: 0}
+  manuscritParatext: 

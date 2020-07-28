@@ -13,9 +13,9 @@ public class ContentFocuser : MonoBehaviour, IFocusable
     Vector3 initialScale;
 
     bool focused = false;
-    [Range(1f, 2f)]
+    [Range(1f, 10f)]
     [SerializeField] float sizeMultiplier;
-    [SerializeField] RectTransform parentToResize;
+    //[SerializeField] RectTransform parentToResize;
 
     GraphicFader focusedContentBackground;
 
@@ -29,7 +29,8 @@ public class ContentFocuser : MonoBehaviour, IFocusable
 
         initialChildIndex = transform.GetSiblingIndex();
 
-        focusedContentBackground = GameObject.FindGameObjectWithTag("FocusedContentBackground").GetComponent<GraphicFader>();
+        if (GameObject.FindGameObjectWithTag("FocusedContentBackground") != null)
+            focusedContentBackground = GameObject.FindGameObjectWithTag("FocusedContentBackground").GetComponent<GraphicFader>();
     }
 
     public void Focus()
@@ -42,19 +43,19 @@ public class ContentFocuser : MonoBehaviour, IFocusable
 
     public void FocusIn()
     {
-        OnFocusIn();
+        OnFocusIn?.Invoke();
         transform.DOKill();
         transform.SetParent(GameObject.FindGameObjectWithTag("FrontCanvas").transform, true);
         transform.DOMove(GameObject.FindGameObjectWithTag("ScreenCenter").transform.position, duration);
         transform.DOScale(initialScale * sizeMultiplier, duration);
         focused = true;
 
-        focusedContentBackground.FadeIn(duration);
+        focusedContentBackground?.FadeIn(duration);
     }
 
     public void FocusOut()
     {
-        OnFocusOut();
+        OnFocusOut?.Invoke();
         transform.DOKill();
         transform.SetParent(initialParent, true);
         transform.SetSiblingIndex(initialChildIndex);
@@ -62,7 +63,7 @@ public class ContentFocuser : MonoBehaviour, IFocusable
         transform.localScale = initialScale;
         Resizer.ResizeLayout(transform.root.GetComponent<RectTransform>());
 
-        focusedContentBackground.FadeOut(0f);
+        focusedContentBackground?.FadeOut(0f);
         focused = false;
     }
 }

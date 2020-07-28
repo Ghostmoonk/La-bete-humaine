@@ -25,29 +25,35 @@ public class ManualDisplayer : MonoBehaviour
     void Start()
     {
         pagesDico = new Dictionary<AnomalieType, List<GameObject>>();
-        List<AnomalieType> anomalieTypesRemaining = new List<AnomalieType>();
+        //List<AnomalieType> anomalieTypesRemaining = new List<AnomalieType>();
 
         foreach (ManualNote item in manualNotesData)
         {
-            if (!anomalieTypesRemaining.Contains(item.anomalieType))
-            {
-                anomalieTypesRemaining.Add(item.anomalieType);
-            }
+            //if (!anomalieTypesRemaining.Contains(item.anomalieType))
+            //{
+            //    anomalieTypesRemaining.Add(item.anomalieType);
+            //}
 
             InstantiateNote(item);
         }
-        InstantiateSummaryItems(anomalieTypesRemaining);
 
+        //InstantiateSummaryItems(anomalieTypesRemaining);
     }
 
-    void InstantiateSummaryItems(List<AnomalieType> parts)
+    //void InstantiateSummaryItems(List<AnomalieType> parts)
+    //{
+    //    foreach (AnomalieType anomalyType in parts)
+    //    {
+    //        InstantiateSummaryItem(anomalyType);
+    //    }
+    //}
+
+    void InstantiateSummaryItem(AnomalieType anomalyType)
     {
-        foreach (AnomalieType anomalieType in parts)
-        {
-            GameObject itemSummary = Instantiate(summaryItemPrefab, summaryItemParent);
-            itemSummary.GetComponentInChildren<TextMeshProUGUI>().text = anomalieType.ToString();
-            itemSummary.GetComponent<Button>().onClick.AddListener(delegate { SetAnomalieTypeDisplaying(anomalieType); DesactivatePages(); ShowPage(0); });
-        }
+        Debug.Log("Instantiate");
+        GameObject itemSummary = Instantiate(summaryItemPrefab, summaryItemParent);
+        itemSummary.GetComponentInChildren<TextMeshProUGUI>().text = anomalyType.ToString();
+        itemSummary.GetComponent<Button>().onClick.AddListener(delegate { SetAnomalieTypeDisplaying(anomalyType); DesactivatePages(); ShowPage(0); });
     }
 
     private void ShowPage(int index)
@@ -93,7 +99,6 @@ public class ManualDisplayer : MonoBehaviour
             rightArrow.interactable = false;
             summaryPage.SetActive(true);
         }
-        Debug.Log(currentIndex);
     }
 
     private void SetAnomalieTypeDisplaying(AnomalieType anomalieType) => currentAnomalieTypeDisplayed = anomalieType;
@@ -108,11 +113,12 @@ public class ManualDisplayer : MonoBehaviour
             if (!pagesDico.ContainsKey(manualNote.anomalieType))
             {
                 pagesDico.Add(manualNote.anomalieType, new List<GameObject>());
+                InstantiateSummaryItem(manualNote.anomalieType);
             }
 
             pagesDico[manualNote.anomalieType].Add(manualPage);
 
-            manualPage.GetComponent<ManualPage>().SetupContents(manualNote.anomalieType, manualNote.title, manualNote.text, manualNote.manuscrit);
+            manualPage.GetComponent<ManualPage>().SetupContents(manualNote.anomalieType, manualNote.title, manualNote.text, manualNote.textParatext, manualNote.manuscrit, manualNote.manuscritParatext);
             manualPage.SetActive(false);
         }
     }

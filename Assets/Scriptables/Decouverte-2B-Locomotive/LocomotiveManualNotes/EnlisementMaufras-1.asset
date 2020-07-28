@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a435ee301fafd3d44825f539a1d8f02c, type: 3}
+  m_Name: EnlisementMaufras-1
+  m_EditorClassIdentifier: 
+  anomalieType: 5
+  title: "En cas d'arr\xEAt total par enlisement d\xFB \xE0 la neige"
+  text: "Puis, entendant la Lison cracher et s\u2019essouffler en vain, il ferma
+    le r\xE9gulateur, il jura plus fort, furieux. (...) \r\n\u2013 Nous ne pouvons
+    qu\u2019essayer de d\xE9blayer, finit par dire le m\xE9canicien. Heureusement,
+    nous avons des pelles. \r\n(...)\r\nMais il remarquait que la cause de l\u2019arr\xEAt,
+    l\u2019emp\xE2tement dans la neige, ne provenait pas des roues : celles-ci coupaient
+    les couches les plus \xE9paisses ; c\u2019\xE9tait le cendrier, plac\xE9 entre
+    elles, qui faisait obstacle, roulant la neige, la durcissant en paquets \xE9normes.
+    Et une id\xE9e lui vint.\r"
+  textParatext: Texte 1, p.383-387
+  manuscrit: {fileID: 0}
+  manuscritParatext: 

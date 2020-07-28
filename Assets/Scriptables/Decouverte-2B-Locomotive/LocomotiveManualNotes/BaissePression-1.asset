@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a435ee301fafd3d44825f539a1d8f02c, type: 3}
+  m_Name: BaissePression-1
+  m_EditorClassIdentifier: 
+  anomalieType: 0
+  title: "En cas de pression diminuant \xE0 cause d'une mont\xE9e"
+  text: "Jusqu\u2019\xE0 la station d\u2019Harfleur, la Lison fila d\u2019une bonne
+    marche continue. (...) Il \xE9tait tout au souci de garder sa vitesse, sachant
+    bien que la vraie qualit\xE9 d'un m\xE9canicien, apr\xE8s la temp\xE9rance et
+    l\u2019amour de sa machine, consistait \xE0 marcher d\u2019une fa\xE7on r\xE9guli\xE8re,
+    sans secousse, \xE0 la plus haute pression possible. "
+  textParatext: Ch. VII p.366
+  manuscrit: {fileID: 0}
+  manuscritParatext: 

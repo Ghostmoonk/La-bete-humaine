@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a435ee301fafd3d44825f539a1d8f02c, type: 3}
+  m_Name: PressionMonteTrop-1
+  m_EditorClassIdentifier: 
+  anomalieType: 0
+  title: "En cas de surpression \xE0 cause du feu"
+  text: "Sur un geste de son chef, le chauffeur venait aussi de lever la tige du
+    cendrier, ce qui activait le tirage. Rapidement, l\u2019aiguille du manom\xE8tre
+    \xE9tait remont\xE9e \xE0 dix atmosph\xE8res, la Lison donnait toute la force
+    dont elle \xE9tait capable. M\xEAme, un instant, voyant le niveau d\u2019eau
+    baisser, le m\xE9canicien dut faire mouvoir le petit volant de l\u2019injecteur,
+    bien que cela diminu\xE2t la pression. "
+  textParatext: Ch VII, p.370
+  manuscrit: {fileID: 0}
+  manuscritParatext: 
