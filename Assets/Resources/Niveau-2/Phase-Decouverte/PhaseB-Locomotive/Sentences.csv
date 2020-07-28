@@ -1,3 +1,41 @@
 ID|Personnage|Texte|Phase ID|Dialog ID|En réponse à|Réponses possibles|empty
 0|Pecqueux|Tu es prêt à partir Lantier ? ||0|||
 1|Lantier|Il le faut, malgré cette tempête.||0|0||
+2|Lantier|On monte. L'aiguille bleue du manomètre (indiquant la pression) baisse, le feu tombe…||1|||
+3|Lantier|Malgré ce sale temps, je dois éviter de prendre du retard ! Sinon, je peux dire adieu à ma prime ce mois-ci !||1|2||
+4|Lantier|Jamais elle ne montera, la fénéante !||2|||
+5|Lantier|La grande rampe de trois lieues ! La vitesse diminue et la Lison s’essoufle ! Pecqueux, nous devons rattraper !||2|4||
+6|Lantier|Pauvre bête ! Elle craque de tous ses membres !||3|||
+7|Lantier|Nom de Dieu ! Il y a trop de charbon, la pression monte trop !||3|6||
+8|Lantier|Il faut qu’elle monte, la salle rosse ! Mais comme d’habitude, on doit lui faire ses caprices !||4|||
+9|Lantier|Jamais elle ne montera si on ne l’engraisse pas ! J’y vais !||4|8||
+10|Pecqueux|Nom de Dieu ! Tout à disparu ! D’habitude j’ai de bons yeux ! Que diable m’emporte si je vois quelque chose !||5|||
+11|Pecqueux|Lantier, je crois avoir vu pendant un instant un feu rouge au loin !||5|10||
+12|Chef de gare|Bonjour Messieurs||6|||
+13|Lantier|Bonjour, avec cette neige il faudrait renforcer l’attelage en ajoutant une seconde machine.||6|12||
+14|Chef de gare|Je n’ai pas reçu d’ordre, et je ne crois pas devoir prendre cette mesure sur moi.||6|13||
+15|Lantier|…||6|14||
+16|Chef de gare|Ce que je peux faire, c’est vous donner des pelles, au cas où ça tournerait mal.||6|15||
+17|Lantier|Pecqueux, va les ranger dans un coin du tender.||6|16||
+18|Pecqueux|Les voilà bien disposées Lantier.||6|17||
+19|Lantier|Très bien, on peut repartir.||6|18||
+20|Lantier|Bon, on avance à une bonne vitesse, sans trop de peine, même si je sens qu’elle se lasse un peu avec cette neige qui s’accumule. Pecqueux, continuez à mettre du charbon !||7|||
+21|Pecqueux|Je m’en occupe !||7|20||
+22|Lantier|Tonnerre de Dieu ! On ne distingue rien avec ce brouillard !||7|21||
+23|Lantier|Et voici que le chef de gare me signale des quantités considérables de neige à la Croix-de-Maufras !||8|||
+24|Lantier|Tonnerre de Dieu ! Je l’ai bien dit à Beuzeville !||8|23||
+25|Pecqueux|Lantier, calmez-vous donc…||8|24||
+26|Lantier|Qu’est-ce que ça pouvait leur faire, de doubler l’attelage ? … Ah ! Nous allons être gentils !||8|25||
+27|Lantier|La neige s'amasse de façon irrégulière, des masses de neige bouchent certains passages…||9|||
+28|Lantier|Je crains qu’on ne s’enlise un peu plus loin, entre deux talus !||9|27||
+29|Lantier|Pécqueux, nom de Dieu de salop! Réveillez-vous! Le manomètre descend encore!||9|28||
+30|Lantier|La Lison s’arrête! Elle ne bouge plus! C’est fait, la neige la tient! ||9|29||
+31|Lantier|Avoir dégagé le cendrier devrait nous suffire pour repartir.||10|||
+32|Lantier|C’est assez déblayé ! Montez, je me charge du reste.||10|31||
+33|Pecqueux|Très bien, je m’occupe du feu !||10|32||
+34|Lantier|C’est une bonne bête tout de même, elle devrait pouvoir foncer dans ce tas de neige.||10|33||
+35|Lantier|On n’est pas encore tiré d’affaire! À 300 m de la Croix-de-Maufras, il y a une tranchée profonde qui s’ouvre en direction du vent. ||11|||
+36|Lantier|Si la Lison ne perce pas, on va naufrager ici, c’est sûr!||11|35||
+37|Lantier|50 mètres, 30 mètres encore !||12|||
+38|Lantier|Pecqueux, voici que la Lison s’arrête définitivement, expirante, dans le grand froid !||12|37||
+39|Lantier|Son souffle s’éteint, elle est immobile, elle est morte !||12|38||

@@ -15,7 +15,7 @@ MonoBehaviour:
   title: La vitesse diminue
   questionText: "La vitesse diminue \xE0 cause de cette rampe, il faut pousser le
     feu. Que doit faire Pecqueux, le chauffeur, pour que le feu soit efficace?"
-  locomotiveComponent: 6
+  locomotiveComponent: 7
   answers:
   - answerText: "Relever les chasse-neige: pour \xE9viter le frottement"
     isCorrect: 0

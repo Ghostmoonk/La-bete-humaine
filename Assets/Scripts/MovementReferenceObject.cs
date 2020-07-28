@@ -7,7 +7,7 @@ using UnityEngine.Events;
 public class MovementReferenceObject : MonoBehaviour
 {
     public float speed;
-    [SerializeField] float timeToAccelerate;
+    [SerializeField] float timeToChangeSpeed;
     [SerializeField] Ease accelerationCurve;
     [HideInInspector] public float distanceDone;
     bool consideredAsMoving = true;
@@ -19,12 +19,12 @@ public class MovementReferenceObject : MonoBehaviour
 
     public void ChangeSpeed(float newSpeed)
     {
-        DOTween.To(() => speed, x => speed = x, newSpeed, timeToAccelerate).SetEase(accelerationCurve);
+        DOTween.To(() => speed, x => speed = x, newSpeed, timeToChangeSpeed).SetEase(accelerationCurve);
     }
 
-    public void SetAccelerationTime(float newAccelerationTime)
+    public void SetTimeToChangeSpeed(float newAccelerationTime)
     {
-        timeToAccelerate = newAccelerationTime;
+        timeToChangeSpeed = newAccelerationTime;
     }
 
     public void SlowStopToDistance(float ratioDist)
@@ -50,19 +50,16 @@ public class MovementReferenceObject : MonoBehaviour
         float iniTime = -iniSpeed / acceleration;
         float timeRemain = iniTime;
 
-        float distParcourue = 0f;
         while (timeRemain >= 0f)
         {
             speed = iniSpeed + acceleration * (iniTime - timeRemain);
 
             timeRemain -= Time.deltaTime;
-            distParcourue += speed * Time.deltaTime;
             yield return null;
         }
         speed = 0f;
-        //Debug.Log("parcouru : " + distanceDone);
-        //Debug.Log("Time in seconds to stop : " + iniTime);
-        //Debug.Log("Dist to stop : " + distance);
+        Debug.Log(distanceDone);
+        Debug.Log(distance);
 
         StopCoroutine(SlowStop(distance));
     }

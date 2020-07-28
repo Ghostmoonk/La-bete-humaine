@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   title: "L'\xE9paisse tomb\xE9e de neige les aveugle"
   questionText: "Faute de visibilit\xE9, pour \xE9viter les accidents et avertir
-    de son passage, Jacques:  "
+    de son passage, Jacques :  "
   locomotiveComponent: 0
   answers:
   - answerText: "Essuie constamment ses lunettes\r"

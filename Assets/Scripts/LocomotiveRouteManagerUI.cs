@@ -88,7 +88,6 @@ public class LocomotiveRouteManagerUI : MonoBehaviour
                 new GradientAlphaKey(friezeLineR.startColor.a, 0.0f),
                 new GradientAlphaKey(friezeLineR.endColor.a, 1.0f)
             });
-
         friezeLineR.colorGradient = friezeGradient;
 
         //friezeImg.fillAmount = Mathf.Clamp01(LocomotiveRouteManager.Instance.GetRouteTraveledRatio());

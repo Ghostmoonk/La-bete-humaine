@@ -15,7 +15,7 @@ MonoBehaviour:
   title: "Mont\xE9e - Baisse de pression"
   questionText: "La pression diminue \xE0 cause de cette mont\xE9e. Que doit faire
     Lantier, le m\xE9canicien ?"
-  locomotiveComponent: 8
+  locomotiveComponent: 4
   answers:
   - answerText: Ajouter continuellement du charbon
     isCorrect: 0

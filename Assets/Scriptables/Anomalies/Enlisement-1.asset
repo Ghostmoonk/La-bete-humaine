@@ -9,10 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ff302c9394f8bdc4cb5a6a841027384f, type: 3}
-  m_Name: Barentin
+  m_Script: {fileID: 11500000, guid: a44e7a7c536acea498737c79126203d6, type: 3}
+  m_Name: Enlisement-1
   m_EditorClassIdentifier: 
-  stationName: Barentin
-  nextStation: {fileID: 11400000, guid: ec2ed089e381f434495068594e9066aa, type: 2}
-  distwithNextStation: 140
-  altitude: 100
+  title: Enlisement
+  questionText: "La locomotive s\u2019arr\xEAte compl\xE8tement enlis\xE9e. Jacques
+    a une solution :"
+  locomotiveComponent: 0
+  answers: []

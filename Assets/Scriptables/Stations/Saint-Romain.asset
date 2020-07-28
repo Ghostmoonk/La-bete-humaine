@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stationName: Saint-Romain
   nextStation: {fileID: 11400000, guid: 567056e39b4398e40ad2468fb99ebb3c, type: 2}
-  distwithNextStation: 1000
+  distwithNextStation: 200
   altitude: 400

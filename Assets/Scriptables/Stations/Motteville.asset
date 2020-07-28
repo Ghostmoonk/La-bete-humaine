@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stationName: Motteville
   nextStation: {fileID: 11400000, guid: 5346157caff835f4ba35b5d7a82dcb1f, type: 2}
-  distwithNextStation: 1200
+  distwithNextStation: 240
   altitude: 150

@@ -29,7 +29,7 @@ public class AnomalyManager : MonoBehaviour
     }
 
     LocomotiveAnomalyData currentAnomaly;
-    AnomalyManagerUI anomalyManagerUI;
+    [SerializeField] AnomalyManagerUI anomalyManagerUI;
     [SerializeField] UnityEvent OnVerifyCorrect;
     [SerializeField] UnityEvent OnVerifyFailed;
 
@@ -37,6 +37,7 @@ public class AnomalyManager : MonoBehaviour
     {
         currentAnomaly = anomalyData;
         anomalyManagerUI.SetAnomalyContent(currentAnomaly);
+        anomalyManagerUI.ShowMarker(currentAnomaly);
     }
 
     public void VerifyAnswers(Dictionary<ScriptableAnswer, bool> answersDico)

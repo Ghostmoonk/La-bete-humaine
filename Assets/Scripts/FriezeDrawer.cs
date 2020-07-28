@@ -14,10 +14,6 @@ public class FriezeDrawer : MonoBehaviour
 
     [HideInInspector] public List<Vector3> stationsPositions = new List<Vector3>();
 
-    private void Start()
-    {
-        Debug.Log(stationsPositions.Count);
-    }
     public void DrawFrieze()
     {
         lineR.positionCount = 0;

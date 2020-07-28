@@ -15,16 +15,18 @@ public class ToggleMover : MonoBehaviour, IIndependantTween
     [Range(-1, 1)]
     [SerializeField] int direction = 1;
     [SerializeField] Ease ease = Ease.Linear;
-    [SerializeField] UnityEvent StartToggleOn;
-    [SerializeField] UnityEvent EndToggleOn;
+    public UnityEvent StartToggleOn;
+    public UnityEvent EndToggleOn;
 
-    [SerializeField] UnityEvent StartToggleOff;
-    [SerializeField] UnityEvent EndToggleOff;
+    public UnityEvent StartToggleOff;
+    public UnityEvent EndToggleOff;
 
     private void Awake()
     {
         initialAnchoredPos = GetComponent<RectTransform>().anchoredPosition;
     }
+
+    public bool GetToggler() => toggler;
 
     public void MoveBySizeY(RectTransform rectT)
     {

@@ -30,10 +30,11 @@ public class ScriptableAnswer
 
 public enum LocomotiveComponent
 {
-    PresseGraissage,
+    Aucun,
+    PresseDeGraissage,
     Cendrier,
     Souffleur,
-    VolantCommande,
+    VolantDeCommande,
     Sifflet,
     Sablière,
     Foyer,

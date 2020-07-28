@@ -15,7 +15,7 @@ MonoBehaviour:
   title: La machine manque de graissage
   questionText: 'Pour gagner en puissance et en vitesse, il faut graisser la machine
     en: '
-  locomotiveComponent: 0
+  locomotiveComponent: 1
   answers:
   - answerText: envoyant le chauffeur le faire
     isCorrect: 0
