@@ -15,5 +15,14 @@ MonoBehaviour:
   title: Enlisement
   questionText: "La locomotive s\u2019arr\xEAte compl\xE8tement enlis\xE9e. Jacques
     a une solution :"
-  locomotiveComponent: 0
-  answers: []
+  locomotiveComponent: 2
+  answers:
+  - answerText: "fermer le r\xE9gulateur et essayer de d\xE9blayer avec des pelles"
+    isCorrect: 0
+  - answerText: "tirer le sifflet, arr\xEAter la machine et attendre de l\u2019aide"
+    isCorrect: 0
+  - answerText: "d\xE9visser le cendrier, le d\xE9tacher et le tirer en dehors de
+      la voie."
+    isCorrect: 1
+  charcoalCostFail: 10
+  timeCostFail: 15

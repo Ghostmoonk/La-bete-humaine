@@ -72,7 +72,7 @@ public class DialogManager : MonoBehaviour
 
     public void ResetCurrentDialog()
     {
-        currentDialog.Reset();
+        currentDialog?.Reset();
     }
 
     private void Start()
@@ -114,6 +114,7 @@ public class DialogManager : MonoBehaviour
 
     public void FinishSentence()
     {
+        Debug.Log(typingSentence);
         if (typingSentence)
         {
             typingSentence = false;
@@ -133,7 +134,6 @@ public class DialogManager : MonoBehaviour
 
         if (currentDialog.currentSentence != null)
         {
-            //Debug.Log(currentDialog.currentSentence.content);
             characterNameText.text = currentDialog.currentSentence.characterName;
             if (shouldShowCharactersSprite)
             {
@@ -213,8 +213,9 @@ public class DialogManager : MonoBehaviour
         {
             if (showSkipTimer != 0f)
                 showSkipTimer = 0f;
-            if (skipImage.gameObject.GetComponent<Animator>().GetBool("Active"))
-                ToggleSkip(false);
+            if (skipImage.gameObject.activeInHierarchy)
+                if (skipImage.gameObject.GetComponent<Animator>().GetBool("Active"))
+                    ToggleSkip(false);
         }
     }
 
@@ -235,18 +236,19 @@ public class DialogManager : MonoBehaviour
     {
         textMesh.text = "";
         typingSentence = true;
+
         for (int i = 0; i < content.Length; i++)
         {
             if (typingSentence)
             {
                 sentenceText.text += content[i];
-                yield return new WaitForSeconds(Time.deltaTime / sentenceTypingSpeed);
             }
             else
             {
                 sentenceText.text = content;
                 break;
             }
+            yield return new WaitForSeconds(Time.deltaTime / sentenceTypingSpeed);
         }
 
         if (typingSentence)

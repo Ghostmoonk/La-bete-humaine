@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b8cfafd590f7924a8b266fa8d50d57e, type: 3}
+  m_Name: JourLevant
+  m_EditorClassIdentifier: 
+  weatherTitle: 
+  weatherText: "Maintenant, le jour se levait, tr\xE8s p\xE2le ; et il semblait que
+    cette lueur livide v\xEEnt de la neige elle-m\xEAme. Elle tombait plus dense,
+    ainsi qu\u2019une chute d\u2019aube brouill\xE9e et froide, noyant la terre des
+    d\xE9bris du ciel. Avec le jour grandissant, le vent redoublait de violence,
+    les flocons \xE9taient chass\xE9s comme des balles"
+  weatherParatext: Ch VII, p.377
+  newRelief: 0
+  meteoText: 70 cm de neige

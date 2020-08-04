@@ -52,7 +52,8 @@ public class GraphicFader : MonoBehaviour, IIndependantTween
             foreach (Graphic item in graphic[i].transform.GetComponentsInChildren<Graphic>())
             {
                 Tweener tween = item.DOColor(new Color(item.color.r, item.color.g, item.color.b, 0f), duration).SetUpdate(IsUnityTimeScaleIndependant).SetEase(ease);
-                if (i == graphic.Length - 1)
+
+                if (i == graphic.Length - 1 && item == graphic[i].transform.GetComponentsInChildren<Graphic>()[graphic[i].transform.GetComponentsInChildren<Graphic>().Length - 1])
                     tween.OnComplete(() => { EndFadeOutText?.Invoke(); });
             }
         }
@@ -60,13 +61,14 @@ public class GraphicFader : MonoBehaviour, IIndependantTween
 
     public void FadeInByParenting(float duration)
     {
+        StartFadeIn?.Invoke();
         for (int i = 0; i < graphic.Length; i++)
         {
             foreach (Graphic item in graphic[i].transform.GetComponentsInChildren<Graphic>())
             {
                 item.color = new Color(item.color.r, item.color.g, item.color.b, 0f);
                 Tweener tween = item.DOColor(new Color(item.color.r, item.color.g, item.color.b, maxOpacity), duration).SetUpdate(IsUnityTimeScaleIndependant).SetEase(ease);
-                if (i == graphic.Length - 1)
+                if (i == graphic.Length - 1 && item == graphic[i].transform.GetComponentsInChildren<Graphic>()[graphic[i].transform.GetComponentsInChildren<Graphic>().Length - 1])
                     tween.OnComplete(() => { EndFadeInText?.Invoke(); });
             }
 

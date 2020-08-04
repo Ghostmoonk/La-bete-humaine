@@ -6,15 +6,9 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
 
-public class ShaderValuesModifier : MonoBehaviour
+public class ShaderValuesModifierUI : ShaderValuesModifier
 {
     Graphic rend;
-    [SerializeField] FloatShaderValue[] startShaderValues;
-    [SerializeField] float endValue;
-    [SerializeField] float duration;
-
-    public UnityEvent TransitionEnd;
-    Tween tween;
 
     private void Awake()
     {
@@ -26,7 +20,7 @@ public class ShaderValuesModifier : MonoBehaviour
         rend.material = new Material(rend.material);
 
         for (int i = 0; i < startShaderValues.Length; i++)
-            rend.material.SetFloat(startShaderValues[i].shaderName, startShaderValues[i].value);
+            rend.material.SetFloat(startShaderValues[i].shaderName, startShaderValues[i].startValue);
 
     }
 
@@ -36,25 +30,10 @@ public class ShaderValuesModifier : MonoBehaviour
         tween.OnComplete(() => { TransitionEnd.Invoke(); });
     }
 
-    public void SetDuration(float duration)
-    {
-        this.duration = duration;
-    }
-
-    public void SetEndValue(float value)
-    {
-        this.endValue = value;
-    }
-
     public void SetMaterial(Material material)
     {
         rend.material = new Material(material);
     }
 
-}
-[Serializable]
-public struct FloatShaderValue
-{
-    public string shaderName;
-    public float value;
+
 }

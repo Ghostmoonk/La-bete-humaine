@@ -138,6 +138,7 @@ public class DecorSpawner : MonoBehaviour
         }
         GameObject objToInstantiate = Instantiate(randomBg.bgSpeed.backgroundGroup, randomBg.parent);
         objToInstantiate.transform.position = new Vector3((screenPointSide + objToInstantiate.GetComponent<SpriteRenderer>().bounds.extents.x) * -direction.x, randomBg.parent.transform.position.y, randomBg.parent.transform.position.z);
+        objToInstantiate.GetComponent<SpriteRenderer>().sortingOrder = randomBg.sortingOrder;
     }
 }
 
@@ -150,5 +151,6 @@ public class RandomBackgroundSpeed
     [HideInInspector] public float randomDist;
     [HideInInspector] public float compteur = 0f;
     public Sprite[] randomSprites;
+    public int sortingOrder;
 
 }

@@ -41,19 +41,43 @@ public class AnomalyManagerUI : MonoBehaviour
     [Range(0, 2f)]
     [SerializeField] float markerSlidingDuration;
 
-    [Header("Anomalie")]
+    [Header("Anomaly")]
     [SerializeField] GameObject anomalyAnswerPrefab;
     [SerializeField] GameObject anomalyQuestionBox;
     [SerializeField] Transform answersContainer;
     [SerializeField] TextMeshProUGUI questionText;
     [SerializeField] Button submitButton;
+    [SerializeField] Button skipButton;
+    [Header("Verification")]
+    [SerializeField] Sprite successIcon;
+    [SerializeField] Sprite failIcon;
+    [SerializeField] Color successColor;
+    [SerializeField] Color failColor;
+    [SerializeField] float delayBetweenVerificationIconDisplay;
+    [SerializeField] UnityEvent OnVerificationOver;
 
-    Dictionary<ScriptableAnswer, Toggle> answersToggle;
+    [Header("Gauges")]
+    [SerializeField] Ease changingGaugeValueEase;
+    [Tooltip("Of how much the transition time in the gauge is multiplicated")]
+    [SerializeField] float changingGaugeTimeMultiplicator = 1f;
+    [SerializeField] Image charcoalGauge;
+    [SerializeField] float maxCharcoalScore;
+    float currentCharcoalScore;
+    [SerializeField] Image timeGauge;
+    [SerializeField] float maxTime;
+    float currentTimeScoreScore;
+
+    Dictionary<ScriptableAnswer, AnomalyAnswer> answersToggle;
 
     [SerializeField] UnityEventLocomotiveData OnContentSet;
 
     private void Start()
     {
+        #region Score
+        currentCharcoalScore = maxCharcoalScore;
+        currentTimeScoreScore = maxTime;
+        #endregion
+
         boardComponentsDico = new Dictionary<LocomotiveComponent, Transform>();
 
         Dictionary<GameObject, LocomotiveComponent> locoCompDuico = new Dictionary<GameObject, LocomotiveComponent>();
@@ -70,7 +94,7 @@ public class AnomalyManagerUI : MonoBehaviour
 
         boardInfosUI.SetHoverComponents(locoCompDuico);
 
-        answersToggle = new Dictionary<ScriptableAnswer, Toggle>();
+        answersToggle = new Dictionary<ScriptableAnswer, AnomalyAnswer>();
     }
 
     public void SetAnomalyContent(LocomotiveAnomalyData data)
@@ -81,13 +105,13 @@ public class AnomalyManagerUI : MonoBehaviour
         answersToggle.Clear();
         foreach (Transform child in answersContainer)
         {
-            Destroy(child);
+            Destroy(child.gameObject);
         }
 
         foreach (ScriptableAnswer answer in data.answers)
         {
             GameObject answerToInstantiate = Instantiate(anomalyAnswerPrefab, answersContainer);
-            answersToggle.Add(answer, answerToInstantiate.GetComponentInChildren<Toggle>());
+            answersToggle.Add(answer, answerToInstantiate.GetComponent<AnomalyAnswer>());
             answerToInstantiate.GetComponentInChildren<TextMeshProUGUI>().text = answer.answerText;
 
             answerToInstantiate.GetComponentInChildren<Toggle>().onValueChanged.AddListener(delegate
@@ -96,17 +120,20 @@ public class AnomalyManagerUI : MonoBehaviour
             });
         }
 
-        OnContentSet?.Invoke(data);
+        //OnContentSet?.Invoke(data);
 
-        Resizer.ResizeLayout(anomalyQuestionBox.GetComponent<RectTransform>());
+    }
 
+    public void ResizeRectByParent(RectTransform parent)
+    {
+        Resizer.ResizeLayout(parent.GetComponent<RectTransform>());
     }
 
     private void ToggleSubmitButtonInteractable()
     {
-        foreach (KeyValuePair<ScriptableAnswer, Toggle> item in answersToggle)
+        foreach (KeyValuePair<ScriptableAnswer, AnomalyAnswer> item in answersToggle)
         {
-            if (item.Value.isOn)
+            if (item.Value.GetToggle().isOn)
             {
                 submitButton.interactable = true;
                 return;
@@ -117,8 +144,15 @@ public class AnomalyManagerUI : MonoBehaviour
     }
 
     //Display the marker on board
-    public void ShowMarker(LocomotiveAnomalyData data)
+    public void ShowMarker()
     {
+        LocomotiveAnomalyData data;
+
+        if (AnomalyManager.Instance.GetCurrentAnomaly() != null)
+            data = AnomalyManager.Instance.GetCurrentAnomaly();
+        else
+            return;
+
         board.GetComponent<ToggleMover>().EndToggleOn.RemoveAllListeners();
         board.GetComponent<ToggleMover>().EndToggleOff.RemoveAllListeners();
         Button marqueurButton = marqueur.GetComponentInChildren<Button>();
@@ -129,7 +163,7 @@ public class AnomalyManagerUI : MonoBehaviour
             Vector3[] corners = new Vector3[4];
             retractor.GetWorldCorners(corners);
             //If the board toggler is not toggled, we display it on the retractor
-            if (!boardToggler.GetToggler())
+            if (!boardToggler.GetToggler() && boardComponentsDico.ContainsKey(data.locomotiveComponent))
             {
                 marqueur.transform.position = corners[2];
                 marqueur.gameObject.SetActive(true);
@@ -144,6 +178,7 @@ public class AnomalyManagerUI : MonoBehaviour
                     SetInteractable(marqueurButton, true);
                 }
             }
+
             board.GetComponent<ToggleMover>().EndToggleOn.AddListener(delegate { SlideMarkerToPosition(boardComponentsDico[data.locomotiveComponent].position, markerSlidingDuration); SetInteractable(marqueurButton, true); });
             board.GetComponent<ToggleMover>().EndToggleOff.AddListener(delegate { SlideMarkerToPosition(corners[2], markerSlidingDuration); SetInteractable(marqueurButton, false); });
         }
@@ -164,13 +199,77 @@ public class AnomalyManagerUI : MonoBehaviour
     {
         Dictionary<ScriptableAnswer, bool> answersBool = new Dictionary<ScriptableAnswer, bool>();
 
-        foreach (KeyValuePair<ScriptableAnswer, Toggle> answerToggle in answersToggle)
+        foreach (KeyValuePair<ScriptableAnswer, AnomalyAnswer> answerToggle in answersToggle)
         {
-            answersBool.Add(answerToggle.Key, answerToggle.Value.isOn);
+            answersBool.Add(answerToggle.Key, answerToggle.Value.GetToggle().isOn);
+            answerToggle.Value.GetToggle().interactable = false;
         }
 
         AnomalyManager.Instance.VerifyAnswers(answersBool);
     }
+
+    public void DecreaseGauges(LocomotiveAnomalyData anomalyData)
+    {
+        currentCharcoalScore -= anomalyData.charcoalCostFail;
+        currentTimeScoreScore -= anomalyData.timeCostFail;
+        StartCoroutine(DecreaseGaugeSmoothly(charcoalGauge, currentCharcoalScore / maxCharcoalScore, changingGaugeValueEase));
+        StartCoroutine(DecreaseGaugeSmoothly(timeGauge, currentTimeScoreScore / maxTime, changingGaugeValueEase));
+    }
+
+    IEnumerator DecreaseGaugeSmoothly(Image img, float newValue, Ease ease)
+    {
+        float currentValue = img.fillAmount;
+        float timeToAnimate = newValue * changingGaugeTimeMultiplicator;
+        Tween tween = DOTween.To(() => currentValue, x => currentValue = x, newValue, timeToAnimate).SetEase(ease);
+        while (timeToAnimate > 0f)
+        {
+            yield return new WaitForSeconds(Time.deltaTime);
+            img.fillAmount = currentValue;
+            Debug.Log(tween.IsComplete());
+            timeToAnimate -= Time.deltaTime;
+        }
+        StopCoroutine(DecreaseGaugeSmoothly(img, newValue, ease));
+    }
+
+    public void ShowVerification(Dictionary<ScriptableAnswer, bool> correctionDico, bool succeed)
+    {
+        StartCoroutine(ShowVerificationDelayed(correctionDico, succeed));
+    }
+
+    public IEnumerator ShowVerificationDelayed(Dictionary<ScriptableAnswer, bool> correctionDico, bool succeed)
+    {
+        foreach (KeyValuePair<ScriptableAnswer, AnomalyAnswer> item in answersToggle)
+        {
+            item.Value.GetResultIconImage().gameObject.SetActive(true);
+            if (correctionDico[item.Key])
+            {
+                item.Value.UpdateSprite(successIcon, successColor);
+            }
+            else
+            {
+                item.Value.UpdateSprite(failIcon, failColor);
+            }
+
+            item.Value.gameObject.GetComponentInChildren<GraphicFader>().FadeIn(1f);
+
+            yield return new WaitForSeconds(delayBetweenVerificationIconDisplay);
+        }
+
+        OnVerificationOver?.Invoke();
+
+        StopCoroutine(ShowVerificationDelayed(correctionDico, succeed));
+
+        anomalyQuestionBox.GetComponent<GraphicFader>().EndFadeOutText.RemoveAllListeners();
+        if (succeed)
+            anomalyQuestionBox.GetComponent<GraphicFader>().EndFadeOutText.AddListener(delegate { AnomalyManager.Instance.GetAnomalyEvents(AnomalyManager.Instance.GetCurrentAnomaly()).OnResolveSuccess?.Invoke(); });
+        else
+        {
+            Debug.Log(AnomalyManager.Instance.GetCurrentAnomaly());
+            anomalyQuestionBox.GetComponent<GraphicFader>().EndFadeOutText.AddListener(delegate { AnomalyManager.Instance.GetAnomalyEvents(AnomalyManager.Instance.GetCurrentAnomaly()).OnResolveFail?.Invoke(); });
+        }
+
+    }
+
 
 }
 

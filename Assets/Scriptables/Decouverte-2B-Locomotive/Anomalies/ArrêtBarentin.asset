@@ -24,3 +24,5 @@ MonoBehaviour:
     isCorrect: 0
   - answerText: "C\u2019est la faute du pays: vallons et coteaux."
     isCorrect: 1
+  charcoalCostFail: 0
+  timeCostFail: 10

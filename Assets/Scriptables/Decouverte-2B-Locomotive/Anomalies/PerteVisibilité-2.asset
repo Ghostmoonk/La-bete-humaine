@@ -15,7 +15,7 @@ MonoBehaviour:
   title: "L'\xE9paisse tomb\xE9e de neige les aveugle"
   questionText: "Faute de visibilit\xE9, pour \xE9viter les accidents et avertir
     de son passage, Jacques :  "
-  locomotiveComponent: 0
+  locomotiveComponent: 5
   answers:
   - answerText: "Essuie constamment ses lunettes\r"
     isCorrect: 0
@@ -24,3 +24,5 @@ MonoBehaviour:
   - answerText: "Ne quitte plus la tringle du sifflet, sifflant d\u2019une fa\xE7on
       presque continue, par prudence "
     isCorrect: 1
+  charcoalCostFail: 0
+  timeCostFail: 5

@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b8cfafd590f7924a8b266fa8d50d57e, type: 3}
+  m_Name: "Tranch\xE9eProfonde"
+  m_EditorClassIdentifier: 
+  weatherTitle: 
+  weatherText: "\xC0 trois cents m\xE8tres environ de la Croix-de-Maufras, une tranch\xE9e
+    profonde s\u2019ouvrait dans la direction du vent, la neige devait s\u2019y \xEAtre
+    accumul\xE9e en quantit\xE9 consid\xE9rable ;(...) Il faisait plein jour, la
+    blancheur \xE9tait sans borne et \xE9clatante, sous la tomb\xE9e continue des
+    flocons.(...) La neige ne cessait pas, tombait plus drue, par longues rafales."
+  weatherParatext: Ch VII, p.389
+  newRelief: 0
+  meteoText: 70 cm de neige

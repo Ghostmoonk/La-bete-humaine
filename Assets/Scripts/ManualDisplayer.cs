@@ -50,7 +50,6 @@ public class ManualDisplayer : MonoBehaviour
 
     void InstantiateSummaryItem(AnomalieType anomalyType)
     {
-        Debug.Log("Instantiate");
         GameObject itemSummary = Instantiate(summaryItemPrefab, summaryItemParent);
         itemSummary.GetComponentInChildren<TextMeshProUGUI>().text = anomalyType.ToString();
         itemSummary.GetComponent<Button>().onClick.AddListener(delegate { SetAnomalieTypeDisplaying(anomalyType); DesactivatePages(); ShowPage(0); });
@@ -121,6 +120,7 @@ public class ManualDisplayer : MonoBehaviour
             manualPage.GetComponent<ManualPage>().SetupContents(manualNote.anomalieType, manualNote.title, manualNote.text, manualNote.textParatext, manualNote.manuscrit, manualNote.manuscritParatext);
             manualPage.SetActive(false);
         }
+        Resizer.ResizeLayout(manualPageParent.GetComponent<RectTransform>());
     }
 
 }

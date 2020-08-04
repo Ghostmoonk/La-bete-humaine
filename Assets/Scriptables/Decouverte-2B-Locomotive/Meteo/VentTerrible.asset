@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b8cfafd590f7924a8b266fa8d50d57e, type: 3}
+  m_Name: VentTerrible
+  m_EditorClassIdentifier: 
+  weatherTitle: 
+  weatherText: "Le vent terrible menac\u0327ait de le balayer comme une paille. La
+    Lison, avec cet homme accroch\xE9 \xE0 son flanc, continuait sa course haletante,
+    dans la nuit, parmi l\u2019immense couche blanche, o\xF9 elle s\u2019ouvrait
+    profond\xE9ment un sillon. Elle le secouait, l\u2019emportait. "
+  weatherParatext: Ch VII, p.372
+  newRelief: 0
+  meteoText: 50 cm de neige

@@ -75,6 +75,20 @@ AudioMixerEffectController:
   m_SendTarget: {fileID: 0}
   m_EnableWetMix: 0
   m_Bypass: 0
+--- !u!244 &-1242547084683258719
+AudioMixerEffectController:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_EffectID: e3b183dda4ef78e4d8928732d12806c6
+  m_EffectName: Attenuation
+  m_MixLevel: 3cdf333a84523e04d8f7034396578f19
+  m_Parameters: []
+  m_SendTarget: {fileID: 0}
+  m_EnableWetMix: 0
+  m_Bypass: 0
 --- !u!241 &24100000
 AudioMixerController:
   m_ObjectHideFlags: 0
@@ -97,6 +111,8 @@ AudioMixerController:
     name: EnvironmentVol
   - guid: 7b4d07492ce1aa2478b8b7241c02bb40
     name: InterfaceVol
+  - guid: e59726b7f2431594d9dfc392c494461e
+    name: LocoPitch
   - guid: 77bc419e749c93c4ea8cdbd55a6387f5
     name: MasterVol
   - guid: f398a707fc3abfa46b5314639aab0238
@@ -108,6 +124,7 @@ AudioMixerController:
     - a884c40c7efb2b74cbfd1440f30cb6f7
     - 3854ea85bc4a4854f8dc76dc6605ae17
     - 7a15c78864ff2a24b9b80560ac38747a
+    - d74d6fce4f2f3584daa553944b20f20a
     name: View
   m_CurrentViewIndex: 0
   m_TargetSnapshot: {fileID: 24500006}
@@ -125,6 +142,7 @@ AudioMixerGroupController:
   - {fileID: -7765213707470599632}
   - {fileID: 5263187256607230843}
   - {fileID: 2671491682832270580}
+  - {fileID: 1446887869684396820}
   m_Volume: 77bc419e749c93c4ea8cdbd55a6387f5
   m_Pitch: f9819cf91959c0d4cad0f12f560264b3
   m_Send: 00000000000000000000000000000000
@@ -157,8 +175,59 @@ AudioMixerSnapshotController:
   m_Name: Snapshot
   m_AudioMixer: {fileID: 24100000}
   m_SnapshotID: ba66c29ba6599154eb05791d0d7682c7
-  m_FloatValues: {}
+  m_FloatValues:
+    ff7dde13a2b62f641a303a513f333859: 186
+    252dddc5acde4c04998aed9d1714ca1f: 164
+    659f82e5509400d41abccd1f3379e459: 1
+    134409f572133ef49a1278a730966821: 4.3
+    e0ebb31728e531d4e82946d8fa2d9c1d: 0
+    e59726b7f2431594d9dfc392c494461e: 1
+    e01041baeb4d3674d93c87a8ba5ec9b2: -23.3
+    c7753a9beadb31040bcc4470c9f0bd01: 22
+    30f9800d044f66244a9538da84ac53b6: 4096
   m_TransitionOverrides: {}
+--- !u!244 &241714803346043958
+AudioMixerEffectController:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_EffectID: f250d0b355e058142ac3f4561e3a4abe
+  m_EffectName: Pitch Shifter
+  m_MixLevel: 66038519917a5ba408cb4d5bb56757e3
+  m_Parameters:
+  - m_ParameterName: Pitch
+    m_GUID: e59726b7f2431594d9dfc392c494461e
+  - m_ParameterName: FFT size
+    m_GUID: 30f9800d044f66244a9538da84ac53b6
+  - m_ParameterName: Overlap
+    m_GUID: c7753a9beadb31040bcc4470c9f0bd01
+  - m_ParameterName: Max channels
+    m_GUID: 0a4fbe240d8c67f44b3b674f356e9f30
+  m_SendTarget: {fileID: 0}
+  m_EnableWetMix: 0
+  m_Bypass: 0
+--- !u!243 &1446887869684396820
+AudioMixerGroupController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: LocomotiveSpeed
+  m_AudioMixer: {fileID: 24100000}
+  m_GroupID: d74d6fce4f2f3584daa553944b20f20a
+  m_Children: []
+  m_Volume: e0ebb31728e531d4e82946d8fa2d9c1d
+  m_Pitch: 659f82e5509400d41abccd1f3379e459
+  m_Send: 00000000000000000000000000000000
+  m_Effects:
+  - {fileID: -1242547084683258719}
+  - {fileID: 241714803346043958}
+  m_UserColorIndex: 0
+  m_Mute: 0
+  m_Solo: 0
+  m_BypassEffects: 0
 --- !u!243 &2204273267946597806
 AudioMixerGroupController:
   m_ObjectHideFlags: 0

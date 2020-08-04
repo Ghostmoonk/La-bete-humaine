@@ -12,3 +12,28 @@ ID|Subject
 10|RepartirCroixMaufras
 11|ApprocheMaufras
 12|EnlisementDefinitif
+13|Blessure
+14|EchecAnomalie
+15|ReussiteAnomalie
+16|Montée-BaissePression-Success
+17|Montée-BaissePression-Echec
+18|VitesseDiminue-Success
+19|VitesseDiminue-Echec
+20|PressionMonteTrop-Success
+21|PressionMonteTrop-Echec
+22|ManqueGraissage-Success
+23|ManqueGraissage-Echec
+24|VisibilitéNulle-Success
+25|VisibilitéNulle-Echec
+26|VisibilitéNulle2 -Success
+27|VisibilitéNulle2 -Echec
+28|ArrêtBarentin-Success
+29|ArrêtBarentin-Echec
+30|Enlisement-Success
+31|Enlisement-Echec
+32|RepartirCroixMaufras
+33|RepartirCroixMaufras
+34|EnlisementDefinitif-Success
+35|EnlisementDefinitif-Echec
+36|Blessure-Success
+37|Blessure-Echec

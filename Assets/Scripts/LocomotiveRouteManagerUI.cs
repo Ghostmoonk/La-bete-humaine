@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class LocomotiveRouteManagerUI : MonoBehaviour
+public class LocomotiveRouteManagerUI : MonoBehaviour, IHaveTextChanging
 {
     private static LocomotiveRouteManagerUI instance;
     public static LocomotiveRouteManagerUI Instance
@@ -27,9 +27,10 @@ public class LocomotiveRouteManagerUI : MonoBehaviour
     [Header("Route infos")]
     [SerializeField] LineRenderer friezeLineR;
     [SerializeField] FriezeDrawer friezeDrawer;
-    //[SerializeField] Image friezeImg;
     [SerializeField] GameObject stationIconPrefab;
     [SerializeField] TextMeshProUGUI hoveredStationText;
+    [SerializeField] TextMeshProUGUI nextStationText;
+    [SerializeField] float changeTextSpeed;
     Gradient friezeGradient;
     [Header("Gauges")]
     [SerializeField] Image charcoalGauge;
@@ -54,6 +55,16 @@ public class LocomotiveRouteManagerUI : MonoBehaviour
 
         friezeGradient = new Gradient();
         friezeGradient.mode = GradientMode.Fixed;
+    }
+
+    public void UpdateNextStationText(StationData stationData)
+    {
+        ChangeText(nextStationText, stationData.nextStation.stationName, changeTextSpeed);
+    }
+
+    public void ChangeText(TextMeshProUGUI textMesh, string newText, float changeTextSpeed = 0)
+    {
+        StartCoroutine(TextModifier.Instance.ProgressChangeText(textMesh, newText, changeTextSpeed));
     }
 
     #region Frieze
@@ -119,7 +130,13 @@ public class LocomotiveRouteManagerUI : MonoBehaviour
     }
 
     private void HideHoveredStation() => hoveredStationText.gameObject.SetActive(false);
+
+
     #endregion
 
+}
 
+public interface IHaveTextChanging
+{
+    void ChangeText(TextMeshProUGUI textMesh, string newText, float changeTextSpeed = 0f);
 }

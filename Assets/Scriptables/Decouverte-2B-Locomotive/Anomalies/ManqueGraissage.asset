@@ -23,3 +23,5 @@ MonoBehaviour:
     isCorrect: 1
   - answerText: "remplissant le godet graisseur en se tenant d\u2019une main au tringle"
     isCorrect: 1
+  charcoalCostFail: 5
+  timeCostFail: 5

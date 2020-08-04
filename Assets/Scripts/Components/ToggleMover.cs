@@ -10,7 +10,7 @@ public class ToggleMover : MonoBehaviour, IIndependantTween
     Tweener tween;
     [SerializeField] bool isUnityTimeScaleInDependant;
     [SerializeField] float transitionDuration;
-    bool toggler;
+    bool toggler = false;
     Vector2 initialAnchoredPos;
     [Range(-1, 1)]
     [SerializeField] int direction = 1;

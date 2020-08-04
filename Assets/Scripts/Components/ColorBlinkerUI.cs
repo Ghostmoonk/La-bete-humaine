@@ -12,6 +12,7 @@ public class ColorBlinkerUI : MonoBehaviour
     [SerializeField] float period;
     [SerializeField] float periodVariance;
     [SerializeField] Ease ease;
+    [SerializeField] Tween[] tweens;
 
     [SerializeField] bool canBlink = true;
 
@@ -23,40 +24,61 @@ public class ColorBlinkerUI : MonoBehaviour
         {
             graphicIniColorDico.Add(item, item.graphic.color);
         }
+        tweens = new Tween[graphics.Length];
     }
     public void StartBlink()
     {
+        int compteur = 0;
         foreach (var item in graphicIniColorDico)
         {
-            Blink(item);
+            Blink(item, compteur);
+            compteur++;
         }
     }
 
-    private void Blink(KeyValuePair<GraphicColor, Color> pair)
+    private void Blink(KeyValuePair<GraphicColor, Color> pair, int compteur)
     {
         float blinkTime = Random.Range(period - periodVariance, period + periodVariance);
-        Tween tween = pair.Key.graphic.DOColor(pair.Key.color, blinkTime).SetEase(ease);
+        tweens[compteur] = pair.Key.graphic.DOColor(pair.Key.color, blinkTime).SetEase(ease);
 
-        tween.OnComplete(() => BlinkBack(pair));
+        tweens[compteur].OnComplete(() => BlinkBack(pair, compteur));
 
     }
 
-    private void BlinkBack(KeyValuePair<GraphicColor, Color> pair)
+    private void BlinkBack(KeyValuePair<GraphicColor, Color> pair, int compteur)
     {
         float blinkTime = Random.Range(period - periodVariance, period + periodVariance);
-        Tween tween = pair.Key.graphic.DOColor(pair.Value, blinkTime).SetEase(ease);
+        tweens[compteur] = pair.Key.graphic.DOColor(pair.Value, blinkTime).SetEase(ease);
 
         if (canBlink)
         {
-            tween.OnComplete(() => Blink(pair));
+            tweens[compteur].OnComplete(() => Blink(pair, compteur));
         }
+    }
+
+    public void CancelBlink()
+    {
+        if (canBlink)
+            foreach (var item in graphicIniColorDico)
+            {
+                item.Key.graphic.color = new Color(item.Value.r, item.Value.g, item.Value.b, item.Key.graphic.color.a);
+            }
     }
 
     public void ToggleBlink(bool doBlink)
     {
         canBlink = doBlink;
-        Debug.Log(canBlink);
     }
+
+    public void KillTweens()
+    {
+        foreach (var item in tweens)
+        {
+            item.Pause();
+            item.Kill();
+        }
+    }
+
 }
 
 [System.Serializable]

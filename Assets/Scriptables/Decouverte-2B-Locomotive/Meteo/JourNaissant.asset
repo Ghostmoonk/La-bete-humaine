@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b8cfafd590f7924a8b266fa8d50d57e, type: 3}
+  m_Name: JourNaissant
+  m_EditorClassIdentifier: 
+  weatherTitle: 
+  weatherText: "La plaine, le d\xE9roulement \xE0 l\u2019infini de l\u2019\xE9pais
+    tapis de neige, o\xF9 la machine filait comme un paquebot, laissant un sillage.\nEn
+    face de cette neige dont la couche augmentait toujours : jamais il n\u2019arriverait
+    \xE0 Rouen. \r\nIl \xE9tait sept heures trois quarts, le jour naissait ; mais,
+    \xE0 peine en distinguait-on la p\xE2leur au ciel, dans l\u2019immense tourbillon
+    blanch\xE2tre qui emplissait l\u2019espace, d\u2019un bout de l\u2019horizon
+    \xE0 l\u2019autre. Cette clart\xE9 louche, o\xF9 rien ne se distinguait encore
+    (...).\r"
+  weatherParatext: Ch VII, p.379
+  newRelief: 0
+  meteoText: 65 cm de neige

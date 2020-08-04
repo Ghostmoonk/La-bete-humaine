@@ -1,6 +1,6 @@
 ID|Personnage|Texte|Phase ID|Dialog ID|En réponse à|Réponses possibles|empty
-0|Pecqueux|Tu es prêt à partir Lantier ? ||0|||
-1|Lantier|Il le faut, malgré cette tempête.||0|0||
+0|Pecqueux|Allez, à nos postes, Pecqueux ! Ce ciel noir m’inquiète. Le diable m’emporte si l’on voit un signal !||0|||
+1|Lantier|Encore si l’on peut passer !||0|0||
 2|Lantier|On monte. L'aiguille bleue du manomètre (indiquant la pression) baisse, le feu tombe…||1|||
 3|Lantier|Malgré ce sale temps, je dois éviter de prendre du retard ! Sinon, je peux dire adieu à ma prime ce mois-ci !||1|2||
 4|Lantier|Jamais elle ne montera, la fénéante !||2|||
@@ -25,17 +25,45 @@ ID|Personnage|Texte|Phase ID|Dialog ID|En réponse à|Réponses possibles|empty
 23|Lantier|Et voici que le chef de gare me signale des quantités considérables de neige à la Croix-de-Maufras !||8|||
 24|Lantier|Tonnerre de Dieu ! Je l’ai bien dit à Beuzeville !||8|23||
 25|Pecqueux|Lantier, calmez-vous donc…||8|24||
-26|Lantier|Qu’est-ce que ça pouvait leur faire, de doubler l’attelage ? … Ah ! Nous allons être gentils !||8|25||
-27|Lantier|La neige s'amasse de façon irrégulière, des masses de neige bouchent certains passages…||9|||
-28|Lantier|Je crains qu’on ne s’enlise un peu plus loin, entre deux talus !||9|27||
-29|Lantier|Pécqueux, nom de Dieu de salop! Réveillez-vous! Le manomètre descend encore!||9|28||
-30|Lantier|La Lison s’arrête! Elle ne bouge plus! C’est fait, la neige la tient! ||9|29||
-31|Lantier|Avoir dégagé le cendrier devrait nous suffire pour repartir.||10|||
-32|Lantier|C’est assez déblayé ! Montez, je me charge du reste.||10|31||
-33|Pecqueux|Très bien, je m’occupe du feu !||10|32||
-34|Lantier|C’est une bonne bête tout de même, elle devrait pouvoir foncer dans ce tas de neige.||10|33||
-35|Lantier|On n’est pas encore tiré d’affaire! À 300 m de la Croix-de-Maufras, il y a une tranchée profonde qui s’ouvre en direction du vent. ||11|||
-36|Lantier|Si la Lison ne perce pas, on va naufrager ici, c’est sûr!||11|35||
-37|Lantier|50 mètres, 30 mètres encore !||12|||
-38|Lantier|Pecqueux, voici que la Lison s’arrête définitivement, expirante, dans le grand froid !||12|37||
-39|Lantier|Son souffle s’éteint, elle est immobile, elle est morte !||12|38||
+26|Chef de gare|Je crois qu’on peut encore passer, mais vous aurez de la peine.||8|25||
+27|Lantier|Qu’est-ce que ça pouvait leur faire, de doubler l’attelage ? … Ah ! Nous allons être gentils !||8|26||
+28|Lantier|La neige s'amasse de façon irrégulière, des masses de neige bouchent certains passages…||9|||
+29|Lantier|Je crains qu’on ne s’enlise un peu plus loin, entre deux talus !||9|28||
+30|Lantier|Pécqueux, nom de Dieu de salop! Réveillez-vous! Le manomètre descend encore!||9|29||
+31|Lantier|La Lison s’arrête! Elle ne bouge plus! C’est fait, la neige la tient! ||9|30||
+32|Lantier|Avoir dégagé le cendrier devrait nous suffire pour repartir.||10|||
+33|Lantier|C’est assez déblayé ! Montez, je me charge du reste.||10|32||
+34|Pecqueux|Très bien, je m’occupe du feu !||10|33||
+35|Lantier|C’est une bonne bête tout de même, elle devrait pouvoir foncer dans ce tas de neige.||10|34||
+36|Lantier|On n’est pas encore tiré d’affaire! À 300 m de la Croix-de-Maufras, il y a une tranchée profonde qui s’ouvre en direction du vent. ||11|||
+37|Lantier|Si la Lison ne perce pas, on va naufrager ici, c’est sûr!||11|36||
+38|Lantier|50 mètres, 30 mètres encore !||12|||
+39|Lantier|Pecqueux, voici que la Lison s’arrête définitivement, expirante, dans le grand froid !||12|38||
+40|Lantier|Son souffle s’éteint, elle est immobile, elle est morte !||12|39||
+41|Lantier|Le cylindre a reçu une tape! L’arrêt a été causé par des traverses de chêne. Des cantonniers ont dû laisser ça sur le rail, la neige et le vent ont fait le reste!||13|||
+42|Pecqueux|Qu’est-ce que tu fais Lantier ? Si on continue comme ça, on n’aura pas notre prime !||14|||
+43|Lantier|Désolé… J’étais étourdi.||14|42||
+44|Lantier|Allé ! On continue !||15|||
+45|Pecqueux|Filons à toute vitesse !||15|44||
+46|Lantier|Pecqueux ! Réveillez-vous, sacré noceur!  Il faut pousser le feu!||16|||
+47|Lantier|Pecqueux, sacré noceur, arrêtez d’injecter de l’eau dans la chaudière ! La pression baisse !||17|||
+48|Pecqueux|Bon, bon, ça y est, je suis debout ! Voilà, une bonne couche de charbon bien égale et un coup de balai et nous voilà sortis d’affaire. ||18|||
+49|Lantier|Que diable faites-vous là, Pecqueux? Autant de charbon à la fois? ||19|||
+50|Lantier|Non de Dieu, ma vieille, tu commences à t’essoufler, hein ? Un peu d’eau te fera du bien ! Voyons cet injecteur ! ||20|||
+51|Lantier|Pecqueux, arrêtez de lever la tige du cendrier ! Vous avez perdu la tête ? Vous ne voyez pas qu’elle tire de toutes ses forces ?||21|||
+52|Lantier|Sale rosse capricieuse! J’ai senti passer la mort en graissant tes cylindres! ||22|||
+53|Lantier|J’ai eu tort de faire confiance à cet ivrogne de Pecqueux qui dit savoir graisser les dames ! ||23|||
+54|Pecqueux|J’ai eu raison d’y voir un feu rouge ! Jamais il n’aurait tiré le sifflet, sinon ! Il croyait à une hallucination ! ||24|||
+55|Lantier|Nom de Dieu, Pecqueux, c’était un feu rouge! Je n’ai pas rêvé ! On passe justement Saint-Romain ! ||25|||
+56|Lantier|Bon, que diable m’emporte si je quitte désormais la tringle du sifflet !||26|||
+57|Lantier|On peut toujours essuyer nos lunettes ou doubler de vigilance, cela ne servira à rien!||27|||
+58|Lantier|J’avais bien raison de craindre ce pays vallonné, bossu et plein d’obstacles ! Les tranchées, de véritables remparts de neige ! ||28|||
+59|Pecqueux|Je vous l’avez bien dit: le tambour et le vent n’y sont pour rien ! ||29|||
+60|Lantier|Fichtre! Quel travail de forçat, détacher ce cendrier! On a failli s’écraser vingt fois! ||30|||
+61|Pecqueux|Lantier, cela ne servira à rien de fermer le régulateur et d’attendre de l’aide! Et bon sang, arrêtez de tirer le sifflet! ||31|||
+62|Lantier|Il a fallu y foncer, hein? Mais la voilà enfin libre! C’est une forte bête, Pecqueux, elle a des muscles de métal! ||32|||
+63|Lantier|Cela ne suffira pas à la tirer de là! Il faut tenter autre chose! ||33|||
+64|Lantier|Sans attelage et l’aide de ces gaillards, elle ne serait jamais repartie, la pauvre bête! ||34|||
+65|Pecqueux|Foutus! Elle refuse de bouger! On ne pourra pas la faire ni avancer ni reculer! Elle est collée au sol, inerte, sourde!||35|||
+66|Lantier|Je crains que ce ne soit qu’une blessure apparente! Rien n’est plus délicat que le mécanisme compliqué de cette pauvre bête, où bat le coeur!||36|||
+67|Lantier|Et malgré ça, c’est autre chose qui me préoccupe à présent…||37|||

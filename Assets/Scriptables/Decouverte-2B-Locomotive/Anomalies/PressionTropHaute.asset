@@ -24,3 +24,5 @@ MonoBehaviour:
   - answerText: "Faire mouvoir le petit volant de l\u2019injecteur: m\xEAme si la
       pression baisse (pour injecter de l\u2019eau). "
     isCorrect: 1
+  charcoalCostFail: 10
+  timeCostFail: 0

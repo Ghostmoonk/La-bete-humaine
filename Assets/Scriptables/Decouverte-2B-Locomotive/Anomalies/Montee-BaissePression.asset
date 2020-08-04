@@ -24,3 +24,5 @@ MonoBehaviour:
     isCorrect: 1
   - answerText: "Injecter de l\u2019eau froide dans la chaudi\xE8re."
     isCorrect: 0
+  charcoalCostFail: 5
+  timeCostFail: 5

@@ -19,7 +19,6 @@ public class BackgroundRepeater : MonoBehaviour
         {
             LoadChildBackgrounds(item);
         }
-        Debug.Log(screenBounds);
     }
 
     //Create the backgrounds needed in order to have a propper parallax and movement effect
@@ -42,7 +41,13 @@ public class BackgroundRepeater : MonoBehaviour
         }
 
         Destroy(clone);
-        Destroy(background.backgroundGroup.GetComponent<SpriteRenderer>());
+        foreach (Component comp in background.backgroundGroup.GetComponents<Component>())
+        {
+            if (comp.GetType() != typeof(Transform))
+            {
+                Destroy(comp);
+            }
+        }
     }
 
     private void LateUpdate()

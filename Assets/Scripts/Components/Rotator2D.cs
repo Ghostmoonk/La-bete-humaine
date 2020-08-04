@@ -12,7 +12,6 @@ public class Rotator2D : MonoBehaviour
 
     public void Rotate(float duration)
     {
-        Debug.Log(transform.eulerAngles.z);
         Tween tween = transform.DORotate(new Vector3(0, 0, transform.eulerAngles.z + additionnalAngleDeg), duration).SetEase(ease).SetUpdate(false);
         tween.OnComplete(() => { OnRotationEnds?.Invoke(); ResetAngle(); });
     }

@@ -24,3 +24,5 @@ MonoBehaviour:
     isCorrect: 1
   - answerText: " Mettre de grosses quantit\xE9s de charbon dans le foyer."
     isCorrect: 0
+  charcoalCostFail: 0
+  timeCostFail: 10

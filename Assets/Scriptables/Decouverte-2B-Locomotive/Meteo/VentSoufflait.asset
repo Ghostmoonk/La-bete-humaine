@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b8cfafd590f7924a8b266fa8d50d57e, type: 3}
+  m_Name: VentSoufflait
+  m_EditorClassIdentifier: 
+  weatherTitle: 
+  weatherText: "Le vent soufflait de l\u2019est, la machine avait ainsi vent debout,
+    fouett\xE9e de face par les rafales; le vent opposait une r\xE9sistance \xE9norme.[...]
+    La couche de neige tomb\xE9e ne pr\xE9occupait pas encore Jacques, car il y en
+    avait au plus soixante centim\xE8tres, et le chasse-neige en d\xE9blayait ais\xE9ment
+    un m\xE8tre. "
+  weatherParatext: Ch VII, p.366
+  newRelief: 0
+  meteoText: 70 cm de neige

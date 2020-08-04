@@ -23,7 +23,7 @@ Material:
   m_Name: MovingFog
   m_Shader: {fileID: -6465566751694194690, guid: a1b7a450bf188144e8962d1570daca59,
     type: 3}
-  m_ShaderKeywords: 
+  m_ShaderKeywords: ETC1_EXTERNAL_ALPHA
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -46,7 +46,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 10300, guid: 0000000000000000f000000000000000, type: 0}
+        m_Texture: {fileID: 2800000, guid: 58480cbb4123cf147a0357a29c7316c2, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
@@ -62,7 +62,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
-    - Vector1_F8456C3: 0.75
+    - Vector1_F8456C3: 0.769
     - _AlphaClip: 0
     - _Blend: 0
     - _BumpScale: 1
@@ -73,6 +73,7 @@ Material:
     - _GlossMapScale: 0
     - _Glossiness: 0
     - _GlossyReflections: 0
+    - _Intensity: 0.75
     - _Metallic: 0
     - _OcclusionStrength: 1
     - _QueueOffset: 0
@@ -87,6 +88,9 @@ Material:
     m_Colors:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
+    - _DirectionSpeed: {r: 2, g: 0, b: 0, a: 0}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _MainColor: {r: 0.7830189, g: 0.40699142, b: 0.22530258, a: 1}
+    - _MainColor: {r: 0.0026960785, g: 0.004656863, b: 0.004779412, a: 1}
+    - _Scale: {r: 1, g: 1, b: 0, a: 0}
+    - _Size: {r: 8, g: 8, b: 0, a: 0}
     - _SpecColor: {r: 0.2, g: 0.2, b: 0.2, a: 1}

@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   title: "La temp\xEAte obstrue la visiblit\xE9"
   questionText: "Quand on aper\xE7oit un feu rouge \xE9tincelant au loin, on doit: "
-  locomotiveComponent: 0
+  locomotiveComponent: 5
   answers:
   - answerText: 'avertir son chef '
     isCorrect: 1
@@ -22,3 +22,5 @@ MonoBehaviour:
     isCorrect: 0
   - answerText: 'tirer la tringle du sifflet, longuement, car on traverse une gare '
     isCorrect: 1
+  charcoalCostFail: 0
+  timeCostFail: 5

@@ -1,4 +1,5 @@
 ﻿using DG.Tweening;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,20 +7,46 @@ using UnityEngine.Events;
 
 public class MovementReferenceObject : MonoBehaviour
 {
+
     public float speed;
+    [Tooltip("A reference speed, more like the 'normal speed'")]
+    [SerializeField] float mediumSpeed;
     [SerializeField] float timeToChangeSpeed;
     [SerializeField] Ease accelerationCurve;
     [HideInInspector] public float distanceDone;
     bool consideredAsMoving = true;
+    [SerializeField] FloatUnityEvent OnSpeedChange;
+    bool isUpdatingSpeed = false;
+    Tween tween;
 
     public void StopInTime(float stopDuration)
     {
-        DOTween.To(() => speed, x => speed = x, 0f, stopDuration);
+        ChangeSpeed(0, stopDuration);
     }
 
     public void ChangeSpeed(float newSpeed)
     {
-        DOTween.To(() => speed, x => speed = x, newSpeed, timeToChangeSpeed).SetEase(accelerationCurve);
+        isUpdatingSpeed = true;
+        if (tween != null)
+            if (tween.IsPlaying())
+                tween.Kill();
+        tween = DOTween.To(() => speed, x => speed = x, newSpeed, timeToChangeSpeed).SetEase(accelerationCurve);
+        tween.OnComplete(() => { isUpdatingSpeed = false; });
+    }
+
+    public void ChangeSpeed(float newSpeed, float specificDuration)
+    {
+        isUpdatingSpeed = true;
+        if (tween != null)
+            if (tween.IsPlaying())
+                tween.Kill();
+        tween = DOTween.To(() => speed, x => speed = x, newSpeed, specificDuration).SetEase(accelerationCurve);
+        tween.OnComplete(() => { isUpdatingSpeed = false; });
+    }
+
+    public void SetMediumSpeed()
+    {
+        ChangeSpeed(mediumSpeed);
     }
 
     public void SetTimeToChangeSpeed(float newAccelerationTime)
@@ -50,6 +77,7 @@ public class MovementReferenceObject : MonoBehaviour
         float iniTime = -iniSpeed / acceleration;
         float timeRemain = iniTime;
 
+        isUpdatingSpeed = true;
         while (timeRemain >= 0f)
         {
             speed = iniSpeed + acceleration * (iniTime - timeRemain);
@@ -58,9 +86,7 @@ public class MovementReferenceObject : MonoBehaviour
             yield return null;
         }
         speed = 0f;
-        Debug.Log(distanceDone);
-        Debug.Log(distance);
-
+        isUpdatingSpeed = false;
         StopCoroutine(SlowStop(distance));
     }
 
@@ -68,8 +94,17 @@ public class MovementReferenceObject : MonoBehaviour
     {
         if (consideredAsMoving)
             distanceDone += Time.deltaTime * speed;
+        if (isUpdatingSpeed)
+            OnSpeedChange?.Invoke(speed);
+
     }
 
     public void SetConsideredMoving(bool toggle) => consideredAsMoving = toggle;
+
+}
+
+[System.Serializable]
+public class FloatUnityEvent : UnityEvent<float>
+{
 
 }

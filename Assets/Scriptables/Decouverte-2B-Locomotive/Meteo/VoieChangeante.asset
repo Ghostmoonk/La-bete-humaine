@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b8cfafd590f7924a8b266fa8d50d57e, type: 3}
+  m_Name: VoieChangeante
+  m_EditorClassIdentifier: 
+  weatherTitle: 
+  weatherText: "Tout de suite, Jacques sentit que l\u2019\xE9tat de la voie changeait.
+    (...) Le vent, qui balayait les remblais, comblait au contraire les tranch\xE9es.
+    C\u2019\xE9tait ainsi une continuelle succession d\u2019obstacles \xE0 franchir,
+    des bouts de voie libre que barraient de v\xE9ritables remparts. Il faisait plein
+    jour maintenant, et la contr\xE9e d\xE9vast\xE9e, ces gorges \xE9troites, ces
+    pentes raides, prenaient, sous leur couche de neige, la d\xE9solation d\u2019un
+    oc\xE9an de glace, immobilis\xE9 dans la tourmente."
+  weatherParatext: Ch VII, p.379
+  newRelief: 0
+  meteoText: 80 cm de neige

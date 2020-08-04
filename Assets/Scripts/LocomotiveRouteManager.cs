@@ -35,7 +35,7 @@ public class LocomotiveRouteManager : MonoBehaviour
     [SerializeField] StationData stationDeparture;
     StationData currentStationSegment;
     [SerializeField] RouteEvents[] routeEvents;
-
+    [SerializeField] StationEvent OnNextStationChange;
     RouteEvents currentsRouteEvents;
 
     private float routeTotalDistance;
@@ -43,9 +43,8 @@ public class LocomotiveRouteManager : MonoBehaviour
 
     private void Start()
     {
-        UpdateCurrentRouteEvents();
-
         currentStationSegment = stationDeparture;
+        OnNextStationChange?.Invoke(currentStationSegment);
         UpdateCurrentRouteEvents();
 
         routeManagerUI = LocomotiveRouteManagerUI.Instance;
@@ -91,23 +90,14 @@ public class LocomotiveRouteManager : MonoBehaviour
         if (locomotive.distanceDone - routeDistanceUntilLastStation >= currentStationSegment.distwithNextStation)
         {
             currentStationSegment = currentStationSegment.nextStation;
+            OnNextStationChange?.Invoke(currentStationSegment);
             UpdateCurrentRouteEvents();
+            routeDistanceUntilLastStation = locomotive.distanceDone;
         }
     }
 
     private void UpdateCurrentRouteEvents()
     {
-        //if (currentsRouteEvents.routeEventArray.Count > 0)
-        //    currentsRouteEvents.routeEventArray.Clear();
-
-        //foreach (RouteEvents routeE in routeEvents)
-        //{
-        //    if (currentStationSegment == routeE.stationSegment)
-        //    {
-        //        currentsRouteEvents.Add(routeE);
-        //    }
-        //}
-
         foreach (RouteEvents item in routeEvents)
         {
             if (currentStationSegment == item.stationSegment)
@@ -115,8 +105,6 @@ public class LocomotiveRouteManager : MonoBehaviour
                 currentsRouteEvents = item;
             }
         }
-
-        routeDistanceUntilLastStation = locomotive.distanceDone;
     }
 
     public void Debug_(StationData stationData)
@@ -142,4 +130,10 @@ public struct RouteEvent
     public float lerpedDistance;
     //something happen
     public UnityEvent whatShallHappen;
+}
+
+[System.Serializable]
+public class StationEvent : UnityEvent<StationData>
+{
+
 }
