@@ -44,29 +44,23 @@ public class MovementReferenceObject : MonoBehaviour
         tween.OnComplete(() => { isUpdatingSpeed = false; });
     }
 
-    public void SetMediumSpeed()
-    {
-        ChangeSpeed(mediumSpeed);
-    }
+    public void ChangeSpeedDelayed(float delay) => Invoke(nameof(SetMediumSpeed), delay);
 
-    public void SetTimeToChangeSpeed(float newAccelerationTime)
-    {
-        timeToChangeSpeed = newAccelerationTime;
-    }
+    public void SetMediumSpeed() => ChangeSpeed(mediumSpeed);
+
+    public void SetMediumSpeed(float newMediumSpeed) => mediumSpeed = newMediumSpeed;
+
+    public void SetTimeToChangeSpeed(float newAccelerationTime) => timeToChangeSpeed = newAccelerationTime;
+
 
     public void SlowStopToDistance(float ratioDist)
     {
         Debug.Log("Debut slow, distance parcourue :" + distanceDone);
         Debug.Log("Equivalent ratio : " + Mathf.Lerp(0, LocomotiveRouteManager.Instance.GetCurrentStationInRoute().distwithNextStation, ratioDist));
 
-
-        //Tween tween = DOTween.To(() => speed, x => speed = x, 0f, realDist / 2 * Mathf.Pow(iniSpeed, 2));
-
         float realDist = ratioDist * LocomotiveRouteManager.Instance.GetCurrentStationInRoute().distwithNextStation;
         StartCoroutine(SlowStop(realDist));
 
-
-        //tween.OnComplete(() => Debug.Log("parcouru : " + distanceDone));
     }
 
     IEnumerator SlowStop(float distance)

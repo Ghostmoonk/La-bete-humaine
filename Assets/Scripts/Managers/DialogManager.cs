@@ -114,7 +114,6 @@ public class DialogManager : MonoBehaviour
 
     public void FinishSentence()
     {
-        Debug.Log(typingSentence);
         if (typingSentence)
         {
             typingSentence = false;

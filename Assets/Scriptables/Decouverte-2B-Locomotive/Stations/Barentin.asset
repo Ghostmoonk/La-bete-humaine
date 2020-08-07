@@ -15,4 +15,4 @@ MonoBehaviour:
   stationName: Barentin
   nextStation: {fileID: 11400000, guid: ec2ed089e381f434495068594e9066aa, type: 2}
   distwithNextStation: 140
-  altitude: 100
+  altitude: 65

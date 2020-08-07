@@ -15,4 +15,4 @@ MonoBehaviour:
   stationName: Bolbec
   nextStation: {fileID: 11400000, guid: 83ac2ca8f3695444582dc2611666ce2a, type: 2}
   distwithNextStation: 340
-  altitude: 100
+  altitude: 130

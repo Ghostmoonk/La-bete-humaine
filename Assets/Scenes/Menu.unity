@@ -1677,7 +1677,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 120.17993, y: -451.23947}
+  m_AnchoredPosition: {x: 120.17987, y: -451.23947}
   m_SizeDelta: {x: 240.36, y: 165.21}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &264217591
@@ -6035,7 +6035,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 182.06494, y: -261.47583}
+  m_AnchoredPosition: {x: 182.06488, y: -261.47583}
   m_SizeDelta: {x: 364.12994, y: 154.3172}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1146656732
@@ -8302,6 +8302,7 @@ MonoBehaviour:
   source: {fileID: 1594738487}
   loopDifferentSounds: 0
   delayBetweenSounds: 0
+  delayBetweenSoundsVariance: 0
 --- !u!82 &1594738487
 AudioSource:
   m_ObjectHideFlags: 0
@@ -10703,7 +10704,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 182.06494, y: -77.1586}
+  m_AnchoredPosition: {x: 182.06488, y: -77.1586}
   m_SizeDelta: {x: 364.12994, y: 154.3172}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1885930609
@@ -11902,6 +11903,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxOpacity: 1
   IsUnityTimeScaleIndependant: 0
+  ease: 0
   graphic:
   - {fileID: 0}
   EndFadeOutText:
@@ -12315,6 +12317,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3977109508591901905, guid: 8450b15718dbc6d4e8ab68ded77bd082,
+        type: 3}
+      propertyPath: m_Intensity
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 9198054437842432816, guid: 8450b15718dbc6d4e8ab68ded77bd082,
         type: 3}
       propertyPath: m_Name
@@ -12448,7 +12455,7 @@ PrefabInstance:
     - target: {fileID: 9198054438585034200, guid: 8450b15718dbc6d4e8ab68ded77bd082,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 268.13
+      value: 208.81
       objectReference: {fileID: 0}
     - target: {fileID: 9198054438585034201, guid: 8450b15718dbc6d4e8ab68ded77bd082,
         type: 3}

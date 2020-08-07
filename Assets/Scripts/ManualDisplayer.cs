@@ -52,7 +52,7 @@ public class ManualDisplayer : MonoBehaviour
     {
         GameObject itemSummary = Instantiate(summaryItemPrefab, summaryItemParent);
         itemSummary.GetComponentInChildren<TextMeshProUGUI>().text = anomalyType.ToString();
-        itemSummary.GetComponent<Button>().onClick.AddListener(delegate { SetAnomalieTypeDisplaying(anomalyType); DesactivatePages(); ShowPage(0); });
+        itemSummary.GetComponent<Button>().onClick.AddListener(delegate { SetAnomalieTypeDisplaying(anomalyType); DesactivatePages(); ShowPage(0); SoundManager.Instance.PlaySound(GetComponent<AudioSource>(), "next-page"); });
     }
 
     private void ShowPage(int index)
@@ -118,6 +118,7 @@ public class ManualDisplayer : MonoBehaviour
             pagesDico[manualNote.anomalieType].Add(manualPage);
 
             manualPage.GetComponent<ManualPage>().SetupContents(manualNote.anomalieType, manualNote.title, manualNote.text, manualNote.textParatext, manualNote.manuscrit, manualNote.manuscritParatext);
+            Resizer.ResizeLayout(manualPage.transform.GetComponent<RectTransform>());
             manualPage.SetActive(false);
         }
         Resizer.ResizeLayout(manualPageParent.GetComponent<RectTransform>());

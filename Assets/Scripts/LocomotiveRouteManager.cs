@@ -53,6 +53,7 @@ public class LocomotiveRouteManager : MonoBehaviour
         routeTotalDistance = CalculateRouteDist();
 
     }
+    public MovementReferenceObject GetMovingObject() => locomotive;
 
     private float CalculateRouteDist()
     {

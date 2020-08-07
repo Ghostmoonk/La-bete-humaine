@@ -8,6 +8,7 @@ public class SoundPlayerEditor : Editor
 {
     SerializedProperty loopDifferentSounds;
     SerializedProperty delayBetweenSounds;
+    SerializedProperty delayBetweenSoundsVariance;
     SoundPlayer soundPlayer;
 
     private void OnEnable()
@@ -16,6 +17,7 @@ public class SoundPlayerEditor : Editor
 
         loopDifferentSounds = serializedObject.FindProperty("loopDifferentSounds");
         delayBetweenSounds = serializedObject.FindProperty("delayBetweenSounds");
+        delayBetweenSoundsVariance = serializedObject.FindProperty("delayBetweenSoundsVariance");
     }
     public override void OnInspectorGUI()
     {
@@ -23,7 +25,8 @@ public class SoundPlayerEditor : Editor
 
         if (loopDifferentSounds.boolValue)
         {
-            soundPlayer.delayBetweenSounds = EditorGUILayout.Slider("Delay Between Sounds", soundPlayer.delayBetweenSounds, 0f, 2f);
+            soundPlayer.delayBetweenSounds = EditorGUILayout.Slider("Delay Between Sounds", soundPlayer.delayBetweenSounds, 0f, 160f);
+            soundPlayer.delayBetweenSoundsVariance = EditorGUILayout.Slider("Delay Between Sounds", soundPlayer.delayBetweenSoundsVariance, 0f, 160f);
         }
     }
 }

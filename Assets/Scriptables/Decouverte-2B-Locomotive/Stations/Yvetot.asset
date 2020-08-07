@@ -15,4 +15,4 @@ MonoBehaviour:
   stationName: Yvetot
   nextStation: {fileID: 11400000, guid: 1f9be1c35a6ed204cbdade156fd38654, type: 2}
   distwithNextStation: 140
-  altitude: 0
+  altitude: 145

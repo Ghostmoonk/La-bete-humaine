@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -1110,6 +1110,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxOpacity: 1
   IsUnityTimeScaleIndependant: 0
+  ease: 0
   graphic:
   - {fileID: 482501717}
   EndFadeOutText:
@@ -1383,6 +1384,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxOpacity: 0.2
   IsUnityTimeScaleIndependant: 0
+  ease: 0
   graphic:
   - {fileID: 716877652}
   EndFadeOutText:
@@ -3224,6 +3226,7 @@ MonoBehaviour:
   source: {fileID: 1266451243}
   loopDifferentSounds: 0
   delayBetweenSounds: 0
+  delayBetweenSoundsVariance: 0
 --- !u!1 &1387090129
 GameObject:
   m_ObjectHideFlags: 0
@@ -4133,6 +4136,7 @@ MonoBehaviour:
   source: {fileID: 1552791402}
   loopDifferentSounds: 0
   delayBetweenSounds: 0
+  delayBetweenSoundsVariance: 0
 --- !u!82 &1552791402
 AudioSource:
   m_ObjectHideFlags: 0
@@ -5918,6 +5922,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxOpacity: 1
   IsUnityTimeScaleIndependant: 0
+  ease: 0
   graphic:
   - {fileID: 1794993292}
   EndFadeOutText:
@@ -10795,6 +10800,12 @@ PrefabInstance:
       propertyPath: bookSource
       value: 
       objectReference: {fileID: 987004451}
+    - target: {fileID: 8468498206708031111, guid: 47f9108b540c0314fb216eda7682650c,
+        type: 3}
+      propertyPath: summaryNoteTextPrefab
+      value: 
+      objectReference: {fileID: 9154190053008075450, guid: cb21d4e71291b8e4587404e5c8f00ac4,
+        type: 3}
     - target: {fileID: 8589773622382137722, guid: 47f9108b540c0314fb216eda7682650c,
         type: 3}
       propertyPath: m_Layer
@@ -11477,7 +11488,7 @@ PrefabInstance:
     - target: {fileID: 8436650877889453665, guid: 63699f2c3b40f184ca2f2ce683de11a4,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 85
+      value: 84.999985
       objectReference: {fileID: 0}
     - target: {fileID: 8436650877889453665, guid: 63699f2c3b40f184ca2f2ce683de11a4,
         type: 3}

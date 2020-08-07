@@ -63,7 +63,6 @@ MonoBehaviour:
   pastCursorTexture: {fileID: 2800000, guid: 41b2de10883475e4881b0ee2c12d827b, type: 3}
   cursorMode: 1
   hotSpot: {x: 0, y: 0}
-  cursorListener: {fileID: 0}
 --- !u!114 &1985806191
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -154,7 +153,7 @@ MonoBehaviour:
     - {fileID: 8300000, guid: 97a79baf8eb1d204aa981dd60c8444f1, type: 3}
   - name: open-book
     clips:
-    - {fileID: 8300000, guid: 38c6c602ccdab1047a36d61e92ea0e9d, type: 3}
+    - {fileID: 8300000, guid: 8a4d78db3dc79854399645033fe409fb, type: 3}
     - {fileID: 8300000, guid: 8a4d78db3dc79854399645033fe409fb, type: 3}
   - name: close-book
     clips:
@@ -162,10 +161,10 @@ MonoBehaviour:
     - {fileID: 8300000, guid: d51a7ea8952d0564f9016dea5b1ea02d, type: 3}
   - name: next-page
     clips:
-    - {fileID: 8300000, guid: e2437504c701d194ba07903df82e5fe5, type: 3}
+    - {fileID: 8300000, guid: 4b7380629de76e948a9ea098c8a224c6, type: 3}
   - name: previous-page
     clips:
-    - {fileID: 8300000, guid: 4b7380629de76e948a9ea098c8a224c6, type: 3}
+    - {fileID: 8300000, guid: e2437504c701d194ba07903df82e5fe5, type: 3}
   - name: focus-manuscrit-in
     clips:
     - {fileID: 8300000, guid: 167944badee2029498ca5812d2316a01, type: 3}
@@ -201,11 +200,42 @@ MonoBehaviour:
     - {fileID: 8300000, guid: c0adc33577c9cab49bb7e54f447010de, type: 3}
   - name: long-soft-parchment
     clips:
-    - {fileID: 8300000, guid: 50975c2f1822ca648abc3add2a904c73, type: 3}
+    - {fileID: 8300000, guid: b244b44e10db698438fadede7dcd9e12, type: 3}
+  - name: long-soft-parchment-on
+    clips:
+    - {fileID: 8300000, guid: 45bd6f47065f1244eb7da1ac5f659de0, type: 3}
   - name: short-soft-parchment
     clips:
     - {fileID: 8300000, guid: 8e1146acb99a1424eaf3628667451db1, type: 3}
     - {fileID: 8300000, guid: 31dbb0458f611ef40b1dc6d3d7a5dcbe, type: 3}
+  - name: loco-acceleration
+    clips:
+    - {fileID: 8300000, guid: 4bb91971e6dc0ac409c636acdff499cb, type: 3}
+    - {fileID: 8300000, guid: fd846bdfbfa692342bb9d293e73141ec, type: 3}
+  - name: wind-whistle
+    clips:
+    - {fileID: 8300000, guid: 200ea65038524844d894dc61eece1abb, type: 3}
+    - {fileID: 8300000, guid: 1224eedb4c5d5ab419ff64c5ad4bec71, type: 3}
+    - {fileID: 8300000, guid: 141689534d44b9346810df252944bab3, type: 3}
+    - {fileID: 8300000, guid: 9d560ea5cee70db4f8947a0f421ab33c, type: 3}
+  - name: loco-long-whistle
+    clips:
+    - {fileID: 8300000, guid: 85b1428fe87d05b45849612ec60e5858, type: 3}
+    - {fileID: 8300000, guid: 08c22615a756b9f44a592bdd81c1ed96, type: 3}
+    - {fileID: 8300000, guid: 4afd664c4159ae64688bffa2ce293db8, type: 3}
+    - {fileID: 8300000, guid: 3eb9ecf38fb28de4fba25caed2bd28b5, type: 3}
+  - name: loco-short-whistle
+    clips:
+    - {fileID: 8300000, guid: cbe2e9d84b8b6dc489d606a855e90114, type: 3}
+    - {fileID: 8300000, guid: 4b3b82fe8b1176b40a08171e1ac9f909, type: 3}
+    - {fileID: 8300000, guid: 60a6bf9b27c89c74695b26c89e07e142, type: 3}
+    - {fileID: 8300000, guid: e628d29a0fe3b884f949fcecde0a4b8b, type: 3}
+  - name: cabin-on
+    clips:
+    - {fileID: 8300000, guid: 3d32243617253b542b294bc7636eeaa7, type: 3}
+  - name: cabin-off
+    clips:
+    - {fileID: 8300000, guid: 7ce7e5c5b0066be458d8565fb48fa4d4, type: 3}
   pauseVolReduction: 3
   durationPauseDbReduction: 0.5
 --- !u!114 &4368897560425126631

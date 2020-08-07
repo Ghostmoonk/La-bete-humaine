@@ -39,7 +39,7 @@ public class Light2DBlinker : MonoBehaviour, IBlinker
         float currentIntensity = light.intensity;
         while (remainingtime < time)
         {
-            remainingtime -= Time.deltaTime;
+            remainingtime += Time.deltaTime;
             light.intensity = Mathf.Lerp(currentIntensity, 0f, remainingtime / time);
             yield return new WaitForSeconds(Time.deltaTime);
         }
@@ -59,6 +59,8 @@ public class Light2DBlinker : MonoBehaviour, IBlinker
                 light.intensity = Mathf.Lerp(currentIntensity, newIntensity, blinkTime / totalBlinkTime);
                 blinkTime += Time.deltaTime;
                 yield return new WaitForSeconds(Time.deltaTime);
+                if (!blink)
+                    break;
             }
         }
     }

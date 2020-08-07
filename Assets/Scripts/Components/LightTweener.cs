@@ -25,6 +25,7 @@ public class LightTweener : MonoBehaviour
     }
     public void Tweenintensity(float newValue)
     {
+        Debug.Log("Allé zinedine");
         StartCoroutine(SmoothChangeIntensity(newValue));
     }
 

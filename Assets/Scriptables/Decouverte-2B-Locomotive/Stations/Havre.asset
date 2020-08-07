@@ -15,4 +15,4 @@ MonoBehaviour:
   stationName: Havre
   nextStation: {fileID: 11400000, guid: 61a4025dc6d2e8141b7fa3941e4079e2, type: 2}
   distwithNextStation: 140
-  altitude: 0
+  altitude: 4

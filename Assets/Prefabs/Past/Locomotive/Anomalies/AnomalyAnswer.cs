@@ -7,6 +7,8 @@ public class AnomalyAnswer : MonoBehaviour
 {
     [SerializeField] Image resultIcon;
     [SerializeField] Toggle toggle;
+    [SerializeField] string toggleOnSoundName;
+    [SerializeField] string toggleOffSoundName;
 
     public void UpdateSprite(Sprite newSprite, Color color)
     {
@@ -20,4 +22,12 @@ public class AnomalyAnswer : MonoBehaviour
 
     public Image GetResultIconImage() => resultIcon;
 
+    public void PlayToggleSound(bool toggle)
+    {
+        if (toggle)
+            SoundManager.Instance.PlaySound(GetComponentInParent<AudioSource>(), toggleOnSoundName);
+        else
+            SoundManager.Instance.PlaySound(GetComponentInParent<AudioSource>(), toggleOffSoundName);
+
+    }
 }

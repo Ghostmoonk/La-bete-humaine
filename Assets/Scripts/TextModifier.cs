@@ -32,11 +32,13 @@ public class TextModifier : MonoBehaviour
         while (textMesh.text.Length != 0)
         {
             textMesh.text = textMesh.text.Substring(0, textMesh.text.Length - 1);
+
             yield return new WaitForSeconds(changeTextSpeed * Time.deltaTime);
         }
         for (int i = 0; i < newText.Length; i++)
         {
             textMesh.text += newText[i];
+            SoundManager.Instance.PlaySound("machine-typing");
             yield return new WaitForSeconds(changeTextSpeed * Time.deltaTime);
         }
         StopCoroutine(ProgressChangeText(textMesh, newText, changeTextSpeed));

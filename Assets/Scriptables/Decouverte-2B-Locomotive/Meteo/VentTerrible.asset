@@ -18,5 +18,6 @@ MonoBehaviour:
     dans la nuit, parmi l\u2019immense couche blanche, o\xF9 elle s\u2019ouvrait
     profond\xE9ment un sillon. Elle le secouait, l\u2019emportait. "
   weatherParatext: Ch VII, p.372
-  newRelief: 0
+  newRelief: 1
+  newReliefIcon: {fileID: 21300000, guid: 7116cfbbb32a9b84e8a467ef16524491, type: 3}
   meteoText: 50 cm de neige

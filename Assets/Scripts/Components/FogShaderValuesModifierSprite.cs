@@ -77,4 +77,11 @@ public class FogShaderValuesModifierSprite : ShaderValuesModifier
     {
         rend.material.SetVector("_Size", new Vector4((value + iniSize.x) / (value + 1), rend.material.GetVector("_Size").y, rend.material.GetVector("_Size").z, rend.material.GetVector("_Size").w));
     }
+
+    public void ChangeIntensity(float newIntensity)
+    {
+        tween = rend.material.DOFloat(newIntensity, "_Intensity", duration);
+        if (duration > 0f)
+            tween.OnComplete(() => { TransitionEnd.Invoke(); });
+    }
 }

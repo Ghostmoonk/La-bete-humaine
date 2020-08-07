@@ -23,6 +23,6 @@ MonoBehaviour:
     isCorrect: 0
   - answerText: "D\xE9blayer, atteler la locomotive et foncer dans le tas de neige,
       purger"
-    isCorrect: 0
+    isCorrect: 1
   charcoalCostFail: 10
   timeCostFail: 10

@@ -15,6 +15,7 @@ public class AudioPitcher : MonoBehaviour
 
     public void Repitch(float refValue)
     {
+        refValue = Mathf.Abs(refValue);
         mixer.audioMixer.SetFloat(exposedValueName, 1 / (refValue / baseValue));
         for (int i = 0; i < sources.Length; i++)
         {

@@ -10,9 +10,9 @@ public class DecorSpawner : MonoBehaviour
     [Tooltip("Those objects will spawn randomly everytime")]
     [SerializeField] RandomBackgroundSpeed[] randomBackgroundSpeed;
 
-    [SerializeField] Transform ponctualBackgroundParent;
-    [SerializeField] BackgroundsSpeed ponctualBackgroundTemplate;
+    [SerializeField] RandomBackgroundSpeed[] ponctualBackgrounds;
     List<BackgroundsSpeed> ponctualBackgroundList = new List<BackgroundsSpeed>();
+    Dictionary<Transform, RandomBackgroundSpeed> ponctualBackgroundDico;
     float screenPointSide;
 
     [SerializeField] protected Vector2 direction;
@@ -27,7 +27,13 @@ public class DecorSpawner : MonoBehaviour
         foreach (RandomBackgroundSpeed item in randomBackgroundSpeed)
         {
             item.randomDist = Random.Range(item.spawnRateIntervalInDistance.x, item.spawnRateIntervalInDistance.y);
+        }
 
+        ponctualBackgroundDico = new Dictionary<Transform, RandomBackgroundSpeed>();
+
+        foreach (var item in ponctualBackgrounds)
+        {
+            ponctualBackgroundDico.Add(item.parent, item);
         }
     }
 
@@ -36,7 +42,7 @@ public class DecorSpawner : MonoBehaviour
     {
         foreach (RandomBackgroundSpeed item in randomBackgroundSpeed)
         {
-            item.compteur += followedObject.speed * Time.deltaTime;
+            item.compteur += Mathf.Abs(followedObject.speed) * Time.deltaTime;
 
             if (item.compteur >= item.randomDist)
             {
@@ -44,8 +50,9 @@ public class DecorSpawner : MonoBehaviour
                 item.compteur = 0f;
             }
         }
+
+        direction.x = followedObject.speed > 0 ? -Mathf.Abs(direction.x) : Mathf.Abs(direction.x);
     }
-    public void SetPoncutalBgTemplateSpeed(float newSpeed) => ponctualBackgroundTemplate.speed = newSpeed;
 
     private Vector3 GetSpawnPositionFromSprite(SpriteRenderer spriteR)
     {
@@ -56,32 +63,57 @@ public class DecorSpawner : MonoBehaviour
             );
     }
 
-    public void SpawnPonctualBackground(Sprite sprite)
+    public void SpawnPonctualBackground(Transform parent)
     {
-        foreach (BackgroundsSpeed ponctualBg in ponctualBackgroundList)
+        RandomBackgroundSpeed currentBg = ponctualBackgroundDico[parent];
+
+        foreach (Transform child in parent)
         {
-            if (!ponctualBg.backgroundGroup.activeInHierarchy)
+            if (!child.gameObject.activeInHierarchy)
             {
-                ponctualBg.backgroundGroup.GetComponent<SpriteRenderer>().sprite = sprite;
-                ponctualBg.backgroundGroup.transform.position = GetSpawnPositionFromSprite(ponctualBg.backgroundGroup.GetComponent<SpriteRenderer>());
-                ponctualBg.backgroundGroup.SetActive(true);
+                child.GetComponent<SpriteRenderer>().sprite = currentBg.randomSprites[Random.Range(0, currentBg.randomSprites.Length)];
+                child.transform.position = GetSpawnPositionFromSprite(child.GetComponent<SpriteRenderer>());
+                child.gameObject.SetActive(true);
 
                 return;
             }
         }
 
-        GameObject ponctualBgToInstantiate = Instantiate(ponctualBackgroundTemplate.backgroundGroup, ponctualBackgroundParent);
-        ponctualBgToInstantiate.GetComponent<SpriteRenderer>().sprite = sprite;
+        GameObject ponctualBgToInstantiate = Instantiate(currentBg.bgSpeed.backgroundGroup, parent);
 
+        ponctualBgToInstantiate.GetComponent<SpriteRenderer>().sprite = currentBg.randomSprites[Random.Range(0, currentBg.randomSprites.Length - 1)];
+        ponctualBgToInstantiate.GetComponent<SpriteRenderer>().sortingOrder = currentBg.sortingOrder;
         ponctualBgToInstantiate.transform.position = GetSpawnPositionFromSprite(ponctualBgToInstantiate.GetComponent<SpriteRenderer>());
 
-        BackgroundsSpeed bgSpeed = new BackgroundsSpeed();
-        bgSpeed.backgroundGroup = ponctualBgToInstantiate;
-        bgSpeed.speed = ponctualBackgroundTemplate.speed;
-
-        ponctualBackgroundList.Add(bgSpeed);
-
     }
+
+    //Obsolete
+    //public void SpawnPonctualBackground(Sprite sprite)
+    //{
+    //    foreach (BackgroundsSpeed ponctualBg in ponctualBackgroundList)
+    //    {
+    //        if (!ponctualBg.backgroundGroup.activeInHierarchy)
+    //        {
+    //            ponctualBg.backgroundGroup.GetComponent<SpriteRenderer>().sprite = sprite;
+    //            ponctualBg.backgroundGroup.transform.position = GetSpawnPositionFromSprite(ponctualBg.backgroundGroup.GetComponent<SpriteRenderer>());
+    //            ponctualBg.backgroundGroup.SetActive(true);
+
+    //            return;
+    //        }
+    //    }
+
+    //    GameObject ponctualBgToInstantiate = Instantiate(ponctualBackgroundTemplate.backgroundGroup, ponctualBackgroundParent);
+    //    ponctualBgToInstantiate.GetComponent<SpriteRenderer>().sprite = sprite;
+
+    //    ponctualBgToInstantiate.transform.position = GetSpawnPositionFromSprite(ponctualBgToInstantiate.GetComponent<SpriteRenderer>());
+
+    //    BackgroundsSpeed bgSpeed = new BackgroundsSpeed();
+    //    bgSpeed.backgroundGroup = ponctualBgToInstantiate;
+    //    bgSpeed.speed = ponctualBackgroundTemplate.speed;
+
+    //    ponctualBackgroundList.Add(bgSpeed);
+
+    //}
 
     private void CheckDesactivateObjectOutOfCamera(Transform obj)
     {
@@ -103,20 +135,32 @@ public class DecorSpawner : MonoBehaviour
             foreach (Transform child in item.parent)
             {
                 if (child.gameObject.activeInHierarchy)
-                    child.transform.Translate(direction * item.bgSpeed.speed * Time.deltaTime * followedObject.speed);
+                    child.transform.Translate(direction * item.bgSpeed.speed * Time.deltaTime * Mathf.Abs(followedObject.speed));
 
                 CheckDesactivateObjectOutOfCamera(child);
             }
         }
 
-        //Move the ponctual decor
-        foreach (BackgroundsSpeed bg in ponctualBackgroundList)
+        //Move ponctual decor
+        foreach (KeyValuePair<Transform, RandomBackgroundSpeed> item in ponctualBackgroundDico)
         {
-            if (bg.backgroundGroup.activeInHierarchy)
-                bg.backgroundGroup.transform.Translate(direction * bg.speed * Time.deltaTime * followedObject.speed);
+            for (int i = 0; i < item.Key.childCount; i++)
+            {
+                if (item.Key.GetChild(i).gameObject.activeInHierarchy)
+                {
+                    item.Key.GetChild(i).Translate(direction * item.Value.bgSpeed.speed * Time.deltaTime * followedObject.speed);
+                }
 
-            CheckDesactivateObjectOutOfCamera(bg.backgroundGroup.transform);
+                CheckDesactivateObjectOutOfCamera(item.Key.GetChild(i));
+            }
         }
+        //foreach (BackgroundsSpeed bg in ponctualBackgroundList)
+        //{
+        //    if (bg.backgroundGroup.activeInHierarchy)
+        //        bg.backgroundGroup.transform.Translate(direction * bg.speed * Time.deltaTime * followedObject.speed);
+
+        //    CheckDesactivateObjectOutOfCamera(bg.backgroundGroup.transform);
+        //}
     }
 
     private void SpawnDecor(RandomBackgroundSpeed randomBg)

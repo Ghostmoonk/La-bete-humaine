@@ -15,4 +15,4 @@ MonoBehaviour:
   stationName: Beuzeville
   nextStation: {fileID: 11400000, guid: 38e940e7745861043b7b4e7127261f4a, type: 2}
   distwithNextStation: 80
-  altitude: 400
+  altitude: 130

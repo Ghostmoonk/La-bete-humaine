@@ -10,6 +10,7 @@ public class WeatherUI : MonoBehaviour, INeedToBeSetByScriptable, IHaveTextChang
 {
     [Header("Components")]
     [SerializeField] TextMeshProUGUI reliefText;
+    [SerializeField] Image reliefImg;
     [SerializeField] TextMeshProUGUI weatherText;
     [SerializeField] RectTransform weatherPopUp;
     [SerializeField] ToggleMover weatherPopUpToggler;
@@ -46,13 +47,33 @@ public class WeatherUI : MonoBehaviour, INeedToBeSetByScriptable, IHaveTextChang
         }
     }
 
+    public void SetCurrentReliefIcon(float fadeOutTime)
+    {
+        if (currentMeteoData.newReliefIcon != null)
+        {
+            if (reliefImg.sprite != currentMeteoData.newReliefIcon)
+            {
+
+                reliefImg.GetComponent<GraphicFader>().EndFadeOutText.AddListener(delegate
+                {
+                    reliefImg.sprite = currentMeteoData.newReliefIcon;
+                    reliefImg.GetComponent<GraphicFader>().EndFadeOutText.RemoveAllListeners();
+                });
+
+                reliefImg.GetComponent<GraphicFader>().FadeOut(fadeOutTime);
+            }
+        }
+    }
+
     public void SetCurrentWeatherText()
     {
         if (currentMeteoData == null)
             return;
+        if (reliefText.text != currentMeteoData.newRelief.ToString())
+            ChangeText(reliefText, currentMeteoData.newRelief.ToString(), changeTextSpeed);
 
-        ChangeText(reliefText, currentMeteoData.newRelief.ToString(), changeTextSpeed);
-        ChangeText(weatherText, currentMeteoData.meteoText, changeTextSpeed);
+        if (weatherText.text != currentMeteoData.meteoText)
+            ChangeText(weatherText, currentMeteoData.meteoText, changeTextSpeed);
 
     }
 

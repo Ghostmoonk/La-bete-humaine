@@ -22,4 +22,5 @@ MonoBehaviour:
     oc\xE9an de glace, immobilis\xE9 dans la tourmente."
   weatherParatext: Ch VII, p.379
   newRelief: 0
+  newReliefIcon: {fileID: 21300000, guid: 50d8ddc9e245c094b8fe536a3e0676ca, type: 3}
   meteoText: 80 cm de neige

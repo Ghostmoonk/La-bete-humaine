@@ -36,6 +36,7 @@ public class AnomalyManagerUI : MonoBehaviour
     [SerializeField] RectTransform board;
     [SerializeField] RectTransform marqueur;
     [SerializeField] RectTransform retractor;
+    [SerializeField] RectTransform retractorMarqueurPlace;
     [SerializeField] BoardComponent[] boardComponents;
     Dictionary<LocomotiveComponent, Transform> boardComponentsDico;
     [Range(0, 2f)]
@@ -162,6 +163,7 @@ public class AnomalyManagerUI : MonoBehaviour
             ToggleMover boardToggler = board.GetComponent<ToggleMover>();
             Vector3[] corners = new Vector3[4];
             retractor.GetWorldCorners(corners);
+
             //If the board toggler is not toggled, we display it on the retractor
             if (!boardToggler.GetToggler() && boardComponentsDico.ContainsKey(data.locomotiveComponent))
             {
@@ -179,8 +181,8 @@ public class AnomalyManagerUI : MonoBehaviour
                 }
             }
 
-            board.GetComponent<ToggleMover>().EndToggleOn.AddListener(delegate { SlideMarkerToPosition(boardComponentsDico[data.locomotiveComponent].position, markerSlidingDuration); SetInteractable(marqueurButton, true); });
-            board.GetComponent<ToggleMover>().EndToggleOff.AddListener(delegate { SlideMarkerToPosition(corners[2], markerSlidingDuration); SetInteractable(marqueurButton, false); });
+            board.GetComponent<ToggleMover>().EndToggleOn.AddListener(delegate { SlideMarkerToPosition(boardComponentsDico[data.locomotiveComponent].position, markerSlidingDuration); SetInteractable(marqueurButton, true); SetRaycastTarget(marqueurButton.GetComponent<Image>(), true); });
+            board.GetComponent<ToggleMover>().EndToggleOff.AddListener(delegate { SlideMarkerToPosition(retractorMarqueurPlace.transform.position, markerSlidingDuration); SetInteractable(marqueurButton, false); SetRaycastTarget(marqueurButton.GetComponent<Image>(), false); });
         }
     }
 
@@ -194,6 +196,12 @@ public class AnomalyManagerUI : MonoBehaviour
     {
         selectable.interactable = interactable;
     }
+
+    private void SetRaycastTarget(Image img, bool raycastMask)
+    {
+        img.raycastTarget = raycastMask;
+    }
+
 
     public void RetrieveAnswers()
     {

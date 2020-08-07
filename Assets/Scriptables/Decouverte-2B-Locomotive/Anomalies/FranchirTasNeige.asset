@@ -21,7 +21,7 @@ MonoBehaviour:
     isCorrect: 1
   - answerText: "faire machine arri\xE8re \xE0 deux reprises et foncer dans le tas"
     isCorrect: 1
-  - answerText: "tourner le robinet du purgeur pour que le jet de vapeur bru\u0302lante
+  - answerText: "tourner le robinet du purgeur pour que le jet de vapeur br\xFBlante
       fonde la neige adh\xE9rant encore aux rails"
     isCorrect: 1
   charcoalCostFail: 10

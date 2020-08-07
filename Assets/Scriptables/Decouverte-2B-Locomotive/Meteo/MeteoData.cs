@@ -12,5 +12,6 @@ public class MeteoData : ScriptableObject
     public string weatherParatext;
 
     public Relief newRelief;
+    public Sprite newReliefIcon;
     public string meteoText;
 }

@@ -8,6 +8,8 @@ public class SoundPlayer : MonoBehaviour
     public bool loopDifferentSounds = false;
     [Range(0f, 2f)]
     [HideInInspector] public float delayBetweenSounds;
+    [HideInInspector] public float delayBetweenSoundsVariance = 0f;
+    float currentDelayBetweenSounds;
     private string soundNameToPlay;
 
     public void PlaySound(string soundName)
@@ -47,7 +49,7 @@ public class SoundPlayer : MonoBehaviour
         do
         {
             PlaySound(soundNameToPlay);
-            yield return new WaitForSeconds(source.clip.length + delayBetweenSounds);
+            yield return new WaitForSeconds(source.clip.length + Random.Range(delayBetweenSounds - delayBetweenSoundsVariance, delayBetweenSounds + delayBetweenSoundsVariance));
         }
         while (loopDifferentSounds);
     }

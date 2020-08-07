@@ -20,4 +20,5 @@ MonoBehaviour:
     les flocons \xE9taient chass\xE9s comme des balles"
   weatherParatext: Ch VII, p.377
   newRelief: 0
+  newReliefIcon: {fileID: 21300000, guid: 50d8ddc9e245c094b8fe536a3e0676ca, type: 3}
   meteoText: 70 cm de neige
