@@ -18,7 +18,7 @@ MonoBehaviour:
   locomotiveComponent: 0
   answers:
   - answerText: "\xC0 cause des fortes rafales de vent qui balaient la neige."
-    isCorrect: 1
+    isCorrect: 0
   - answerText: "\xC0 cause du tambour de la locomotive qui n\u2019arrive plus \xE0
       d\xE9blayer."
     isCorrect: 0
