@@ -25,3 +25,5 @@ MonoBehaviour:
   textParatext: Texte 1, p.383-387
   manuscrit: {fileID: 0}
   manuscritParatext: 
+  hiddenContentImage: {fileID: 21300000, guid: 8b4b04164394270488fb28daff9d4bf7, type: 3}
+  hiddenContentParatext: "Ch. VII, folio n\xB0381"

@@ -11,9 +11,11 @@ public class ManualPage : MonoBehaviour
     [SerializeField] TextMeshProUGUI textContent;
     [SerializeField] TextMeshProUGUI textParatext;
     [SerializeField] TextMeshProUGUI manuscriptParatext;
+    [SerializeField] Button contentToggler;
     [SerializeField] Image manuscritImage;
+    [HideInInspector] public bool toggled = false;
 
-    public void SetupContents(AnomalieType anomalieType, string subTitle, string text, string paratext, Sprite manuscrit = null, string manuscriptText = null)
+    public void SetupContents(AnomalieType anomalieType, string subTitle, string text, string paratext, Sprite manuscrit = null, string manuscriptText = null, Sprite hiddenContent = null)
     {
         mainTitleText.text = anomalieType.ToString();
         subTitleText.text = subTitle;
@@ -44,5 +46,11 @@ public class ManualPage : MonoBehaviour
                 manuscriptParatext.gameObject.SetActive(false);
 
         }
+
+        if (hiddenContent == null)
+            contentToggler.gameObject.SetActive(false);
+
     }
+
+    public Button GetContentToggler() => contentToggler;
 }

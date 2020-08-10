@@ -1,21 +1,21 @@
-﻿using DG.Tweening;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
+using DG.Tweening;
 
-//Fade in or out Graphics like text or image
-public class GraphicFader : MonoBehaviour, IIndependantTween, IFade
+public class GraphicColorFader : MonoBehaviour, IIndependantTween, IFade
 {
-    [SerializeField] float maxOpacity = 1;
+    [SerializeField] Color fadeInColor;
+    [SerializeField] Color fadeOutColor;
     [SerializeField] bool IsUnityTimeScaleIndependant;
     [SerializeField] Ease ease;
     [SerializeField] Graphic[] graphic;
 
-    public UnityEvent EndFadeOutText;
+    public UnityEvent EndFadeOut;
     public UnityEvent StartFadeIn;
-    public UnityEvent EndFadeInText;
+    public UnityEvent EndFadeIn;
 
 
     public void FadeOut(float duration)
@@ -23,10 +23,10 @@ public class GraphicFader : MonoBehaviour, IIndependantTween, IFade
         for (int i = 0; i < graphic.Length; i++)
         {
             graphic[i].DOKill();
-            Tweener tween = graphic[i].DOColor(new Color(graphic[i].color.r, graphic[i].color.g, graphic[i].color.b, 0f), duration).SetUpdate(IsUnityTimeScaleIndependant).SetEase(ease);
+            Tweener tween = graphic[i].DOColor(fadeOutColor, duration).SetUpdate(IsUnityTimeScaleIndependant).SetEase(ease);
 
             if (i == graphic.Length - 1)
-                tween.OnComplete(() => { EndFadeOutText?.Invoke(); });
+                tween.OnComplete(() => { EndFadeOut?.Invoke(); });
         }
     }
 
@@ -35,12 +35,12 @@ public class GraphicFader : MonoBehaviour, IIndependantTween, IFade
         StartFadeIn?.Invoke();
         for (int i = 0; i < graphic.Length; i++)
         {
-            graphic[i].color = new Color(graphic[i].color.r, graphic[i].color.g, graphic[i].color.b, 0f);
+            //graphic[i].color = fadeOutColor;
             graphic[i].DOKill();
 
-            Tweener tween = graphic[i].DOColor(new Color(graphic[i].color.r, graphic[i].color.g, graphic[i].color.b, maxOpacity), duration).SetUpdate(IsUnityTimeScaleIndependant).SetEase(ease);
+            Tweener tween = graphic[i].DOColor(fadeInColor, duration).SetUpdate(IsUnityTimeScaleIndependant).SetEase(ease);
             if (i == graphic.Length - 1)
-                tween.OnComplete(() => { EndFadeInText?.Invoke(); });
+                tween.OnComplete(() => { EndFadeIn?.Invoke(); });
         }
     }
 
@@ -53,7 +53,7 @@ public class GraphicFader : MonoBehaviour, IIndependantTween, IFade
                 Tweener tween = item.DOColor(new Color(item.color.r, item.color.g, item.color.b, 0f), duration).SetUpdate(IsUnityTimeScaleIndependant).SetEase(ease);
 
                 if (i == graphic.Length - 1 && item == graphic[i].transform.GetComponentsInChildren<Graphic>()[graphic[i].transform.GetComponentsInChildren<Graphic>().Length - 1])
-                    tween.OnComplete(() => { EndFadeOutText?.Invoke(); });
+                    tween.OnComplete(() => { EndFadeOut?.Invoke(); });
             }
         }
     }
@@ -66,9 +66,9 @@ public class GraphicFader : MonoBehaviour, IIndependantTween, IFade
             foreach (Graphic item in graphic[i].transform.GetComponentsInChildren<Graphic>())
             {
                 item.color = new Color(item.color.r, item.color.g, item.color.b, 0f);
-                Tweener tween = item.DOColor(new Color(item.color.r, item.color.g, item.color.b, maxOpacity), duration).SetUpdate(IsUnityTimeScaleIndependant).SetEase(ease);
+                Tweener tween = item.DOColor(fadeInColor, duration).SetUpdate(IsUnityTimeScaleIndependant).SetEase(ease);
                 if (i == graphic.Length - 1 && item == graphic[i].transform.GetComponentsInChildren<Graphic>()[graphic[i].transform.GetComponentsInChildren<Graphic>().Length - 1])
-                    tween.OnComplete(() => { EndFadeInText?.Invoke(); });
+                    tween.OnComplete(() => { EndFadeIn?.Invoke(); });
             }
 
         }
@@ -79,13 +79,4 @@ public class GraphicFader : MonoBehaviour, IIndependantTween, IFade
     {
         IsUnityTimeScaleIndependant = IsIndependant;
     }
-}
-
-public interface IFade
-{
-    void FadeInByParenting(float duration);
-    void FadeOutByParenting(float duration);
-
-    void FadeIn(float duration);
-    void FadeOut(float duration);
 }

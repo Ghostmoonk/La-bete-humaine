@@ -16,6 +16,10 @@ public class ManualNote : ScriptableObject
     [TextArea(2, 3)]
     public string manuscritParatext;
 
+    public Sprite hiddenContentImage;
+    [TextArea(2, 3)]
+    public string hiddenContentParatext;
+
 }
 
 public enum AnomalieType

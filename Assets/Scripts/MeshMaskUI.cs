@@ -16,7 +16,6 @@ public class MeshMaskUI : MaskableGraphic
     protected override void Start()
     {
         maskT.sizeDelta = rectT.sizeDelta + offset;
-        Debug.Log(rectT.sizeDelta + offset);
     }
 
     protected override void OnPopulateMesh(VertexHelper vertexHelper)
@@ -47,7 +46,6 @@ public class MeshMaskUI : MaskableGraphic
         maskT.sizeDelta = rectT.sizeDelta + offset;
         tween.Kill();
         tween = DOTween.To(() => adaptativeWidth, x => adaptativeWidth = x, maskT.rect.width, duration);
-        Debug.Log(maskT.rect.width);
     }
 
     public void RetractWidth(float duration)

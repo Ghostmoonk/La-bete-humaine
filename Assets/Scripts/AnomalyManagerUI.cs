@@ -258,7 +258,7 @@ public class AnomalyManagerUI : MonoBehaviour
                 item.Value.UpdateSprite(failIcon, failColor);
             }
 
-            item.Value.gameObject.GetComponentInChildren<GraphicFader>().FadeIn(1f);
+            item.Value.gameObject.GetComponentInChildren<IFade>().FadeIn(1f);
 
             yield return new WaitForSeconds(delayBetweenVerificationIconDisplay);
         }
@@ -275,10 +275,7 @@ public class AnomalyManagerUI : MonoBehaviour
             Debug.Log(AnomalyManager.Instance.GetCurrentAnomaly());
             anomalyQuestionBox.GetComponent<GraphicFader>().EndFadeOutText.AddListener(delegate { AnomalyManager.Instance.GetAnomalyEvents(AnomalyManager.Instance.GetCurrentAnomaly()).OnResolveFail?.Invoke(); });
         }
-
     }
-
-
 }
 
 [System.Serializable]

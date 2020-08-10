@@ -549,6 +549,7 @@ MonoBehaviour:
   source: {fileID: 2737003377459360907}
   loopDifferentSounds: 0
   delayBetweenSounds: 0
+  delayBetweenSoundsVariance: 0
 --- !u!1 &8753529843178197302
 GameObject:
   m_ObjectHideFlags: 0
@@ -640,9 +641,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startShaderValues:
   - shaderName: _Visibility
-    value: 40
+    startValue: 0
+    endValue: 0
   - shaderName: _Speed
-    value: 0.05
+    startValue: 0
+    endValue: 0
+  startShaderVector4Values: []
   endValue: 0
   duration: 2
   TransitionEnd:

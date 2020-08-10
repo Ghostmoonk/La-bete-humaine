@@ -108,15 +108,12 @@ public class LocomotiveRouteManagerUI : MonoBehaviour, IHaveTextChanging
 
     private void SetUpStationIcon(GameObject iconObject, StationData stationData)
     {
-        //iconObject.GetComponent<Button>().onClick.AddListener(() => ShowHoveredStation(stationData.stationName));
-
         EventTrigger trigger = iconObject.GetComponent<EventTrigger>();
 
         EventTrigger.Entry entryEnter = new EventTrigger.Entry();
         EventTrigger.Entry entryExit = new EventTrigger.Entry();
         entryEnter.eventID = EventTriggerType.PointerEnter;
         entryExit.eventID = EventTriggerType.PointerExit;
-
         entryEnter.callback.AddListener(delegate { ShowHoveredStation(stationData.stationName); });
         entryExit.callback.AddListener(delegate { HideHoveredStation(); });
         trigger.triggers.Add(entryEnter);

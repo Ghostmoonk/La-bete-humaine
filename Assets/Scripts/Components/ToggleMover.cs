@@ -50,6 +50,26 @@ public class ToggleMover : MonoBehaviour, IIndependantTween
         toggler = !toggler;
 
     }
+    public void MoveBySizeX(float size)
+    {
+        if (tween != null)
+            if (tween.IsPlaying())
+                tween.Pause();
+
+        if (!toggler)
+        {
+            tween = GetComponent<RectTransform>().DOAnchorPosX(initialAnchoredPos.x + size * direction, transitionDuration).SetUpdate(isUnityTimeScaleInDependant).SetEase(ease);
+            StartToggleOn?.Invoke();
+            tween.OnComplete(() => EndToggleOn.Invoke());
+        }
+        else
+        {
+            tween = GetComponent<RectTransform>().DOAnchorPosX(GetComponent<RectTransform>().anchoredPosition.x - size * direction, transitionDuration).SetUpdate(isUnityTimeScaleInDependant).SetEase(ease);
+            StartToggleOff?.Invoke();
+            tween.OnComplete(() => EndToggleOff.Invoke());
+        }
+        toggler = !toggler;
+    }
 
     public void MoveBySizeX(RectTransform rectT)
     {

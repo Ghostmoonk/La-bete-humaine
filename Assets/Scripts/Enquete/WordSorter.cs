@@ -81,7 +81,7 @@ public class WordSorter : MonoBehaviour
         {
             if (wordsObjectsContainers.ContainsKey(words[i]))
             {
-                wordsObjectsContainers[words[i]].GetComponentInChildren<GraphicFader>().FadeOut(1);
+                wordsObjectsContainers[words[i]].GetComponentInChildren<IFade>().FadeOut(1);
             }
         }
     }
@@ -92,7 +92,7 @@ public class WordSorter : MonoBehaviour
         {
             if (wordsObjectsContainers.ContainsKey(noteActivity.providedWords[i]))
             {
-                wordsObjectsContainers[noteActivity.providedWords[i]].GetComponentInChildren<GraphicFader>().FadeOut(1);
+                wordsObjectsContainers[noteActivity.providedWords[i]].GetComponentInChildren<IFade>().FadeOut(1);
             }
         }
     }

@@ -189,7 +189,7 @@ public class DialogManager : MonoBehaviour
             GameObject answerToInstantiate = Instantiate(answerPrefab, answersContainer);
             answerToInstantiate.GetComponentInChildren<TextMeshProUGUI>().text = answer.answerText;
             answerToInstantiate.GetComponent<Button>().onClick.AddListener(delegate { Debug.Log(answer.sentence.content); currentDialog.SetNextSentence(answer.sentence); DisplayNextSentence(); FadeClearAnswers(answersFadeDuration); });
-            answerToInstantiate.GetComponent<GraphicFader>().FadeIn(answersFadeDuration);
+            answerToInstantiate.GetComponent<IFade>().FadeIn(answersFadeDuration);
         }
         StartCoroutine(ResizeChilds(dialogBox.transform));
     }
@@ -323,7 +323,7 @@ public class DialogManager : MonoBehaviour
     {
         foreach (Transform child in answersContainer)
         {
-            child.GetComponent<GraphicFader>().FadeOut(disappaearDuration);
+            child.GetComponent<IFade>().FadeOut(disappaearDuration);
             child.GetComponent<GraphicFader>().EndFadeOutText.AddListener(() => { Destroy(child.gameObject); });
         }
     }
