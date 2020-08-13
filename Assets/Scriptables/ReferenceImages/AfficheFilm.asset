@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: AfficheFilm
   m_EditorClassIdentifier: 
   sprite: {fileID: 21300000, guid: d791d0be591f66a40b44a27fbaac3986, type: 3}
-  title: "La B\xEAte Humaine"
+  title: "La B\xEAte humaine, affiche du film"
   reference: "R\xE9alis\xE9 par Jean Renoir, 1938"
-  story: "Jean Renoir appara\xEEt dans son propre film et y incarne Cabuche"
+  story: "Jean Renoir appara\xEEt dans son propre film et y incarne Cabuche."

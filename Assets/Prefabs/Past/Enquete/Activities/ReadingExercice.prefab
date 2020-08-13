@@ -35,7 +35,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 320.5097, y: 0}
   m_SizeDelta: {x: 641.0194, y: 0}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!222 &1253889007129804494
@@ -187,6 +187,7 @@ MonoBehaviour:
   isUnityTimeScaleInDependant: 0
   transitionDuration: 0.3
   direction: 1
+  ease: 1
   StartToggleOn:
     m_PersistentCalls:
       m_Calls: []
@@ -375,7 +376,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 320.5097, y: 0}
   m_SizeDelta: {x: 641.0194, y: 0}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!222 &1211643417500460583

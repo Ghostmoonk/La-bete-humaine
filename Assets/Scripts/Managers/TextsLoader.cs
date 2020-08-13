@@ -44,6 +44,8 @@ public class TextsLoader : MonoBehaviour
     public Dictionary<int, GlossaryData> glossaryDico;
     public Dictionary<int, ImageData> imagesDico;
 
+    [SerializeField] TextAsset contentsAsset;
+
     private void FetchGlossaryData()
     {
         glossaryDico = new Dictionary<int, GlossaryData>();
@@ -71,7 +73,7 @@ public class TextsLoader : MonoBehaviour
     private void FetchTextsData()
     {
         textsDico = new Dictionary<int, TextData>();
-        TextAsset textsData = Resources.Load<TextAsset>("TextesTest");
+        TextAsset textsData = contentsAsset;
 
         string[] data = textsData.text.Split(new char[] { '\n' });
 

@@ -10,10 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1b8cfafd590f7924a8b266fa8d50d57e, type: 3}
-  m_Name: NeigeRedoublait
+  m_Name: VoieSombrait
   m_EditorClassIdentifier: 
   weatherTitle: 
-  weatherText: "La neige redoublait, le rideau s\u2019\xE9paississait \xE0 l\u2019horizon."
+  weatherText: "La voie sombrait sous la neige, les haies, les maisons elles-m\xEAmes
+    semblaient s'engloutir, ce n'\xE9tait plus qu'une plaine rase et sans fin, un
+    chaos de blancheurs vagues, o\xF9 la Lison paraissait galoper \xE0 sa guise,
+    prise de folie. [...] La neige redoublait, le rideau s\u2019\xE9paississait \xE0
+    l\u2019horizon."
   weatherParatext: Ch VII, p.373
   newRelief: 1
   newReliefIcon: {fileID: 21300000, guid: 7116cfbbb32a9b84e8a467ef16524491, type: 3}

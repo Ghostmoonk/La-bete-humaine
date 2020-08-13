@@ -1,8 +1,8 @@
 ID|Personnage|Texte|Phase ID|Dialog ID|En réponse à|Réponses possibles|empty
-0|Lantier|Flore m'a fait ses avances... Mais je ne peux pas y répondre|0|0|||
+0|Lantier|Flore, ma cousine, m'a fait ses avances... Mais je ne peux pas y répondre.|0|0|||
 1|Lantier|Je sais très bien ce qu'il se serait passé si je n'avais pas fui...|0|0|0||
 2|Lantier|Ce fardeau que je porte en moi ne disparaîtra jamais.|0|0|1||
-3|Lantier|Ah... Elle était tout à moi, elle s'était abandonné.|0|0|2||
+3|Lantier|Ah... Elle était tout à moi, elle s'était abandonnée.|0|0|2||
 4|Lantier|Sa douce chair m'appelait...|0|0|3||
 5|Lantier|Ah ! Ces pensées m'assaillissent sans cesse !|1|1|||
 6|Lantier|Si je succombe à ces pulsions juste une fois, peut-être s'arrêteront-elles...|1|1|5||

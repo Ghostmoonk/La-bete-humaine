@@ -65,12 +65,13 @@ public class DialogsLoader : MonoBehaviour
 
         string[] dialogsRows = dialogsAsset.text.Split(new char[] { '\n' });
         string[] sentencesRows = sentencesAsset.text.Split(new char[] { '\n' });
-
+        Debug.Log(dialogsRows.Length);
         //Loop over all dialogs
         for (int i = 1; i < dialogsRows.Length - 1; i++)
         {
+            Debug.Log(i);
             string[] dialogCols = dialogsRows[i].Split(new char[] { '|' });
-
+            Debug.Log(dialogsRows[i]);
             Dictionary<int, Sentence> sentences = new Dictionary<int, Sentence>();
             //Loop over all sentences
             for (int j = 1; j < sentencesRows.Length - 1; j++)
@@ -114,6 +115,7 @@ public class DialogsLoader : MonoBehaviour
 
                     if (int.TryParse(sentenceCols[5], out previousSentenceID))
                     {
+                        Debug.Log(sentences[previousSentenceID]);
                         sentences[previousSentenceID].SetNextSentence(sentences[int.Parse(sentenceCols[0])]);
                     }
                     else

@@ -14,8 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   anecdoteContents:
   - title: Gare Saint-Lazare
-    text: "En janvier 1877, Claude Monet s\u2019installe pr\xE8s de la gare Saint-Lazare.
-      D\xE9sireux de s\u2019atteler \xE0 un sujet r\xE9solument moderne et urbain,
-      le peintre obtient du directeur des Chemins de fer de l\u2019Ouest l\u2019autorisation
-      officielle de dresser son chevalet \xE0 l\u2019int\xE9rieur de la gare."
+    text: "Ami et d\xE9fenseur des peintres impressionnistes, \xE0 l'occasion de
+      l'exposition universelle de 1877, \xE0 Paris, \xC9mile Zola \xE9crit \xE0 propos
+      des tableaux de Monet :\n\n\"Il a expos\xE9 cette ann\xE9e des int\xE9rieurs
+      de gare superbes. On y entend le grondement des trains qui s\xB4engouffrent,
+      on y voit des d\xE9bordements de fum\xE9e qui roulent sous les vastes hangars.
+      L\xE0 est aujourd'hui la peinture, dans ces cadres modernes d'une si belle
+      largeur. Nos artistes doivent trouver la po\xE9sie des gares, comme leurs p\xE8res
+      ont trouv\xE9 celle des for\xEAts et des fleuves. \""
     sprite: {fileID: 21300000, guid: 7686f3578008fc64bb4fe7e76fe3cabf, type: 3}

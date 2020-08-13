@@ -13,7 +13,9 @@ MonoBehaviour:
   m_Name: TableauMonet-1
   m_EditorClassIdentifier: 
   sprite: {fileID: 21300000, guid: 7686f3578008fc64bb4fe7e76fe3cabf, type: 3}
-  title: Saint-Lazare Station
-  reference: Claude Monet, 1877
-  story: "Quand Monet a paint cetableau, il venait juste de quitter Argenteuil pour
-    s'installer \xE0 Paris. Aujourd'hui ce tableau est expos\xE9 \xE0 Paris"
+  title: 'Gare Saint-Lazare '
+  reference: Claude Monet, 1877, Huile sur toile
+  story: "Quand Monet a peint ce tableau, il venait juste de quitter Argenteuil pour
+    s'installer \xE0 Paris. Aujourd'hui ce tableau est expos\xE9 \xE0 Paris au mus\xE9e
+    d'Orsay. Zola, enthousiasm\xE9 par la modernit\xE9 des peintures de Monet, reprend
+    le m\xEAme motif dans ces livres."

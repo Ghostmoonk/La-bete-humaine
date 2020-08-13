@@ -14,5 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sprite: {fileID: 21300000, guid: 58480cbb4123cf147a0357a29c7316c2, type: 3}
   title: "La Gare St-Lazare, arriv\xE9e d'un train"
-  reference: Claude Monet, 1877
-  story: 
+  reference: Claude Monet, 1877, Huile sur toile
+  story: "Les 12 versions de la gare Saint-Lazare de Monet mettent en avant le progr\xE8s
+    technique. Pour \xE9tudier l'effet de la lumi\xE8re sur la vapeur, le peintre
+    installe son atelier sur le quai et demande la permission du directeur des chemins
+    de fer de l'Ouest de peindre le d\xE9part du train \"en direct\", qui expulse
+    le plus de fum\xE9e possible. L'impressionisme consiste donc \xE0 capter ces
+    effets de lumi\xE8re jamais identiques."

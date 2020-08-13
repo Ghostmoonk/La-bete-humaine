@@ -9,7 +9,7 @@ public class ReferenceImage : ScriptableObject
     public string title;
     public string reference;
 
-    [TextArea(3, 6)]
+    [TextArea(3, 20)]
     public string story;
 
 }
