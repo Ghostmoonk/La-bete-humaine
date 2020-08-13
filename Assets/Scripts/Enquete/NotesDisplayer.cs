@@ -126,7 +126,7 @@ public class NotesDisplayer : MonoBehaviour
         {
             activityHolders.Add(noteToInstantiate.GetComponent<ActivityHolder>());
             noteToInstantiate.GetComponent<ActivityHolder>().SetContent(note);
-
+            Debug.Log(note.noteActivity.title);
             noteToInstantiate.SetActive(false);
         }
         else

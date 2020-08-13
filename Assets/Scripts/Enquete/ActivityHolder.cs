@@ -26,7 +26,6 @@ public abstract class ActivityHolder : MonoBehaviour
         paratextTextMesh.text = activityData.noteActivity.paratext;
         noteActivity = activityData.noteActivity;
 
-        //ActivityRelatedCompleteEvent.AddListener(activityData.GeneralCompleteEvents.Invoke);
         GeneralCompleteEvent = activityData.GeneralCompleteEvents;
     }
 

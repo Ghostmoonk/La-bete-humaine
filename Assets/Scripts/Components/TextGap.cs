@@ -24,7 +24,6 @@ public class TextGap : MonoBehaviour
     private void Start()
     {
         defaultColor = inputFieldMesh.image.color;
-        Debug.Log(inputFieldMesh.image.color);
     }
 
     public void Setup(string hiddenWord)

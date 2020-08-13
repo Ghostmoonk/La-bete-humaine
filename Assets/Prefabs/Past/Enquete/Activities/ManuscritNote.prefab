@@ -641,10 +641,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startShaderValues:
   - shaderName: _Visibility
-    startValue: 0
+    startValue: 45
     endValue: 0
   - shaderName: _Speed
-    startValue: 0
+    startValue: 0.2
     endValue: 0
   startShaderVector4Values: []
   endValue: 0

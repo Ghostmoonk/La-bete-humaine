@@ -28,6 +28,8 @@ public class FillGapsActivityHolder : ActivityHolder
 
         contentTextMesh.text = this.noteActivity.gapsText;
         paratextTextMesh.text = this.noteActivity.paratext;
+
+        GeneralCompleteEvent = noteActivity.GeneralCompleteEvents;
     }
 
     public override void CompleteActivity()
