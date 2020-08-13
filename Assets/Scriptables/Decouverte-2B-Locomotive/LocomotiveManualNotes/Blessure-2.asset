@@ -13,8 +13,18 @@ MonoBehaviour:
   m_Name: Blessure-2
   m_EditorClassIdentifier: 
   anomalieType: 6
-  title: 
-  text: 
-  textParatext: 
-  manuscrit: {fileID: 21300000, guid: ec76a3426eb837e4daa8f343eae67278, type: 3}
-  manuscritParatext: "Ch. VII, folio n\xB0413"
+  title: "Avant de repartir, v\xE9rifier l'\xE9tat de la locomotive"
+  text: "Jacques s\u2019approche, se baisse \xE0 son tour. D\xE9j\xE0, il avait constat\xE9,
+    en examinant avec soin la Lison, qu\u2019elle \xE9tait bless\xE9e l\xE0. En d\xE9blayant,
+    on s\u2019\xE9tait aper\xE7u que des traverses de ch\xEAne, laiss\xE9es le long
+    du talus par les cantonniers, avaient gliss\xE9 jusqu'en travers des rails, sous
+    l\u2019effort l\u2019action de la neige et du vent; et m\xEAme l\u2019arr\xEAt,
+    en partie, devait provenir de cet obstacle: car la machine avait but\xE9 contre
+    les traverses. On voyait l'\xE9raflure sur la boite du cylindre, dans lequel
+    le piston paraissait l\xE9g\xE8rement fauss\xE9. Mais c\u2019\xE9tait tout le
+    mal apparent; ce qui avait rassur\xE9 le m\xE9canicien d\u2019abord.  "
+  textParatext: "Ch. VII, folio n\xB0413"
+  manuscrit: {fileID: 0}
+  manuscritParatext: 
+  hiddenContentImage: {fileID: 21300000, guid: ec76a3426eb837e4daa8f343eae67278, type: 3}
+  hiddenContentParatext: 

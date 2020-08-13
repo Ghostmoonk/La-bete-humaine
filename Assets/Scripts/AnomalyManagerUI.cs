@@ -98,6 +98,10 @@ public class AnomalyManagerUI : MonoBehaviour
         answersToggle = new Dictionary<ScriptableAnswer, AnomalyAnswer>();
     }
 
+    public float GetScoreTimeRatio() => timeGauge.fillAmount;
+
+    public float GetScoreCharcoalRatio() => charcoalGauge.fillAmount;
+
     public void SetAnomalyContent(LocomotiveAnomalyData data)
     {
         questionText.text = data.questionText;

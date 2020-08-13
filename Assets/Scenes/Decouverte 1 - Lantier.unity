@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -1312,7 +1312,14 @@ PrefabInstance:
     - target: {fileID: 9198054438585034201, guid: 4f4aeb88b364f0d4d933463975914b2e,
         type: 3}
       propertyPath: m_text
-      value: "\u201CTexte de transition vers la sc\xE8ne enqu\xEAte 1\u201D"
+      value: "\"Et la t\xEAte apparaissait, dans la clart\xE9 jaune, une t\xEAte
+        de vieillard, au grand nez, aux yeux bleus d\u2019ancien blond, largement
+        ouverts. Sous le menton, la blessure b\xE2illait, affreuse, une entaille
+        profonde qui avait coup\xE9 le cou, une plaie labour\xE9e, comme si le couteau
+        s\u2019\xE9tait retourn\xE9 en fouillant. Du sang inondait tout le c\xF4t\xE9
+        droit de la poitrine. \xC0 gauche, \xE0 la boutonni\xE8re du paletot, une
+        rosette de commandeur semblait un caillot rouge, \xE9gar\xE9 l\xE0.\" \n\n(LBH,
+        pdf, 123)"
       objectReference: {fileID: 0}
     - target: {fileID: 9198054438585034201, guid: 4f4aeb88b364f0d4d933463975914b2e,
         type: 3}
@@ -5554,6 +5561,7 @@ MonoBehaviour:
   source: {fileID: 1498406641}
   loopDifferentSounds: 1
   delayBetweenSounds: 0
+  delayBetweenSoundsVariance: 0
 --- !u!114 &1498406644
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5584,6 +5592,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxOpacity: 1
   IsUnityTimeScaleIndependant: 0
+  ease: 0
   graphic:
   - {fileID: 1498406639}
   EndFadeOutText:
@@ -6507,6 +6516,7 @@ MonoBehaviour:
   source: {fileID: 1795846420}
   loopDifferentSounds: 1
   delayBetweenSounds: 0.5
+  delayBetweenSoundsVariance: 0
 --- !u!114 &1795846419
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16227,6 +16237,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxOpacity: 1
   IsUnityTimeScaleIndependant: 0
+  ease: 0
   graphic:
   - {fileID: 7669335519314667938}
   EndFadeOutText:

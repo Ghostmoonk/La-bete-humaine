@@ -34,10 +34,10 @@ public class SoundPlayer : MonoBehaviour
         StartCoroutine(PlayDifferentSoundsLoop());
     }
 
-    public void SetDelayBetweenSounds(float newDelay)
-    {
-        delayBetweenSounds = newDelay;
-    }
+    public void SetDelayBetweenSounds(float newDelay) => delayBetweenSounds = newDelay;
+
+    public void SetVarianceDelayBetweenSounds(float newDelayVariance) => delayBetweenSoundsVariance = newDelayVariance;
+
 
     public void ChangeSoundNameToPlayLoop(string soundName)
     {

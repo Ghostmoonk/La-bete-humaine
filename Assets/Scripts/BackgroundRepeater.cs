@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class BackgroundRepeater : MonoBehaviour
 {
@@ -62,7 +63,7 @@ public class BackgroundRepeater : MonoBehaviour
                 //For every child inside, which are repetitions of the same background
                 foreach (Transform bg in bgs.backgroundGroup.transform)
                 {
-                    bg.Translate(direction * bgs.speed * Time.deltaTime * followedObject.speed);
+                    bg.Translate(direction * bgs.relativeSpeed * Time.deltaTime * followedObject.speed);
                 }
 
                 if (transform.position.x - screenBounds.x > firstChild.transform.position.x + halfFirstBgWidth)
@@ -84,7 +85,11 @@ public class BackgroundRepeater : MonoBehaviour
 [System.Serializable]
 public struct BackgroundsSpeed
 {
-    public float speed;
+    [FormerlySerializedAs("speed")]
+    public float relativeSpeed;
+    [FormerlySerializedAs("ownSpeed")]
+    public Vector2 ownSpeedInterval;
+    [HideInInspector] public float ownSpeed;
     public GameObject backgroundGroup;
 
     public bool alternate;

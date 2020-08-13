@@ -43,14 +43,6 @@ public class ManualDisplayer : MonoBehaviour
         });
     }
 
-    //void InstantiateSummaryItems(List<AnomalieType> parts)
-    //{
-    //    foreach (AnomalieType anomalyType in parts)
-    //    {
-    //        InstantiateSummaryItem(anomalyType);
-    //    }
-    //}
-
     void InstantiateSummaryItem(AnomalieType anomalyType)
     {
         GameObject itemSummary = Instantiate(summaryItemPrefab, summaryItemParent);
@@ -108,7 +100,7 @@ public class ManualDisplayer : MonoBehaviour
 
     private void SetAnomalieTypeDisplaying(AnomalieType anomalieType) => currentAnomalieTypeDisplayed = anomalieType;
 
-    void InstantiateNote(ManualNote manualNote)
+    public void InstantiateNote(ManualNote manualNote)
     {
         GameObject manualPage = Instantiate(manualNotePrefab, manualPageParent);
         if (!manualPage.GetComponent<ManualPage>())
@@ -129,7 +121,7 @@ public class ManualDisplayer : MonoBehaviour
                 manualPage.GetComponent<ManualPage>().GetContentToggler().onClick.AddListener(delegate
                 {
                     Debug.Log(contentToggler.GetToggler());
-                    if (!contentToggler.GetToggler() && !manualPage.GetComponent<ManualPage>().toggled)
+                    if (!contentToggler.GetToggler())
                     {
                         ClearToggleContent();
                         GameObject hiddenContent = Instantiate(hiddenContentPrefab, contentToggler.transform);
@@ -138,12 +130,10 @@ public class ManualDisplayer : MonoBehaviour
                         LayoutRebuilder.ForceRebuildLayoutImmediate(hiddenContent.GetComponent<RectTransform>());
                         //contentToggler.transform.position = new Vector3(contentToggler.transform.position.x, manualPage.GetComponent<ManualPage>().GetContentToggler().transform.position.y, contentToggler.transform.position.z);
                         StartCoroutine(WaitInstantiationToMove(contentToggler, contentToggler.GetComponent<RectTransform>()));
-                        manualPage.GetComponent<ManualPage>().toggled = true;
                     }
                     else
                     {
                         contentToggler.MoveBySizeX(contentToggler.GetComponent<RectTransform>());
-                        manualPage.GetComponent<ManualPage>().toggled = false;
                     }
                 });
             Resizer.ResizeLayout(manualPage.transform.GetComponent<RectTransform>());

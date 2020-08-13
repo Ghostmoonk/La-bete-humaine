@@ -26,7 +26,7 @@ public class SoundPlayerEditor : Editor
         if (loopDifferentSounds.boolValue)
         {
             soundPlayer.delayBetweenSounds = EditorGUILayout.Slider("Delay Between Sounds", soundPlayer.delayBetweenSounds, 0f, 160f);
-            soundPlayer.delayBetweenSoundsVariance = EditorGUILayout.Slider("Delay Between Sounds", soundPlayer.delayBetweenSoundsVariance, 0f, 160f);
+            soundPlayer.delayBetweenSoundsVariance = EditorGUILayout.Slider("Delay Variance", soundPlayer.delayBetweenSoundsVariance, 0f, 160f);
         }
     }
 }

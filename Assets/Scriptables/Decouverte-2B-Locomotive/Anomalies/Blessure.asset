@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a44e7a7c536acea498737c79126203d6, type: 3}
+  m_Name: Blessure
+  m_EditorClassIdentifier: 
+  title: "Blessure de la Lison : cylindre avari\xE9"
+  questionText: "Avant de repartir enfin, Jacques, le m\xE9canicien"
+  locomotiveComponent: 0
+  answers:
+  - answerText: "remercient tout le monde d\u2019avoir particip\xE9 au d\xE9blayage"
+    isCorrect: 0
+  - answerText: "fait remonter les voyageurs abrit\xE9s chez la tante Phasie"
+    isCorrect: 0
+  - answerText: "constatent une \u201Cblessure\u201D de la locomotive, au niveau
+      d\u2019un cylindre"
+    isCorrect: 1
+  charcoalCostFail: 5
+  timeCostFail: 5

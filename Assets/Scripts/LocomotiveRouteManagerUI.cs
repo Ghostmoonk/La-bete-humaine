@@ -32,9 +32,6 @@ public class LocomotiveRouteManagerUI : MonoBehaviour, IHaveTextChanging
     [SerializeField] TextMeshProUGUI nextStationText;
     [SerializeField] float changeTextSpeed;
     Gradient friezeGradient;
-    [Header("Gauges")]
-    [SerializeField] Image charcoalGauge;
-    [SerializeField] Image timeGauge;
 
     private void Awake()
     {
@@ -59,7 +56,8 @@ public class LocomotiveRouteManagerUI : MonoBehaviour, IHaveTextChanging
 
     public void UpdateNextStationText(StationData stationData)
     {
-        ChangeText(nextStationText, stationData.nextStation.stationName, changeTextSpeed);
+        if (stationData.nextStation != null)
+            ChangeText(nextStationText, stationData.nextStation.stationName, changeTextSpeed);
     }
 
     public void ChangeText(TextMeshProUGUI textMesh, string newText, float changeTextSpeed = 0)

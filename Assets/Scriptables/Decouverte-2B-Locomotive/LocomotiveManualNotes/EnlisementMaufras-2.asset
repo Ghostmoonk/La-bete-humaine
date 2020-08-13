@@ -14,7 +14,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   anomalieType: 5
   title: "En cas d'arr\xEAt total par enlisement d\xFB \xE0 la neige"
-  text: 
-  textParatext: 
-  manuscrit: {fileID: 21300000, guid: 8b4b04164394270488fb28daff9d4bf7, type: 3}
-  manuscritParatext: "Ch. VII, folio n\xB0381"
+  text: "Seulement, ce fut une dure besogne. Allong\xE9s sous la machine, le dos
+    dans la neige qui fondait, Jacques et Pecqueux durent travailler pendant pr\xE8s
+    d\u2019une demi-heure. Heureusement que, dans le coffre \xE0 outils, ils avaient
+    des tournevis de rechange. Enfin, au risque de se br\xFBler et de s\u2019\xE9craser
+    vingt fois, ils parvinrent \xE0 d\xE9tacher le cendrier. Mais ils ne l\u2019avaient
+    pas encore, il s\u2019agissait de le sortir de l\xE0-dessous. D\u2019un poids
+    \xE9norme, il s\u2019embarrassait dans les roues et les cylindres. Pourtant,
+    ils le tir\xE8..."
+  textParatext: 'Ch. VII, '
+  manuscrit: {fileID: 0}
+  manuscritParatext: 
+  hiddenContentImage: {fileID: 21300000, guid: 8b4b04164394270488fb28daff9d4bf7, type: 3}
+  hiddenContentParatext: "Manuscrits, folio n\xB0381"

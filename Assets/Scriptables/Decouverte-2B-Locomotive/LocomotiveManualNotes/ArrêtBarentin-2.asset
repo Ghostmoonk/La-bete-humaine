@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a435ee301fafd3d44825f539a1d8f02c, type: 3}
+  m_Name: "Arr\xEAtBarentin-2"
+  m_EditorClassIdentifier: 
+  anomalieType: 3
+  title: "Pr\xE9voir les amas de neige "
+  text: "On arrive aussi \xE0 Barentin avec peine, apr\xE8s deux ou trois arr\xEAts.
+    L\xE0, une derni\xE8re fois, Jacques demande: on le chef de gare lui r\xE9pond
+    qu\u2019il y a un grand amas de neige (pourquoi il se forme l\xE0, \xE0 300 m
+    de la Croix de Maufras: un vallon o\xF9 la neige s\u2019engouffre et s\u2019amasse.
+    C\u2019est la faute du pays, vallons et coteaux. Le reprendre, de la neige partout
+    dans les cendriers. Mais les voyageurs ne s'aper\xE7oivent de rien et le train
+    repart.  "
+  textParatext: Ch. VII, p. 379
+  manuscrit: {fileID: 0}
+  manuscritParatext: 
+  hiddenContentImage: {fileID: 21300000, guid: acd86f3f2c2cef74b9d4ebd867e8690f, type: 3}
+  hiddenContentParatext: "Manuscrits, Plan, ch. VII, f\xB0142"

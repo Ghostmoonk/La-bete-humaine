@@ -13,7 +13,6 @@ public class ManualPage : MonoBehaviour
     [SerializeField] TextMeshProUGUI manuscriptParatext;
     [SerializeField] Button contentToggler;
     [SerializeField] Image manuscritImage;
-    [HideInInspector] public bool toggled = false;
 
     public void SetupContents(AnomalieType anomalieType, string subTitle, string text, string paratext, Sprite manuscrit = null, string manuscriptText = null, Sprite hiddenContent = null)
     {

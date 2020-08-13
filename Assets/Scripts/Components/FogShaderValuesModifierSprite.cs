@@ -12,6 +12,7 @@ public class FogShaderValuesModifierSprite : ShaderValuesModifier
 
     Vector4 iniSize;
     Vector4 iniDirSpeed;
+    [SerializeField] Vector2 maxFogSize;
 
     private void Awake()
     {
@@ -75,7 +76,8 @@ public class FogShaderValuesModifierSprite : ShaderValuesModifier
 
     public void ChangeSizeX(float value)
     {
-        rend.material.SetVector("_Size", new Vector4((value + iniSize.x) / (value + 1), rend.material.GetVector("_Size").y, rend.material.GetVector("_Size").z, rend.material.GetVector("_Size").w));
+        value = Mathf.Abs(value);
+        rend.material.SetVector("_Size", new Vector4(Mathf.Min((value + iniSize.x) / (value + 1), maxFogSize.x), rend.material.GetVector("_Size").y, rend.material.GetVector("_Size").z, rend.material.GetVector("_Size").w));
     }
 
     public void ChangeIntensity(float newIntensity)

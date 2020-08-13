@@ -22,6 +22,8 @@ MonoBehaviour:
     le frottement des chasse-neige, \xE0 une r\xE9sistance croissante. Du bout du
     pied, il rouvrit la porte ; et le chauffeur, ensommeill\xE9, comprit, poussa
     le feu encore, afin d\u2019augmenter la pression. "
-  textParatext: Ch VII, p.369
+  textParatext: Ch. VII, p.369
   manuscrit: {fileID: 0}
   manuscritParatext: 
+  hiddenContentImage: {fileID: 0}
+  hiddenContentParatext: 

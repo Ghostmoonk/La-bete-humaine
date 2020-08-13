@@ -7,11 +7,11 @@ public class DecorSpawner : MonoBehaviour
 {
     [SerializeField] Camera mainCam;
     [SerializeField] MovementReferenceObject followedObject;
+    [SerializeField] float clearLimit;
     [Tooltip("Those objects will spawn randomly everytime")]
     [SerializeField] RandomBackgroundSpeed[] randomBackgroundSpeed;
 
     [SerializeField] RandomBackgroundSpeed[] ponctualBackgrounds;
-    List<BackgroundsSpeed> ponctualBackgroundList = new List<BackgroundsSpeed>();
     Dictionary<Transform, RandomBackgroundSpeed> ponctualBackgroundDico;
     float screenPointSide;
 
@@ -33,6 +33,7 @@ public class DecorSpawner : MonoBehaviour
 
         foreach (var item in ponctualBackgrounds)
         {
+            item.bgSpeed.ownSpeed = Random.Range(item.bgSpeed.ownSpeedInterval.x, item.bgSpeed.ownSpeedInterval.y);
             ponctualBackgroundDico.Add(item.parent, item);
         }
     }
@@ -54,10 +55,10 @@ public class DecorSpawner : MonoBehaviour
         direction.x = followedObject.speed > 0 ? -Mathf.Abs(direction.x) : Mathf.Abs(direction.x);
     }
 
-    private Vector3 GetSpawnPositionFromSprite(SpriteRenderer spriteR)
+    private Vector3 GetSpawnPositionFromSprite(SpriteRenderer spriteR, int direction)
     {
         return new Vector3(
-            (screenPointSide + spriteR.bounds.extents.x) * -direction.x,
+            (screenPointSide + spriteR.bounds.extents.x) * -direction,
             spriteR.gameObject.transform.position.y,
             spriteR.gameObject.transform.position.z
             );
@@ -72,7 +73,7 @@ public class DecorSpawner : MonoBehaviour
             if (!child.gameObject.activeInHierarchy)
             {
                 child.GetComponent<SpriteRenderer>().sprite = currentBg.randomSprites[Random.Range(0, currentBg.randomSprites.Length)];
-                child.transform.position = GetSpawnPositionFromSprite(child.GetComponent<SpriteRenderer>());
+                child.transform.position = GetSpawnPositionFromSprite(child.GetComponent<SpriteRenderer>(), currentBg.bgSpeed.relativeSpeed * direction.x > 0 ? (int)-direction.x : (int)direction.x);
                 child.gameObject.SetActive(true);
 
                 return;
@@ -80,10 +81,9 @@ public class DecorSpawner : MonoBehaviour
         }
 
         GameObject ponctualBgToInstantiate = Instantiate(currentBg.bgSpeed.backgroundGroup, parent);
-
         ponctualBgToInstantiate.GetComponent<SpriteRenderer>().sprite = currentBg.randomSprites[Random.Range(0, currentBg.randomSprites.Length - 1)];
         ponctualBgToInstantiate.GetComponent<SpriteRenderer>().sortingOrder = currentBg.sortingOrder;
-        ponctualBgToInstantiate.transform.position = GetSpawnPositionFromSprite(ponctualBgToInstantiate.GetComponent<SpriteRenderer>());
+        ponctualBgToInstantiate.transform.position = GetSpawnPositionFromSprite(ponctualBgToInstantiate.GetComponent<SpriteRenderer>(), currentBg.bgSpeed.relativeSpeed * direction.x > 0 ? (int)-direction.x : (int)direction.x);
 
     }
 
@@ -125,6 +125,13 @@ public class DecorSpawner : MonoBehaviour
 
     }
 
+    private void CheckDesactivateMovingPoncutalDecor(Transform obj)
+    {
+        if (obj.position.x > clearLimit * -direction.x)
+        {
+            obj.gameObject.SetActive(false);
+        }
+    }
 
     //Move the random spawned decors
     private void LateUpdate()
@@ -135,7 +142,7 @@ public class DecorSpawner : MonoBehaviour
             foreach (Transform child in item.parent)
             {
                 if (child.gameObject.activeInHierarchy)
-                    child.transform.Translate(direction * item.bgSpeed.speed * Time.deltaTime * Mathf.Abs(followedObject.speed));
+                    child.transform.Translate(direction * item.bgSpeed.relativeSpeed * Time.deltaTime * Mathf.Abs(followedObject.speed));
 
                 CheckDesactivateObjectOutOfCamera(child);
             }
@@ -148,10 +155,13 @@ public class DecorSpawner : MonoBehaviour
             {
                 if (item.Key.GetChild(i).gameObject.activeInHierarchy)
                 {
-                    item.Key.GetChild(i).Translate(direction * item.Value.bgSpeed.speed * Time.deltaTime * followedObject.speed);
+                    item.Key.GetChild(i).Translate((direction * item.Value.bgSpeed.relativeSpeed * followedObject.speed + new Vector2(item.Value.bgSpeed.ownSpeed, 0)) * Time.deltaTime);
                 }
 
                 CheckDesactivateObjectOutOfCamera(item.Key.GetChild(i));
+
+                if (item.Value.bgSpeed.ownSpeed != 0f)
+                    CheckDesactivateMovingPoncutalDecor(item.Key.GetChild(i));
             }
         }
         //foreach (BackgroundsSpeed bg in ponctualBackgroundList)

@@ -14,7 +14,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   anomalieType: 4
   title: "En cas de baisse de vitesse \xE0 cause d'une rampe"
-  text: 
-  textParatext: 
-  manuscrit: {fileID: 21300000, guid: a0b055ad33e1a3747a9e5196ca110dab, type: 3}
-  manuscritParatext: "Notes \"Mon voyage en locomotive\", folio n\xB0314"
+  text: "Le chauffeur, comme son nom l\u2019indique, a la charge surtout de mettre
+    du charbon dans le foyer. Il casse le charbon avec un marteau et le jette avec
+    une grande pelle. C\u2019est le m\xE9canicien qui toujours, d\u2019un signe,
+    ou plut\xF4t en ouvrant la porte, lui donne l\u2019ordre de mettre du charbon.
+    Il en met peu \xE0 la fois, en morceaux moyens, d\u2019une couche bien \xE9gale,
+    et partout, dans les coins, de fa\xE7on \xE0 ce que la grille soit bien couverte,
+    qu\u2019il n\u2019y ait pas de passage pour l\u2019air. La porte peut \xEAtre
+    ouverte \xE0 moiti\xE9 gr\xE2ce aux crans de la cr\xE9maill\xE8re. "
+  textParatext: "Carnets d\u2019enqu\xEAte, p. 547-548."
+  manuscrit: {fileID: 0}
+  manuscritParatext: 
+  hiddenContentImage: {fileID: 21300000, guid: a0b055ad33e1a3747a9e5196ca110dab, type: 3}
+  hiddenContentParatext: "Notes \"Mon voyage en locomotive\", folio n\xB0314"

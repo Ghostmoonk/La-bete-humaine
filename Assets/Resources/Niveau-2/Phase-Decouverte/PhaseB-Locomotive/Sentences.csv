@@ -61,9 +61,11 @@ ID|Personnage|Texte|Phase ID|Dialog ID|En réponse à|Réponses possibles|empty
 59|Pecqueux|Je vous l’avais bien dit: le tambour et le vent n’y sont pour rien ! ||29|||
 60|Lantier|Fichtre! Quel travail de forçat, détacher ce cendrier! On a failli s’écraser vingt fois! ||30|||
 61|Pecqueux|Lantier, cela ne servira à rien de fermer le régulateur et d’attendre de l’aide! Et bon sang, arrêtez de tirer le sifflet! ||31|||
-62|Lantier|Il a fallu y foncer, hein? Mais la voilà enfin libre! C’est une forte bête, Pecqueux, elle a des muscles de métal! ||32|||
-63|Lantier|Cela ne suffira pas à la tirer de là! Il faut tenter autre chose! ||33|||
-64|Lantier|Sans attelage et l’aide de ces gaillards, elle ne serait jamais repartie, la pauvre bête! ||34|||
-65|Pecqueux|Foutus! Elle refuse de bouger! On ne pourra pas la faire ni avancer ni reculer! Elle est collée au sol, inerte, sourde!||35|||
-66|Lantier|Je crains que ce ne soit qu’une blessure apparente! Rien n’est plus délicat que le mécanisme compliqué de cette pauvre bête, où bat le coeur!||36|||
-67|Lantier|Et malgré ça, c’est autre chose qui me préoccupe à présent…||37|||
+62|Pecqueux|Il faut purger puis foncer, hein?||32|||
+63|Lantier|C’est une forte bête, Pecqueux, elle a des muscles de métal!Elle finira par se libérer! ||32|62||
+64|Lantier|Cela ne suffira pas à la tirer de là! Il faut tenter autre chose! ||33|||
+65|Lantier|Sans attelage et l’aide de ces gaillards, elle ne serait jamais repartie, la pauvre bête! ||34|||
+66|Pecqueux|Foutus! Elle refuse de bouger! On ne pourra pas la faire ni avancer ni reculer! Elle est collée au sol, inerte, sourde!||35|||
+67|Lantier|Je crains que ce ne soit qu’une blessure apparente! Rien n’est plus délicat que le mécanisme compliqué de cette pauvre bête, où bat le coeur!||36|||
+68|Lantier|Et malgré ça, c’est autre chose qui me préoccupe à présent…||37|||
+69|Pecqueux|Sacrée aventure ce déblaiement, nous y avons passé la journée… Et il est déjà six heures ! Allons chercher les voyageurs abrités chez Misard !||38|||

@@ -25,7 +25,6 @@ public class LightTweener : MonoBehaviour
     }
     public void Tweenintensity(float newValue)
     {
-        Debug.Log("Allé zinedine");
         StartCoroutine(SmoothChangeIntensity(newValue));
     }
 
@@ -51,7 +50,7 @@ public class LightTweener : MonoBehaviour
 
         DOTween.To(() => changingIntensity, x => changingIntensity = x, newValue, transitionTime).SetEase(transitionEase);
 
-        while (light2D.volumeOpacity != newValue)
+        while (light2D.intensity != newValue)
         {
             light2D.intensity = changingIntensity;
             yield return new WaitForSeconds(Time.deltaTime);

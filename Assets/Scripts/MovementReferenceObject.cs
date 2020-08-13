@@ -16,6 +16,7 @@ public class MovementReferenceObject : MonoBehaviour
     [HideInInspector] public float distanceDone;
     bool consideredAsMoving = true;
     [SerializeField] FloatUnityEvent OnSpeedChange;
+    [SerializeField] FloatUnityEvent OnSpeedChangeConstant;
     bool isUpdatingSpeed = false;
     Tween tween;
 
@@ -90,7 +91,7 @@ public class MovementReferenceObject : MonoBehaviour
             distanceDone += Time.deltaTime * speed;
         if (isUpdatingSpeed)
             OnSpeedChange?.Invoke(speed);
-
+        OnSpeedChangeConstant?.Invoke(speed);
     }
 
     public void SetConsideredMoving(bool toggle) => consideredAsMoving = toggle;

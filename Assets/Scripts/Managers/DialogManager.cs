@@ -94,7 +94,6 @@ public class DialogManager : MonoBehaviour
         {
             dialogEvent.Value.StartEvents?.Invoke();
         }
-        //Debug.Log(currentDialogId);
         DisplayNextSentence();
     }
 

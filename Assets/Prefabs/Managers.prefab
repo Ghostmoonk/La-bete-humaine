@@ -236,6 +236,19 @@ MonoBehaviour:
   - name: cabin-off
     clips:
     - {fileID: 8300000, guid: 7ce7e5c5b0066be458d8565fb48fa4d4, type: 3}
+  - name: loco-wound
+    clips:
+    - {fileID: 8300000, guid: f55bedf55f7b4c24ba9b771b841cf118, type: 3}
+    - {fileID: 8300000, guid: b19237b6785fcf64c9cc431a90e0e929, type: 3}
+    - {fileID: 8300000, guid: 950b3cfdab21acc48879157191bcaa9a, type: 3}
+  - name: wood-slide-on
+    clips:
+    - {fileID: 8300000, guid: 7ac1496280be5484885798ff82d0a285, type: 3}
+    - {fileID: 8300000, guid: c6db582ae752fce40921159cb142603e, type: 3}
+  - name: wood-slide-off
+    clips:
+    - {fileID: 8300000, guid: d6eb4543f353a8d44b67047898f7013e, type: 3}
+    - {fileID: 8300000, guid: eb833bb9a9c99da4a839830f54fde85b, type: 3}
   pauseVolReduction: 3
   durationPauseDbReduction: 0.5
 --- !u!114 &4368897560425126631

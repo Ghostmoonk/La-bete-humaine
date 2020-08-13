@@ -27,7 +27,7 @@ public class FriezeDrawer : MonoBehaviour
             lineR.SetPosition((lineR.positionCount - 1), GetVertexPosition(currentStation));
             stationsPositions.Add(lineR.GetPosition((lineR.positionCount - 1)));
             currentStation = currentStation.nextStation;
-
+            Debug.Log(lineR.GetPosition((lineR.positionCount - 1)));
             if (currentStation != null)
                 lineR.positionCount += 1 * resolution;
         }

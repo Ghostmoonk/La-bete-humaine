@@ -32,6 +32,17 @@ public class BoardInfosUI : MonoBehaviour
 
     private void ShowComponentText(string text)
     {
+        string newText = "";
+        for (int i = 0; i < text.Length; i++)
+        {
+            char c = text[i];
+            if (i > 0 && char.IsUpper(c))
+            {
+                newText += " ";
+                c = c.ToString().ToLower()[0];
+            }
+            newText += c;
+        }
         locoComponentText.text = text;
         locoComponentText.gameObject.SetActive(true);
     }

@@ -21,7 +21,7 @@ public class ColorBlinker : MonoBehaviour
     private void Awake()
     {
         if (!GetComponent<SpriteRenderer>())
-            throw new MissingComponentException("Il manque un composant Image ou un composant SpriteRenderer sur l'object :" + gameObject);
+            throw new MissingComponentException("Il manque un composant composant SpriteRenderer sur l'object :" + gameObject);
     }
 
     void Start()

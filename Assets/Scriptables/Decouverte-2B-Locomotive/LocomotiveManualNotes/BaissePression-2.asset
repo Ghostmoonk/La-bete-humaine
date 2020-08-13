@@ -14,7 +14,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   anomalieType: 0
   title: "En cas de pression diminuant \xE0 cause d'une mont\xE9e"
-  text: 
-  textParatext: 
-  manuscrit: {fileID: 21300000, guid: f7ab2a0f15c325a489f374ee146d6e44, type: 3}
-  manuscritParatext: "Carnets d'enqu\xEAtes, Henri Mitterand, p.547"
+  text: "Comme un pilote, d\xE8s qu\u2019il a ouvert le r\xE9gulateur en poussant
+    la manette, il ne quitte plus le volant de son changement de marche, car c\u2019est
+    avec cela surtout qu\u2019il mod\xE8re ou qu\u2019il acc\xE9l\xE8re la vitesse,
+    selon les pentes ou les rampes et les accidents de la voie. La manette du r\xE9gulateur,
+    et le volant du changement de marche, voil\xE0 donc pour la vitesse (aujourd\u2019hui,
+    il y a en plus le levier du frein \xE0 air). En outre, il a l\u2019oeil au manom\xE8tre,
+    et s\u2019il atteint les dix kilos, il fait mouvoir le petit volant de l\u2019injecteur,
+    ce qui injecte de l\u2019eau froide dans la chaudi\xE8re et fait baisser la pression:
+    on voit alors le niveau d\u2019eau monter. Il veille aussi au feu, \xE0 la n\xE9cessit\xE9
+    de le pousser ou de le mod\xE9rer, ce qui augment aussi ou diminue la pression.
+    C\u2019est lui qui ouvre la cr\xE9maill\xE8re de la porte et le chauffeur comprend,
+    il met du charbon. "
+  textParatext: "Carnets d'enqu\xEAtes, Henri Mitterand, p.547"
+  manuscrit: {fileID: 0}
+  manuscritParatext: 
+  hiddenContentImage: {fileID: 21300000, guid: f7ab2a0f15c325a489f374ee146d6e44, type: 3}
+  hiddenContentParatext: "Notes, \u201CMon voyage en locomotive\u201D, f\xB0311-313"

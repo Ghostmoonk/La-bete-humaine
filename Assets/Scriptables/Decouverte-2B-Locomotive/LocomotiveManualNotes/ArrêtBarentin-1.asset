@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a435ee301fafd3d44825f539a1d8f02c, type: 3}
-  m_Name: "Arr\xEAtBarentin"
+  m_Name: "Arr\xEAtBarentin-1"
   m_EditorClassIdentifier: 
   anomalieType: 3
   title: "Pr\xE9voir les amas de neige "
@@ -18,5 +18,7 @@ MonoBehaviour:
     n\u2019\xE9tait plus la plaine, le d\xE9roulement \xE0 l\u2019infini de l\u2019\xE9pais
     tapis de neige, o\xF9 la machine filait comme un paquebot, laissant un sillage. "
   textParatext: Ch.VII p.379
-  manuscrit: {fileID: 21300000, guid: acd86f3f2c2cef74b9d4ebd867e8690f, type: 3}
-  manuscritParatext: "Ch. VII f\xB0142"
+  manuscrit: {fileID: 0}
+  manuscritParatext: 
+  hiddenContentImage: {fileID: 0}
+  hiddenContentParatext: 

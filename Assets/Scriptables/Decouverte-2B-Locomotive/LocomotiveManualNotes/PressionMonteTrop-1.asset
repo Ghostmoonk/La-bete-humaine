@@ -20,6 +20,8 @@ MonoBehaviour:
     dont elle \xE9tait capable. M\xEAme, un instant, voyant le niveau d\u2019eau
     baisser, le m\xE9canicien dut faire mouvoir le petit volant de l\u2019injecteur,
     bien que cela diminu\xE2t la pression. "
-  textParatext: Ch VII, p.370
+  textParatext: Ch. VII, p.370
   manuscrit: {fileID: 0}
   manuscritParatext: 
+  hiddenContentImage: {fileID: 0}
+  hiddenContentParatext: 

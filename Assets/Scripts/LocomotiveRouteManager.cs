@@ -87,8 +87,7 @@ public class LocomotiveRouteManager : MonoBehaviour
                     currentsRouteEvents.routeEventArray.RemoveAt(i);
                 }
             }
-
-        if (locomotive.distanceDone - routeDistanceUntilLastStation >= currentStationSegment.distwithNextStation)
+        if (locomotive.distanceDone - routeDistanceUntilLastStation >= currentStationSegment.distwithNextStation && currentStationSegment.nextStation != null)
         {
             currentStationSegment = currentStationSegment.nextStation;
             OnNextStationChange?.Invoke(currentStationSegment);

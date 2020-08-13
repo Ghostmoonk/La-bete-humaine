@@ -69,10 +69,10 @@ public class WeatherUI : MonoBehaviour, INeedToBeSetByScriptable, IHaveTextChang
     {
         if (currentMeteoData == null)
             return;
-        if (reliefText.text != currentMeteoData.newRelief.ToString())
+        if (reliefText.text != currentMeteoData.newRelief.ToString() && currentMeteoData.newRelief.ToString().Length > 1)
             ChangeText(reliefText, currentMeteoData.newRelief.ToString(), changeTextSpeed);
 
-        if (weatherText.text != currentMeteoData.meteoText)
+        if (weatherText.text != currentMeteoData.meteoText && currentMeteoData.meteoText.Length > 1)
             ChangeText(weatherText, currentMeteoData.meteoText, changeTextSpeed);
 
     }

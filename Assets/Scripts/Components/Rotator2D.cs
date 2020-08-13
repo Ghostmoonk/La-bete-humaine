@@ -9,10 +9,16 @@ public class Rotator2D : MonoBehaviour
     [SerializeField] float additionnalAngleDeg;
     [SerializeField] Ease ease;
     [SerializeField] UnityEvent OnRotationEnds;
+    [SerializeField] Transform[] transformsToRotate;
+    Tween tween;
 
     public void Rotate(float duration)
     {
-        Tween tween = transform.DORotate(new Vector3(0, 0, transform.eulerAngles.z + additionnalAngleDeg), duration).SetEase(ease).SetUpdate(false);
+        foreach (var item in transformsToRotate)
+        {
+            tween = item.DORotate(new Vector3(0, 0, item.eulerAngles.z + additionnalAngleDeg), duration).SetEase(ease).SetUpdate(false);
+
+        }
         tween.OnComplete(() => { OnRotationEnds?.Invoke(); ResetAngle(); });
     }
 
@@ -23,10 +29,23 @@ public class Rotator2D : MonoBehaviour
 
     private void ResetAngle()
     {
-        if (transform.eulerAngles.z > 360 || transform.eulerAngles.z < -360)
+        foreach (var item in transformsToRotate)
         {
-            transform.eulerAngles =
-                new Vector3(transform.eulerAngles.x, transform.eulerAngles.y, transform.eulerAngles.z - 360 * Mathf.FloorToInt(transform.eulerAngles.z / 360));
+            if (item.eulerAngles.z > 360 || item.eulerAngles.z < -360)
+            {
+                item.eulerAngles =
+                    new Vector3(item.eulerAngles.x, item.eulerAngles.y, item.eulerAngles.z - 360 * Mathf.FloorToInt(item.eulerAngles.z / 360));
+            }
         }
+
+    }
+
+    public void RotateFromValue(float value)
+    {
+        foreach (var item in transformsToRotate)
+        {
+            item.transform.eulerAngles = new Vector3(item.eulerAngles.x, item.eulerAngles.y, item.eulerAngles.z + additionnalAngleDeg * value / 10);
+        }
+        ResetAngle();
     }
 }
