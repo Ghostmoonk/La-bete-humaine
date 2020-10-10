@@ -61,7 +61,6 @@ public class SliderSubject : Subject
             }
         }
     }
-
 }
 
 public class TextGapSubject : Subject

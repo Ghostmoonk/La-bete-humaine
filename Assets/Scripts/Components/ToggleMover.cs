@@ -23,10 +23,12 @@ public class ToggleMover : MonoBehaviour, IIndependantTween
 
     private void Awake()
     {
-        initialAnchoredPos = GetComponent<RectTransform>().anchoredPosition;
+        ResetInitialAnchorPos();
     }
 
     public bool GetToggler() => toggler;
+
+    public void ResetInitialAnchorPos() => initialAnchoredPos = GetComponent<RectTransform>().anchoredPosition;
 
     public void MoveBySizeY(RectTransform rectT)
     {
@@ -59,6 +61,7 @@ public class ToggleMover : MonoBehaviour, IIndependantTween
         if (!toggler)
         {
             tween = GetComponent<RectTransform>().DOAnchorPosX(initialAnchoredPos.x + size * direction, transitionDuration).SetUpdate(isUnityTimeScaleInDependant).SetEase(ease);
+            Debug.Log(size * direction);
             StartToggleOn?.Invoke();
             tween.OnComplete(() => EndToggleOn.Invoke());
         }

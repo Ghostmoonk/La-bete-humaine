@@ -17,7 +17,7 @@ MonoBehaviour:
     paratext: Lettre_LBH_Manuscrit_chapitre I_folio 50
   title: "Lettre de S\xE9verine"
   fullText: "Lettre de S\xE9verine pour Grandmorin:\r\n\u201CPartez ce soir par l'express
-    de six heures trente et ne vous montrez qu\u2019a\u0300 Rouen.\u201D"
+    de six heures trente et ne vous montrez qu\u2019\xE0 Rouen.\u201D"
   paratext: Chapitre I, PDF, p.57
   providedWords:
   - word: "S\xE9verine"
@@ -29,4 +29,4 @@ MonoBehaviour:
   manuscriptPrefab: {fileID: 1613701182975161571, guid: 497a124c3236dc14e94475495ebda921,
     type: 3}
   gapsText: "Lettre de S\xE9verine pour Grandmorin:\r\n\u201CPartez ce soir par _________
-    de ___ ______ ______ et ne vous montrez qu\u2019a\u0300 Rouen.\""
+    de ___ ______ ______ et ne vous montrez qu\u2019\xE0 Rouen.\""

@@ -14,6 +14,7 @@ public class AnecdoteData : ScriptableObject
 public struct AnecdoteContent
 {
     //public AnecdoteType type;
+    [TextArea(3, 5)]
     public string title;
     [TextArea(3, 15)]
     public string text;

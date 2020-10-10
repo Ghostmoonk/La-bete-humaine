@@ -51,8 +51,18 @@ public class FillGapsActivityHolder : ActivityHolder
 
         observer.fillGapsDelegate += CheckAllGapsSucceed;
         observer.gapSelectedDelegate += SetCurrentGapSelected;
+        StartCoroutine(nameof(WaitTextInfoSet));
+        //Invoke(nameof(SetUpInputFields), Time.deltaTime * 4);
+    }
 
-        Invoke(nameof(SetUpInputFields), Time.deltaTime * 4);
+    IEnumerator WaitTextInfoSet()
+    {
+        while (contentTextMesh.textInfo.characterCount == 0)
+        {
+            yield return new WaitForEndOfFrame();
+        }
+        SetUpInputFields();
+        StopCoroutine(nameof(WaitTextInfoSet));
     }
 
     private void Update()
@@ -84,6 +94,7 @@ public class FillGapsActivityHolder : ActivityHolder
 
     private void SetUpInputFields()
     {
+        Debug.Log(contentTextMesh.textInfo.characterCount);
         for (int i = 0; i < contentTextMesh.textInfo.characterCount; i++)
         {
             if (contentTextMesh.textInfo.characterInfo[i].character == '_')

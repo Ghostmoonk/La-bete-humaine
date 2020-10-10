@@ -44,6 +44,22 @@ public class ManualMover : MonoBehaviour, IIndependantTween
         }
     }
 
+    public void Move(Transform target)
+    {
+        if (allowed)
+        {
+            if (target != currentTarget)
+                if (tween != null)
+                    if (tween.IsPlaying())
+                        tween.Pause();
+
+            currentTarget = target;
+            StartMoveEvents?.Invoke();
+            tween = transform.DOMove(new Vector3(target.position.x, target.position.y, target.position.z), transitionDuration).SetEase(ease).SetUpdate(isUnityTimeScaleInDependant);
+            tween.OnComplete(() => { StopMoveEvents?.Invoke(); });
+        }
+
+    }
     public void SetTransitionDuration(float transitionDuration)
     {
         this.transitionDuration = transitionDuration;

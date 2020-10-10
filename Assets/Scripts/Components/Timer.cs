@@ -54,13 +54,16 @@ public class Timer : MonoBehaviour/*, ITimer*/
     IEnumerator DoTimer()
     {
         float timer = 0f;
+        //While the timer time is inferior of its duration limit
         while (timer < duration)
         {
+            //If it's still active
             if (active)
             {
                 timer += Time.deltaTime;
                 timePassed += Time.deltaTime;
             }
+            //If it resets, timer is set to 0
             if (reset)
             {
                 reset = false;
@@ -69,6 +72,7 @@ public class Timer : MonoBehaviour/*, ITimer*/
             yield return null;
         }
         over = true;
+        //Fire the event
         timerEndEvent?.Invoke();
     }
 }

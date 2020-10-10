@@ -7,7 +7,6 @@ using UnityEngine;
 public abstract class Observer
 {
     public abstract void OnComplete();
-    //public abstract void OnComplete(Content content);
 }
 
 public class ContentDisplayer : Observer
@@ -18,7 +17,6 @@ public class ContentDisplayer : Observer
     public delegate void OnContentCompleteDelegate();
 
     public DisplayNextContent displayNextContentDelegateFunction;
-    //public DisplaySpecificContent displayContentDelegateFunction;
     public OnContentCompleteDelegate onContentCompleteDelegate;
 
     public override void OnComplete()
@@ -27,11 +25,6 @@ public class ContentDisplayer : Observer
         displayNextContentDelegateFunction?.Invoke();
     }
 
-    //public override void OnComplete(Content content)
-    //{
-    //    displayContentDelegateFunction?.Invoke(content);
-    //    displayContentDelegateFunction = null;
-    //}
 }
 
 public class GlossaryObserver : Observer
@@ -68,6 +61,7 @@ public class SliderObserver : Observer
     }
 }
 
+//Observer for fillgaps exercice 
 public class FillGapsActivityObserver : Observer
 {
     public delegate bool FillGapsDelegate();
@@ -77,11 +71,12 @@ public class FillGapsActivityObserver : Observer
 
     public override void OnComplete() { }
 
+    //Fire when the gap is complete
     public void OnGapComplete()
     {
         fillGapsDelegate?.Invoke();
     }
-
+    //Fire when the gap is selected
     public void OnGapSelected(TextGap textGap)
     {
         gapSelectedDelegate?.Invoke(textGap);

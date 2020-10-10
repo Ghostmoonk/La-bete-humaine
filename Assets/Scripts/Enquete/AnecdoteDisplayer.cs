@@ -54,7 +54,7 @@ public class AnecdoteDisplayer : MonoBehaviour, IActivatable
     private void DisplayContent()
     {
         title.text = currentAnecdoteData.anecdoteContents[currentIndex].title;
-
+        Debug.Log(currentIndex);
         if (currentAnecdoteData.anecdoteContents[currentIndex].text.Length > 0)
         {
             textContent.text = currentAnecdoteData.anecdoteContents[currentIndex].text;
@@ -70,6 +70,16 @@ public class AnecdoteDisplayer : MonoBehaviour, IActivatable
         }
         else
             image.gameObject.SetActive(false);
+
+        if (currentIndex == 0)
+            previousButton.interactable = false;
+        else
+            previousButton.interactable = true;
+
+        if (currentIndex == currentAnecdoteData.anecdoteContents.Length - 1)
+            nextButton.interactable = false;
+        else
+            nextButton.interactable = true;
     }
 
     public void GoNextCurrentAnecdoteContent(int index)

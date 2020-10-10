@@ -14,10 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   manuscripts: []
   title: "Assassinat du pr\xE9sident Grandmorin"
-  fullText: "Le pr\xE9sident de la compagnie de l'Ouest Grandmorin a \xE9t\xE9 retrouv\xE9
-    \xE9gorg\xE9 sur le c\xF4t\xE9 de la voie \xE0 la Croix-de-Maufras.\nCe dossier
-    comporte tous les \xE9l\xE9ments \xE0 votre disposition pour \xE9tablir des hypoth\xE8ses
-    sur les motifs et coupables de ce meurtres."
+  fullText: "Le pr\xE9sident de la compagnie de l'Ouest, Grandmorin, a \xE9t\xE9
+    retrouv\xE9 \xE9gorg\xE9 sur le c\xF4t\xE9 de la voie \xE0 la Croix-de-Maufras.\nCe
+    dossier comporte tous les \xE9l\xE9ments \xE0 votre disposition pour \xE9tablir
+    des hypoth\xE8ses sur les motifs et les coupables de ce meurtre."
   paratext: 
   providedWords:
   - word: Grandmorin

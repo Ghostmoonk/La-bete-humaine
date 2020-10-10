@@ -42,7 +42,7 @@ public class TextGap : MonoBehaviour
     public void CheckWord(string currentText)
     {
         if (currentText.Length == hiddenWord.Length)
-            if (currentText.ToLower() == hiddenWord.ToLower())
+            if (currentText == hiddenWord)
             {
                 inputFieldMesh.image.color = successColor;
                 succeed = true;
